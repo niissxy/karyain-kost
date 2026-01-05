@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AsetCibiru1Controller;
+use App\Http\Controllers\AsetCibiru2Controller;
+use App\Http\Controllers\AsetRegol1Controller;
+use App\Http\Controllers\AsetRegol2Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KamarCibiru1Controller;
@@ -10,7 +14,6 @@ use App\Http\Controllers\LapKamarCibiru1Controller;
 use App\Http\Controllers\LapKamarCibiru2Controller;
 use App\Http\Controllers\LapKamarRegol1Controller;
 use App\Http\Controllers\LapKamarRegol2Controller;
-
 use App\Http\Controllers\LapTransaksiCibiru1Controller;
 use App\Http\Controllers\LapTransaksiCibiru2Controller;
 use App\Http\Controllers\LapTransaksiRegol1Controller;
@@ -154,3 +157,35 @@ Route::post('/lapkamar_regol1',[LapKamarRegol1Controller::class, 'store'])->name
 Route::get('/lapkamar_regol2', [LapKamarRegol2Controller::class, 'index'])->name('lapkamar_regol2.index');
 Route::get('/lapkamar_regol2/create', [LapKamarRegol2Controller::class, 'create'])->name('lapkamar_regol2.create');
 Route::post('/lapkamar_regol2',[LapKamarRegol2Controller::class, 'store'])->name('lapkamar_regol2.store');
+
+//aset cibiru 1
+Route::get('/aset_cibiru1', [AsetCibiru1Controller::class, 'index'])->name('aset_cibiru1.index');
+Route::get('/aset_cibiru1/create', [AsetCibiru1Controller::class, 'create'])->name('aset_cibiru1.create');
+Route::post('/aset_cibiru1', [AsetCibiru1Controller::class, 'store'])->name('aset_cibiru1.store');
+Route::get('/aset_cibiru1/{id_aset}/edit', [AsetCibiru1Controller::class, 'edit'])->name('aset_cibiru1.edit');
+Route::put('/aset_cibiru1/{id_aset}', [AsetCibiru1Controller::class, 'update'])->name('aset_cibiru1.update');
+Route::delete('/aset_cibiru1/{id_aset}', [AsetCibiru1Controller::class, 'destroy'])->name('aset_cibiru1.destroy');
+
+//aset cibiru 2
+Route::get('/aset_cibiru2', [AsetCibiru2Controller::class, 'index'])->name('aset_cibiru2.index');
+Route::get('/aset_cibiru2/create', [AsetCibiru2Controller::class, 'create'])->name('aset_cibiru2.create');
+Route::post('/aset_cibiru2', [AsetCibiru2Controller::class, 'store'])->name('aset_cibiru2.store');
+Route::get('/aset_cibiru2/{id_aset}/edit', [AsetCibiru2Controller::class, 'edit'])->name('aset_cibiru2.edit');
+Route::put('/aset_cibiru2/{id_aset}', [AsetCibiru2Controller::class, 'update'])->name('aset_cibiru2.update');
+Route::delete('/aset_cibiru2/{id_aset}', [AsetCibiru2Controller::class, 'destroy'])->name('aset_cibiru2.destroy');
+
+//aset regol 1
+Route::get('/aset_regol1', [AsetRegol1Controller::class, 'index'])->name('aset_regol1.index');
+Route::get('/aset_regol1/create', [AsetRegol1Controller::class, 'create'])->name('aset_regol1.create');
+Route::post('/aset_regol1', [AsetRegol1Controller::class, 'store'])->name('aset_regol1.store');
+Route::get('/aset_regol1/{id_aset}/edit', [AsetRegol1Controller::class, 'edit'])->name('aset_regol1.edit');
+Route::put('/aset_regol1/{id_aset}', [AsetRegol1Controller::class, 'update'])->name('aset_regol1.update');
+Route::delete('/aset_regol1/{id_aset}', [AsetRegol1Controller::class, 'destroy'])->name('aset_regol1.destroy');
+
+//aset regol 2
+Route::get('/aset_regol2', [AsetRegol2Controller::class, 'index'])->name('aset_regol2.index');
+Route::get('/aset_regol2/create', [AsetRegol2Controller::class, 'create'])->name('aset_regol2.create');
+Route::post('/aset_regol2', [AsetRegol2Controller::class, 'store'])->name('aset_regol2.store');
+Route::get('/aset_regol2/{id_aset}/edit', [AsetRegol2Controller::class, 'edit'])->name('aset_regol2.edit');
+Route::put('/aset_regol2/{id_aset}', [AsetRegol2Controller::class, 'update'])->name('aset_regol2.update');
+Route::delete('/aset_regol2/{id_aset}', [AsetRegol2Controller::class, 'destroy'])->name('aset_regol2.destroy');

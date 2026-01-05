@@ -155,7 +155,7 @@
                     <a href="/aset_cibiru1" class="nav-link text-white small">
                         <i class="bi bi-box me-2"></i> Aset Kost Cibiru 1
                     </a>
-                   <a href="/aset_cibiru1" class="nav-link text-white small">
+                   <a href="/aset_cibiru2" class="nav-link text-white small">
                         <i class="bi bi-box me-2"></i> Aset Kost Cibiru 2
                     </a>
                    <a href="/aset_regol1" class="nav-link text-white small">

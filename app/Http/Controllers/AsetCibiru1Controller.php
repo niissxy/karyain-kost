@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\AsetCibiru1;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\AsetCibiru1Cibiru1;
 use App\Models\User;
 
 use function Symfony\Component\Clock\now;
@@ -66,7 +65,7 @@ class AsetCibiru1Controller extends Controller
     {
         $user = User::all();
         $aset_cibiru1 = AsetCibiru1::where('id_aset', $id_aset)->first();
-        return  view('kamar_cibiru1/edit', [
+        return  view('aset_cibiru1/edit', [
             'user' => $user,
             'aset_cibiru1' => $aset_cibiru1
         ]);
@@ -100,7 +99,7 @@ class AsetCibiru1Controller extends Controller
      */
     public function destroy(string $id_aset)
     {
-        $aset_cibiru1 = DB::table('aset_cibiru1')->where('id_aset', $id_aset)->delete();
+        $aset_cibiru1 = DB::table('aset_kost_cibiru1')->where('id_aset', $id_aset)->delete();
         if ($aset_cibiru1) {
             return redirect('aset_cibiru1')->withSuccess('Data Aset Kost Cibiru 1 berhasil dihapus.');
         } else {
