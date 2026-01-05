@@ -6,6 +6,10 @@ use App\Http\Controllers\KamarCibiru1Controller;
 use App\Http\Controllers\KamarCibiru2Controller;
 use App\Http\Controllers\KamarRegol1Controller;
 use App\Http\Controllers\KamarRegol2Controller;
+use App\Http\Controllers\LapTransaksiCibiru1Controller;
+use App\Http\Controllers\LapTransaksiCibiru2Controller;
+use App\Http\Controllers\LapTransaksiRegol1Controller;
+use App\Http\Controllers\LapTransaksiRegol2Controller;
 use App\Http\Controllers\PenghuniCibiru1Controller;
 use App\Http\Controllers\PenghuniCibiru2Controller;
 use App\Http\Controllers\PenghuniRegol1Controller;
@@ -79,3 +83,23 @@ Route::post('/penghuni_regol2', [PenghuniRegol2Controller::class, 'store'])->nam
 Route::get('/penghuni_regol2/{id_penghuni}/edit', [PenghuniRegol2Controller::class, 'edit'])->name('penghuni_regol2.edit');
 Route::put('/penghuni_regol2/{id_penghuni}', [PenghuniRegol2Controller::class, 'update'])->name('penghuni_regol2.update');
 Route::delete('/penghuni_regol2/{id_penghuni}', [PenghuniRegol2Controller::class, 'destroy'])->name('penghuni_regol2.destroy');
+
+//laporan transaksi cibiru 1
+Route::get('/laptransaksi_cibiru1', [LapTransaksiCibiru1Controller::class, 'index'])->name('laptransaksi_cibiru1.index');
+Route::get('/laptransaksi_cibiru1/create', [LapTransaksiCibiru1Controller::class, 'create'])->name('laptransaksi_cibiru1.create');
+Route::post('/laptransaksi_cibiru1', [LapTransaksiCibiru1Controller::class, 'store'])->name('laptransaksi_cibiru1.store');
+
+//laporan transaksi cibiru 2
+Route::get('/laptransaksi_cibiru2', [LapTransaksiCibiru2Controller::class, 'index'])->name('laptransaksi_cibiru2.index');
+Route::get('/laptransaksi_cibiru2/create', [LapTransaksiCibiru2Controller::class, 'create'])->name('laptransaksi_cibiru2.create');
+Route::post('/laptransaksi_cibiru2', [LapTransaksiCibiru2Controller::class, 'store'])->name('laptransaksi_cibiru2.store');
+
+//laporan transaksi regol 1
+Route::get('/laptransaksi_regol1', [LapTransaksiRegol1Controller::class, 'index'])->name('laptransaksi_regol1.index');
+Route::get('/laptransaksi_regol1/create', [LapTransaksiRegol1Controller::class, 'create'])->name('laptransaksi_regol1.create');
+Route::post('/laptransaksi_regol1', [LapTransaksiRegol1Controller::class, 'store'])->name('laptransaksi_regol1.store');
+
+//laporan transaksi regol 1
+Route::get('/laptransaksi_regol2', [LapTransaksiRegol2Controller::class, 'index'])->name('laptransaksi_regol2.index');
+Route::get('/laptransaksi_regol2/create', [LapTransaksiRegol2Controller::class, 'create'])->name('laptransaksi_regol2.create');
+Route::post('/laptransaksi_regol2', [LapTransaksiRegol2Controller::class, 'store'])->name('laptransaksi_regol2.store');

@@ -8,7 +8,7 @@
     }
     .container {
         max-width: 100%; /* Kembali ke 100% agar konten menggunakan lebar penuh */
-        padding-left: 100px; /* Tingkatkan padding kiri untuk ruang lebih */
+        padding-left: 700px; /* Tingkatkan padding kiri untuk ruang lebih */
         padding-right: 30px; /* Tingkatkan padding kanan untuk ruang lebih */
     }
     .card-title {
