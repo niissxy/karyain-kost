@@ -9,7 +9,7 @@ use App\Models\User;
 
 use function Symfony\Component\Clock\now;
 
-class AsetCibiru2Controller extends Controller
+class FasKamarCibiru2Controller extends Controller
 {
     /**
      * Display a listing of the resource.

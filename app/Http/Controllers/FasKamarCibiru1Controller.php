@@ -9,7 +9,7 @@ use App\Models\User;
 
 use function Symfony\Component\Clock\now;
 
-class AsetCibiru1Controller extends Controller
+class FasKamarCibiru1Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,12 @@ class AsetCibiru1Controller extends Controller
    public function create()
     {
         $user = User::all();
-        return view('faskamar_cibiru1.create', compact('user'));
+        // Ambil aset yang kategorinya fasilitas umum saja
+        $asetFasilitasKamar = DB::table('aset_kost_cibiru1')
+        ->where('kategori_aset', 'fasilitas kamar')
+        ->get();
+
+     return view('faskamar_cibiru1.create', compact('asetFasilitasKamar'));
     }
 
 

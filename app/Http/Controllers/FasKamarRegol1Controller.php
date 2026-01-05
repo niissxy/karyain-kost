@@ -9,7 +9,7 @@ use App\Models\User;
 
 use function Symfony\Component\Clock\now;
 
-class AsetRegol1Controller extends Controller
+class FasKamarRegol1Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,9 +42,9 @@ class AsetRegol1Controller extends Controller
         'kondisi'        => 'required ',
         ]);
 
-        FasKamarCibiru1::create($data);
+        FasKamarRegol1::create($data);
 
-        return redirect()->route('faskamar_cibiru1.index')
+        return redirect()->route('faskamar_regol1.index')
             ->with('success', 'Data berhasil ditambahkan');
     }
 
@@ -63,10 +63,10 @@ class AsetRegol1Controller extends Controller
    public function edit(string $id_fask)
     {
         $user = User::all();
-        $faskamar_cibiru1 = FasKamarCibiru1::where('id_fask', $id_fask)->first();
-        return  view('faskamar_cibiru1/edit', [
+        $faskamar_regol1 = FasKamarRegol1::where('id_fask', $id_fask)->first();
+        return  view('faskamar_regol1/edit', [
             'user' => $user,
-            'faskamar_cibiru1' => $faskamar_cibiru1
+            'faskamar_regol1' => $faskamar_regol1
         ]);
     }
 
@@ -83,12 +83,12 @@ class AsetRegol1Controller extends Controller
             'kondisi' => $request->kondisi,
         ];
 
-        FasKamarCibiru1::where('id_fask', $id_fask)->update($data);
+        FasKamarRegol1::where('id_fask', $id_fask)->update($data);
 
         if ($data) {
-            return redirect()->route('faskamar_cibiru1.index')->with('success', 'Data berhasil diperbarui');
+            return redirect()->route('faskamar_regol1.index')->with('success', 'Data berhasil diperbarui');
         } else {
-            return redirect()->route('faskamar_cibiru1.index')->with('error', 'Data gagal diperbarui');
+            return redirect()->route('faskamar_regol1.index')->with('error', 'Data gagal diperbarui');
         }
     }
 
@@ -97,11 +97,11 @@ class AsetRegol1Controller extends Controller
      */
     public function destroy(string $id_fask)
     {
-        $faskamar_cibiru1 = DB::table('fasilitas_kamar_cibiru1')->where('id_fask', $id_fask)->delete();
-        if ($faskamar_cibiru1) {
-            return redirect('faskamar_cibiru1')->withSuccess('Data Fasilitas Kamar Kost Cibiru 1 berhasil dihapus.');
+        $faskamar_regol1 = DB::table('fasilitas_kamar_regol1')->where('id_fask', $id_fask)->delete();
+        if ($faskamar_regol1) {
+            return redirect('faskamar_regol1')->withSuccess('Data Fasilitas Kamar Kost Regol 1 berhasil dihapus.');
         } else {
-            return redirect('faskamar_cibiru1')->with('error', 'Data Fasilitas Kamar Kost Cibiru 1 gagal dihapus.');
+            return redirect('faskamar_regol1')->with('error', 'Data Fasilitas Kamar Kost Regol 1 gagal dihapus.');
         }
     }
 }
