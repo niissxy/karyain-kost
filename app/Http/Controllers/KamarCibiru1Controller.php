@@ -40,8 +40,7 @@ class KamarCibiru1Controller extends Controller
         'tipe_kamar'   => 'required',
         'no_kamar'     => 'required',
         'status_kamar' => 'required',
-        'harga'        => 'required',
-        'created_at'        => now(),
+        'harga'        => 'required|numeric ',
         ]);
 
         KamarCibiru1::create($data);
@@ -78,7 +77,6 @@ class KamarCibiru1Controller extends Controller
    public function update(Request $request, string $id_kamar)
     {
 
-        $user = auth()->user();
         $data = [
             'id_kamar' => $request->id_kamar,
             'tipe_kamar' => $request->tipe_kamar,

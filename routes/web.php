@@ -6,6 +6,11 @@ use App\Http\Controllers\KamarCibiru1Controller;
 use App\Http\Controllers\KamarCibiru2Controller;
 use App\Http\Controllers\KamarRegol1Controller;
 use App\Http\Controllers\KamarRegol2Controller;
+use App\Http\Controllers\LapKamarCibiru1Controller;
+use App\Http\Controllers\LapKamarCibiru2Controller;
+use App\Http\Controllers\LapKamarRegol1Controller;
+use App\Http\Controllers\LapKamarRegol2Controller;
+
 use App\Http\Controllers\LapTransaksiCibiru1Controller;
 use App\Http\Controllers\LapTransaksiCibiru2Controller;
 use App\Http\Controllers\LapTransaksiRegol1Controller;
@@ -14,6 +19,11 @@ use App\Http\Controllers\PenghuniCibiru1Controller;
 use App\Http\Controllers\PenghuniCibiru2Controller;
 use App\Http\Controllers\PenghuniRegol1Controller;
 use App\Http\Controllers\PenghuniRegol2Controller;
+use App\Http\Controllers\LapPenghuniCibiru1Controller;
+use App\Http\Controllers\LapPenghuniCibiru2Controller;
+use App\Http\Controllers\LapPenghuniRegol1Controller;
+use App\Http\Controllers\LapPenghuniRegol2Controller;
+
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
@@ -103,3 +113,44 @@ Route::post('/laptransaksi_regol1', [LapTransaksiRegol1Controller::class, 'store
 Route::get('/laptransaksi_regol2', [LapTransaksiRegol2Controller::class, 'index'])->name('laptransaksi_regol2.index');
 Route::get('/laptransaksi_regol2/create', [LapTransaksiRegol2Controller::class, 'create'])->name('laptransaksi_regol2.create');
 Route::post('/laptransaksi_regol2', [LapTransaksiRegol2Controller::class, 'store'])->name('laptransaksi_regol2.store');
+
+//laporan penghuni cibiru 1
+Route::get('/lappenghuni_cibiru1', [LapPenghuniCibiru1Controller::class, 'index'])->name('lappenghuni_cibiru1.index');
+Route::get('/lappenghuni_cibiru1/create', [LapPenghuniCibiru1Controller::class, 'create'])->name('lappenghuni_cibiru1.create');
+Route::post('/lappenghuni_cibiru1',[LapPenghuniCibiru1Controller::class, 'store'])->name('lappenghuni_cibiru1.store');
+
+//laporan penghuni cibiru 2
+Route::get('/lappenghuni_cibiru2', [LapPenghuniCibiru2Controller::class, 'index'])->name('lappenghuni_cibiru2.index');
+Route::get('/lappenghuni_cibiru2/create', [LapPenghuniCibiru2Controller::class, 'create'])->name('lappenghuni_cibiru2.create');
+Route::post('/lappenghuni_cibiru2',[LapPenghuniCibiru2Controller::class, 'store'])->name('lappenghuni_cibiru2.store');
+
+//laporan penghuni regol 1
+Route::get('/lappenghuni_regol1', [LapPenghuniRegol1Controller::class, 'index'])->name('lappenghuni_regol1.index');
+Route::get('/lappenghuni_regol1/create', [LapPenghuniRegol1Controller::class, 'create'])->name('lappenghuni_regol1.create');
+Route::post('/lappenghuni_regol1',[LapPenghuniRegol1Controller::class, 'store'])->name('lappenghuni_regol1.store');
+
+//laporan penghuni regol 1
+Route::get('/lappenghuni_regol2', [LapPenghuniRegol2Controller::class, 'index'])->name('lappenghuni_regol2.index');
+Route::get('/lappenghuni_regol2/create', [LapPenghuniRegol2Controller::class, 'create'])->name('lappenghuni_regol2.create');
+Route::post('/lappenghuni_regol2',[LapPenghuniRegol2Controller::class, 'store'])->name('lappenghuni_regol2.store');
+
+
+//laporan kamar cibiru 1
+Route::get('/lapkamar_cibiru1', [LapKamarCibiru1Controller::class, 'index'])->name('lapkamar_cibiru1.index');
+Route::get('/lapkamar_cibiru1/create', [LapKamarCibiru1Controller::class, 'create'])->name('lapkamar_cibiru1.create');
+Route::post('/lapkamar_cibiru1',[LapKamarCibiru1Controller::class, 'store'])->name('lapkamar_cibiru1.store');
+
+//laporan kamar cibiru 2
+Route::get('/lapkamar_cibiru2', [LapKamarCibiru2Controller::class, 'index'])->name('lapkamar_cibiru2.index');
+Route::get('/lapkamar_cibiru2/create', [LapKamarCibiru2Controller::class, 'create'])->name('lapkamar_cibiru2.create');
+Route::post('/lapkamar_cibiru2',[LapKamarCibiru2Controller::class, 'store'])->name('lapkamar_cibiru2.store');
+
+//laporan kamar regol 1
+Route::get('/lapkamar_regol1', [LapKamarRegol1Controller::class, 'index'])->name('lapkamar_regol1.index');
+Route::get('/lapkamar_regol1/create', [LapKamarRegol1Controller::class, 'create'])->name('lapkamar_regol1.create');
+Route::post('/lapkamar_regol1',[LapKamarRegol1Controller::class, 'store'])->name('lapkamar_regol1.store');
+
+//laporan kamar regol 2
+Route::get('/lapkamar_regol2', [LapKamarRegol2Controller::class, 'index'])->name('lapkamar_regol2.index');
+Route::get('/lapkamar_regol2/create', [LapKamarRegol2Controller::class, 'create'])->name('lapkamar_regol2.create');
+Route::post('/lapkamar_regol2',[LapKamarRegol2Controller::class, 'store'])->name('lapkamar_regol2.store');
