@@ -25,8 +25,13 @@ class FasKamarRegol1Controller extends Controller
      */
    public function create()
     {
-        $user = User::all();
-        return view('faskamar_regol1.create', compact('user'));
+         $user = User::all();
+        // Ambil aset yang kategorinya fasilitas kamar saja
+        $asetFasilitasKamar = DB::table('aset_kost_regol1')
+        ->where('kategori', 'fasilitas kamar')
+        ->get();
+
+     return view('faskamar_regol1.create', compact('asetFasilitasKamar'));
     }
 
 

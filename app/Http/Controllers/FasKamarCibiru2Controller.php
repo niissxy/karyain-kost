@@ -25,8 +25,13 @@ class FasKamarCibiru2Controller extends Controller
      */
    public function create()
     {
-        $user = User::all();
-        return view('faskamar_cibiru2.create', compact('user'));
+         $user = User::all();
+        // Ambil aset yang kategorinya fasilitas kamar saja
+        $asetFasilitasKamar = DB::table('aset_kost_cibiru2')
+        ->where('kategori', 'fasilitas kamar')
+        ->get();
+
+     return view('faskamar_cibiru2.create', compact('asetFasilitasKamar'));
     }
 
 
