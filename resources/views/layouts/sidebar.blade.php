@@ -207,7 +207,7 @@
                    <a href="/fasum_regol1" class="nav-link text-white small">
                         <i class="bi bi-houses me-2"></i> Fasilitas Umum Kost Regol 1
                     </a>
-                    <a href="/fask_regol2" class="nav-link text-white small">
+                    <a href="/fasum_regol2" class="nav-link text-white small">
                         <i class="bi bi-houses me-2"></i> Fasilitas Umum Kost Regol 2
                     </a>
                 </div>

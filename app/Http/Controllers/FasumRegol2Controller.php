@@ -25,11 +25,11 @@ class FasumRegol2Controller extends Controller
     {
         $user = User::all();
         // Ambil aset yang kategorinya fasilitas umum saja
-        $asetFasilitasKamar = DB::table('aset_kost_regol2')
+        $asetFasilitasUmum = DB::table('aset_kost_regol2')
         ->where('kategori', 'fasilitas umum')
         ->get();
 
-     return view('fasum_regol2.create', compact('asetFasilitasKamar'));
+     return view('fasum_regol2.create', compact('asetFasilitasUmum'));
     }
 
     /**
@@ -95,7 +95,7 @@ class FasumRegol2Controller extends Controller
      */
     public function destroy(string $id_fasum)
     {
-         $fasum_regol2 = DB::table('fasilitas_umum_regol1')->where('id_fasum', $id_fasum)->delete();
+         $fasum_regol2 = DB::table('fasilitas_umum_regol2')->where('id_fasum', $id_fasum)->delete();
         if ($fasum_regol2) {
             return redirect('fasum_regol2')->withSuccess('Data Fasilitas Umum Kost Cibiru 2 berhasil dihapus.');
         } else {
