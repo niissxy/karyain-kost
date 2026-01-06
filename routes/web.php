@@ -9,6 +9,10 @@ use App\Http\Controllers\FasKamarCibiru1Controller;
 use App\Http\Controllers\FasKamarCibiru2Controller;
 use App\Http\Controllers\FasKamarRegol1Controller;
 use App\Http\Controllers\FasKamarRegol2Controller;
+use App\Http\Controllers\FasumCibiru1Controller;
+use App\Http\Controllers\FasumCibiru2Controller;
+use App\Http\Controllers\FasumRegol1Controller;
+use App\Http\Controllers\FasumRegol2Controller;
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KamarCibiru1Controller;
@@ -226,3 +230,35 @@ Route::post('/faskamar_regol2', [FasKamarRegol2Controller::class, 'store'])->nam
 Route::get('/faskamar_regol2/{id_fask}/edit', [FasKamarRegol2Controller::class, 'edit'])->name('faskamar_regol2.edit');
 Route::put('/faskamar_regol2/{id_fask}', [FasKamarRegol2Controller::class, 'update'])->name('faskamar_regol2.update');
 Route::delete('/faskamar_regol2/{id_fask}', [FasKamarRegol2Controller::class, 'destroy'])->name('faskamar_regol2.destroy');
+
+//fasilitas umum cibiru 1
+Route::get('/fasum_cibiru1', [FasumCibiru1Controller::class, 'index'])->name('fasum_cibiru1.index');
+Route::get('/fasum_cibiru1/create', [FasumCibiru1Controller::class, 'create'])->name('fasum_cibiru1.create');
+Route::post('/fasum_cibiru1', [FasumCibiru1Controller::class, 'store'])->name('fasum_cibiru1.store');
+Route::get('/fasum_cibiru1/{id_fask}/edit', [FasumCibiru1Controller::class, 'edit'])->name('fasum_cibiru1.edit');
+Route::put('/fasum_cibiru1/{id_fask}', [FasumCibiru1Controller::class, 'update'])->name('fasum_cibiru1.update');
+Route::delete('/fasum_cibiru1/{id_fask}', [FasumCibiru1Controller::class, 'destroy'])->name('fasum_cibiru1.destroy');
+
+//fasilitas umum cibiru 2
+Route::get('/fasum_cibiru2', [FasumCibiru2Controller::class, 'index'])->name('fasum_cibiru2.index');
+Route::get('/fasum_cibiru2/create', [FasumCibiru2Controller::class, 'create'])->name('fasum_cibiru2.create');
+Route::post('/fasum_cibiru2', [FasumCibiru2Controller::class, 'store'])->name('fasum_cibiru2.store');
+Route::get('/fasum_cibiru2/{id_fask}/edit', [FasumCibiru2Controller::class, 'edit'])->name('fasum_cibiru2.edit');
+Route::put('/fasum_cibiru2/{id_fask}', [FasumCibiru2Controller::class, 'update'])->name('fasum_cibiru2.update');
+Route::delete('/fasum_cibiru2/{id_fask}', [FasumCibiru2Controller::class, 'destroy'])->name('fasum_cibiru2.destroy');
+
+//fasilitas umum regol 1
+Route::get('/fasum_regol1', [FasumRegol1Controller::class, 'index'])->name('fasum_regol1.index');
+Route::get('/fasum_regol1/create', [FasumRegol1Controller::class, 'create'])->name('fasum_regol1.create');
+Route::post('/fasum_regol1', [FasumRegol1Controller::class, 'store'])->name('fasum_regol1.store');
+Route::get('/fasum_regol1/{id_fask}/edit', [FasumRegol1Controller::class, 'edit'])->name('fasum_regol1.edit');
+Route::put('/fasum_regol1/{id_fask}', [FasumRegol1Controller::class, 'update'])->name('fasum_regol1.update');
+Route::delete('/fasum_regol1/{id_fask}', [FasumRegol1Controller::class, 'destroy'])->name('fasum_regol1.destroy');
+
+//fasilitas umum regol 2
+Route::get('/fasum_regol2', [FasumRegol2Controller::class, 'index'])->name('fasum_regol2.index');
+Route::get('/fasum_regol2/create', [FasumRegol2Controller::class, 'create'])->name('fasum_regol2.create');
+Route::post('/fasum_regol2', [FasumRegol2Controller::class, 'store'])->name('fasum_regol2.store');
+Route::get('/fasum_regol2/{id_fask}/edit', [FasumRegol2Controller::class, 'edit'])->name('fasum_regol2.edit');
+Route::put('/fasum_regol2/{id_fask}', [FasumRegol2Controller::class, 'update'])->name('fasum_regol2.update');
+Route::delete('/fasum_regol2/{id_fask}', [FasumRegol2Controller::class, 'destroy'])->name('fasum_regol2.destroy');
