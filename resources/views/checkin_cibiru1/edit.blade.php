@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Data Aset Kost Cibiru 1')
+@section('title', 'Data Check In Kost Cibiru 1')
 @section('content')
 
 <style>
@@ -19,7 +19,7 @@
                     <ol class="breadcrumb float-md-end small mb-4 mt-4">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            Edit Data Aset Kost Cibiru 1
+                            Edit Data Check In Kost Cibiru 1
                         </li>
                     </ol>
                 </div>
@@ -34,56 +34,54 @@
 
                 <div class="card card-warning card-outline">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">Edit Data Aset Kost Cibiru 1</h5>
-                        <a class="btn btn-warning btn-sm" href="{{ url('./aset_cibiru1') }}">
+                        <h5 class="card-title mb-0">Edit Data Check In Kost Cibiru 1</h5>
+                        <a class="btn btn-warning btn-sm" href="{{ url('./checkin_cibiru1') }}">
                             <i class="bi bi-arrow-left-circle-fill"></i> Back
                         </a>
                     </div>
 
-                    <form action="{{ url('aset_cibiru1/' .$aset_cibiru1->id_aset) }}" method="post"  enctype="multipart/form-data">
+                    <form action="{{ url('checkin_cibiru1/' .$checkin_cibiru1->id_checkin) }}" method="post"  enctype="multipart/form-data">
                         @method('put')
                         {{ csrf_field() }}
 
                         <div class="card-body">
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">ID Aset</label>
+                                <label class="col-sm-3 col-form-label">ID Check In</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control"  readonly  value="{{ old('id_aset',$aset_cibiru1->id_aset) }}"  name="id_aset"  required autofocus>
+                                    <input type="text" class="form-control"  readonly  value="{{ old('id_checkin',$checkin_cibiru1->id_checkin) }}"  name="id_checkin"  required autofocus>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Nama Aset</label>
+                                <label class="col-sm-3 col-form-label">Tanggal Check In</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{ old('nama_aset',$aset_cibiru1->nama_aset) }}"  name="nama_aset"  required autofocus>
+                                    <input type="date" class="form-control" value="{{ old('tgl_checkin',$checkin_cibiru1->tgl_checkin) }}"  name="tgl_checkin"  required autofocus>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Kategori</label>
+                                <label class="col-sm-3 col-form-label">Nama Penghuni</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control" id="kategori" name="kategori">
-                                        <option value='Fasilitas kamar' {{ old('kategori', $aset_cibiru1->status) == 'Fasilitas kamar' ? 'selected' : '' }}>Fasilitas kamar</option>
-                                        <option value='Fasilitas umum' {{ old('kategori', $aset_cibiru1->status) == 'Fasilitas umum' ? 'selected' : '' }}>Fasilitas umum</option>
-                                    </select>  
+                                    <input type="text" class="form-control" value="{{ old('nama_penghuni',$checkin_cibiru1->nama_penghuni) }}"  name="nama_penghuni"  required autofocus>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Jumlah</label>
+                                <label class="col-sm-3 col-form-label">Lama Tinggal</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" value="{{ old('jumlah',$aset_cibiru1->jumlah) }}"  name="jumlah"  required autofocus>
+                                    <input type="text" class="form-control" value="{{ old('lama_tinggal',$checkin_cibiru1->lama_tinggal) }}"  name="lama_tinggal"  required autofocus>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Kondisi</label>
+                                <label class="col-sm-3 col-form-label">Status</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control" id="kondisi" name="kondisi">
-                                        <option value='Baik' {{ old('kondisi', $aset_cibiru1->kondisi) == 'Baik' ? 'selected' : '' }}>Baik</option>
-                                        <option value='Perbaikan' {{ old('kondisi', $aset_cibiru1->kondisi) == 'Perbaikan' ? 'selected' : '' }}>Perbaikan</option>
-                                        <option value='Rusak' {{ old('kondisi', $aset_cibiru1->kondisi) == 'Rusak' ? 'selected' : '' }}>Rusak</option>       
+                                    <select class="form-control" id="status" name="status">
+                                        <option value='Aktif' {{ old('status', $checkin_cibiru1->status) == 'Aktif' ? 'selected' : '' }}>Aktif</option>
+                                        <option value='Booked' {{ old('status', $checkin_cibiru1->status) == 'Booked' ? 'selected' : '' }}>Booked</option>
+                                        <option value='Check in' {{ old('status', $checkin_cibiru1->status) == 'Check in' ? 'selected' : '' }}>Check In</option>
+                                        <option value='Check out' {{ old('status', $checkin_cibiru1->status) == 'Check out' ? 'selected' : '' }}>Check Out</option>       
                                     </select>  
                                 </div>
                             </div>

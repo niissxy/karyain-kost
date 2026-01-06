@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Data Aset Kost Cibiru 1')
+@section('title', 'Data Check In Kost Cibiru 1')
 @section('content')
 
 <style>
@@ -19,7 +19,7 @@
                     <ol class="breadcrumb float-md-end small mb-4 mt-4">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            Edit Data Aset Kost Cibiru 1
+                            Tambah Data Check In Kost Cibiru 1
                         </li>
                     </ol>
                 </div>
@@ -34,57 +34,55 @@
 
                 <div class="card card-warning card-outline">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">Edit Data Aset Kost Cibiru 1</h5>
-                        <a class="btn btn-warning btn-sm" href="{{ url('./aset_cibiru1') }}">
+                        <h5 class="card-title mb-0">Tambah Data Check In Kost Cibiru 1</h5>
+                        <a class="btn btn-warning btn-sm" href="{{ url('./checkin_cibiru1') }}">
                             <i class="bi bi-arrow-left-circle-fill"></i> Back
                         </a>
                     </div>
 
-                    <form action="{{ url('aset_cibiru1/' .$aset_cibiru1->id_aset) }}" method="post"  enctype="multipart/form-data">
-                        @method('put')
+                    <form action="{{ url('checkin_cibiru1') }}" enctype="multipart/form-data" method="post">
                         {{ csrf_field() }}
 
                         <div class="card-body">
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">ID Aset</label>
+                                <label class="col-sm-3 col-form-label">ID Check In</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control"  readonly  value="{{ old('id_aset',$aset_cibiru1->id_aset) }}"  name="id_aset"  required autofocus>
+                                    <input class="form-control" name="id_checkin" required value="{{ old('id_checkin') }}">
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Nama Aset</label>
+                                <label class="col-sm-3 col-form-label">Tanggal Check In</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{ old('nama_aset',$aset_cibiru1->nama_aset) }}"  name="nama_aset"  required autofocus>
+                                    <input class="form-control" type="date" name="tgl_checkin" required value="{{ old('tgl_checkin') }}">
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Kategori</label>
+                                <label class="col-sm-3 col-form-label">Nama Penghuni</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control" id="kategori" name="kategori">
-                                        <option value='Fasilitas kamar' {{ old('kategori', $aset_cibiru1->status) == 'Fasilitas kamar' ? 'selected' : '' }}>Fasilitas kamar</option>
-                                        <option value='Fasilitas umum' {{ old('kategori', $aset_cibiru1->status) == 'Fasilitas umum' ? 'selected' : '' }}>Fasilitas umum</option>
-                                    </select>  
+                                    <input class="form-control" type="text" name="nama_penghuni" required value="{{ old('nama_penghuni') }}">
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Jumlah</label>
+                                <label class="col-sm-3 col-form-label">Lama Tinggal</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" value="{{ old('jumlah',$aset_cibiru1->jumlah) }}"  name="jumlah"  required autofocus>
+                                    <input class="form-control" type="lama_tinggal" name="lama_tinggal" required value="{{ old('lama_tinggal') }}">
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Kondisi</label>
+                           <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Status</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control" id="kondisi" name="kondisi">
-                                        <option value='Baik' {{ old('kondisi', $aset_cibiru1->kondisi) == 'Baik' ? 'selected' : '' }}>Baik</option>
-                                        <option value='Perbaikan' {{ old('kondisi', $aset_cibiru1->kondisi) == 'Perbaikan' ? 'selected' : '' }}>Perbaikan</option>
-                                        <option value='Rusak' {{ old('kondisi', $aset_cibiru1->kondisi) == 'Rusak' ? 'selected' : '' }}>Rusak</option>       
-                                    </select>  
+                                    <select class="form-select" name="status">
+                                        <option value="">-- Pilih Status --</option>
+                                        <option value="Aktif">Aktif</option>
+                                        <option value="Booked">Booked</option>
+                                        <option value="Check in">Check In</option>
+                                        <option value="Check out">Check Out</option>
+                                    </select>
                                 </div>
                             </div>
 

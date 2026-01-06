@@ -4,6 +4,10 @@ use App\Http\Controllers\AsetCibiru1Controller;
 use App\Http\Controllers\AsetCibiru2Controller;
 use App\Http\Controllers\AsetRegol1Controller;
 use App\Http\Controllers\AsetRegol2Controller;
+use App\Http\Controllers\CheckInCibiru1Controller;
+use App\Http\Controllers\CheckInCibiru2Controller;
+use App\Http\Controllers\CheckInRegol1Controller;
+use App\Http\Controllers\CheckInRegol2Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FasKamarCibiru1Controller;
 use App\Http\Controllers\FasKamarCibiru2Controller;
@@ -333,3 +337,35 @@ Route::post('/sewa_regol2', [SewaRegol2Controller::class, 'store'])->name('sewa_
 Route::get('/sewa_regol2/{id_sewa}/edit', [SewaRegol2Controller::class, 'edit'])->name('sewa_regol2.edit');
 Route::put('/sewa_regol2/{id_sewa}', [SewaRegol2Controller::class, 'update'])->name('sewa_regol2.update');
 Route::delete('/sewa_regol2/{id_sewa}', [SewaRegol2Controller::class, 'destroy'])->name('sewa_regol2.destroy');
+
+//checkin cibiru 1
+Route::get('/checkin_cibiru1', [CheckInCibiru1Controller::class, 'index'])->name('checkin_cibiru1.index');
+Route::get('/checkin_cibiru1/create', [CheckInCibiru1Controller::class, 'create'])->name('checkin_cibiru1.create');
+Route::post('/checkin_cibiru1', [CheckInCibiru1Controller::class, 'store'])->name('checkin_cibiru1.store');
+Route::get('/checkin_cibiru1/{id_sewa}/edit', [CheckInCibiru1Controller::class, 'edit'])->name('checkin_cibiru1.edit');
+Route::put('/checkin_cibiru1/{id_sewa}', [CheckInCibiru1Controller::class, 'update'])->name('checkin_cibiru1.update');
+Route::delete('/checkin_cibiru1/{id_sewa}', [CheckInCibiru1Controller::class, 'destroy'])->name('checkin_cibiru1.destroy');
+
+//checkin cibiru 2
+Route::get('/checkin_cibiru2', [CheckInCibiru2Controller::class, 'index'])->name('checkin_cibiru2.index');
+Route::get('/checkin_cibiru2/create', [CheckInCibiru2Controller::class, 'create'])->name('checkin_cibiru2.create');
+Route::post('/checkin_cibiru2', [CheckInCibiru2Controller::class, 'store'])->name('checkin_cibiru2.store');
+Route::get('/checkin_cibiru2/{id_sewa}/edit', [CheckInCibiru2Controller::class, 'edit'])->name('checkin_cibiru2.edit');
+Route::put('/checkin_cibiru2/{id_sewa}', [CheckInCibiru2Controller::class, 'update'])->name('checkin_cibiru2.update');
+Route::delete('/checkin_cibiru2/{id_sewa}', [CheckInCibiru2Controller::class, 'destroy'])->name('checkin_cibiru2.destroy');
+
+//checkin regol 1
+Route::get('/checkin_regol1', [CheckInRegol1Controller::class, 'index'])->name('checkin_regol1.index');
+Route::get('/checkin_regol1/create', [CheckInRegol1Controller::class, 'create'])->name('checkin_regol1.create');
+Route::post('/checkin_regol1', [CheckInRegol1Controller::class, 'store'])->name('checkin_regol1.store');
+Route::get('/checkin_regol1/{id_sewa}/edit', [CheckInRegol1Controller::class, 'edit'])->name('checkin_regol1.edit');
+Route::put('/checkin_regol1/{id_sewa}', [CheckInRegol1Controller::class, 'update'])->name('checkin_regol1.update');
+Route::delete('/checkin_regol1/{id_sewa}', [CheckInRegol1Controller::class, 'destroy'])->name('checkin_regol1.destroy');
+
+//checkin regol 1
+Route::get('/checkin_regol2', [CheckInRegol2Controller::class, 'index'])->name('checkin_regol2.index');
+Route::get('/checkin_regol2/create', [CheckInRegol2Controller::class, 'create'])->name('checkin_regol2.create');
+Route::post('/checkin_regol2', [CheckInRegol2Controller::class, 'store'])->name('checkin_regol2.store');
+Route::get('/checkin_regol2/{id_sewa}/edit', [CheckInRegol2Controller::class, 'edit'])->name('checkin_regol2.edit');
+Route::put('/checkin_regol2/{id_sewa}', [CheckInRegol2Controller::class, 'update'])->name('checkin_regol2.update');
+Route::delete('/checkin_regol2/{id_sewa}', [CheckInRegol2Controller::class, 'destroy'])->name('checkin_regol2.destroy');
