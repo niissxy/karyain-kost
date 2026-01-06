@@ -63,7 +63,7 @@ class CheckInRegol1Controller extends Controller
         $checkin_regol1 = CheckInRegol1::where('id_checkin', $id_checkin)->first();
         return  view('checkin_regol1/edit', [
             'user' => $user,
-            'checkin_cibiru1' => $checkin_regol1
+            'checkin_regol1' => $checkin_regol1
         ]);
     }
 
