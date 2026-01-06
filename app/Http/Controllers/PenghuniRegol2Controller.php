@@ -75,7 +75,7 @@ class PenghuniRegol2Controller extends Controller
      */
     public function update(Request $request, string $id_penghuni)
     {
-        $user = auth()->user();
+        // $user = auth()->user();
         $data = [
             'id_penghuni' => $request->id_penghuni,
             'nama_penghuni' => $request->nama_penghuni,

@@ -73,6 +73,29 @@
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                   data-bs-toggle="collapse" href="#submenu-transaksi">
+                    <span><i class="bi bi-cash-stack me-2"></i> Transaksi </span>
+                    <i class="bi bi-chevron-down"></i>
+                </a>
+
+                <div class="collapse ps-3" id="submenu-transaksi">
+                    <a href="/transaksi_cibiru1" class="nav-link text-white small">
+                        <i class="bi bi-cash-stack me-2"></i> Transaksi Kost Cibiru 1
+                    </a>
+                   <a href="/transaksi_cibiru2" class="nav-link text-white small">
+                        <i class="bi bi-cash-stack me-2"></i> Transaksi Kost Cibiru 2
+                    </a>
+                   <a href="/transaksi_regol1" class="nav-link text-white small">
+                        <i class="bi bi-cash-stack me-2"></i> Transaksi Kost Regol 1
+                    </a>
+                    <a href="/transaksi_regol2" class="nav-link text-white small">
+                        <i class="bi bi-cash-stack me-2"></i> Transaksi Kost Regol 2
+                    </a>
+                </div>
+            </li>
+
             <!-- Laporan -->
             <li class="nav-item">
                 <a class="nav-link text-white d-flex justify-content-between align-items-center"

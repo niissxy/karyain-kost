@@ -13,7 +13,6 @@ use App\Http\Controllers\FasumCibiru1Controller;
 use App\Http\Controllers\FasumCibiru2Controller;
 use App\Http\Controllers\FasumRegol1Controller;
 use App\Http\Controllers\FasumRegol2Controller;
-
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KamarCibiru1Controller;
 use App\Http\Controllers\KamarCibiru2Controller;
@@ -27,15 +26,23 @@ use App\Http\Controllers\LapTransaksiCibiru1Controller;
 use App\Http\Controllers\LapTransaksiCibiru2Controller;
 use App\Http\Controllers\LapTransaksiRegol1Controller;
 use App\Http\Controllers\LapTransaksiRegol2Controller;
-use App\Http\Controllers\PenghuniCibiru1Controller;
-use App\Http\Controllers\PenghuniCibiru2Controller;
-use App\Http\Controllers\PenghuniRegol1Controller;
-use App\Http\Controllers\PenghuniRegol2Controller;
 use App\Http\Controllers\LapPenghuniCibiru1Controller;
 use App\Http\Controllers\LapPenghuniCibiru2Controller;
 use App\Http\Controllers\LapPenghuniRegol1Controller;
 use App\Http\Controllers\LapPenghuniRegol2Controller;
+use App\Http\Controllers\PenghuniCibiru1Controller;
+use App\Http\Controllers\PenghuniCibiru2Controller;
+use App\Http\Controllers\PenghuniRegol1Controller;
+use App\Http\Controllers\PenghuniRegol2Controller;
+use App\Http\Controllers\SewaCibiru1Controller;
+use App\Http\Controllers\SewaCibiru2Controller;
+use App\Http\Controllers\SewaRegol1Controller;
+use App\Http\Controllers\SewaRegol2Controller;
 
+use App\Http\Controllers\TransaksiCibiru1Controller;
+use App\Http\Controllers\TransaksiCibiru2Controller;
+use App\Http\Controllers\TransaksiRegol1Controller;
+use App\Http\Controllers\TransaksiRegol2Controller;
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
@@ -262,3 +269,67 @@ Route::post('/fasum_regol2', [FasumRegol2Controller::class, 'store'])->name('fas
 Route::get('/fasum_regol2/{id_fask}/edit', [FasumRegol2Controller::class, 'edit'])->name('fasum_regol2.edit');
 Route::put('/fasum_regol2/{id_fask}', [FasumRegol2Controller::class, 'update'])->name('fasum_regol2.update');
 Route::delete('/fasum_regol2/{id_fask}', [FasumRegol2Controller::class, 'destroy'])->name('fasum_regol2.destroy');
+
+//transaksi cibiru 1
+Route::get('/transaksi_cibiru1', [TransaksiCibiru1Controller::class, 'index'])->name('transaksi_cibiru1.index');
+Route::get('/transaksi_cibiru1/create', [TransaksiCibiru1Controller::class, 'create'])->name('transaksi_cibiru1.create');
+Route::post('/transaksi_cibiru1', [TransaksiCibiru1Controller::class, 'store'])->name('transaksi_cibiru1.store');
+Route::get('/transaksi_cibiru1/{id_transaksi}/edit', [TransaksiCibiru1Controller::class, 'edit'])->name('transaksi_cibiru1.edit');
+Route::put('/transaksi_cibiru1/{id_transaksi}', [TransaksiCibiru1Controller::class, 'update'])->name('transaksi_cibiru1.update');
+Route::delete('/transaksi_cibiru1/{id_transaksi}', [TransaksiCibiru1Controller::class, 'destroy'])->name('transaksi_cibiru1.destroy');
+
+//transaksi cibiru 2
+Route::get('/transaksi_cibiru2', [TransaksiCibiru2Controller::class, 'index'])->name('transaksi_cibiru2.index');
+Route::get('/transaksi_cibiru2/create', [TransaksiCibiru2Controller::class, 'create'])->name('transaksi_cibiru2.create');
+Route::post('/transaksi_cibiru2', [TransaksiCibiru2Controller::class, 'store'])->name('transaksi_cibiru2.store');
+Route::get('/transaksi_cibiru2/{id_transaksi}/edit', [TransaksiCibiru2Controller::class, 'edit'])->name('transaksi_cibiru2.edit');
+Route::put('/transaksi_cibiru2/{id_transaksi}', [TransaksiCibiru2Controller::class, 'update'])->name('transaksi_cibiru2.update');
+Route::delete('/transaksi_cibiru2/{id_transaksi}', [TransaksiCibiru2Controller::class, 'destroy'])->name('transaksi_cibiru2.destroy');
+
+//transaksi regol 1
+Route::get('/transaksi_regol1', [TransaksiRegol1Controller::class, 'index'])->name('transaksi_regol1.index');
+Route::get('/transaksi_regol1/create', [TransaksiRegol1Controller::class, 'create'])->name('transaksi_regol1.create');
+Route::post('/transaksi_regol1', [TransaksiRegol1Controller::class, 'store'])->name('transaksi_regol1.store');
+Route::get('/transaksi_regol1/{id_transaksi}/edit', [TransaksiRegol1Controller::class, 'edit'])->name('transaksi_regol1.edit');
+Route::put('/transaksi_regol1/{id_transaksi}', [TransaksiRegol1Controller::class, 'update'])->name('transaksi_regol1.update');
+Route::delete('/transaksi_regol1/{id_transaksi}', [TransaksiRegol1Controller::class, 'destroy'])->name('transaksi_regol1.destroy');
+
+//transaksi regol 2
+Route::get('/transaksi_regol2', [TransaksiRegol2Controller::class, 'index'])->name('transaksi_regol2.index');
+Route::get('/transaksi_regol2/create', [TransaksiRegol2Controller::class, 'create'])->name('transaksi_regol2.create');
+Route::post('/transaksi_regol2', [TransaksiRegol2Controller::class, 'store'])->name('transaksi_regol2.store');
+Route::get('/transaksi_regol2/{id_transaksi}/edit', [TransaksiRegol2Controller::class, 'edit'])->name('transaksi_regol2.edit');
+Route::put('/transaksi_regol2/{id_transaksi}', [TransaksiRegol2Controller::class, 'update'])->name('transaksi_regol2.update');
+Route::delete('/transaksi_regol2/{id_transaksi}', [TransaksiRegol2Controller::class, 'destroy'])->name('transaksi_regol2.destroy');
+
+//sewa cibiru 1
+Route::get('/sewa_cibiru1', [SewaCibiru1Controller::class, 'index'])->name('sewa_cibiru1.index');
+Route::get('/sewa_cibiru1/create', [SewaCibiru1Controller::class, 'create'])->name('sewa_cibiru1.create');
+Route::post('/sewa_cibiru1', [SewaCibiru1Controller::class, 'store'])->name('sewa_cibiru1.store');
+Route::get('/sewa_cibiru1/{id_sewa}/edit', [SewaCibiru1Controller::class, 'edit'])->name('sewa_cibiru1.edit');
+Route::put('/sewa_cibiru1/{id_sewa}', [SewaCibiru1Controller::class, 'update'])->name('sewa_cibiru1.update');
+Route::delete('/sewa_cibiru1/{id_sewa}', [SewaCibiru1Controller::class, 'destroy'])->name('sewa_cibiru1.destroy');
+
+//sewa cibiru 2
+Route::get('/sewa_cibiru2', [SewaCibiru2Controller::class, 'index'])->name('sewa_cibiru2.index');
+Route::get('/sewa_cibiru2/create', [SewaCibiru2Controller::class, 'create'])->name('sewa_cibiru2.create');
+Route::post('/sewa_cibiru2', [SewaCibiru2Controller::class, 'store'])->name('sewa_cibiru2.store');
+Route::get('/sewa_cibiru2/{id_sewa}/edit', [SewaCibiru2Controller::class, 'edit'])->name('sewa_cibiru2.edit');
+Route::put('/sewa_cibiru2/{id_sewa}', [SewaCibiru2Controller::class, 'update'])->name('sewa_cibiru2.update');
+Route::delete('/sewa_cibiru2/{id_sewa}', [SewaCibiru2Controller::class, 'destroy'])->name('sewa_cibiru2.destroy');
+
+//sewa regol 1
+Route::get('/sewa_regol1', [SewaRegol1Controller::class, 'index'])->name('sewa_regol1.index');
+Route::get('/sewa_regol1/create', [SewaRegol1Controller::class, 'create'])->name('sewa_regol1.create');
+Route::post('/sewa_regol1', [SewaRegol1Controller::class, 'store'])->name('sewa_regol1.store');
+Route::get('/sewa_regol1/{id_sewa}/edit', [SewaRegol1Controller::class, 'edit'])->name('sewa_regol1.edit');
+Route::put('/sewa_regol1/{id_sewa}', [SewaRegol1Controller::class, 'update'])->name('sewa_regol1.update');
+Route::delete('/sewa_regol1/{id_sewa}', [SewaRegol1Controller::class, 'destroy'])->name('sewa_regol1.destroy');
+
+//sewa regol 2
+Route::get('/sewa_regol2', [SewaRegol2Controller::class, 'index'])->name('sewa_regol2.index');
+Route::get('/sewa_regol2/create', [SewaRegol2Controller::class, 'create'])->name('sewa_regol2.create');
+Route::post('/sewa_regol2', [SewaRegol2Controller::class, 'store'])->name('sewa_regol2.store');
+Route::get('/sewa_regol2/{id_sewa}/edit', [SewaRegol2Controller::class, 'edit'])->name('sewa_regol2.edit');
+Route::put('/sewa_regol2/{id_sewa}', [SewaRegol2Controller::class, 'update'])->name('sewa_regol2.update');
+Route::delete('/sewa_regol2/{id_sewa}', [SewaRegol2Controller::class, 'destroy'])->name('sewa_regol2.destroy');

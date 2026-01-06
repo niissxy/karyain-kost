@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TransakasiRegol1 extends Model
+class TransaksiRegol1 extends Model
 {
     protected $table = 'transaksi_regol1';
     protected $fillable = [
