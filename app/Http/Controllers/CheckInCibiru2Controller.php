@@ -94,7 +94,7 @@ class CheckInCibiru2Controller extends Controller
      */
     public function destroy(string $id_checkin)
     {
-        $checkin_cibiru2 = DB::table('checkin_cibiru1')->where('id_checkin', $id_checkin)->delete();
+        $checkin_cibiru2 = DB::table('checkin_cibiru2')->where('id_checkin', $id_checkin)->delete();
         if ($checkin_cibiru2) {
             return redirect('checkin_cibiru2')->withSuccess('Data Check In Kost Cibiru 2 berhasil dihapus.');
         } else {
