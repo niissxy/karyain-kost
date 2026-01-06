@@ -15,7 +15,7 @@ class SewaCibiru2Controller extends Controller
     public function index()
     {
          $sewa_cibiru2 = SewaCibiru2::all();
-        return view('sewa_cibir2.index', compact('sewa_cibiru2'));
+        return view('sewa_cibiru2.index', compact('sewa_cibiru2'));
     }
 
     /**
@@ -44,7 +44,7 @@ class SewaCibiru2Controller extends Controller
 
         SewaCibiru2::create($data);
 
-        return redirect()->route('2.index')
+        return redirect()->route('sewa_cibiru2.index')
             ->with('success', 'Data berhasil ditambahkan');
     }
 
