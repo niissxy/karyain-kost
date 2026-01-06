@@ -76,7 +76,7 @@ class FasumRegol1Controller extends Controller
     public function update(Request $request, string $id_fasum)
     {
         $data = [
-            'id_fasum' => $request->id_fask,
+            'id_fasum' => $request->id_fasum,
             'nama_fasilitas' => $request->nama_fasilitas,
             'kondisi' => $request->kondisi,
         ];

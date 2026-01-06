@@ -25,11 +25,11 @@ class FasumCibiru1Controller extends Controller
     {
         $user = User::all();
         // Ambil aset yang kategorinya fasilitas umum saja
-        $asetFasilitasKamar = DB::table('aset_kost_cibiru1')
+        $asetFasilitasUmum = DB::table('aset_kost_cibiru1')
         ->where('kategori', 'fasilitas umum')
         ->get();
 
-     return view('fasum_cibiru1.create', compact('asetFasilitasKamar'));
+     return view('fasum_cibiru1.create', compact('asetFasilitasUmum'));
     }
 
     /**
@@ -40,7 +40,7 @@ class FasumCibiru1Controller extends Controller
         $data = $request->validate([
         'id_fasum'     => 'required',
         'nama_fasilitas'   => 'required',
-        'kondisi'        => 'required ',
+        'kondisi'        => 'required',
         ]);
 
         FasumCibiru1::create($data);
