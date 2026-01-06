@@ -19,7 +19,7 @@
                     <ol class="breadcrumb float-md-end small mb-4 mt-4">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            Tambah Data Fasilitas Kamar Kost Cibiru 1
+                            Edit Data Fasilitas Kamar Kost Cibiru 1
                         </li>
                     </ol>
                 </div>
@@ -34,13 +34,14 @@
 
                 <div class="card card-warning card-outline">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">Tambah Data Fasilitas Kamar Kost Cibiru 1</h5>
+                        <h5 class="card-title mb-0">Edit Data Fasilitas Kamar Kost Cibiru 1</h5>
                         <a class="btn btn-warning btn-sm" href="{{ url('./faskamar_cibiru1') }}">
                             <i class="bi bi-arrow-left-circle-fill"></i> Back
                         </a>
                     </div>
 
-                    <form action="{{ url('faskamar_cibiru1') }}" enctype="multipart/form-data" method="post">
+                    <form action="{{ url('faskamar_cibiru1/' .$faskamar_cibiru1->id_fask) }}" method="post"  enctype="multipart/form-data">
+                        @method('put')
                         {{ csrf_field() }}
 
                         <div class="card-body">
@@ -48,41 +49,32 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">ID Fasilitas Kamar</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="id_fask" required value="{{ old('id_fask') }}">
+                                    <input type="text" class="form-control"  readonly  value="{{ old('id_fask',$faskamar_cibiru1->id_fask) }}"  name="id_fask"  required autofocus>
                                 </div>
                             </div>
 
-                           <div class="row mb-3">
+                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nama Fasilitas</label>
-                           <div class="col-sm-9">
-                                <select name="nama_fasilitas" class="form-select" required>
-                                    <option value="">-- Pilih Fasilitas Kamar --</option>
-                                    @foreach ($asetFasilitasKamar as $aset)
-                                    <option value="{{ $aset->nama_aset }}">
-                                        {{ $aset->nama_aset }}
-                                    </option>
-                                    @endforeach
-                                </select>
-                           </div>
-                           </div>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" value="{{ old('nama_fasilitas',$faskamar_cibiru1->nama_fasilitas) }}"  name="nama_fasilitas" readonly required autofocus>
+                                </div>
+                            </div>
 
-
-                           <div class="row mb-3">
+                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">No Kamar</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="no_kamar" type="text" required>
+                                    <input type="text" class="form-control" value="{{ old('no_kamar',$faskamar_cibiru1->no_kamar) }}"  name="no_kamar"  required autofocus>
                                 </div>
                             </div>
 
-                           <div class="row mb-3">
+                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Kondisi</label>
                                 <div class="col-sm-9">
-                                    <select class="form-select" name="kondisi">
-                                        <option value="">-- Pilih Kondisi --</option>
-                                        <option value="Baik">Baik</option>
-                                        <option value="Perbaikan">Perbaikan</option>
-                                        <option value="Rusak">Rusak</option>
-                                    </select>
+                                    <select class="form-control" id="kondisi" name="kondisi">
+                                        <option value='Baik' {{ old('kondisi', $faskamar_cibiru1->status) == 'Baik' ? 'selected' : '' }}>Baik</option>
+                                        <option value='Perbaikan' {{ old('kondisi', $faskamar_cibiru1->status) == 'Perbaikan' ? 'selected' : '' }}>Perbaikan</option>
+                                        <option value='Rusak' {{ old('kondisi', $faskamar_cibiru1->status) == 'Rusak' ? 'selected' : '' }}>Rusak</option>       
+                                    </select>  
                                 </div>
                             </div>
 

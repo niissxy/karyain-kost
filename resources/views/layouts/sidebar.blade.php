@@ -169,22 +169,22 @@
 
             <li class="nav-item">
                 <a class="nav-link text-white d-flex justify-content-between align-items-center"
-                   data-bs-toggle="collapse" href="#submenu-fask">
+                   data-bs-toggle="collapse" href="#submenu-faskamar">
                     <span><i class="bi bi-door-open me-2"></i> Fasilitas Kamar </span>
                     <i class="bi bi-chevron-down"></i>
                 </a>
 
-                <div class="collapse ps-3" id="submenu-fask">
-                    <a href="/fask_cibiru1" class="nav-link text-white small">
+                <div class="collapse ps-3" id="submenu-faskamar">
+                    <a href="/faskamar_cibiru1" class="nav-link text-white small">
                         <i class="bi bi-door-open me-2"></i> Fasilitas Kamar Kost Cibiru 1
                     </a>
-                   <a href="/fask_cibiru2" class="nav-link text-white small">
+                   <a href="/faskamar_cibiru2" class="nav-link text-white small">
                         <i class="bi bi-door-open me-2"></i> Fasilitas Kamar Kost Cibiru 2
                     </a>
-                   <a href="/fask_regol1" class="nav-link text-white small">
+                   <a href="/faskamar_regol1" class="nav-link text-white small">
                         <i class="bi bi-door-open me-2"></i> Fasilitas Kamar Kost Regol 1
                     </a>
-                    <a href="/fask_regol2" class="nav-link text-white small">
+                    <a href="/faskamar_regol2" class="nav-link text-white small">
                         <i class="bi bi-door-open me-2"></i> Fasilitas Kamar Kost Regol 2
                     </a>
                 </div>

@@ -199,30 +199,30 @@ Route::delete('/aset_regol2/{id_aset}', [AsetRegol2Controller::class, 'destroy']
 Route::get('/faskamar_cibiru1', [FasKamarCibiru1Controller::class, 'index'])->name('faskamar_cibiru1.index');
 Route::get('/faskamar_cibiru1/create', [FasKamarCibiru1Controller::class, 'create'])->name('faskamar_cibiru1.create');
 Route::post('/faskamar_cibiru1', [FasKamarCibiru1Controller::class, 'store'])->name('faskamar_cibiru1.store');
-Route::get('/faskamar_cibiru1/{id_aset}/edit', [FasKamarCibiru1Controller::class, 'edit'])->name('faskamar_cibiru1.edit');
-Route::put('/faskamar_cibiru1/{id_aset}', [FasKamarCibiru1Controller::class, 'update'])->name('faskamar_cibiru1.update');
-Route::delete('/faskamar_cibiru1/{id_aset}', [FasKamarCibiru1Controller::class, 'destroy'])->name('faskamar_cibiru1.destroy');
+Route::get('/faskamar_cibiru1/{id_fask}/edit', [FasKamarCibiru1Controller::class, 'edit'])->name('faskamar_cibiru1.edit');
+Route::put('/faskamar_cibiru1/{id_fask}', [FasKamarCibiru1Controller::class, 'update'])->name('faskamar_cibiru1.update');
+Route::delete('/faskamar_cibiru1/{id_fask}', [FasKamarCibiru1Controller::class, 'destroy'])->name('faskamar_cibiru1.destroy');
 
 //fasilitas kamar cibiru 2
 Route::get('/faskamar_cibiru2', [FasKamarCibiru2Controller::class, 'index'])->name('faskamar_cibiru2.index');
 Route::get('/faskamar_cibiru2/create', [FasKamarCibiru2Controller::class, 'create'])->name('faskamar_cibiru2.create');
 Route::post('/faskamar_cibiru2', [FasKamarCibiru2Controller::class, 'store'])->name('faskamar_cibiru2.store');
-Route::get('/faskamar_cibiru2/{id_aset}/edit', [FasKamarCibiru2Controller::class, 'edit'])->name('faskamar_cibiru2.edit');
-Route::put('/faskamar_cibiru2/{id_aset}', [FasKamarCibiru2Controller::class, 'update'])->name('faskamar_cibiru2.update');
-Route::delete('/faskamar_cibiru2/{id_aset}', [FasKamarCibiru2Controller::class, 'destroy'])->name('faskamar_cibiru2.destroy');
+Route::get('/faskamar_cibiru2/{id_fask}/edit', [FasKamarCibiru2Controller::class, 'edit'])->name('faskamar_cibiru2.edit');
+Route::put('/faskamar_cibiru2/{id_fask}', [FasKamarCibiru2Controller::class, 'update'])->name('faskamar_cibiru2.update');
+Route::delete('/faskamar_cibiru2/{id_fask}', [FasKamarCibiru2Controller::class, 'destroy'])->name('faskamar_cibiru2.destroy');
 
 //fasilitas kamar regol 1
 Route::get('/faskamar_regol1', [FasKamarRegol1Controller::class, 'index'])->name('faskamar_regol1.index');
 Route::get('/faskamar_regol1/create', [FasKamarRegol1Controller::class, 'create'])->name('faskamar_regol1.create');
 Route::post('/faskamar_regol1', [FasKamarRegol1Controller::class, 'store'])->name('faskamar_regol1.store');
-Route::get('/faskamar_regol1/{id_aset}/edit', [FasKamarRegol1Controller::class, 'edit'])->name('faskamar_regol1.edit');
-Route::put('/faskamar_regol1/{id_aset}', [FasKamarRegol1Controller::class, 'update'])->name('faskamar_regol1.update');
-Route::delete('/faskamar_regol1/{id_aset}', [FasKamarRegol1Controller::class, 'destroy'])->name('faskamar_regol1.destroy');
+Route::get('/faskamar_regol1/{id_fask}/edit', [FasKamarRegol1Controller::class, 'edit'])->name('faskamar_regol1.edit');
+Route::put('/faskamar_regol1/{id_fask}', [FasKamarRegol1Controller::class, 'update'])->name('faskamar_regol1.update');
+Route::delete('/faskamar_regol1/{id_fask}', [FasKamarRegol1Controller::class, 'destroy'])->name('faskamar_regol1.destroy');
 
 //fasilitas kamar regol 2
 Route::get('/faskamar_regol2', [FasKamarRegol2Controller::class, 'index'])->name('faskamar_regol2.index');
 Route::get('/faskamar_regol2/create', [FasKamarRegol2Controller::class, 'create'])->name('faskamar_regol2.create');
 Route::post('/faskamar_regol2', [FasKamarRegol2Controller::class, 'store'])->name('faskamar_regol2.store');
-Route::get('/faskamar_regol2/{id_aset}/edit', [FasKamarRegol2Controller::class, 'edit'])->name('faskamar_regol2.edit');
-Route::put('/faskamar_regol2/{id_aset}', [FasKamarRegol2Controller::class, 'update'])->name('faskamar_regol2.update');
-Route::delete('/faskamar_regol2/{id_aset}', [FasKamarRegol2Controller::class, 'destroy'])->name('faskamar_regol2.destroy');
+Route::get('/faskamar_regol2/{id_fask}/edit', [FasKamarRegol2Controller::class, 'edit'])->name('faskamar_regol2.edit');
+Route::put('/faskamar_regol2/{id_fask}', [FasKamarRegol2Controller::class, 'update'])->name('faskamar_regol2.update');
+Route::delete('/faskamar_regol2/{id_fask}', [FasKamarRegol2Controller::class, 'destroy'])->name('faskamar_regol2.destroy');

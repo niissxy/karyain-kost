@@ -61,7 +61,7 @@ class LapPenghuniCibiru1Controller extends Controller
             'p.nama_penghuni',
             'p.tgl_masuk',
             'p.tgl_keluar',
-            'p.status as status_penghuni', // ✅ alias disesuaikan
+            'p.status as status_penghuni', // alias disesuaikan
             DB::raw("
                 TIMESTAMPDIFF(
                     MONTH,
@@ -83,11 +83,11 @@ class LapPenghuniCibiru1Controller extends Controller
     public function store(Request $request)
 {
     $request->validate([
-        'id_penghuni'        => 'required',
-        'nama_penghuni'      => 'required',
-        'tgl_masuk'          => 'required|date',
+        'id_penghuni'         => 'required',
+        'nama_penghuni'       => 'required',
+        'tgl_masuk'           => 'required|date',
         'tgl_keluar'          => 'nullable',
-        'status_penghuni'             => 'required',
+        'status_penghuni'     => 'required',
     ]);
 
     DB::table('lap_penghuni_cibiru1')->insert([

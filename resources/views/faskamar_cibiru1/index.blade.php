@@ -78,8 +78,8 @@ table {
 
             <!-- Card Header -->
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h5 class="card-title">Data Aset Kost Cibiru 1</h5>
-                <a href="{{ url('aset_cibiru1/create') }}" class="btn btn-success btn-sm">
+                <h5 class="card-title">Data Fasilitas Kamar Kost Cibiru 1</h5>
+                <a href="{{ url('faskamar_cibiru1/create') }}" class="btn btn-success btn-sm">
                     <i class="bi bi-plus-circle"></i> New
                 </a>
             </div>
@@ -91,10 +91,9 @@ table {
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>ID Aset</th>
-                                <th>Nama Aset</th>
-                                <th>Kategori</th>
-                                <th>Jumlah</th>
+                                <th>ID Fasilitas Kamar</th>
+                                <th>Nama Fasilitas</th>
+                                <th>No Kamar</th>
                                 <th>Kondisi</th>
                                 <th>User ID</th>
                                 <th>Ubah</th>
@@ -102,24 +101,22 @@ table {
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($aset_cibiru1 as $item)
+                            @foreach ($faskamar_cibiru1 as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->id_aset }}</td>
-                                <td>{{ $item->nama_aset }}</td>
-                                <td>{{ $item->kategori }}</td>
-                                <td>{{ $item->jumlah }}</td>
+                                <td>{{ $item->id_fask }}</td>
+                                <td>{{ $item->nama_fasilitas }}</td>
+                                <td>{{ $item->no_kamar }}</td>
                                 <td>{{ $item->kondisi }}</td>
-                                <td>{{ $item->status }}</td>
                                 <td>{{ $item->user_id }}</td>
                                 <td>
-                                    <a href="{{ url('aset_cibiru1/'.$item->id_aset.'/edit') }}"
+                                    <a href="{{ url('faskamar_cibiru1/'.$item->id_fask.'/edit') }}"
                                        class="btn btn-success btn-sm">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="{{ url('aset_cibiru1/'.$item->id_aset) }}"
+                                    <form action="{{ url('faskamar_cibiru1/'.$item->id_fask) }}"
                                           method="POST"
                                           onsubmit="return confirm('Yakin hapus data?')">
                                         @csrf

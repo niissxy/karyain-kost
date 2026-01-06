@@ -28,7 +28,7 @@ class FasKamarCibiru1Controller extends Controller
         $user = User::all();
         // Ambil aset yang kategorinya fasilitas umum saja
         $asetFasilitasKamar = DB::table('aset_kost_cibiru1')
-        ->where('kategori_aset', 'fasilitas kamar')
+        ->where('kategori', 'fasilitas kamar')
         ->get();
 
      return view('faskamar_cibiru1.create', compact('asetFasilitasKamar'));
