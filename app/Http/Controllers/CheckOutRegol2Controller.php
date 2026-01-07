@@ -144,7 +144,7 @@ class CheckOutRegol2Controller extends Controller
             ->update(['status' => 'Check out']);
 
         // Pastikan kamar tetap kosong
-        DB::table('kamar_cibiru2')
+        DB::table('kamar_regol2')
             ->where('no_kamar', $checkout->no_kamar)
             ->update(['status_kamar' => 'Kosong']);
     });

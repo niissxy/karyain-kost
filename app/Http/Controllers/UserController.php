@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 class UserController extends Controller
 {
@@ -133,14 +134,43 @@ class UserController extends Controller
         }
     }
 
-     public function logout(Request $request)
-{
-    Auth::logout();
-    
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
-    $request->session()->flush(); // tambahkan ini
-    
-    return redirect()->route('login')->with('success', 'Logout berhasil');
-}
+      // Redirect ke Google
+    public function googleRedirect()
+    {
+
+        return Socialite::driver('google')
+        ->with(['prompt' => 'select_account']) // Paksa pilih akun
+        ->redirect();
+
+        return Socialite::driver('google')->redirect();
+    }
+
+    // Callback Google
+    public function googleCallback()
+    {
+        $googleUser = Socialite::driver('google')->user(); // tanpa stateless()
+
+        // Cari atau buat user
+        $user = \App\Models\User::firstOrCreate(
+            ['email' => $googleUser->getEmail()],
+            [
+                'name' => $googleUser->getName(),
+                'password' => bcrypt(uniqid()), // dummy password
+            ]
+        );
+
+        Auth::login($user); // login user
+        return redirect('/dashboard'); // redirect setelah login
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();                       // Logout Laravel
+        $request->session()->invalidate();     // Hapus session Laravel
+        $request->session()->regenerateToken();// Regenerate CSRF token
+
+        return redirect()->route('login')     // Redirect ke halaman login
+                         ->with('success', 'Logout berhasil, silakan login kembali.');
+    }
+
 }

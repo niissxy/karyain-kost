@@ -344,16 +344,14 @@
                 </a>
             </li>
 
-           <li class="nav-item">
-    <a href="#" class="nav-link text-white"
-       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+          <li class="nav-item">
+    <a href="{{ route('logout') }}" class="nav-link text-white">
         <i class="bi bi-box-arrow-right me-2"></i> Logout
     </a>
-
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-        @csrf
-    </form>
 </li>
+
+
+
 
 
 

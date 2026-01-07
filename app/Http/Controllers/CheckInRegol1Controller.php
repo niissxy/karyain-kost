@@ -34,17 +34,26 @@ class CheckInRegol1Controller extends Controller
     {
         $data = $request->validate([
         'id_checkin'     => 'required',
-        'tgl_checkin'   => 'required|date',
-        'nama_penghuni'     => 'required',
-        'lama_tinggal' => 'required',
-        'no_kamar' => 'required',
-        'status'        => 'required ',
-        ]);
+        'tgl_checkin'    => 'required|date',
+        'nama_penghuni'  => 'required',
+        'lama_tinggal'   => 'required',
+        'no_kamar'       => 'required',
+        'status'         => 'required', // 'aktif' atau 'booked'
+    ]);
 
-        CheckInRegol1::create($data);
+    // Simpan data check-in
+    CheckInRegol1::create($data);
 
-        return redirect()->route('checkin_regol1.index')
-            ->with('success', 'Data berhasil ditambahkan');
+    // Tentukan status kamar berdasarkan status check-in
+    $status_kamar = $data['status'] === 'Aktif' ? 'Terisi' : 'Booked';
+
+    // Update status_kamar di tabel kamar_cibiru1
+    DB::table('kamar_regol1')
+        ->where('no_kamar', $data['no_kamar'])
+        ->update(['status_kamar' => $status_kamar]);
+
+    return redirect()->route('checkin_regol1.index')
+        ->with('success', 'Data berhasil ditambahkan dan status kamar diperbarui');
     }
 
     /**
@@ -74,21 +83,25 @@ class CheckInRegol1Controller extends Controller
     public function update(Request $request, string $id_checkin)
     {
         $data = [
-            'id_checkin' => $request->id_checkin,
-            'tgl_checkin' => $request->tgl_checkin,
-            'nama_penghuni' => $request->nama_penghuni,
-            'lama_tinggal' => $request->lama_tinggal,
-            'no_kamar' => $request->no_kamar,
-            'status' => $request->status,
-        ];
+        'id_checkin'    => $request->id_checkin,
+        'tgl_checkin'   => $request->tgl_checkin,
+        'nama_penghuni' => $request->nama_penghuni,
+        'lama_tinggal'  => $request->lama_tinggal,
+        'no_kamar'      => $request->no_kamar,
+        'status'        => $request->status, // 'aktif' atau 'booked'
+    ];
 
-        CheckInRegol1::where('id_checkin', $id_checkin)->update($data);
+    CheckInRegol1::where('id_checkin', $id_checkin)->update($data);
 
-        if ($data) {
-            return redirect()->route('checkin_regol1.index')->with('success', 'Data berhasil diperbarui');
-        } else {
-            return redirect()->route('checkin_regol1.index')->with('error', 'Data gagal diperbarui');
-        }
+    // Update status_kamar sesuai status check-in
+    $status_kamar = $data['status'] === 'Aktif' ? 'Terisi' : 'Booked';
+
+    DB::table('kamar_regol1')
+        ->where('no_kamar', $data['no_kamar'])
+        ->update(['status_kamar' => $status_kamar]);
+
+    return redirect()->route('checkin_regol1.index')
+        ->with('success', 'Data berhasil diperbarui dan status kamar diperbarui');
     }
 
     /**

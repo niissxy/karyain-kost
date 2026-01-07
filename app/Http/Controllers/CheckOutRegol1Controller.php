@@ -45,7 +45,7 @@ class CheckOutRegol1Controller extends Controller
 
    $request->validate([
     'id_checkout' => 'required|string',
-    'id_checkin'  => 'required|string|exists:checkin_cibiru1,id_checkin',
+    'id_checkin'  => 'required|string|exists:checkin_regol1,id_checkin',
     'tgl_checkout'=> 'required|date',
     'nama_penghuni'=> 'required|string',
     'lama_tinggal' => 'required|numeric',
@@ -144,7 +144,7 @@ class CheckOutRegol1Controller extends Controller
             ->update(['status' => 'Check out']);
 
         // Pastikan kamar tetap kosong
-        DB::table('kamar_cibiru1')
+        DB::table('kamar_regol1')
             ->where('no_kamar', $checkout->no_kamar)
             ->update(['status_kamar' => 'Kosong']);
     });

@@ -14,7 +14,7 @@
                 <div class="card-body p-4">
 
                     <!-- Google Login -->
-                    <a href="{{ url('/auth/google') }}" class="btn btn-danger w-100 mb-3 d-flex align-items-center justify-content-center">
+                    <a href="{{ url('/auth/google/redirect') }}" class="btn btn-danger w-100 mb-3 d-flex align-items-center justify-content-center">
                         <i class="fab fa-google me-2"></i> Login dengan Google
                     </a>
 
