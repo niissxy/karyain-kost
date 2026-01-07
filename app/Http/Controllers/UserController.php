@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -131,4 +132,15 @@ class UserController extends Controller
             return redirect('user')->with('error', 'Data user gagal dihapus..');
         }
     }
+
+     public function logout(Request $request)
+{
+    Auth::logout();
+    
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    $request->session()->flush(); // tambahkan ini
+    
+    return redirect()->route('login')->with('success', 'Logout berhasil');
+}
 }
