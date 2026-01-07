@@ -3,10 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\CheckInRegol1;
 
 class CheckOutRegol1 extends Model
 {
     protected $table = 'checkout_regol1';
+    protected $primaryKey = 'id_checkout';
+    public $timestamps = true;
+    public $incrementing = false; // jika pakai string
 
     protected $fillable = [
         'id_checkout',
@@ -18,6 +22,15 @@ class CheckOutRegol1 extends Model
         'status',
         'user_id',
         'created_at',
-        'updated_at',
+        'updated_at'
     ];
+
+    public function checkin()
+    {
+        return $this->belongsTo(
+            CheckInRegol1::class,
+            'id_checkin',
+            'id_checkin'
+        );
+    }
 }
