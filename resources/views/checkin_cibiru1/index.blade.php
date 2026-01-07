@@ -98,8 +98,7 @@ table {
                                 <th>No Kamar</th>
                                 <th>Status</th>
                                 <th>User ID</th>
-                                <th>Ubah</th>
-                                <th>Hapus</th>
+                                <th class="text-center">Fungsi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -113,22 +112,25 @@ table {
                                 <td>{{ $item->no_kamar }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->user_id }}</td>
-                                <td>
-                                    <a href="{{ url('checkin_cibiru1/'.$item->id_checkin.'/edit') }}"
-                                       class="btn btn-success btn-sm">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="{{ url('checkin_cibiru1/'.$item->id_checkin) }}"
-                                          method="POST"
-                                          onsubmit="return confirm('Yakin hapus data?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-success btn-sm">
+                                <td style="text-align: center; vertical-align: middle;">
+                                    <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">
+                                    <!-- Tombol Edit -->
+                                        <a href="{{ url('checkin_cibiru1/' . $item->id_checkin . '/edit') }}" 
+                                         class="btn btn-outline-success btn-sm">
+                                         <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                         &nbsp;&nbsp;
+
+                                     <!-- Tombol Delete -->
+                                        <form action="{{ url('checkin_cibiru1/' . $item->id_checkin) }}" method="POST" 
+                                            onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">
                                             <i class="bi bi-trash"></i>
-                                        </button>
-                                    </form>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

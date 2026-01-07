@@ -31,14 +31,16 @@
 
 /* TABLE CENTER */
 .table-responsive {
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    overflow-x: auto; /* cukup ini untuk scroll horizontal */
 }
+
 
 table {
     width: 100%;
     max-width: 5000px;
-    table-layout: fixed;
+    table-layout: auto;
 }
 
 .pagetitle-wrapper {
@@ -97,8 +99,8 @@ table {
                                 <th>Jumlah</th>
                                 <th>Kondisi</th>
                                 <th>User ID</th>
-                                <th>Ubah</th>
-                                <th>Hapus</th>
+                                <th></th>
+                                <th class="text-center">Fungsi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -112,30 +114,32 @@ table {
                                 <td>{{ $item->kondisi }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->user_id }}</td>
-                                <td>
-                                    <a href="{{ url('aset_cibiru1/'.$item->id_aset.'/edit') }}"
-                                       class="btn btn-success btn-sm">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="{{ url('aset_cibiru1/'.$item->id_aset) }}"
-                                          method="POST"
-                                          onsubmit="return confirm('Yakin hapus data?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-success btn-sm">
+                                <td style="text-align: center; vertical-align: middle;">
+                                    <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">
+                                    <!-- Tombol Edit -->
+                                        <a href="{{ url('aset_cibiru1/' . $item->id_aset . '/edit') }}" 
+                                         class="btn btn-outline-success btn-sm">
+                                         <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                         &nbsp;&nbsp;
+
+                                     <!-- Tombol Delete -->
+                                        <form action="{{ url('aset_cibiru1/' . $item->id_aset) }}" method="POST" 
+                                            onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">
                                             <i class="bi bi-trash"></i>
-                                        </button>
-                                    </form>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-            </div>
-
+            </div> 
         </div>
     </section>
 
