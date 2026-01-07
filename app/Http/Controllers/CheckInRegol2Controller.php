@@ -37,6 +37,7 @@ class CheckInRegol2Controller extends Controller
         'tgl_checkin'   => 'required|date',
         'nama_penghuni'     => 'required',
         'lama_tinggal' => 'required',
+        'no_kamar' => 'required',
         'status'        => 'required ',
         ]);
 
@@ -63,7 +64,7 @@ class CheckInRegol2Controller extends Controller
         $checkin_regol2 = CheckInRegol2::where('id_checkin', $id_checkin)->first();
         return  view('checkin_regol2/edit', [
             'user' => $user,
-            'checkin_cibiru2' => $checkin_regol2
+            'checkin_regol2' => $checkin_regol2
         ]);
     }
 
@@ -77,6 +78,7 @@ class CheckInRegol2Controller extends Controller
             'tgl_checkin' => $request->tgl_checkin,
             'nama_penghuni' => $request->nama_penghuni,
             'lama_tinggal' => $request->lama_tinggal,
+            'no_kamar' => $request->no_kamar,
             'status' => $request->status,
         ];
 
@@ -94,7 +96,7 @@ class CheckInRegol2Controller extends Controller
      */
     public function destroy(string $id_checkin)
     {
-        $checkin_regol2 = DB::table('checkin_regol1')->where('id_checkin', $id_checkin)->delete();
+        $checkin_regol2 = DB::table('checkin_regol2')->where('id_checkin', $id_checkin)->delete();
         if ($checkin_regol2) {
             return redirect('checkin_regol2')->withSuccess('Data Check In Kost Regol 2 berhasil dihapus.');
         } else {

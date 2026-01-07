@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Data Check In Kost Cibiru 2')
+@section('title', 'Data Check In Kost Regol 2')
 @section('content')
 
 <style>
@@ -19,7 +19,7 @@
                     <ol class="breadcrumb float-md-end small mb-4 mt-4">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            Tambah Data Check In Kost Cibiru 2
+                            Tambah Data Check In Kost Regol 2
                         </li>
                     </ol>
                 </div>
@@ -34,13 +34,13 @@
 
                 <div class="card card-warning card-outline">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">Tambah Data Check In Kost Cibiru 2</h5>
-                        <a class="btn btn-warning btn-sm" href="{{ url('./checkin_cibiru2') }}">
+                        <h5 class="card-title mb-0">Tambah Data Check In Kost Regol 2</h5>
+                        <a class="btn btn-warning btn-sm" href="{{ url('./checkin_regol2') }}">
                             <i class="bi bi-arrow-left-circle-fill"></i> Back
                         </a>
                     </div>
 
-                    <form action="{{ url('checkin_cibiru2') }}" enctype="multipart/form-data" method="post">
+                    <form action="{{ url('checkin_regol2') }}" enctype="multipart/form-data" method="post">
                         {{ csrf_field() }}
 
                         <div class="card-body">

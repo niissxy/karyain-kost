@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CheckInCibiru2;
+use App\Models\CheckOutRegol2;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 
-class CheckInCibiru2Controller extends Controller
+class CheckOutRegol2Controller extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $checkin_cibiru2 = CheckInCibiru2::all();
-        return view('checkin_cibiru2.index', compact('checkin_cibiru2'));
+        $checkout_regol2 = CheckOutRegol2::all();
+        return view('checkout_regol2.index', compact('checkout_regol2'));
     }
 
     /**
@@ -24,7 +24,7 @@ class CheckInCibiru2Controller extends Controller
     public function create()
     {
         $user = User::all();
-        return view('checkin_cibiru2.create', compact('user'));
+        return view('checkout_regol2.create', compact('user'));
     }
 
     /**
@@ -33,17 +33,18 @@ class CheckInCibiru2Controller extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
+        'id_checkout'     => 'required',
         'id_checkin'     => 'required',
-        'tgl_checkin'   => 'required|date',
+        'tgl_checkout'   => 'required|date',
         'nama_penghuni'     => 'required',
         'lama_tinggal' => 'required',
         'no_kamar' => 'required',
         'status'        => 'required ',
         ]);
 
-        CheckInCibiru2::create($data);
+        CheckOutRegol2::create($data);
 
-        return redirect()->route('checkin_cibiru2.index')
+        return redirect()->route('checkout_regol2.index')
             ->with('success', 'Data berhasil ditambahkan');
     }
 
@@ -58,49 +59,50 @@ class CheckInCibiru2Controller extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id_checkin)
+    public function edit(string $id_checkout)
     {
         $user = User::all();
-        $checkin_cibiru2 = CheckInCibiru2::where('id_checkin', $id_checkin)->first();
-        return  view('checkin_cibiru2/edit', [
+        $checkout_regol2 = CheckOutRegol2::where('id_checkout', $id_checkout)->first();
+        return  view('checkout_regol2/edit', [
             'user' => $user,
-            'checkin_cibiru2' => $checkin_cibiru2
+            'checkout_regol2' => $checkout_regol2
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id_checkin)
+    public function update(Request $request, string $id_checkout)
     {
         $data = [
+            'id_checkout' => $request->id_checkout,
             'id_checkin' => $request->id_checkin,
-            'tgl_checkin' => $request->tgl_checkin,
+            'tgl_checkout' => $request->tgl_checkout,
             'nama_penghuni' => $request->nama_penghuni,
             'lama_tinggal' => $request->lama_tinggal,
             'no_kamar' => $request->no_kamar,
             'status' => $request->status,
         ];
 
-        CheckInCibiru2::where('id_checkin', $id_checkin)->update($data);
+        CheckOutRegol2::where('id_checkout', $id_checkout)->update($data);
 
         if ($data) {
-            return redirect()->route('checkin_cibiru2.index')->with('success', 'Data berhasil diperbarui');
+            return redirect()->route('checkout_regol2.index')->with('success', 'Data berhasil diperbarui');
         } else {
-            return redirect()->route('checkin_cibiru2.index')->with('error', 'Data gagal diperbarui');
+            return redirect()->route('checkout_regol2.index')->with('error', 'Data gagal diperbarui');
         }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id_checkin)
+    public function destroy(string $id_checkout)
     {
-        $checkin_cibiru2 = DB::table('checkin_cibiru2')->where('id_checkin', $id_checkin)->delete();
-        if ($checkin_cibiru2) {
-            return redirect('checkin_cibiru2')->withSuccess('Data Check In Kost Cibiru 2 berhasil dihapus.');
+        $checkout_regol2 = DB::table('checkout_regol2')->where('id_checkout', $id_checkout)->delete();
+        if ($checkout_regol2) {
+            return redirect('checkout_regol2')->withSuccess('Data Check Out Kost Regol 2 berhasil dihapus.');
         } else {
-            return redirect('checkin_cibiru2')->with('error', 'Data Check In Kost Cibiru 2 gagal dihapus.');
+            return redirect('checkout_regol2')->with('error', 'Data Check Out Kost Regol 2 gagal dihapus.');
         }
     }
 }

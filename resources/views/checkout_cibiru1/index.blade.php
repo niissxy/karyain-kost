@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Data Check In Kost Cibiru 2')
+@section('title', 'Data Check Out Kost Cibiru 1')
 
 @section('content')
 
@@ -62,10 +62,10 @@ table {
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="./checkin_cibiru2">Master Data</a>
+                    <a href="./checkout_cibiru1">Master Data</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    Data Check In Kost Cibiru 2
+                    Data Check Out Kost Cibiru 1
                 </li>
             </ol>
         </nav>
@@ -78,8 +78,8 @@ table {
 
             <!-- Card Header -->
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h5 class="card-title">Data Check In Kost Cibiru 2</h5>
-                <a href="{{ url('checkin_cibiru2/create') }}" class="btn btn-success btn-sm">
+                <h5 class="card-title">Data Check Out Kost Cibiru 1</h5>
+                <a href="{{ url('checkout_cibiru1/create') }}" class="btn btn-success btn-sm">
                     <i class="bi bi-plus-circle"></i> New
                 </a>
             </div>
@@ -91,10 +91,10 @@ table {
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>ID Check In</th>
-                                <th>Tanggal Check In</th>
+                                <th>ID Check Out</th>
+                                <th>Tanggal Check Out</th>
                                 <th>Nama Penghuni</th>
-                                <th>Lama Tinggal</th>
+                                <th>Lama Tinggal (hari)</th>
                                 <th>No Kamar</th>
                                 <th>Status</th>
                                 <th>User ID</th>
@@ -103,24 +103,24 @@ table {
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($checkin_cibiru2 as $item)
+                            @foreach ($checkout_cibiru1 as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->id_checkin }}</td>
-                                <td>{{ $item->tgl_checkin }}</td>
+                                <td>{{ $item->id_checkout }}</td>
+                                <td>{{ $item->tgl_checkout }}</td>
                                 <td>{{ $item->nama_penghuni }}</td>
                                 <td>{{ $item->lama_tinggal }}</td>
-                                 <td>{{ $item->no_kamar }}</td>
+                                <td>{{ $item->no_kamar }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->user_id }}</td>
                                 <td>
-                                    <a href="{{ url('checkin_cibiru2/'.$item->id_checkin.'/edit') }}"
+                                    <a href="{{ url('checkout_cibiru1/'.$item->id_checkout.'/edit') }}"
                                        class="btn btn-success btn-sm">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="{{ url('checkin_cibiru2/'.$item->id_checkin) }}"
+                                    <form action="{{ url('checkout_cibiru1/'.$item->id_checkout) }}"
                                           method="POST"
                                           onsubmit="return confirm('Yakin hapus data?')">
                                         @csrf

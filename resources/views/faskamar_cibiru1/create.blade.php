@@ -53,7 +53,7 @@
                             </div>
 
                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Nama Fasilitas</label>
+                            <label class="col-sm-3 col-form-label">Nama Fasilitas</label>
                            <div class="col-sm-9">
                                 <select name="nama_fasilitas" class="form-select" required>
                                     <option value="">-- Pilih Fasilitas Kamar --</option>

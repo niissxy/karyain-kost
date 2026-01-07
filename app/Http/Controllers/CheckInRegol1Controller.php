@@ -37,6 +37,7 @@ class CheckInRegol1Controller extends Controller
         'tgl_checkin'   => 'required|date',
         'nama_penghuni'     => 'required',
         'lama_tinggal' => 'required',
+        'no_kamar' => 'required',
         'status'        => 'required ',
         ]);
 
@@ -77,6 +78,7 @@ class CheckInRegol1Controller extends Controller
             'tgl_checkin' => $request->tgl_checkin,
             'nama_penghuni' => $request->nama_penghuni,
             'lama_tinggal' => $request->lama_tinggal,
+            'no_kamar' => $request->no_kamar,
             'status' => $request->status,
         ];
 

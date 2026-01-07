@@ -13,6 +13,7 @@ class CheckInRegol1 extends Model
         'tgl_checkin',
         'nama_penghuni',
         'lama_tinggal',
+        'no_kamar',
         'status',
         'user_id',
         'created_at',

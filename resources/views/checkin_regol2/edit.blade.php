@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Data Check In Kost Cibiru 2')
+@section('title', 'Data Check In Kost Regol 2')
 @section('content')
 
 <style>
@@ -19,7 +19,7 @@
                     <ol class="breadcrumb float-md-end small mb-4 mt-4">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            Tambah Data Check In Kost Cibiru 2
+                            Edit Data Check In Kost Regol 2
                         </li>
                     </ol>
                 </div>
@@ -34,13 +34,14 @@
 
                 <div class="card card-warning card-outline">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">Tambah Data Check In Kost Cibiru 2</h5>
-                        <a class="btn btn-warning btn-sm" href="{{ url('./checkin_cibiru2') }}">
+                        <h5 class="card-title mb-0">Edit Data Check In Kost Regol 2</h5>
+                        <a class="btn btn-warning btn-sm" href="{{ url('./checkin_regol2') }}">
                             <i class="bi bi-arrow-left-circle-fill"></i> Back
                         </a>
                     </div>
 
-                    <form action="{{ url('checkin_cibiru2') }}" enctype="multipart/form-data" method="post">
+                    <form action="{{ url('checkin_regol2/' .$checkin_regol2->id_checkin) }}" method="post"  enctype="multipart/form-data">
+                        @method('put')
                         {{ csrf_field() }}
 
                         <div class="card-body">
@@ -48,47 +49,46 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">ID Check In</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="id_checkin" required value="{{ old('id_checkin') }}">
+                                    <input type="text" class="form-control"  readonly  value="{{ old('id_checkin',$checkin_regol2->id_checkin) }}"  name="id_checkin"  required autofocus>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Tanggal Check In</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="date" name="tgl_checkin" required value="{{ old('tgl_checkin') }}">
+                                    <input type="date" class="form-control" value="{{ old('tgl_checkin',$checkin_regol2->tgl_checkin) }}"  name="tgl_checkin"  required autofocus>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nama Penghuni</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="nama_penghuni" required value="{{ old('nama_penghuni') }}">
+                                    <input type="text" class="form-control" value="{{ old('nama_penghuni',$checkin_regol2->nama_penghuni) }}"  name="nama_penghuni"  required autofocus>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Lama Tinggal</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="lama_tinggal" name="lama_tinggal" required value="{{ old('lama_tinggal') }}">
+                                    <input type="text" class="form-control" value="{{ old('lama_tinggal',$checkin_regol2->lama_tinggal) }}"  name="lama_tinggal"  required autofocus>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">No Kamar</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="no_kamar" name="no_kamar" required value="{{ old('no_kamar') }}">
+                                    <input type="text" class="form-control" value="{{ old('no_kamar',$checkin_regol2->no_kamar) }}"  name="no_kamar"  required autofocus>
                                 </div>
                             </div>
 
-                           <div class="row mb-3">
+                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Status</label>
                                 <div class="col-sm-9">
-                                    <select class="form-select" name="status">
-                                        <option value="">-- Pilih Status --</option>
-                                        <option value="Aktif">Aktif</option>
-                                        <option value="Booked">Booked</option>
-                                        <option value="Check out">Check Out</option>
-                                    </select>
+                                    <select class="form-control" id="status" name="status">
+                                        <option value='Aktif' {{ old('status', $checkin_regol2->status) == 'Aktif' ? 'selected' : '' }}>Aktif</option>
+                                        <option value='Booked' {{ old('status', $checkin_regol2->status) == 'Booked' ? 'selected' : '' }}>Booked</option>
+                                        <option value='Check out' {{ old('status', $checkin_regol2->status) == 'Check out' ? 'selected' : '' }}>Check Out</option>       
+                                    </select>  
                                 </div>
                             </div>
 

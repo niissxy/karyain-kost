@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Data Check In Kost Cibiru 2')
+@section('title', 'Data Check In Kost Regol 2')
 
 @section('content')
 
@@ -62,10 +62,10 @@ table {
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="./checkin_cibiru2">Master Data</a>
+                    <a href="./checkin_regol2">Master Data</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    Data Check In Kost Cibiru 2
+                    Data Check In Kost Regol 2
                 </li>
             </ol>
         </nav>
@@ -78,8 +78,8 @@ table {
 
             <!-- Card Header -->
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h5 class="card-title">Data Check In Kost Cibiru 2</h5>
-                <a href="{{ url('checkin_cibiru2/create') }}" class="btn btn-success btn-sm">
+                <h5 class="card-title">Data Check In Kost Regol 2</h5>
+                <a href="{{ url('checkin_regol2/create') }}" class="btn btn-success btn-sm">
                     <i class="bi bi-plus-circle"></i> New
                 </a>
             </div>
@@ -103,24 +103,24 @@ table {
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($checkin_cibiru2 as $item)
+                            @foreach ($checkin_regol2 as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->id_checkin }}</td>
                                 <td>{{ $item->tgl_checkin }}</td>
                                 <td>{{ $item->nama_penghuni }}</td>
                                 <td>{{ $item->lama_tinggal }}</td>
-                                 <td>{{ $item->no_kamar }}</td>
+                                <td>{{ $item->no_kamar }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->user_id }}</td>
                                 <td>
-                                    <a href="{{ url('checkin_cibiru2/'.$item->id_checkin.'/edit') }}"
+                                    <a href="{{ url('checkin_regol2/'.$item->id_checkin.'/edit') }}"
                                        class="btn btn-success btn-sm">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="{{ url('checkin_cibiru2/'.$item->id_checkin) }}"
+                                    <form action="{{ url('checkin_regol2/'.$item->id_checkin) }}"
                                           method="POST"
                                           onsubmit="return confirm('Yakin hapus data?')">
                                         @csrf

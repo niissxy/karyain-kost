@@ -8,6 +8,10 @@ use App\Http\Controllers\CheckInCibiru1Controller;
 use App\Http\Controllers\CheckInCibiru2Controller;
 use App\Http\Controllers\CheckInRegol1Controller;
 use App\Http\Controllers\CheckInRegol2Controller;
+use App\Http\Controllers\CheckOutCibiru1Controller;
+use App\Http\Controllers\CheckOutCibiru2Controller;
+use App\Http\Controllers\CheckOutRegol1Controller;
+use App\Http\Controllers\CheckOutRegol2Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FasKamarCibiru1Controller;
 use App\Http\Controllers\FasKamarCibiru2Controller;
@@ -42,7 +46,6 @@ use App\Http\Controllers\SewaCibiru1Controller;
 use App\Http\Controllers\SewaCibiru2Controller;
 use App\Http\Controllers\SewaRegol1Controller;
 use App\Http\Controllers\SewaRegol2Controller;
-
 use App\Http\Controllers\TransaksiCibiru1Controller;
 use App\Http\Controllers\TransaksiCibiru2Controller;
 use App\Http\Controllers\TransaksiRegol1Controller;
@@ -369,3 +372,35 @@ Route::post('/checkin_regol2', [CheckInRegol2Controller::class, 'store'])->name(
 Route::get('/checkin_regol2/{id_sewa}/edit', [CheckInRegol2Controller::class, 'edit'])->name('checkin_regol2.edit');
 Route::put('/checkin_regol2/{id_sewa}', [CheckInRegol2Controller::class, 'update'])->name('checkin_regol2.update');
 Route::delete('/checkin_regol2/{id_sewa}', [CheckInRegol2Controller::class, 'destroy'])->name('checkin_regol2.destroy');
+
+//checkout cibiru 1
+Route::get('/checkout_cibiru1', [CheckOutCibiru1Controller::class, 'index'])->name('checkout_cibiru1.index');
+Route::get('/checkout_cibiru1/create', [CheckOutCibiru1Controller::class, 'create'])->name('checkout_cibiru1.create');
+Route::post('/checkout_cibiru1', [CheckOutCibiru1Controller::class, 'store'])->name('checkout_cibiru1.store');
+Route::get('/checkout_cibiru1/{id_checkout}/edit', [CheckOutCibiru1Controller::class, 'edit'])->name('checkout_cibiru1.edit');
+Route::put('/checkout_cibiru1/{id_checkout}', [CheckOutCibiru1Controller::class, 'update'])->name('checkout_cibiru1.update');
+Route::delete('/checkout_cibiru1/{id_checkout}', [CheckOutCibiru1Controller::class, 'destroy'])->name('checkout_cibiru1.destroy');
+
+//checkout cibiru 2
+Route::get('/checkout_cibiru2', [CheckOutCibiru2Controller::class, 'index'])->name('checkout_cibiru2.index');
+Route::get('/checkout_cibiru2/create', [CheckOutCibiru2Controller::class, 'create'])->name('checkout_cibiru2.create');
+Route::post('/checkout_cibiru2', [CheckOutCibiru2Controller::class, 'store'])->name('checkout_cibiru2.store');
+Route::get('/checkout_cibiru2/{id_checkout}/edit', [CheckOutCibiru2Controller::class, 'edit'])->name('checkout_cibiru2.edit');
+Route::put('/checkout_cibiru2/{id_checkout}', [CheckOutCibiru2Controller::class, 'update'])->name('checkout_cibiru2.update');
+Route::delete('/checkout_cibiru2/{id_checkout}', [CheckOutCibiru2Controller::class, 'destroy'])->name('checkout_cibiru2.destroy');
+
+//checkout regol 1
+Route::get('/checkout_regol1', [CheckOutRegol1Controller::class, 'index'])->name('checkout_regol1.index');
+Route::get('/checkout_regol1/create', [CheckOutRegol1Controller::class, 'create'])->name('checkout_regol1.create');
+Route::post('/checkout_regol1', [CheckOutRegol1Controller::class, 'store'])->name('checkout_regol1.store');
+Route::get('/checkout_regol1/{id_checkout}/edit', [CheckOutRegol1Controller::class, 'edit'])->name('checkout_regol1.edit');
+Route::put('/checkout_regol1/{id_checkout}', [CheckOutRegol1Controller::class, 'update'])->name('checkout_regol1.update');
+Route::delete('/checkout_regol1/{id_checkout}', [CheckOutRegol1Controller::class, 'destroy'])->name('checkout_regol1.destroy');
+
+//checkout regol 2
+Route::get('/checkout_regol2', [CheckOutRegol2Controller::class, 'index'])->name('checkout_regol2.index');
+Route::get('/checkout_regol2/create', [CheckOutRegol2Controller::class, 'create'])->name('checkout_regol2.create');
+Route::post('/checkout_regol2', [CheckOutRegol2Controller::class, 'store'])->name('checkout_regol2.store');
+Route::get('/checkout_regol2/{id_checkout}/edit', [CheckOutRegol2Controller::class, 'edit'])->name('checkout_regol2.edit');
+Route::put('/checkout_regol2/{id_checkout}', [CheckOutRegol2Controller::class, 'update'])->name('checkout_regol2.update');
+Route::delete('/checkout_regol2/{id_checkout}', [CheckOutRegol2Controller::class, 'destroy'])->name('checkout_regol2.destroy');

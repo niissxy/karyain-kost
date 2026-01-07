@@ -95,6 +95,7 @@ table {
                                 <th>Tanggal Check In</th>
                                 <th>Nama Penghuni</th>
                                 <th>Lama Tinggal</th>
+                                <th>No Kamar</th>
                                 <th>Status</th>
                                 <th>User ID</th>
                                 <th>Ubah</th>
@@ -109,6 +110,7 @@ table {
                                 <td>{{ $item->tgl_checkin }}</td>
                                 <td>{{ $item->nama_penghuni }}</td>
                                 <td>{{ $item->lama_tinggal }}</td>
+                                <td>{{ $item->no_kamar }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->user_id }}</td>
                                 <td>

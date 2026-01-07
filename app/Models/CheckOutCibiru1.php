@@ -3,18 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\CheckOutCibiru1;
+use App\Models\CheckInCibiru1;
 
-class CheckInCibiru1 extends Model
+class CheckOutCibiru1 extends Model
 {
-    protected $table = 'checkin_cibiru1';
-    protected $primaryKey = 'id_checkin';
+    protected $table = 'checkout_cibiru1';
+    protected $primaryKey = 'id_checkout';
     public $timestamps = true;
-    protected $keyType = 'string';
+    public $incrementing = false; // jika pakai string
 
     protected $fillable = [
+        'id_checkout',
         'id_checkin',
-        'tgl_checkin',
+        'tgl_checkout',
         'nama_penghuni',
         'lama_tinggal',
         'no_kamar',
@@ -24,11 +25,10 @@ class CheckInCibiru1 extends Model
         'updated_at'
     ];
 
-    // RELASI WAJIB ADA
-    public function checkout()
+    public function checkin()
     {
-        return $this->hasOne(
-            CheckOutCibiru1::class,
+        return $this->belongsTo(
+            CheckInCibiru1::class,
             'id_checkin',
             'id_checkin'
         );

@@ -75,12 +75,18 @@
                             </div>
 
                             <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">No Kamar</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" value="{{ old('no_kamar',$checkin_regol1->no_kamar) }}"  name="no_kamar"  required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Status</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" id="status" name="status">
                                         <option value='Aktif' {{ old('status', $checkin_regol1->status) == 'Aktif' ? 'selected' : '' }}>Aktif</option>
                                         <option value='Booked' {{ old('status', $checkin_regol1->status) == 'Booked' ? 'selected' : '' }}>Booked</option>
-                                        <option value='Check in' {{ old('status', $checkin_regol1->status) == 'Check in' ? 'selected' : '' }}>Check In</option>
                                         <option value='Check out' {{ old('status', $checkin_regol1->status) == 'Check out' ? 'selected' : '' }}>Check Out</option>       
                                     </select>  
                                 </div>
