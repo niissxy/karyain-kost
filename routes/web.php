@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\AsetCibiru1Controller;
 use App\Http\Controllers\AsetCibiru2Controller;
 use App\Http\Controllers\AsetRegol1Controller;
@@ -50,14 +51,24 @@ use App\Http\Controllers\TransaksiCibiru1Controller;
 use App\Http\Controllers\TransaksiCibiru2Controller;
 use App\Http\Controllers\TransaksiRegol1Controller;
 use App\Http\Controllers\TransaksiRegol2Controller;
+use App\Http\Controllers\UserController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\RegisterController;
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [RegisterController::class, 'register']);
+
+Route::get('/auth/google', [GoogleController::class, 'redirect'])->name('google.login');
+Route::get('/auth/google/callback', [GoogleController::class, 'callback'])->name('google.callback');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth');
 
 // Ubah route '/' agar langsung ke dashboard
 Route::get('/', [DashboardController::class, 'index'])->name('home');
 
 //kamar cibiru 1
-Route::get('/kamar_cibiru1', [KamarCibiru1Controller::class, 'index'])->name('kamar_cibiru1.index');
+Route::get('/kamar_cibiru1', [KamarCibiru1Controller::class, 'index'])->name('kamar_cibiru1.index')->middleware('auth');
 Route::get('kamar_cibiru1/create', [KamarCibiru1Controller::class, 'create'])->name('kamar_cibiru1.create');
 Route::post('kamar_cibiru1', [KamarCibiru1Controller::class, 'store'])->name('kamar_cibiru1.store');
 Route::get('kamar_cibiru1/{id_kamar}/edit', [KamarCibiru1Controller::class, 'edit'])->name('kamar_cibiru1.edit');
@@ -404,3 +415,14 @@ Route::post('/checkout_regol2', [CheckOutRegol2Controller::class, 'store'])->nam
 Route::get('/checkout_regol2/{id_checkout}/edit', [CheckOutRegol2Controller::class, 'edit'])->name('checkout_regol2.edit');
 Route::put('/checkout_regol2/{id_checkout}', [CheckOutRegol2Controller::class, 'update'])->name('checkout_regol2.update');
 Route::delete('/checkout_regol2/{id_checkout}', [CheckOutRegol2Controller::class, 'destroy'])->name('checkout_regol2.destroy');
+
+//user
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
+// Route::get('/checkout_regol2/create', [CheckOutRegol2Controller::class, 'create'])->name('checkout_regol2.create');
+// Route::post('/checkout_regol2', [CheckOutRegol2Controller::class, 'store'])->name('checkout_regol2.store');
+// Route::get('/checkout_regol2/{id_checkout}/edit', [CheckOutRegol2Controller::class, 'edit'])->name('checkout_regol2.edit');
+// Route::put('/checkout_regol2/{id_checkout}', [CheckOutRegol2Controller::class, 'update'])->name('checkout_regol2.update');
+Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -339,7 +339,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link text-white">
+                <a href="/user" class="nav-link text-white">
                     <i class="bi bi-person-gear me-2"></i> Management User
                 </a>
             </li>

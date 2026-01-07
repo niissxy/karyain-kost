@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.admin')
 @section('title', 'Data Kamar Kost Cibiru 2')
 @section('content')
 
