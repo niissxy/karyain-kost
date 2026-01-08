@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\FasumRegol1;
+use Illuminate\Support\Facades\Auth;
 
 class FasumRegol1Controller extends Controller
 {
@@ -42,6 +43,8 @@ class FasumRegol1Controller extends Controller
         'nama_fasilitas'   => 'required',
         'kondisi'        => 'required ',
         ]);
+
+         $data['user_id'] = Auth::id();
 
         FasumRegol1::create($data);
 

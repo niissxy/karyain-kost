@@ -16,7 +16,6 @@ class CheckInCibiru1 extends Model
         'id_checkin',
         'tgl_checkin',
         'nama_penghuni',
-        'lama_tinggal',
         'no_kamar',
         'status',
         'user_id',
@@ -33,4 +32,10 @@ class CheckInCibiru1 extends Model
             'id_checkin'
         );
     }
+
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
 }

@@ -94,10 +94,9 @@ table {
                                 <th>ID Check In</th>
                                 <th>Tanggal Check In</th>
                                 <th>Nama Penghuni</th>
-                                <th>Lama Tinggal</th>
                                 <th>No Kamar</th>
                                 <th>Status</th>
-                                <th>User ID</th>
+                                <th>User</th>
                                 <th class="text-center">Fungsi</th>
                             </tr>
                         </thead>
@@ -108,10 +107,9 @@ table {
                                 <td>{{ $item->id_checkin }}</td>
                                 <td>{{ $item->tgl_checkin }}</td>
                                 <td>{{ $item->nama_penghuni }}</td>
-                                <td>{{ $item->lama_tinggal }}</td>
                                  <td>{{ $item->no_kamar }}</td>
                                 <td>{{ $item->status }}</td>
-                                <td>{{ $item->user_id }}</td>
+                                <td>{{ $item->user->name ?? '-' }}</td>
                                 <td style="text-align: center; vertical-align: middle;">
                                     <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">
                                     <!-- Tombol Edit -->

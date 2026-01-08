@@ -99,7 +99,7 @@ table {
                                 <th>Tanggal Masuk</th>
                                 <th>Tanggal Keluar</th>
                                 <th>Status</th>
-                                <th>User ID</th>
+                                <th>User</th>
                                 <th>Ubah</th>
                                 <th>Hapus</th>
                             </tr>
@@ -116,7 +116,7 @@ table {
                                 <td>{{ $item->tgl_masuk }}</td>
                                 <td>{{ $item->tgl_keluar }}</td>
                                 <td>{{ $item->status }}</td>
-                                <td>{{ $item->user_id }}</td>
+                                 <td>{{ $item->user->name ?? '-' }}</td>
                                 <td>
                                     <a href="{{ url('penghuni_regol2/'.$item->id_penghuni.'/edit') }}"
                                        class="btn btn-success btn-sm">

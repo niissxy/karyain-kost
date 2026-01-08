@@ -7,6 +7,7 @@ use App\Models\CheckInRegol2;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class CheckOutRegol2Controller extends Controller
 {
@@ -77,6 +78,7 @@ class CheckOutRegol2Controller extends Controller
         'lama_tinggal'  => $lamaTinggal,
         'no_kamar'      => $checkin->no_kamar,
         'status'        => 'Check out',
+        'user_id'       => Auth::id(), 
     ]);
 
     $checkin->update([

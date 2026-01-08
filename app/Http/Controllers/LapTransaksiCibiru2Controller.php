@@ -6,6 +6,7 @@ use App\Models\LapTransaksiCibiru2;
 use App\Models\TransaksiCibiru2;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LapTransaksiCibiru2Controller extends Controller
 {
@@ -63,6 +64,7 @@ class LapTransaksiCibiru2Controller extends Controller
         'nominal'            => $request->nominal,
         'status_pembayaran'  => $request->status_pembayaran,
         'created_at'         => now(),
+        'user_id'       => Auth::id(),
     ]);
 
     return redirect()->route('laptransaksi_cibiru2.index')

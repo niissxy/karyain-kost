@@ -67,13 +67,6 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Lama Tinggal</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="lama_tinggal" name="lama_tinggal" required value="{{ old('lama_tinggal') }}">
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">No Kamar</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="no_kamar" name="no_kamar" required value="{{ old('no_kamar') }}">

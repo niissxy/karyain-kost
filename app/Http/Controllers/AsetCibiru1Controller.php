@@ -6,6 +6,7 @@ use App\Models\AsetCibiru1;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 use function Symfony\Component\Clock\now;
 
@@ -42,6 +43,8 @@ class AsetCibiru1Controller extends Controller
         'jumlah' => 'required',
         'kondisi'        => 'required ',
         ]);
+
+        $data['user_id'] = Auth::id();
 
         AsetCibiru1::create($data);
 

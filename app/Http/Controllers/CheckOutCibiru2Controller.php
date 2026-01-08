@@ -7,12 +7,15 @@ use App\Models\CheckInCibiru2;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class CheckOutCibiru2Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $checkout_cibiru2 = CheckOutCibiru2::all();
@@ -77,6 +80,7 @@ class CheckOutCibiru2Controller extends Controller
         'lama_tinggal'  => $lamaTinggal,
         'no_kamar'      => $checkin->no_kamar,
         'status'        => 'Check out',
+        'user_id' => Auth::id(),
     ]);
 
     $checkin->update([

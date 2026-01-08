@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\FasumCibiru1;
+use Illuminate\Support\Facades\Auth;
 
 class FasumCibiru1Controller extends Controller
 {
@@ -42,6 +43,8 @@ class FasumCibiru1Controller extends Controller
         'nama_fasilitas'   => 'required',
         'kondisi'        => 'required',
         ]);
+
+         $data['user_id'] = Auth::id();
 
         FasumCibiru1::create($data);
 

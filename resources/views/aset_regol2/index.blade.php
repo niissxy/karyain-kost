@@ -96,7 +96,7 @@ table {
                                 <th>Kategori</th>
                                 <th>Jumlah</th>
                                 <th>Kondisi</th>
-                                <th>User ID</th>
+                                <th>User</th>
                                 <th></th>
                                 <th class="text-center">Fungsi</th>
                             </tr>
@@ -111,7 +111,7 @@ table {
                                 <td>{{ $item->jumlah }}</td>
                                 <td>{{ $item->kondisi }}</td>
                                 <td>{{ $item->status }}</td>
-                                <td>{{ $item->user_id }}</td>
+                                <td>{{ $item->user->name ?? '-' }}</td>
                                 <td style="text-align: center; vertical-align: middle;">
                                     <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">
                                     <!-- Tombol Edit -->

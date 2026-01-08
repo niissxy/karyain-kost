@@ -6,12 +6,15 @@ use App\Models\CheckInCibiru1;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class CheckInCibiru1Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $checkin_cibiru1 = CheckInCibiru1::all();
@@ -32,15 +35,15 @@ class CheckInCibiru1Controller extends Controller
      */
     public function store(Request $request)
     {
+
     $data = $request->validate([
         'id_checkin'     => 'required',
         'tgl_checkin'    => 'required|date',
         'nama_penghuni'  => 'required',
-        'lama_tinggal'   => 'required',
         'no_kamar'       => 'required',
         'status'         => 'required', // 'aktif' atau 'booked'
     ]);
-
+    $data['user_id'] = Auth::id();
     // Simpan data check-in
     CheckInCibiru1::create($data);
 
@@ -87,7 +90,6 @@ class CheckInCibiru1Controller extends Controller
         'id_checkin'    => $request->id_checkin,
         'tgl_checkin'   => $request->tgl_checkin,
         'nama_penghuni' => $request->nama_penghuni,
-        'lama_tinggal'  => $request->lama_tinggal,
         'no_kamar'      => $request->no_kamar,
         'status'        => $request->status, // 'aktif' atau 'booked'
     ];

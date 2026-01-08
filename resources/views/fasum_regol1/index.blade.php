@@ -94,7 +94,7 @@ table {
                                 <th>ID Fasilitas Umum</th>
                                 <th>Nama Fasilitas</th>
                                 <th>Kondisi</th>
-                                <th>User ID</th>
+                                <th>User</th>
                                 <th>Ubah</th>
                                 <th>Hapus</th>
                             </tr>
@@ -106,7 +106,7 @@ table {
                                 <td>{{ $item->id_fasum }}</td>
                                 <td>{{ $item->nama_fasilitas }}</td>
                                 <td>{{ $item->kondisi }}</td>
-                                <td>{{ $item->user_id }}</td>
+                                 <td>{{ $item->user->name ?? '-' }}</td>
                                 <td>
                                     <a href="{{ url('fasum_regol1/'.$item->id_fasum.'/edit') }}"
                                        class="btn btn-success btn-sm">

@@ -6,6 +6,7 @@ use App\Models\LapTransaksiRegol1;
 use App\Models\LaTransaksiRegol1;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LapTransaksiRegol1Controller extends Controller
 {
@@ -63,6 +64,7 @@ class LapTransaksiRegol1Controller extends Controller
         'nominal'            => $request->nominal,
         'status_pembayaran'  => $request->status_pembayaran,
         'created_at'         => now(),
+        'user_id'       => Auth::id(),
     ]);
 
     return redirect()->route('laptransaksi_regol1.index')

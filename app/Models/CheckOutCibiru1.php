@@ -33,4 +33,23 @@ class CheckOutCibiru1 extends Model
             'id_checkin'
         );
     }
+
+    public function getLamaTinggalFormattedAttribute()
+    {
+        $totalHari = (int) $this->lama_tinggal;
+
+        if ($totalHari < 30) {
+            return $totalHari . ' Hari';
+        }
+
+        $bulan = intdiv($totalHari, 30);
+        $hari  = $totalHari % 30;
+
+        if ($hari > 0) {
+            return $bulan + ' Bulan ' + $hari + ' Hari';
+        }
+
+        return $bulan . ' Bulan';
+    }
+
 }

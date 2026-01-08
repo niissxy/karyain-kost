@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\KamarCibiru2;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class KamarCibiru2Controller extends Controller
 {
@@ -38,8 +39,9 @@ class KamarCibiru2Controller extends Controller
         'no_kamar'     => 'required',
         'status_kamar' => 'required',
         'harga'        => 'required',
-        'created_at'        => now(),
         ]);
+
+         $data['user_id'] = Auth::id();
 
         KamarCibiru2::create($data);
 
@@ -73,7 +75,6 @@ class KamarCibiru2Controller extends Controller
      */
     public function update(Request $request, string $id_kamar)
     {
-        $user = auth()->user();
         $data = [
             'id_kamar' => $request->id_kamar,
             'tipe_kamar' => $request->tipe_kamar,

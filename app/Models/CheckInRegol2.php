@@ -17,9 +17,9 @@ class CheckInRegol2 extends Model
         'id_checkin',
         'nama_penghuni',
         'lama_tinggal',
-        'tgl_checkin',
         'no_kamar',
         'status',
+        'user_id',
         'created_at',
         'updated_at'
     ];

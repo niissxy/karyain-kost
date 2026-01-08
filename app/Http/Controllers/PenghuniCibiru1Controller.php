@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\PenghuniCibiru1;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class PenghuniCibiru1Controller extends Controller
 {
@@ -44,6 +45,8 @@ class PenghuniCibiru1Controller extends Controller
          'created_at'          => now(),
         ]);
 
+        $data['user_id'] = Auth::id();
+
         PenghuniCibiru1::create($data);
 
         return redirect()->route('penghuni_cibiru1.index')
@@ -76,7 +79,6 @@ class PenghuniCibiru1Controller extends Controller
      */
     public function update(Request $request, string $id_penghuni)
     {
-        $user = auth()->user();
         $data = [
             'id_penghuni' => $request->id_penghuni,
             'nama_penghuni' => $request->nama_penghuni,

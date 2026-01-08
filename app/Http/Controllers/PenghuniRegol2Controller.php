@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\PenghuniRegol2;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class PenghuniRegol2Controller extends Controller
 {
@@ -42,6 +43,8 @@ class PenghuniRegol2Controller extends Controller
         'tgl_keluar'           => 'nullable',
         'status'               => 'required',
         ]);
+
+        $data['user_id'] = Auth::id();
 
         PenghuniRegol2::create($data);
 

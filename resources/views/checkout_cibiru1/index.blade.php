@@ -97,7 +97,7 @@ table {
                                 <th>Lama Tinggal (hari)</th>
                                 <th>No Kamar</th>
                                 <th>Status</th>
-                                <th>User ID</th>
+                                <th>User</th>
                                 <th>Ubah</th>
                                 <th>Hapus</th>
                             </tr>
@@ -112,7 +112,7 @@ table {
                                 <td>{{ $item->lama_tinggal }}</td>
                                 <td>{{ $item->no_kamar }}</td>
                                 <td>{{ $item->status }}</td>
-                                <td>{{ $item->user_id }}</td>
+                                 <td>{{ $item->user->name ?? '-' }}</td>
                                 <td>
                                     <a href="{{ url('checkout_cibiru1/'.$item->id_checkout.'/edit') }}"
                                        class="btn btn-success btn-sm">

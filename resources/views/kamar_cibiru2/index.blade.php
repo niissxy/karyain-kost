@@ -95,7 +95,7 @@ table {
                                 <th>No Kamar</th>
                                 <th>Status</th>
                                 <th>Harga</th>
-                                <th>User ID</th>
+                                <th>User</th>
                                 <th>Ubah</th>
                                 <th>Hapus</th>
                             </tr>
@@ -109,7 +109,7 @@ table {
                                 <td>{{ $item->no_kamar }}</td>
                                 <td>{{ $item->status_kamar }}</td>
                                 <td>{{ $item->harga }}</td>
-                                <td>{{ $item->user_id }}</td>
+                                 <td>{{ $item->user->name ?? '-' }}</td>
                                 <td>
                                     <a href="{{ url('kamar_cibiru2/'.$item->id_kamar.'/edit') }}"
                                        class="btn btn-success btn-sm">

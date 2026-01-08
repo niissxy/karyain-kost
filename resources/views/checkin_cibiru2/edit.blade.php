@@ -67,13 +67,6 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Lama Tinggal</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{ old('lama_tinggal',$checkin_cibiru2->lama_tinggal) }}"  name="lama_tinggal"  required autofocus>
-                                </div>
-                            </div>
-
                              <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">No Kamar</label>
                                 <div class="col-sm-9">

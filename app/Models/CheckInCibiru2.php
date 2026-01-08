@@ -16,10 +16,10 @@ class CheckInCibiru2 extends Model
     protected $fillable = [
         'id_checkin',
         'nama_penghuni',
-        'lama_tinggal',
         'tgl_checkin',
         'no_kamar',
         'status',
+        'user_id',
         'created_at',
         'updated_at'
     ];

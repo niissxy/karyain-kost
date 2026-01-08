@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\KamarRegol1;
 use App\Models\LapKamarRegol1;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class LapKamarRegol1Controller extends Controller
 {
@@ -69,6 +70,7 @@ public function create()
             'status_kamar' => $request->status_kamar,
             'harga'        => $request->harga,
             'created_at'   => now(),
+            'user_id'       => Auth::id(),
         ]);
 
         return redirect()->route('lapkamar_regol1.index')

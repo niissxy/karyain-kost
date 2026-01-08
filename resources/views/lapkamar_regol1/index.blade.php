@@ -194,7 +194,7 @@ body {
                                     <td>{{ $item->tipe_kamar }}</td>
                                     <td>{{ $item->harga }}</td>
                                     <td>{{ $item->status_kamar }}</td>
-                                    <td>{{ $item->user_id }}</td>
+                                     <td>{{ $item->user->name ?? '-' }}</td>
                                     <td class="d-flex gap-1">
                                     </td>
                                 </tr>

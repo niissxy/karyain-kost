@@ -100,7 +100,7 @@ table {
                                 <th>Total Bayar</th>
                                 <th>Tanggal Pembayaran</th>
                                 <th>Status</th>
-                                <th>User ID</th>
+                                <th>User</th>
                                 <th>Ubah</th>
                                 <th>Hapus</th>
                             </tr>
@@ -118,7 +118,7 @@ table {
                                 <td>{{ $item->total_bayar }}</td>
                                 <td>{{ $item->tgl_pembayaran }}</td>
                                 <td>{{ $item->status }}</td>
-                                <td>{{ $item->user_id }}</td>
+                                <td>{{ $item->user->name ?? '-' }}</td>
                                 <td>
                                     <a href="{{ url('transaksi_cibiru1/'.$item->id_transaksi.'/edit') }}"
                                        class="btn btn-success btn-sm">

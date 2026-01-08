@@ -6,6 +6,7 @@ use App\Models\CheckInRegol1;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class CheckInRegol1Controller extends Controller
 {
@@ -36,10 +37,11 @@ class CheckInRegol1Controller extends Controller
         'id_checkin'     => 'required',
         'tgl_checkin'    => 'required|date',
         'nama_penghuni'  => 'required',
-        'lama_tinggal'   => 'required',
         'no_kamar'       => 'required',
         'status'         => 'required', // 'aktif' atau 'booked'
     ]);
+
+    $data['user_id'] = Auth::id();
 
     // Simpan data check-in
     CheckInRegol1::create($data);
@@ -86,7 +88,6 @@ class CheckInRegol1Controller extends Controller
         'id_checkin'    => $request->id_checkin,
         'tgl_checkin'   => $request->tgl_checkin,
         'nama_penghuni' => $request->nama_penghuni,
-        'lama_tinggal'  => $request->lama_tinggal,
         'no_kamar'      => $request->no_kamar,
         'status'        => $request->status, // 'aktif' atau 'booked'
     ];

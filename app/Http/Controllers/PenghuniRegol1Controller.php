@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\PenghuniRegol1;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class PenghuniRegol1Controller extends Controller
 {
@@ -43,6 +44,8 @@ class PenghuniRegol1Controller extends Controller
         'status'               => 'required',
         ]);
 
+        $data['user_id'] = Auth::id();
+
         PenghuniRegol1::create($data);
 
         return redirect()->route('penghuni_regol1.index')
@@ -75,7 +78,6 @@ class PenghuniRegol1Controller extends Controller
      */
     public function update(Request $request, string $id_penghuni)
     {
-        $user = auth()->user();
         $data = [
             'id_penghuni' => $request->id_penghuni,
             'nama_penghuni' => $request->nama_penghuni,

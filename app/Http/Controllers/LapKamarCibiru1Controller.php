@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\KamarCibiru1;
 use App\Models\LapKamarCibiru1;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class LapKamarCibiru1Controller extends Controller
 {
@@ -60,6 +61,7 @@ public function create()
             'tipe_kamar'   => 'required',
             'status_kamar' => 'required',
             'harga'        => 'required|numeric',
+            
         ]);
 
         DB::table('lap_kamar_cibiru1')->insert([
@@ -69,6 +71,7 @@ public function create()
             'status_kamar' => $request->status_kamar,
             'harga'        => $request->harga,
             'created_at'   => now(),
+            'user_id'       => Auth::id(),
         ]);
 
         return redirect()->route('lapkamar_cibiru1.index')

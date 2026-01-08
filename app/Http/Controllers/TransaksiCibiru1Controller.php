@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\TransaksiCibiru1;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class TransaksiCibiru1Controller extends Controller
 {
@@ -43,6 +44,8 @@ class TransaksiCibiru1Controller extends Controller
         'tgl_pembayaran' => 'required|date',
         'status' => 'required'
         ]);
+
+        $data['user_id'] = Auth::id();
 
         TransaksiCibiru1::create($data);
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\KamarCibiru1;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 use function Symfony\Component\Clock\now;
 
@@ -42,6 +43,8 @@ class KamarCibiru1Controller extends Controller
         'status_kamar' => 'required',
         'harga'        => 'required|numeric ',
         ]);
+
+         $data['user_id'] = Auth::id();
 
         KamarCibiru1::create($data);
 

@@ -98,7 +98,7 @@ table {
                                 <th>Tanggal Berakhir</th>
                                 <th>Jatuh Tempo</th>
                                 <th>Perpanjangan</th>
-                                <th>User ID</th>
+                                <th>User</th>
                                 <th>Ubah</th>
                                 <th>Hapus</th>
                             </tr>
@@ -114,7 +114,7 @@ table {
                                 <td>{{ $item->tgl_berakhir }}</td>
                                 <td>{{ $item->jatuh_tempo }}</td>
                                 <td>{{ $item->perpanjangan }}</td>
-                                <td>{{ $item->user_id }}</td>
+                                <td>{{ $item->user->name ?? '-' }}</td>
                                 <td>
                                     <a href="{{ url('sewa_cibiru2/'.$item->id_sewa.'/edit') }}"
                                        class="btn btn-success btn-sm">

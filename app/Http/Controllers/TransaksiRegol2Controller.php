@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\TransaksiRegol2;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class TransaksiRegol2Controller extends Controller
 {
@@ -43,6 +44,8 @@ class TransaksiRegol2Controller extends Controller
         'tgl_pembayaran' => 'required|date',
         'status' => 'required'
         ]);
+
+        $data['user_id'] = Auth::id();
 
         TransaksiRegol2::create($data);
 

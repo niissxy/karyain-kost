@@ -6,6 +6,7 @@ use App\Models\FasKamarCibiru1;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 use function Symfony\Component\Clock\now;
 
@@ -46,6 +47,8 @@ class FasKamarCibiru1Controller extends Controller
         'no_kamar'     => 'required',
         'kondisi'        => 'required ',
         ]);
+
+        $data['user_id'] = Auth::id();
 
         FasKamarCibiru1::create($data);
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\SewaRegol1;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class SewaRegol1Controller extends Controller
 {
@@ -41,6 +42,8 @@ class SewaRegol1Controller extends Controller
         'jatuh_tempo'               => 'required',
         'perpanjangan'               => 'required',
         ]);
+
+        $data['user_id'] = Auth::id();
 
         SewaRegol1::create($data);
 

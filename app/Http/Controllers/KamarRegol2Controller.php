@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\KamarRegol2;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class KamarRegol2Controller extends Controller
 {
@@ -41,6 +42,8 @@ class KamarRegol2Controller extends Controller
         'created_at'        => now(),
         ]);
 
+         $data['user_id'] = Auth::id();
+
         KamarRegol2::create($data);
 
         return redirect()->route('kamar_regol2.index')
@@ -73,7 +76,6 @@ class KamarRegol2Controller extends Controller
      */
     public function update(Request $request, string $id_kamar)
     {
-        $user = auth()->user();
         $data = [
             'id_kamar' => $request->id_kamar,
             'tipe_kamar' => $request->tipe_kamar,

@@ -177,7 +177,7 @@ body {
                                     <td>{{ $item->no_kamar }}</td>
                                     <td>{{ number_format($item->nominal,0,',','.') }}</td>
                                     <td>{{ $item->status_pembayaran }}</td>
-                                    <td>{{ $item->user_id }}</td>
+                                    <td>{{ $item->user->name ?? '-' }}</td>
                                     <td class="d-flex gap-1">
                                         <!-- <a href="{{ url('laptransaksi_cibiru1/'.$item->id_transaksi.'/edit') }}"
                                            class="btn btn-success btn-sm">

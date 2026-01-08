@@ -8,6 +8,7 @@ use App\Models\PenghuniCibiru1;
 use App\Models\LapPenghuniCibiru1;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class LapPenghuniCibiru1Controller extends Controller
 {
@@ -97,7 +98,7 @@ class LapPenghuniCibiru1Controller extends Controller
         'tgl_keluar'         => $request->tgl_keluar,
         'status_penghuni'             => $request->status_penghuni,
         'created_at'         => now(),
-        'updated_at'         => now(),
+        'user_id'       => Auth::id(),
     ]);
 
     return redirect()->route('lappenghuni_cibiru1.index')

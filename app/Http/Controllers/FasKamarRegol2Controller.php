@@ -6,6 +6,7 @@ use App\Models\FasKamarRegol2;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 use function Symfony\Component\Clock\now;
 
@@ -47,6 +48,8 @@ class FasKamarRegol2Controller extends Controller
         'no_kamar'     => 'required',
         'kondisi'        => 'required ',
         ]);
+
+         $data['user_id'] = Auth::id();
 
         FasKamarRegol2::create($data);
 

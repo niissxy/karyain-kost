@@ -6,6 +6,7 @@ use App\Models\AsetRegol2;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 use function Symfony\Component\Clock\now;
 
@@ -42,6 +43,8 @@ class AsetRegol2Controller extends Controller
         'jumlah' => 'required',
         'kondisi'        => 'required ',
         ]);
+
+        $data['user_id'] = Auth::id();
 
         AsetRegol2::create($data);
 
