@@ -194,18 +194,8 @@ body {
                                     <td>{{ $item->nama_penghuni }}</td>
                                     <td>{{ $item->tgl_masuk }}</td>
                                     <td>{{ $item->tgl_keluar }}</td>
-                                    <td>{{ $item->status_penghuni }}</td>
-                                    <td>
-                                    @if ($item->tgl_masuk && $item->tgl_keluar)
-                                        {{ Carbon::parse($item->tgl_masuk)->diffInMonths(Carbon::parse($item->tgl_keluar)) }} bulan
-                                    @elseif ($item->tgl_masuk)
-                                        {{ Carbon::parse($item->tgl_masuk)->diffInMonths(now()) }} bulan
-                                    @else
-                                        -
-                                    @endif
-                                        </td>
-
-                                    <td>{{ $item->status }}</td>
+                                    <td>{{ $item->durasi_sewa }}</td>
+                                     <td>{{ $item->status_penghuni }}</td>
                                      <td>{{ $item->user->name ?? '-' }}</td>
                                     <td class="d-flex gap-1">
                                         <!-- <a href="{{ url('laptransaksi_cibiru1/'.$item->id_transaksi.'/edit') }}"

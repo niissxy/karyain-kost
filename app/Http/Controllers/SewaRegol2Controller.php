@@ -10,12 +10,15 @@ use Illuminate\Support\Facades\Auth;
 
 class SewaRegol2Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+   
     public function index()
     {
-         $sewa_regol2 = SewaRegol2::all();
+        $sewa_regol2 = SewaRegol2::with('user')->get();
+        $sewa_regol2 = SewaRegol2::all();
         return view('sewa_regol2.index', compact('sewa_regol2'));
     }
 

@@ -57,7 +57,7 @@ class LapPenghuniCibiru1Controller extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-{
+    {
     $penghuni_cibiru1 = DB::table('penghuni_kost_cibiru1 as p')
         ->leftJoin('lap_penghuni_cibiru1 as l', 'p.id_penghuni', '=', 'l.id_penghuni')
         ->whereNull('l.id_penghuni')
@@ -67,15 +67,30 @@ class LapPenghuniCibiru1Controller extends Controller
             'p.tgl_masuk',
             'p.tgl_keluar',
             'p.status as status_penghuni', // alias disesuaikan
-            DB::raw("
-                TIMESTAMPDIFF(
+        DB::raw("
+        CONCAT(
+        TIMESTAMPDIFF(
+            MONTH,
+            p.tgl_masuk,
+            COALESCE(p.tgl_keluar, CURDATE())
+        ),
+        ' Bulan ',
+        DATEDIFF(
+            COALESCE(p.tgl_keluar, CURDATE()),
+            DATE_ADD(
+                p.tgl_masuk,
+                INTERVAL TIMESTAMPDIFF(
                     MONTH,
                     p.tgl_masuk,
                     COALESCE(p.tgl_keluar, CURDATE())
-                ) as durasi_sewa
-            ")
+                ) MONTH
+            )
+        ),
+        ' Hari'
+    ) as durasi_sewa
+    ")
         )
-        ->get();
+    ->get();
 
     return view('lappenghuni_cibiru1.create', compact('penghuni_cibiru1'));
 }
@@ -92,6 +107,7 @@ class LapPenghuniCibiru1Controller extends Controller
         'nama_penghuni'       => 'required',
         'tgl_masuk'           => 'required|date',
         'tgl_keluar'          => 'nullable',
+        'durasi_sewa'          => 'required',
         'status_penghuni'     => 'required',
     ]);
 
@@ -100,6 +116,7 @@ class LapPenghuniCibiru1Controller extends Controller
         'nama_penghuni'      => $request->nama_penghuni,
         'tgl_masuk'          => $request->tgl_masuk,
         'tgl_keluar'         => $request->tgl_keluar,
+        'durasi_sewa'         => $request->durasi_sewa,
         'status_penghuni'             => $request->status_penghuni,
         'created_at'         => now(),
         'user_id'       => Auth::id(),

@@ -66,17 +66,31 @@ class LapPenghuniRegol1Controller extends Controller
             'p.nama_penghuni',
             'p.tgl_masuk',
             'p.tgl_keluar',
-            'p.status as status_penghuni', // ✅ alias disesuaikan
-            DB::raw("
-                TIMESTAMPDIFF(
+            'p.status as status_penghuni',
+        DB::raw("
+        CONCAT(
+        TIMESTAMPDIFF(
+            MONTH,
+            p.tgl_masuk,
+            COALESCE(p.tgl_keluar, CURDATE())
+        ),
+        ' Bulan ',
+        DATEDIFF(
+            COALESCE(p.tgl_keluar, CURDATE()),
+            DATE_ADD(
+                p.tgl_masuk,
+                INTERVAL TIMESTAMPDIFF(
                     MONTH,
                     p.tgl_masuk,
                     COALESCE(p.tgl_keluar, CURDATE())
-                ) as durasi_sewa
-            ")
+                ) MONTH
+            )
+        ),
+        ' Hari'
+    ) as durasi_sewa
+    ")
         )
-        ->get();
-
+    ->get();
     return view('lappenghuni_regol1.create', compact('penghuni_regol1'));
 }
 

@@ -10,12 +10,15 @@ use Illuminate\Support\Facades\Auth;
 
 class SewaCibiru2Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
-         $sewa_cibiru2 = SewaCibiru2::all();
+        $sewa_cibiru2 = SewaCibiru2::with('user')->get();
+        $sewa_cibiru2 = SewaCibiru2::all();
         return view('sewa_cibiru2.index', compact('sewa_cibiru2'));
     }
 

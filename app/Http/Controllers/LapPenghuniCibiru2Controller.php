@@ -66,17 +66,31 @@ class LapPenghuniCibiru2Controller extends Controller
             'p.nama_penghuni',
             'p.tgl_masuk',
             'p.tgl_keluar',
-            'p.status as status_penghuni', // ✅ alias disesuaikan
-            DB::raw("
-                TIMESTAMPDIFF(
+            'p.status as status_penghuni', //alias disesuaikan
+        DB::raw("
+        CONCAT(
+        TIMESTAMPDIFF(
+            MONTH,
+            p.tgl_masuk,
+            COALESCE(p.tgl_keluar, CURDATE())
+        ),
+        ' Bulan ',
+        DATEDIFF(
+            COALESCE(p.tgl_keluar, CURDATE()),
+            DATE_ADD(
+                p.tgl_masuk,
+                INTERVAL TIMESTAMPDIFF(
                     MONTH,
                     p.tgl_masuk,
                     COALESCE(p.tgl_keluar, CURDATE())
-                ) as durasi_sewa
-            ")
+                ) MONTH
+            )
+        ),
+        ' Hari'
+    ) as durasi_sewa
+    ")
         )
-        ->get();
-
+    ->get();
     return view('lappenghuni_cibiru2.create', compact('penghuni_cibiru2'));
 }
 
@@ -92,6 +106,7 @@ class LapPenghuniCibiru2Controller extends Controller
         'nama_penghuni'      => 'required',
         'tgl_masuk'          => 'required|date',
         'tgl_keluar'          => 'nullable',
+        'durasi_sewa'          => 'required',
         'status_penghuni'             => 'required',
     ]);
 
@@ -100,6 +115,7 @@ class LapPenghuniCibiru2Controller extends Controller
         'nama_penghuni'      => $request->nama_penghuni,
         'tgl_masuk'          => $request->tgl_masuk,
         'tgl_keluar'         => $request->tgl_keluar,
+        'durasi_sewa'         => $request->durasi_sewa,
         'status_penghuni'             => $request->status_penghuni,
         'created_at'         => now(),
         'user_id'       => Auth::id(),

@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class PenghuniRegol1Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+   
     public function index()
     {
+        $penghuni_regol1 = PenghuniRegol1::with('user')->get();
         $penghuni_regol1 = PenghuniRegol1::all();
         return view('penghuni_regol1.index', compact('penghuni_regol1'));
     }

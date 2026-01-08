@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class TransaksiRegol1Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+       $this->middleware('auth');
+    }
+    
     public function index()
     {
+        $transaksi_regol1 = TransaksiRegol1::with('user')->get();
         $transaksi_regol1 = TransaksiRegol1::all();
         return view('transaksi_regol1.index', compact('transaksi_regol1'));
     }
