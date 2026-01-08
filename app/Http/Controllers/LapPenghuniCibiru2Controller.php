@@ -57,7 +57,18 @@ class LapPenghuniCibiru2Controller extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-{
+    {
+         $lastKode = LapPenghuniCibiru2::latest()->first();
+
+        if ($lastKode) {
+            $lastNumber = (int) substr($lastKode->id_aset, 3);
+            $newNumber = $lastNumber + 1;
+        } else {
+            $newNumber = 1;
+        }
+
+        $newKode = 'LP-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+
     $penghuni_cibiru2 = DB::table('penghuni_kost_cibiru2 as p')
         ->leftJoin('lap_penghuni_cibiru2 as l', 'p.id_penghuni', '=', 'l.id_penghuni')
         ->whereNull('l.id_penghuni')
@@ -91,8 +102,8 @@ class LapPenghuniCibiru2Controller extends Controller
     ")
         )
     ->get();
-    return view('lappenghuni_cibiru2.create', compact('penghuni_cibiru2'));
-}
+    return view('lappenghuni_cibiru2.create', compact('penghuni_cibiru2', 'newKode'));
+    }
 
 
 

@@ -48,7 +48,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">ID Fasilitas Umum</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="id_fasum" required value="{{ old('id_fasum') }}">
+                                    <input class="form-control" name="id_fasum" required value="{{ $newKode }}">
                                 </div>
                             </div>
 

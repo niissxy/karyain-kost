@@ -39,6 +39,17 @@ class LapTransaksiCibiru1Controller extends Controller
      */
     public function create()
     {
+        $lastKode = LapTransaksiCibiru1::latest()->first();
+
+        if ($lastKode) {
+            $lastNumber = (int) substr($lastKode->id_aset, 3);
+            $newNumber = $lastNumber + 1;
+        } else {
+            $newNumber = 1;
+        }
+
+        $newKode = 'LT-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+
        $transaksi = DB::table('transaksi_cibiru1 as t')
         ->leftJoin('lap_transaksi_cibiru1 as l', 't.id_transaksi', '=', 'l.id_transaksi')
         ->whereNull('l.id_transaksi')
@@ -51,7 +62,7 @@ class LapTransaksiCibiru1Controller extends Controller
         )
         ->get();
 
-    return view('laptransaksi_cibiru1.create', compact('transaksi'));
+    return view('laptransaksi_cibiru1.create', compact('transaksi', 'newKode'));
 
 
     }

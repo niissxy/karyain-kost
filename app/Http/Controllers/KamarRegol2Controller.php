@@ -28,7 +28,19 @@ class KamarRegol2Controller extends Controller
     public function create()
     {
         $user = User::all();
-        return view('kamar_regol2.create', compact('user'));
+
+         $lastKode = KamarRegol2::latest()->first();
+
+        if ($lastKode) {
+            $lastNumber = (int) substr($lastKode->id_kamar, 3);
+            $newNumber = $lastNumber + 1;
+        } else {
+            $newNumber = 1;
+        }
+
+        $newKode = 'K-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+
+        return view('kamar_regol2.create', compact('user', 'newKode'));
     }
 
     /**

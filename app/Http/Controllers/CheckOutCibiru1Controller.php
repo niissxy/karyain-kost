@@ -28,7 +28,19 @@ class CheckOutCibiru1Controller extends Controller
      */
     public function create()
     {
-         $user = User::all();
+        
+    $user = User::all();
+
+     $lastKode = CheckOutCibiru1::latest()->first();
+
+        if ($lastKode) {
+            $lastNumber = (int) substr($lastKode->id_checkout, 3);
+            $newNumber = $lastNumber + 1;
+        } else {
+            $newNumber = 1;
+        }
+
+        $newKode = 'CO-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
 
   // Ambil id_checkin yang sudah checkout
     $usedCheckin = CheckOutCibiru1::pluck('id_checkin');
@@ -38,7 +50,7 @@ class CheckOutCibiru1Controller extends Controller
         ->whereNotIn('id_checkin', $usedCheckin)
         ->get();
 
-    return view('checkout_cibiru1.create', compact('checkin', 'user'));
+    return view('checkout_cibiru1.create', compact('checkin', 'user', 'newKode'));
     }
 
     /**

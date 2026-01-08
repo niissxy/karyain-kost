@@ -30,12 +30,24 @@ class FasKamarCibiru2Controller extends Controller
    public function create()
     {
          $user = User::all();
+
+         $lastKode = FasKamarCibiru2::latest()->first();
+
+        if ($lastKode) {
+            $lastNumber = (int) substr($lastKode->id_fask, 3);
+            $newNumber = $lastNumber + 1;
+        } else {
+            $newNumber = 1;
+        }
+
+        $newKode = 'FK-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+
         // Ambil aset yang kategorinya fasilitas kamar saja
         $asetFasilitasKamar = DB::table('aset_kost_cibiru2')
         ->where('kategori', 'fasilitas kamar')
         ->get();
 
-     return view('faskamar_cibiru2.create', compact('asetFasilitasKamar'));
+     return view('faskamar_cibiru2.create', compact('asetFasilitasKamar', 'newKode'));
     }
 
 

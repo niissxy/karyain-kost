@@ -28,7 +28,19 @@ class SewaRegol2Controller extends Controller
     public function create()
     {
         $user = User::all();
-        return view('sewa_regol2.create', compact('user'));
+
+        $lastKode = SewaRegol2::latest()->first();
+
+        if ($lastKode) {
+            $lastNumber = (int) substr($lastKode->id_aset, 3);
+            $newNumber = $lastNumber + 1;
+        } else {
+            $newNumber = 1;
+        }
+
+        $newKode = 'S-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+
+        return view('sewa_regol2.create', compact('user', 'newKode'));
     }
 
     /**

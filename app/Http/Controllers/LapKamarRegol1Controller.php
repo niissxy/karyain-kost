@@ -45,10 +45,21 @@ class LapKamarRegol1Controller extends Controller
 
 public function create()
 {
+     $lastKode = LapKamarRegol1::latest()->first();
+
+        if ($lastKode) {
+            $lastNumber = (int) substr($lastKode->id_aset, 3);
+            $newNumber = $lastNumber + 1;
+        } else {
+            $newNumber = 1;
+        }
+
+        $newKode = 'LK-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+
     // Ambil semua kamar agar bisa dipilih di form
     $lapkamar_regol1 = DB::table('kamar_regol1')->get();
 
-    return view('lapkamar_regol1.create', compact('lapkamar_regol1'));
+    return view('lapkamar_regol1.create', compact('lapkamar_regol1', 'newKode'));
 }
 
 

@@ -48,7 +48,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">ID Check Out</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" id="id_checkout" name="id_checkout" value="{{ old('id_checkout') }}">
+                                    <input class="form-control" id="id_checkout" name="id_checkout" value="{{ $newKode }}">
                                 </div>
                             </div>
 

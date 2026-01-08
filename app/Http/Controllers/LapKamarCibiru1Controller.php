@@ -48,7 +48,18 @@ public function create()
     // Ambil semua kamar agar bisa dipilih di form
     $lapkamar_cibiru1 = DB::table('kamar_cibiru1')->get();
 
-    return view('lapkamar_cibiru1.create', compact('lapkamar_cibiru1'));
+     $lastKode = LapKamarCibiru1::latest()->first();
+
+        if ($lastKode) {
+            $lastNumber = (int) substr($lastKode->id_ase, 3);
+            $newNumber = $lastNumber + 1;
+        } else {
+            $newNumber = 1;
+        }
+
+        $newKode = 'LK-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+
+    return view('lapkamar_cibiru1.create', compact('lapkamar_cibiru1', 'newKode'));
 }
 
 

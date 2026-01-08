@@ -58,6 +58,17 @@ class LapPenghuniRegol1Controller extends Controller
      */
     public function create()
 {
+     $lastKode = LapPenghuniRegol1::latest()->first();
+
+        if ($lastKode) {
+            $lastNumber = (int) substr($lastKode->id_aset, 3);
+            $newNumber = $lastNumber + 1;
+        } else {
+            $newNumber = 1;
+        }
+
+        $newKode = 'LP-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+
     $penghuni_regol1 = DB::table('penghuni_kost_regol1 as p')
         ->leftJoin('lap_penghuni_regol1 as l', 'p.id_penghuni', '=', 'l.id_penghuni')
         ->whereNull('l.id_penghuni')
@@ -91,7 +102,7 @@ class LapPenghuniRegol1Controller extends Controller
     ")
         )
     ->get();
-    return view('lappenghuni_regol1.create', compact('penghuni_regol1'));
+    return view('lappenghuni_regol1.create', compact('penghuni_regol1', 'newKode'));
 }
 
 

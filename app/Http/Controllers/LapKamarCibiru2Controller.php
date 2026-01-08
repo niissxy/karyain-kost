@@ -45,10 +45,22 @@ class LapKamarCibiru2Controller extends Controller
 
 public function create()
 {
+
+     $lastKode = LapKamarCibiru2::latest()->first();
+
+        if ($lastKode) {
+            $lastNumber = (int) substr($lastKode->id_aset, 3);
+            $newNumber = $lastNumber + 1;
+        } else {
+            $newNumber = 1;
+        }
+
+        $newKode = 'LK-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+
     // Ambil semua kamar agar bisa dipilih di form
     $lapkamar_cibiru2 = DB::table('kamar_cibiru2')->get();
 
-    return view('lapkamar_cibiru2.create', compact('lapkamar_cibiru2'));
+    return view('lapkamar_cibiru2.create', compact('lapkamar_cibiru2', 'newKode'));
 }
 
 

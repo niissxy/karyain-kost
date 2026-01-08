@@ -31,6 +31,17 @@ class FasKamarRegol2Controller extends Controller
     {
         
          $user = User::all();
+         $lastKode = FasKamarRegol2::latest()->first();
+
+        if ($lastKode) {
+            $lastNumber = (int) substr($lastKode->id_fask, 3);
+            $newNumber = $lastNumber + 1;
+        } else {
+            $newNumber = 1;
+        }
+
+        $newKode = 'FK-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+
         // Ambil aset yang kategorinya fasilitas kamar saja
         $asetFasilitasKamar = DB::table('aset_kost_regol2')
         ->where('kategori', 'fasilitas kamar')

@@ -30,12 +30,23 @@ class FasKamarRegol1Controller extends Controller
    public function create()
     {
          $user = User::all();
+         $lastKode = FasKamarRegol1::latest()->first();
+
+        if ($lastKode) {
+            $lastNumber = (int) substr($lastKode->id_fask, 3);
+            $newNumber = $lastNumber + 1;
+        } else {
+            $newNumber = 1;
+        }
+
+        $newKode = 'FK-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+
         // Ambil aset yang kategorinya fasilitas kamar saja
         $asetFasilitasKamar = DB::table('aset_kost_regol1')
         ->where('kategori', 'fasilitas kamar')
         ->get();
 
-     return view('faskamar_regol1.create', compact('asetFasilitasKamar'));
+     return view('faskamar_regol1.create', compact('asetFasilitasKamar', 'newKode'));
     }
 
 

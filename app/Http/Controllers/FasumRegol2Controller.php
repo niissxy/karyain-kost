@@ -28,12 +28,24 @@ class FasumRegol2Controller extends Controller
     public function create()
     {
         $user = User::all();
+
+        $lastKode = FasumRegol2::latest()->first();
+
+        if ($lastKode) {
+            $lastNumber = (int) substr($lastKode->id_fasum, 3);
+            $newNumber = $lastNumber + 1;
+        } else {
+            $newNumber = 1;
+        }
+
+        $newKode = 'FU-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+
         // Ambil aset yang kategorinya fasilitas umum saja
         $asetFasilitasUmum = DB::table('aset_kost_regol2')
         ->where('kategori', 'fasilitas umum')
         ->get();
 
-     return view('fasum_regol2.create', compact('asetFasilitasUmum'));
+     return view('fasum_regol2.create', compact('asetFasilitasUmum', 'newKode'));
     }
 
     /**
