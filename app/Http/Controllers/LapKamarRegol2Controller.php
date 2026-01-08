@@ -11,11 +11,14 @@ use Illuminate\Support\Facades\Auth;
 
 class LapKamarRegol2Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+   
     public function index()
 {
+    $lapkamar_regol2 = LapKamarRegol2::with('user')->get();
     // Ambil semua kamar
     $lapkamar_regol2 = DB::table('lap_kamar_regol2')->get();
 

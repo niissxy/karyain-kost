@@ -11,11 +11,14 @@ use Illuminate\Support\Facades\Auth;
 
 class LapKamarCibiru2Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
 {
+    $lapkamar_cibiru2 = LapKamarCibiru2::with('user')->get();
     // Ambil semua kamar
     $lapkamar_cibiru2 = DB::table('lap_kamar_cibiru2')->get();
 

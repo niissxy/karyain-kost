@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class KamarRegol2Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+   
     public function index()
     {
+        $kamar_regol2 = KamarRegol2::with('user')->get();
         $kamar_regol2 = KamarRegol2::all();
         return view('kamar_regol2.index', compact('kamar_regol2'));
     }

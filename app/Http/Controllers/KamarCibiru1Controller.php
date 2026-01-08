@@ -12,11 +12,14 @@ use function Symfony\Component\Clock\now;
 
 class KamarCibiru1Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
+        $kamar_cibiru1 = KamarCibiru1::with('user')->get();
         $kamar_cibiru1 = KamarCibiru1::all();
         return view('kamar_cibiru1.index', compact('kamar_cibiru1'));
     }

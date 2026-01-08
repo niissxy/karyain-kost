@@ -7,15 +7,19 @@ use App\Models\CheckInRegol1;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 
 class CheckOutRegol1Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
+        $checkout_regol1 = CheckOutRegol1::with('user')->get();
         $checkout_regol1 = CheckOutRegol1::all();
         return view('checkout_regol1.index', compact('checkout_regol1'));
     }

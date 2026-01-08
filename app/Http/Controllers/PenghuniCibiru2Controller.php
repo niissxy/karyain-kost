@@ -15,6 +15,7 @@ class PenghuniCibiru2Controller extends Controller
      */
     public function index()
     {
+        $penghuni_cibiru2 = PenghuniCibiru2::with('user')->get();
         $penghuni_cibiru2 = PenghuniCibiru2::all();
         return view('penghuni_cibiru2.index', compact('penghuni_cibiru2'));
     }

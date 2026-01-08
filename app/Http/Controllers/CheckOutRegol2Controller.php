@@ -11,11 +11,14 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckOutRegol2Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
+        $checkout_regol2 = CheckOutRegol2::with('user')->get();
         $checkout_regol2 = CheckOutRegol2::all();
         return view('checkout_regol2.index', compact('checkout_regol2'));
     }

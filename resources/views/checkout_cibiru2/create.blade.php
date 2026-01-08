@@ -76,7 +76,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Tanggal Check Out</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="date" id="tgl_checkout" name="tgl_checkout" value="{{ old('tgl_checkout') }}">
+                                    <input class="form-control" type="date" id="tgl_checkout" onchange="hitungLamaTinggal(this.value)" name="tgl_checkout" value="{{ old('tgl_checkout') }}">
                                 </div>
                             </div>
 
@@ -153,6 +153,41 @@ document.getElementById('id_checkin').addEventListener('change', function () {
 
     document.getElementById('lama_tinggal').value = lama;
 });
+
+document.getElementById('tgl_checkout').addEventListener('change', function () {
+
+    let tglCheckin = document.getElementById('id_checkin')
+        .selectedOptions[0]
+        .dataset.tgl; // tanggal check-in dari option
+
+    let checkin = new Date(tglCheckin);
+    let checkout = new Date(this.value);
+
+    // Hitung selisih hari
+    let selisihHari = Math.floor(
+        (checkout - checkin) / (1000 * 60 * 60 * 24)
+    );
+
+    // Jika checkout < checkin
+    if (selisihHari < 0) {
+        document.getElementById('lama_tinggal').value = '';
+        alert('Tanggal check out tidak boleh lebih kecil dari check in');
+        this.value = '';
+        return;
+    }
+
+    let hasil = '';
+    if (selisihHari < 30) {
+        hasil = selisihHari + ' Hari';
+    } else {
+        let bulan = Math.floor(selisihHari / 30);
+        let hari = selisihHari % 30;
+        hasil = bulan + ' Bulan ' +  hari + ' Hari ';
+    }
+
+    document.getElementById('lama_tinggal').value = hasil;
+});
+
 </script>
 
 

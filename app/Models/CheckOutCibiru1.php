@@ -52,4 +52,9 @@ class CheckOutCibiru1 extends Model
         return $bulan . ' Bulan';
     }
 
+     public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
 }

@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class PenghuniCibiru1Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+   
     public function index()
     {
+        $penghuni_cibiru1 = PenghuniCibiru1::with('user')->get();
         $penghuni_cibiru1 = PenghuniCibiru1::all();
         return view('penghuni_cibiru1.index', compact('penghuni_cibiru1'));
     }

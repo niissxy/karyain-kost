@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class KamarCibiru2Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
+        $kamar_cibiru2 = KamarCibiru2::with('user')->get();
         $kamar_cibiru2 = KamarCibiru2::all();
         return view('kamar_cibiru2.index', compact('kamar_cibiru2'));
     }

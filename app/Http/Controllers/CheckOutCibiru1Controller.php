@@ -11,11 +11,14 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckOutCibiru1Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
+        $checkout_cibiru1 = CheckOutCibiru1::with('user')->get();
         $checkout_cibiru1 = CheckOutCibiru1::all();
         return view('checkout_cibiru1.index', compact('checkout_cibiru1'));
     }
@@ -101,6 +104,8 @@ class CheckOutCibiru1Controller extends Controller
             'user_id'       => Auth::id(),
         ]);
 
+        $data['user_id'] = Auth::id();
+
         // update status checkin
         $checkin->update([
             'status' => 'Check out'
@@ -144,31 +149,60 @@ class CheckOutCibiru1Controller extends Controller
     /**
      * Update the specified resource in storage.
      */
-   public function update(Request $request, string $id_checkout)
+  public function update(Request $request, string $id_checkout)
 {
     $request->validate([
         'tgl_checkout' => 'required|date',
-        'lama_tinggal' => 'required|numeric|min:0',
         'status'       => 'required|string'
     ]);
 
     $checkout = CheckOutCibiru1::where('id_checkout', $id_checkout)
         ->firstOrFail();
 
-    DB::transaction(function () use ($request, $checkout) {
+    $checkin = CheckInCibiru1::where('id_checkin', $checkout->id_checkin)->first();
 
-        // Update checkout
+    if (!$checkin) {
+        return back()->with('error', 'Data check-in tidak ditemukan');
+    }
+
+    // ===============================
+    // HITUNG LAMA TINGGAL (STRING)
+    // ===============================
+    $checkinDate  = \Carbon\Carbon::parse($checkin->tgl_checkin);
+    $checkoutDate = \Carbon\Carbon::parse($request->tgl_checkout);
+
+    if ($checkoutDate->lt($checkinDate)) {
+        return back()->with('error', 'Tanggal checkout tidak boleh lebih kecil dari checkin');
+    }
+
+    $totalHari = $checkinDate->diffInDays($checkoutDate);
+
+    $bulan = intdiv($totalHari, 30);
+    $hari  = $totalHari % 30;
+
+    if ($bulan > 0 && $hari > 0) {
+        $lamaTinggal = "$bulan Bulan $hari Hari";
+    } elseif ($bulan > 0) {
+        $lamaTinggal = "$bulan Bulan";
+    } else {
+        $lamaTinggal = "$hari Hari";
+    }
+
+    // ===============================
+    // TRANSAKSI
+    // ===============================
+    DB::transaction(function () use ($request, $checkout, $lamaTinggal) {
+
         $checkout->update([
             'tgl_checkout' => $request->tgl_checkout,
-            'lama_tinggal' => $request->lama_tinggal,
+            'lama_tinggal' => $lamaTinggal, // ✅ STRING
             'status'       => $request->status,
+            'user_id'      => Auth::id(),
         ]);
 
-        // Pastikan status checkin tetap checkout
         CheckInCibiru1::where('id_checkin', $checkout->id_checkin)
             ->update(['status' => 'Check out']);
 
-        // Pastikan kamar tetap kosong
         DB::table('kamar_cibiru1')
             ->where('no_kamar', $checkout->no_kamar)
             ->update(['status_kamar' => 'Kosong']);
@@ -178,6 +212,7 @@ class CheckOutCibiru1Controller extends Controller
         ->route('checkout_cibiru1.index')
         ->with('success', 'Data checkout berhasil diperbarui');
 }
+
 
 
     /**

@@ -12,11 +12,15 @@ use Illuminate\Support\Facades\Auth;
 
 class LapPenghuniCibiru2Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+   
     public function index()
     {
+    $lappenghuni_cibiru2 = LapPenghuniCibiru2::with('user')->get();
+
     $bulanIni = Carbon::now()->month;
     $tahunIni = Carbon::now()->year;
 

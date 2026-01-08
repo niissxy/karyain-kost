@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class FasumRegol1Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+   
     public function index()
     {
+        $fasum_regol1 = FasumRegol1::with('user')->get();
         $fasum_regol1 = FasumRegol1::all();
         return view('fasum_regol1.index', compact('fasum_regol1'));
     }

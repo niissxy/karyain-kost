@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class LapTransaksiCibiru2Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+   
     public function index()
     {
+    $laptransaksi_cibir21 = LapTransaksiCibiru2::with('user')->get();
         // DATA TABEL
     $laptransaksi_cibiru2 = LapTransaksiCibiru2::all();
 

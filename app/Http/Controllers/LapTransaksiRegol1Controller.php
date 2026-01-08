@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class LapTransaksiRegol1Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+   
     public function index()
     {
+    $laptransaksi_regol1 = LapTransaksiRegol1::with('user')->get();
         // DATA TABEL
     $laptransaksi_regol1 = LapTransaksiRegol1::all();
 

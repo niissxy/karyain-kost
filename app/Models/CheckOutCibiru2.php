@@ -33,4 +33,9 @@ class CheckOutCibiru2 extends Model
             'id_checkin'
         );
     }
+
+     public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

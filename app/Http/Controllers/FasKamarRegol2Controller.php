@@ -12,11 +12,14 @@ use function Symfony\Component\Clock\now;
 
 class FasKamarRegol2Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+  
     public function index()
     {
+        $faskamar_regol2 = FasKamarRegol2::with('user')->get();
         $faskamar_regol2 = FasKamarRegol2::all();
         return view('faskamar_regol2.index', compact('faskamar_regol2'));
     }
