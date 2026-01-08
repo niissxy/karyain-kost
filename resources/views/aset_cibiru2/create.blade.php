@@ -48,7 +48,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">ID Aset</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="id_aset" required value="{{ old('id_aset') }}">
+                                    <input class="form-control" name="id_aset" required value="{{ $newKode }}">
                                 </div>
                             </div>
 
