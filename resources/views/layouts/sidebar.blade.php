@@ -263,7 +263,7 @@
                 </a>
             </li> -->
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link text-white d-flex justify-content-between align-items-center"
                    data-bs-toggle="collapse" href="#submenu-sewa">
                     <span><i class="bi bi-credit-card me-2"></i> Sewa </span>
@@ -284,7 +284,7 @@
                         <i class="bi bi-credit-card me-2"></i> Sewa Kost Regol 2
                     </a>
                 </div>
-            </li>
+            </li> -->
 
             <!-- <li class="nav-item">
                 <a href="#" class="nav-link text-white">

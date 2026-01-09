@@ -96,6 +96,7 @@ class CheckInCibiru1Controller extends Controller
             'id_transaksi'  => $newTransaksiId,
             'nama_penyewa'  => $data['nama_penghuni'],
             'no_kamar'      => $data['no_kamar'],
+            'user_id'          => Auth::id(),
         ]);
 
     return redirect()->route('checkin_cibiru1.index')

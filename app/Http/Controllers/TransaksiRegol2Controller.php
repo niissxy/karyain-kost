@@ -38,7 +38,7 @@ class TransaksiRegol2Controller extends Controller
             $newNumber = 1;
         }
 
-        $newKode = 'T-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+        $newKode = 'TR-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
 
         return view('transaksi_regol2.create', compact('user', 'newKode'));
     }
