@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CheckOutRegol2;
 use App\Models\CheckInRegol2;
+use App\Models\PenghuniRegol2;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
@@ -55,34 +56,54 @@ class CheckOutRegol2Controller extends Controller
     /**
      * Store a newly created resource in storage.
      */
-   public function store(Request $request)
-{
+  public function store(Request $request)
+    {
+    $request->validate([
+        'id_checkout' => 'required|string',
+        'id_checkin'  => 'required|string|exists:checkin_regol2,id_checkin',
+        'tgl_checkout'=> 'required|date',
+        'nama_penghuni'=> 'required|string',
+        'no_kamar'     => 'required|string',
+        'status'       => 'required|string',
+    ]);
 
-   $request->validate([
-    'id_checkout' => 'required|string',
-    'id_checkin'  => 'required|string|exists:checkin_regol2,id_checkin',
-    'tgl_checkout'=> 'required|date',
-    'nama_penghuni'=> 'required|string',
-    'lama_tinggal' => 'required|numeric',
-    'no_kamar'     => 'required|string',
-    'status'       => 'required|string',
-]);
-
-
-    // Ambil checkin aktif
+    // AMBIL CHECKIN DULU
     $checkin = CheckInRegol2::where('id_checkin', $request->id_checkin)
         ->where('status', 'Aktif')
         ->first();
 
+    // ❗ JIKA TIDAK DITEMUKAN
     if (!$checkin) {
-        return back()->with('error', 'Data checkin tidak valid atau sudah checkout');
+        return back()->with('error', 'Data check-in tidak valid atau sudah checkout');
     }
 
-    // Hitung lama tinggal
-    $lamaTinggal = \Carbon\Carbon::parse($checkin->tgl_checkin)
-        ->diffInDays($request->tgl_checkout);
+    // ===============================
+    // HITUNG LAMA TINGGAL (BULAN + HARI)
+    // ===============================
+    $checkinDate  = \Carbon\Carbon::parse($checkin->tgl_checkin);
+    $checkoutDate = \Carbon\Carbon::parse($request->tgl_checkout);
 
-    DB::transaction(function () use ($request, $checkin, $lamaTinggal) {
+    if ($checkoutDate->lt($checkinDate)) {
+        return back()->with('error', 'Tanggal checkout tidak boleh lebih kecil dari checkin');
+    }
+
+    $totalHari = $checkinDate->diffInDays($checkoutDate);
+
+    $bulan = intdiv($totalHari, 30);
+    $hari  = $totalHari % 30;
+
+    if ($bulan > 0 && $hari > 0) {
+        $lamaTinggal = "$bulan Bulan $hari Hari";
+    } elseif ($bulan > 0) {
+        $lamaTinggal = "$bulan Bulan";
+    } else {
+        $lamaTinggal = "$hari Hari";
+    }
+
+    // ===============================
+    // TRANSAKSI DATABASE
+    // ===============================
+   DB::transaction(function () use ($request, $checkin, $lamaTinggal) {
 
     CheckOutRegol2::create([
         'id_checkout'   => $request->id_checkout,
@@ -92,18 +113,28 @@ class CheckOutRegol2Controller extends Controller
         'lama_tinggal'  => $lamaTinggal,
         'no_kamar'      => $checkin->no_kamar,
         'status'        => 'Check out',
-        'user_id'       => Auth::id(), 
+        'user_id'       => Auth::id(),
     ]);
 
+    // update status checkin
     $checkin->update([
         'status' => 'Check out'
     ]);
 
+    // update status kamar
     DB::table('kamar_regol2')
         ->where('no_kamar', $checkin->no_kamar)
         ->update(['status_kamar' => 'Kosong']);
-});
 
+    // update status penghuni
+    PenghuniRegol2::where('nama_penghuni', $checkin->nama_penghuni)
+            ->where('penempatan_kamar', $checkin->no_kamar)
+            ->update([
+                'status'     => 'Keluar kost',
+                'tgl_keluar' => $request->tgl_checkout
+            ]);
+            
+});
 
     return redirect()->route('checkout_regol2.index')
         ->with('success', 'Checkout berhasil disimpan');
@@ -135,41 +166,81 @@ class CheckOutRegol2Controller extends Controller
     /**
      * Update the specified resource in storage.
      */
-   public function update(Request $request, string $id_checkout)
-{
+    public function update(Request $request, string $id_checkout)
+    {
     $request->validate([
         'tgl_checkout' => 'required|date',
-        'lama_tinggal' => 'required|numeric|min:0',
         'status'       => 'required|string'
     ]);
 
     $checkout = CheckOutRegol2::where('id_checkout', $id_checkout)
         ->firstOrFail();
 
-    DB::transaction(function () use ($request, $checkout) {
+    $checkin = CheckInRegol2::where('id_checkin', $checkout->id_checkin)->first();
 
-        // Update checkout
+    if (!$checkin) {
+        return back()->with('error', 'Data check-in tidak ditemukan');
+    }
+
+    // ===============================
+    // HITUNG LAMA TINGGAL (STRING)
+    // ===============================
+    $checkinDate  = \Carbon\Carbon::parse($checkin->tgl_checkin);
+    $checkoutDate = \Carbon\Carbon::parse($request->tgl_checkout);
+
+    if ($checkoutDate->lt($checkinDate)) {
+        return back()->with('error', 'Tanggal checkout tidak boleh lebih kecil dari checkin');
+    }
+
+    $totalHari = $checkinDate->diffInDays($checkoutDate);
+
+    $bulan = intdiv($totalHari, 30);
+    $hari  = $totalHari % 30;
+
+    if ($bulan > 0 && $hari > 0) {
+        $lamaTinggal = "$bulan Bulan $hari Hari";
+    } elseif ($bulan > 0) {
+        $lamaTinggal = "$bulan Bulan";
+    } else {
+        $lamaTinggal = "$hari Hari";
+    }
+
+    // ===============================
+    // TRANSAKSI
+    // ===============================
+    DB::transaction(function () use ($request, $checkout, $lamaTinggal) {
+
         $checkout->update([
             'tgl_checkout' => $request->tgl_checkout,
-            'lama_tinggal' => $request->lama_tinggal,
+            'lama_tinggal' => $lamaTinggal, // STRING
             'status'       => $request->status,
+            'user_id'      => Auth::id(),
         ]);
 
-        // Pastikan status checkin tetap checkout
         CheckInRegol2::where('id_checkin', $checkout->id_checkin)
             ->update(['status' => 'Check out']);
 
-        // Pastikan kamar tetap kosong
         DB::table('kamar_regol2')
             ->where('no_kamar', $checkout->no_kamar)
             ->update(['status_kamar' => 'Kosong']);
+
+             //Update tabel penghuni
+        $penghuni = PenghuniRegol2::where('penempatan_kamar', $checkout->no_kamar)
+            ->where('nama_penghuni', $checkout->nama_penghuni)
+            ->first();
+
+        if ($penghuni) {
+            $penghuni->update([
+                'tgl_keluar' => $request->tgl_checkout,
+                'status'     => 'Keluar Kost',
+            ]);
+        }
     });
 
     return redirect()
         ->route('checkout_regol2.index')
         ->with('success', 'Data checkout berhasil diperbarui');
 }
-
 
     /**
      * Remove the specified resource from storage.
@@ -184,3 +255,4 @@ class CheckOutRegol2Controller extends Controller
         }
     }
 }
+

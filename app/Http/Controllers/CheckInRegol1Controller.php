@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\CheckInRegol1;
+use App\Models\PenghuniRegol1;
+use App\Models\TransaksiRegol1;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
@@ -64,6 +66,36 @@ class CheckInRegol1Controller extends Controller
     DB::table('kamar_regol1')
         ->where('no_kamar', $data['no_kamar'])
         ->update(['status_kamar' => $status_kamar]);
+
+    // Jika check-in aktif, tambahkan ke tabel penghuni
+    if ($data['status'] === 'Aktif') {
+        // Buat id_penghuni (VARCHAR)
+        $lastPenghuni = PenghuniRegol1::latest('id_penghuni')->first();
+        $lastNumber = $lastPenghuni ? (int) substr($lastPenghuni->id_penghuni, 3) : 0;
+        $newId = 'P-' . str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
+
+        PenghuniRegol1::create([
+            'id_penghuni'      => $newId,
+            'nama_penghuni'    => $data['nama_penghuni'],
+            'penempatan_kamar' => $data['no_kamar'],
+            'tgl_masuk'        => $data['tgl_checkin'],
+            'status'           => 'Masih di kost',
+            'user_id'          => Auth::id(),
+            'alamat'           => null,
+            'kontak'           => null,
+            'tgl_keluar'       => null,
+        ]);
+    }
+
+   $lastTransaksi = TransaksiRegol1::latest('id_transaksi')->first();
+        $lastNumber = $lastTransaksi ? (int) substr($lastTransaksi->id_transaksi, 3) : 0;
+        $newTransaksiId = 'TR-' . str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
+
+        TransaksiRegol1::create([
+            'id_transaksi'  => $newTransaksiId,
+            'nama_penyewa'  => $data['nama_penghuni'],
+            'no_kamar'      => $data['no_kamar'],
+        ]);
 
     return redirect()->route('checkin_regol1.index')
         ->with('success', 'Data berhasil ditambahkan dan status kamar diperbarui');

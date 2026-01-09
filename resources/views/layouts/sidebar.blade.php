@@ -58,7 +58,7 @@
                 </a>
 
                 <div class="collapse ps-3" id="submenu-penghuni">
-                    <a href="/penghuni_regol1" class="nav-link text-white small">
+                    <a href="/penghuni_cibiru1" class="nav-link text-white small">
                         <i class="bi bi-people me-2"></i> Penghuni Kost Cibiru 1
                     </a>
                    <a href="/penghuni_cibiru2" class="nav-link text-white small">

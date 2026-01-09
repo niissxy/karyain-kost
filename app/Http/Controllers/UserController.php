@@ -11,10 +11,6 @@ use Laravel\Socialite\Facades\Socialite;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
    
     public function index()
     {
@@ -136,34 +132,34 @@ class UserController extends Controller
         }
     }
 
-      // Redirect ke Google
-    public function googleRedirect()
-    {
+    //   // Redirect ke Google
+    // public function googleRedirect()
+    // {
 
-        return Socialite::driver('google')
-        ->with(['prompt' => 'select_account']) // Paksa pilih akun
-        ->redirect();
+    //     return Socialite::driver('google')
+    //     ->with(['prompt' => 'select_account']) // Paksa pilih akun
+    //     ->redirect();
 
-        return Socialite::driver('google')->redirect();
-    }
+    //     return Socialite::driver('google')->redirect();
+    // }
 
-    // Callback Google
-    public function googleCallback()
-    {
-        $googleUser = Socialite::driver('google')->user(); // tanpa stateless()
+    // // Callback Google
+    // public function googleCallback()
+    // {
+    //     $googleUser = Socialite::driver('google')->user(); // tanpa stateless()
 
-        // Cari atau buat user
-        $user = \App\Models\User::firstOrCreate(
-            ['email' => $googleUser->getEmail()],
-            [
-                'name' => $googleUser->getName(),
-                'password' => bcrypt(uniqid()), // dummy password
-            ]
-        );
+    //     // Cari atau buat user
+    //     $user = \App\Models\User::firstOrCreate(
+    //         ['email' => $googleUser->getEmail()],
+    //         [
+    //             'name' => $googleUser->getName(),
+    //             'password' => bcrypt(uniqid()), // dummy password
+    //         ]
+    //     );
 
-        Auth::login($user); // login user
-        return redirect('/dashboard'); // redirect setelah login
-    }
+    //     Auth::login($user); // login user
+    //     return redirect('/dashboard'); // redirect setelah login
+    // }
 
     public function logout(Request $request)
     {

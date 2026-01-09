@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\CheckInCibiru1;
+use App\Models\PenghuniCibiru1;
+use App\Models\TransaksiCibiru1;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
@@ -46,30 +48,59 @@ class CheckInCibiru1Controller extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-
+{
     $data = $request->validate([
         'id_checkin'     => 'required',
         'tgl_checkin'    => 'required|date',
         'nama_penghuni'  => 'required',
         'no_kamar'       => 'required',
-        'status'         => 'required', // 'aktif' atau 'booked'
+        'status'         => 'required', // 'Aktif' atau 'Booked'
     ]);
+
     $data['user_id'] = Auth::id();
+
     // Simpan data check-in
     CheckInCibiru1::create($data);
 
-    // Tentukan status kamar berdasarkan status check-in
+    // Update status kamar
     $status_kamar = $data['status'] === 'Aktif' ? 'Terisi' : 'Booked';
-
-    // Update status_kamar di tabel kamar_cibiru1
     DB::table('kamar_cibiru1')
         ->where('no_kamar', $data['no_kamar'])
         ->update(['status_kamar' => $status_kamar]);
 
-    return redirect()->route('checkin_cibiru1.index')
-        ->with('success', 'Data berhasil ditambahkan dan status kamar diperbarui');
+    // Jika check-in aktif, tambahkan ke tabel penghuni
+    if ($data['status'] === 'Aktif') {
+        // Buat id_penghuni (VARCHAR)
+        $lastPenghuni = PenghuniCibiru1::latest('id_penghuni')->first();
+        $lastNumber = $lastPenghuni ? (int) substr($lastPenghuni->id_penghuni, 3) : 0;
+        $newId = 'P-' . str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
+
+        PenghuniCibiru1::create([
+            'id_penghuni'      => $newId,
+            'nama_penghuni'    => $data['nama_penghuni'],
+            'penempatan_kamar' => $data['no_kamar'],
+            'tgl_masuk'        => $data['tgl_checkin'],
+            'status'           => 'Masih di kost',
+            'user_id'          => Auth::id(),
+            'alamat'           => null,
+            'kontak'           => null,
+            'tgl_keluar'       => null,
+        ]);
     }
+
+   $lastTransaksi = TransaksiCibiru1::latest('id_transaksi')->first();
+        $lastNumber = $lastTransaksi ? (int) substr($lastTransaksi->id_transaksi, 3) : 0;
+        $newTransaksiId = 'TR-' . str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
+
+        TransaksiCibiru1::create([
+            'id_transaksi'  => $newTransaksiId,
+            'nama_penyewa'  => $data['nama_penghuni'],
+            'no_kamar'      => $data['no_kamar'],
+        ]);
+
+    return redirect()->route('checkin_cibiru1.index')
+        ->with('success', 'Check-in berhasil dan penghuni diperbarui');
+}
 
 
     /**

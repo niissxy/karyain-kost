@@ -94,7 +94,6 @@ table {
                                 <th>ID Transaksi</th>
                                 <th>Nama Penyewa</th>
                                 <th>Total Penyewa</th>
-                                <th>Durasi Sewa</th>
                                 <th>No Kamar</th>
                                 <th>Total Harga</th>
                                 <th>Total Bayar</th>
@@ -112,7 +111,6 @@ table {
                                 <td>{{ $item->id_transaksi }}</td>
                                 <td>{{ $item->nama_penyewa }}</td>
                                 <td>{{ $item->total_penyewa }}</td>
-                                <td>{{ $item->durasi_sewa }}</td>
                                 <td>{{ $item->no_kamar }}</td>
                                 <td>{{ $item->total_harga }}</td>
                                 <td>{{ $item->total_bayar }}</td>

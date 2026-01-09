@@ -18,7 +18,6 @@ class PenghuniCibiru1Controller extends Controller
     public function index()
     {
         $penghuni_cibiru1 = PenghuniCibiru1::with('user')->get();
-        $penghuni_cibiru1 = PenghuniCibiru1::all();
         return view('penghuni_cibiru1.index', compact('penghuni_cibiru1'));
     }
 
@@ -32,7 +31,7 @@ class PenghuniCibiru1Controller extends Controller
         $lastKode = PenghuniCibiru1::latest()->first();
 
         if ($lastKode) {
-            $lastNumber = (int) substr($lastKode->id_aset, 3);
+            $lastNumber = (int) substr($lastKode->id_penghuni, 3);
             $newNumber = $lastNumber + 1;
         } else {
             $newNumber = 1;
@@ -57,7 +56,6 @@ class PenghuniCibiru1Controller extends Controller
         'tgl_masuk'            => 'required',
         'tgl_keluar'           => 'nullable',
         'status'               => 'required',
-         'created_at'          => now(),
         ]);
 
         $data['user_id'] = Auth::id();
@@ -103,7 +101,6 @@ class PenghuniCibiru1Controller extends Controller
             'tgl_masuk' => $request->tgl_masuk,
             'tgl_keluar' => $request->tgl_keluar,
             'status' => $request->status,
-            'updated_at' => now(), // Waktu diperbarui saat ini/ Nama pembuat
         ];
 
         PenghuniCibiru1::where('id_penghuni', $id_penghuni)->update($data);

@@ -59,6 +59,7 @@
             <label class="col-sm-3 col-form-label">Tanggal Check Out</label>
             <div class="col-sm-9">
                 <input type="date" id="tgl_checkout" class="form-control"
+                onchange="hitungLamaTinggal(this.value)" 
                     name="tgl_checkout"
                     value="{{ old('tgl_checkout', $checkout_cibiru2->tgl_checkout) }}"
                     required>

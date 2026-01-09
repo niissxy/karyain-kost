@@ -11,13 +11,19 @@ class GoogleController extends Controller
 {
     public function redirect()
     {
+        return Socialite::driver('google')
+        ->with([
+            'prompt' => 'select_account',
+        ])
+        ->redirect();
+
         return Socialite::driver('google')->redirect();
     }
 
     public function callback()
     {
         // Ambil user dari Google
-        $googleUser = Socialite::driver('google')->user(); // Socialite 5.x, jangan pakai stateless()
+        $googleUser = Socialite::driver('google')->user();
 
         // Update atau buat user baru
         $user = User::updateOrCreate(

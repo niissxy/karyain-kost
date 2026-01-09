@@ -18,7 +18,6 @@ class TransaksiCibiru1Controller extends Controller
     public function index()
     {
         $transaksi_cibiru1 = TransaksiCibiru1::with('user')->get();
-        $transaksi_cibiru1 = TransaksiCibiru1::all();
         return view('transaksi_cibiru1.index', compact('transaksi_cibiru1'));
     }
 
@@ -51,7 +50,6 @@ class TransaksiCibiru1Controller extends Controller
         'id_transaksi'          => 'required',
         'nama_penyewa'        => 'required',
         'total_penyewa'     => 'required|numeric',
-        'durasi_sewa'               => 'required',
         'no_kamar'           => 'required',
         'total_harga'               => 'required|numeric',
         'total_bayar'               => 'required|numeric',
@@ -98,7 +96,6 @@ class TransaksiCibiru1Controller extends Controller
             'id_transaksi' => $request->id_transaksi,
             'nama_penyewa' => $request->nama_penyewa,
             'total_penyewa' => $request->total_penyewa,
-            'durasi_sewa' => $request->durasi_sewa,
             'no_kamar' => $request->no_kamar,
             'total_harga' => $request->total_harga,
             'total_bayar' => $request->total_bayar,

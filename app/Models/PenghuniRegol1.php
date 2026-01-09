@@ -19,7 +19,6 @@ class PenghuniRegol1 extends Model
         'penempatan_kamar', 
         'alamat', 
         'kontak',
-        'durasi_sewa',
         'tgl_masuk',
         'tgl_keluar',
         'status',

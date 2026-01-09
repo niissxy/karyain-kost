@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CheckOutCibiru1;
 use App\Models\CheckInCibiru1;
+use App\Models\PenghuniCibiru1;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
@@ -103,31 +104,39 @@ class CheckOutCibiru1Controller extends Controller
     // ===============================
     // TRANSAKSI DATABASE
     // ===============================
-    DB::transaction(function () use ($request, $checkin, $lamaTinggal) {
+   DB::transaction(function () use ($request, $checkin, $lamaTinggal) {
 
-        CheckOutCibiru1::create([
-            'id_checkout'   => $request->id_checkout,
-            'id_checkin'    => $checkin->id_checkin,
-            'tgl_checkout'  => $request->tgl_checkout,
-            'nama_penghuni' => $checkin->nama_penghuni,
-            'lama_tinggal'  => $lamaTinggal,
-            'no_kamar'      => $checkin->no_kamar,
-            'status'        => 'Check out',
-            'user_id'       => Auth::id(),
-        ]);
+    CheckOutCibiru1::create([
+        'id_checkout'   => $request->id_checkout,
+        'id_checkin'    => $checkin->id_checkin,
+        'tgl_checkout'  => $request->tgl_checkout,
+        'nama_penghuni' => $checkin->nama_penghuni,
+        'lama_tinggal'  => $lamaTinggal,
+        'no_kamar'      => $checkin->no_kamar,
+        'status'        => 'Check out',
+        'user_id'       => Auth::id(),
+    ]);
 
-        $data['user_id'] = Auth::id();
+    // update status checkin
+    $checkin->update([
+        'status' => 'Check out'
+    ]);
 
-        // update status checkin
-        $checkin->update([
-            'status' => 'Check out'
-        ]);
+    // update status kamar
+    DB::table('kamar_cibiru1')
+        ->where('no_kamar', $checkin->no_kamar)
+        ->update(['status_kamar' => 'Kosong']);
 
-        // update status kamar
-        DB::table('kamar_cibiru1')
-            ->where('no_kamar', $checkin->no_kamar)
-            ->update(['status_kamar' => 'Kosong']);
-    });
+    // update status penghuni
+    PenghuniCibiru1::where('nama_penghuni', $checkin->nama_penghuni)
+            ->where('penempatan_kamar', $checkin->no_kamar)
+            ->update([
+                'status'     => 'Keluar kost',
+                'tgl_keluar' => $request->tgl_checkout
+            ]);
+            
+});
+
 
     return redirect()
         ->route('checkout_cibiru1.index')
@@ -207,7 +216,7 @@ class CheckOutCibiru1Controller extends Controller
 
         $checkout->update([
             'tgl_checkout' => $request->tgl_checkout,
-            'lama_tinggal' => $lamaTinggal, // ✅ STRING
+            'lama_tinggal' => $lamaTinggal, // STRING
             'status'       => $request->status,
             'user_id'      => Auth::id(),
         ]);
@@ -218,6 +227,18 @@ class CheckOutCibiru1Controller extends Controller
         DB::table('kamar_cibiru1')
             ->where('no_kamar', $checkout->no_kamar)
             ->update(['status_kamar' => 'Kosong']);
+
+             //Update tabel penghuni
+        $penghuni = PenghuniCibiru1::where('penempatan_kamar', $checkout->no_kamar)
+            ->where('nama_penghuni', $checkout->nama_penghuni)
+            ->first();
+
+        if ($penghuni) {
+            $penghuni->update([
+                'tgl_keluar' => $request->tgl_checkout,
+                'status'     => 'Keluar Kost',
+            ]);
+        }
     });
 
     return redirect()

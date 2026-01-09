@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class PenghuniRegol2 extends Model
 {
+    
+    protected $primaryKey = 'id_penghuni'; // jika bukan id
+    public $incrementing = false; // jika id_penghuni manual
+    protected $keyType = 'string'; // jika varchar
+    
     protected $table = 'penghuni_kost_regol2';
 
     protected $fillable = [
