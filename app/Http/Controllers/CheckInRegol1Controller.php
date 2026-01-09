@@ -127,24 +127,57 @@ class CheckInRegol1Controller extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id_checkin)
+   public function update(Request $request, string $id_checkin)
     {
+    DB::transaction(function () use ($request, $id_checkin) {
+
+        // Ambil data checkin lama
+        $checkin = CheckInRegol1::where('id_checkin', $id_checkin)->firstOrFail();
+
+        // =========================
+        // UPDATE CHECKIN
+        // =========================
         $data = [
-        'id_checkin'    => $request->id_checkin,
-        'tgl_checkin'   => $request->tgl_checkin,
-        'nama_penghuni' => $request->nama_penghuni,
-        'no_kamar'      => $request->no_kamar,
-        'status'        => $request->status, // 'aktif' atau 'booked'
-    ];
+            'tgl_checkin'   => $request->tgl_checkin,
+            'nama_penghuni' => $request->nama_penghuni,
+            'no_kamar'      => $request->no_kamar,
+            'status'        => $request->status,
+        ];
 
-    CheckInRegol1::where('id_checkin', $id_checkin)->update($data);
+        $checkin->update($data);
 
-    // Update status_kamar sesuai status check-in
-    $status_kamar = $data['status'] === 'Aktif' ? 'Terisi' : 'Booked';
+        // =========================
+        // UPDATE STATUS KAMAR
+        // =========================
+        $status_kamar = $request->status === 'Aktif' ? 'Terisi' : 'Booked';
 
-    DB::table('kamar_regol1')
-        ->where('no_kamar', $data['no_kamar'])
-        ->update(['status_kamar' => $status_kamar]);
+        DB::table('kamar_cibiru1')
+            ->where('no_kamar', $request->no_kamar)
+            ->update(['status_kamar' => $status_kamar]);
+
+        // =========================
+        // UPDATE PENGHUNI
+        // =========================
+        $penghuni = PenghuniRegol1::where('nama_penghuni', $checkin->nama_penghuni)
+            ->where('penempatan_kamar', $checkin->no_kamar)
+            ->where('status', 'Masih di kost')
+            ->first();
+
+        if ($penghuni) {
+            // update tgl_masuk di penghuni
+            $penghuni->update([
+                'tgl_masuk' => $request->tgl_checkin
+            ]);
+
+            // update tgl_masuk di laporan penghuni
+            DB::table('lap_penghuni_regol1')
+                ->where('id_penghuni', $penghuni->id_penghuni)
+                ->update([
+                    'tgl_masuk' => $request->tgl_checkin
+                ]);
+        }
+
+    });
 
     return redirect()->route('checkin_regol1.index')
         ->with('success', 'Data berhasil diperbarui dan status kamar diperbarui');

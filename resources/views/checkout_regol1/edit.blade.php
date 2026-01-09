@@ -83,7 +83,7 @@
         </div>
 
         <div class="row mb-3">
-            <label class="col-sm-3 col-form-label">Lama Tinggal (hari)</label>
+            <label class="col-sm-3 col-form-label">Lama Tinggal</label>
             <div class="col-sm-9">
                 <input type="text" id="lama_tinggal" class="form-control"
                     name="lama_tinggal"

@@ -133,8 +133,22 @@ class CheckOutRegol1Controller extends Controller
             ->update([
                 'status'     => 'Keluar kost',
                 'tgl_keluar' => $request->tgl_checkout
-            ]);
-            
+    ]);
+
+    // ambil id_penghuni DARI TABEL PENGHUNI
+$penghuni = PenghuniRegol1::where('nama_penghuni', $checkin->nama_penghuni)
+    ->where('penempatan_kamar', $checkin->no_kamar)
+    ->first();
+
+// update laporan penghuni
+if ($penghuni) {
+    DB::table('lap_penghuni_regol1')
+        ->where('id_penghuni', $penghuni->id_penghuni)
+        ->update([
+            'tgl_keluar'      => $request->tgl_checkout,
+            'status_penghuni' => 'Keluar kost',
+        ]);
+}
 });
 
     return redirect()->route('checkout_regol1.index')
@@ -237,6 +251,15 @@ class CheckOutRegol1Controller extends Controller
                 'status'     => 'Keluar Kost',
             ]);
         }
+
+        if ($penghuni) {
+        DB::table('lap_penghuni_regol1')
+        ->where('id_penghuni', $penghuni->id_penghuni)
+        ->update([
+            'tgl_keluar' => $request->tgl_checkout,
+            'status_penghuni'     => 'Keluar kost',
+        ]);
+    }
     });
 
 

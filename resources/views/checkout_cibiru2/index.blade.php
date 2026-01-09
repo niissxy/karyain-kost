@@ -94,7 +94,7 @@ table {
                                 <th>ID Check Out</th>
                                 <th>Tanggal Check Out</th>
                                 <th>Nama Penghuni</th>
-                                <th>Lama Tinggal (hari)</th>
+                                <th>Lama Tinggal</th>
                                 <th>No Kamar</th>
                                 <th>Status</th>
                                 <th>User</th>

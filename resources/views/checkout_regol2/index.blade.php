@@ -94,7 +94,7 @@ table {
                                 <th>ID Check Out</th>
                                 <th>Tanggal Check Out</th>
                                 <th>Nama Penghuni</th>
-                                <th>Lama Tinggal (hari)</th>
+                                <th>Lama Tinggal</th>
                                 <th>No Kamar</th>
                                 <th>Status</th>
                                 <th>User</th>
@@ -126,7 +126,7 @@ table {
                                         </a>
                                          &nbsp;&nbsp;
                                      <!-- Tombol Delete -->
-                                        <form action="{{ url('checkin_regol2/' . $item->id_checkout) }}" method="POST" 
+                                        <form action="{{ url('checkout_regol2/' . $item->id_checkout) }}" method="POST" 
                                             onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">
                                             @csrf
                                             @method('DELETE')

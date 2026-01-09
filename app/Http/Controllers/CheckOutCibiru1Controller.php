@@ -123,30 +123,39 @@ class CheckOutCibiru1Controller extends Controller
         'status' => 'Check out'
     ]);
 
-    // update status kamar
-    DB::table('kamar_cibiru1')
-        ->where('no_kamar', $checkin->no_kamar)
-        ->update(['status_kamar' => 'Kosong']);
+   // update status kamar (TETAP)
+DB::table('kamar_cibiru1')
+    ->where('no_kamar', $checkin->no_kamar)
+    ->update(['status_kamar' => 'Kosong']);
 
-    // update status penghuni
-    PenghuniCibiru1::where('nama_penghuni', $checkin->nama_penghuni)
-            ->where('penempatan_kamar', $checkin->no_kamar)
-            ->update([
-                'status'     => 'Keluar kost',
-                'tgl_keluar' => $request->tgl_checkout
-            ]);
-            
+// update status penghuni (TIDAK DIUBAH)
+PenghuniCibiru1::where('nama_penghuni', $checkin->nama_penghuni)
+    ->where('penempatan_kamar', $checkin->no_kamar)
+    ->update([
+        'status'     => 'Keluar kost',
+        'tgl_keluar' => $request->tgl_checkout
+    ]);
+
+// ambil id_penghuni DARI TABEL PENGHUNI
+$penghuni = PenghuniCibiru1::where('nama_penghuni', $checkin->nama_penghuni)
+    ->where('penempatan_kamar', $checkin->no_kamar)
+    ->first();
+
+// update laporan penghuni
+if ($penghuni) {
+    DB::table('lap_penghuni_cibiru1')
+        ->where('id_penghuni', $penghuni->id_penghuni)
+        ->update([
+            'tgl_keluar'      => $request->tgl_checkout,
+            'status_penghuni' => 'Keluar kost',
+        ]);
+}
 });
-
 
     return redirect()
         ->route('checkout_cibiru1.index')
         ->with('success', 'Checkout berhasil disimpan');
-}
-
-
-
-
+   }
     /**
      * Display the specified resource.
      */
@@ -241,6 +250,16 @@ class CheckOutCibiru1Controller extends Controller
                 'status'     => 'Keluar Kost',
             ]);
         }
+
+       if ($penghuni) {
+        DB::table('lap_penghuni_cibiru1')
+        ->where('id_penghuni', $penghuni->id_penghuni)
+        ->update([
+            'tgl_keluar' => $request->tgl_checkout,
+            'status_penghuni'     => 'Keluar kost',
+        ]);
+}
+
     });
 
     return redirect()
