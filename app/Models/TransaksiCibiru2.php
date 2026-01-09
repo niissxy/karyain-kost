@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class TransaksiCibiru2 extends Model
 {
+    protected $primaryKey = 'id_transaksi'; 
+    public $incrementing = false; 
+    protected $keyType = 'string'; 
+    
     protected $table = 'transaksi_cibiru2';
 
     protected $fillable = [

@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class TransaksiRegol1 extends Model
 {
+    protected $primaryKey = 'id_transaksi'; 
+    public $incrementing = false; 
+    protected $keyType = 'string'; 
+
     protected $table = 'transaksi_regol1';
+
     protected $fillable = [
         'id_transaksi',
         'nama_penyewa',

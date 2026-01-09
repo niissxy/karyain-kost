@@ -83,9 +83,9 @@
         </div>
 
         <div class="row mb-3">
-            <label class="col-sm-3 col-form-label">Lama Tinggal (hari)</label>
+            <label class="col-sm-3 col-form-label">Lama Tinggal</label>
             <div class="col-sm-9">
-                <input type="number" id="lama_tinggal" class="form-control"
+                <input type="text" id="lama_tinggal" class="form-control"
                     name="lama_tinggal"
                     value="{{ old('lama_tinggal', $checkout_cibiru2->lama_tinggal) }}"
                     required>
@@ -127,23 +127,35 @@
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const tglCheckout = document.querySelector('[name="tgl_checkout"]');
-    const tglCheckin  = document.getElementById('tgl_checkin');
-    const lamaTinggal = document.getElementById('lama_tinggal');
+document.getElementById('tgl_checkout').addEventListener('change', function () {
 
-    tglCheckout.addEventListener('change', function () {
-        if (!tglCheckout.value || !tglCheckin.value) return;
+    let tglCheckin = document.getElementById('tgl_checkin').value;
+    if (!tglCheckin) return;
 
-        const checkinDate  = new Date(tglCheckin.value);
-        const checkoutDate = new Date(tglCheckout.value);
+    let checkin  = new Date(tglCheckin);
+    let checkout = new Date(this.value);
 
-        let diff = Math.floor(
-            (checkoutDate - checkinDate) / (1000 * 60 * 60 * 24)
-        );
+    let selisihHari = Math.floor(
+        (checkout - checkin) / (1000 * 60 * 60 * 24)
+    );
 
-        lamaTinggal.value = diff >= 0 ? diff : 0;
-    });
+    if (selisihHari < 0) {
+        alert('Tanggal check out tidak boleh lebih kecil dari check in');
+        this.value = '';
+        document.getElementById('lama_tinggal').value = '';
+        return;
+    }
+
+    let hasil = '';
+    if (selisihHari < 30) {
+        hasil = selisihHari + ' Hari';
+    } else {
+        let bulan = Math.floor(selisihHari / 30);
+        let hari  = selisihHari % 30;
+        hasil = bulan + ' Bulan ' + (hari > 0 ? ' ' + hari + ' Hari' : '');
+    }
+
+    document.getElementById('lama_tinggal').value = hasil;
 });
 </script>
 
