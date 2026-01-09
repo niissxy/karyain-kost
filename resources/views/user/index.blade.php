@@ -96,7 +96,7 @@ table {
                                 <th>Email</th>
                                 <th>Password</th>
                                 <th>No HP</th>
-                                <th>Hapus</th>
+                                <th class="text-center">Fungsi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -108,16 +108,17 @@ table {
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->password }}</td>
                                 <td>{{ $item->phone }}</td>
-                                <td>
-                                    <form action="{{ url('user/'.$item->id) }}"
-                                          method="POST"
-                                          onsubmit="return confirm('Yakin hapus data?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-success btn-sm">
+                                <td style="text-align: center; vertical-align: middle;">
+                                    <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">
+                                        <form action="{{ url('user/' . $item->id) }}" method="POST" 
+                                            onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">
                                             <i class="bi bi-trash"></i>
-                                        </button>
-                                    </form>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

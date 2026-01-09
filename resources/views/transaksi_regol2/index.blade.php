@@ -101,7 +101,7 @@ table {
                                 <th>Tanggal Pembayaran</th>
                                 <th>Status</th>
                                 <th>User</th>
-                               <th class="text-center"></th>
+                               <th class="text-center">Fungsi</th>
                             </tr>
                         </thead>
                         <tbody>
