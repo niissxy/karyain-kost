@@ -145,9 +145,10 @@ class CheckOutRegol2Controller extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id_checkout)
     {
-        //
+        $checkout_regol2 = CheckOutRegol2::where('id_checkout', $id_checkout)->firstOrFail();
+        return view('checkout_regol2.show', compact('checkout_regol2'));
     }
 
     /**

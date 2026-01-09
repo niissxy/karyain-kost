@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Psy\ManualUpdater\Checker;
 
 class CheckOutCibiru1Controller extends Controller
 {
@@ -149,9 +150,10 @@ class CheckOutCibiru1Controller extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id_checkout)
     {
-        //
+        $checkout_cibiru1 = CheckOutCibiru1::where('id_checkout', $id_checkout)->firstOrFail();
+        return view('checkout_cibiru1.show', compact('checkout_cibiru1'));
     }
 
     /**
