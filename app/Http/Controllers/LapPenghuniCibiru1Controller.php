@@ -114,6 +114,7 @@ class LapPenghuniCibiru1Controller extends Controller
     public function store(Request $request)
 {
     $request->validate([
+        'id_lappenghuni' => 'required',
         'id_penghuni'         => 'required',
         'nama_penghuni'       => 'required',
         'tgl_masuk'           => 'required|date',
@@ -123,6 +124,7 @@ class LapPenghuniCibiru1Controller extends Controller
     ]);
 
     DB::table('lap_penghuni_cibiru1')->insert([
+        'id_lappenghuni' => $request->id_lappenghuni,
         'id_penghuni'        => $request->id_penghuni,
         'nama_penghuni'      => $request->nama_penghuni,
         'tgl_masuk'          => $request->tgl_masuk,

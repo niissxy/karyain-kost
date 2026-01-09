@@ -71,7 +71,16 @@ class LapTransaksiCibiru2Controller extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'id_laptransaksi' => 'required',
+            'nama_penghuni' => 'required',
+            'no_kamar' => 'required',
+            'nominal' => 'required',
+            'status_pembayaran' => 'required',
+        ]);
+
         DB::table('lap_transaksi_cibiru2')->insert([
+        'id_laptransaksi' => $request->id_lappenghuni,
         'id_transaksi'       => $request->id_transaksi,
         'nama_penghuni'      => $request->nama_penghuni,
         'no_kamar'           => $request->no_kamar,

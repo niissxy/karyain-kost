@@ -70,6 +70,7 @@ public function create()
     public function store(Request $request)
     {
         $request->validate([
+            'id_lapkamar' => 'required',
             'id_kamar' => 'required',
             'no_kamar'     => 'required',
             'tipe_kamar'   => 'required',
@@ -79,6 +80,7 @@ public function create()
         ]);
 
         DB::table('lap_kamar_cibiru1')->insert([
+            'id_lapkamar' => $request->id_lapkamar,
             'id_kamar'     => $request->id_kamar,
             'no_kamar'     => $request->no_kamar,
             'tipe_kamar'   => $request->tipe_kamar,

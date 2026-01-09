@@ -77,7 +77,7 @@ class LapPenghuniRegol2Controller extends Controller
             'p.nama_penghuni',
             'p.tgl_masuk',
             'p.tgl_keluar',
-            'p.status as status_penghuni', // ✅ alias disesuaikan
+            'p.status as status_penghuni', // alias disesuaikan
         DB::raw("
         CONCAT(
         TIMESTAMPDIFF(
@@ -113,6 +113,7 @@ class LapPenghuniRegol2Controller extends Controller
     public function store(Request $request)
 {
     $request->validate([
+        'id_lappenghuni' => 'required',
         'id_penghuni'        => 'required',
         'nama_penghuni'      => 'required',
         'tgl_masuk'          => 'required|date',
@@ -121,6 +122,7 @@ class LapPenghuniRegol2Controller extends Controller
     ]);
 
     DB::table('lap_penghuni_regol2')->insert([
+        'id_lappenghuni' => $request->id_lappenghuni,
         'id_penghuni'        => $request->id_penghuni,
         'nama_penghuni'      => $request->nama_penghuni,
         'tgl_masuk'          => $request->tgl_masuk,
