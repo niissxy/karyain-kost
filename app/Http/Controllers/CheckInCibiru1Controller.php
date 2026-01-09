@@ -107,9 +107,10 @@ class CheckInCibiru1Controller extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id_checkin)
     {
-        //
+       $checkin_cibiru1 = CheckInCibiru1::where('id_checkin', $id_checkin)->firstOrFail();
+       return view('checkin_cibiru1.show', compact('checkin_cibiru1'));
     }
 
     /**

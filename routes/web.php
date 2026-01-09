@@ -362,6 +362,7 @@ Route::get('/checkin_cibiru1/create', [CheckInCibiru1Controller::class, 'create'
 Route::post('/checkin_cibiru1', [CheckInCibiru1Controller::class, 'store'])->name('checkin_cibiru1.store')->middleware('auth');
 Route::get('/checkin_cibiru1/{id_sewa}/edit', [CheckInCibiru1Controller::class, 'edit'])->name('checkin_cibiru1.edit')->middleware('auth');
 Route::put('/checkin_cibiru1/{id_sewa}', [CheckInCibiru1Controller::class, 'update'])->name('checkin_cibiru1.update')->middleware('auth');
+Route::get('/checkin_cibiru1/{id_checkin}', [CheckInCibiru1Controller::class, 'show'])->name('checkin_cibiru1.show')->middleware('auth');
 Route::delete('/checkin_cibiru1/{id_sewa}', [CheckInCibiru1Controller::class, 'destroy'])->name('checkin_cibiru1.destroy')->middleware('auth');
 
 //checkin cibiru 2
@@ -370,6 +371,7 @@ Route::get('/checkin_cibiru2/create', [CheckInCibiru2Controller::class, 'create'
 Route::post('/checkin_cibiru2', [CheckInCibiru2Controller::class, 'store'])->name('checkin_cibiru2.store')->middleware('auth');
 Route::get('/checkin_cibiru2/{id_sewa}/edit', [CheckInCibiru2Controller::class, 'edit'])->name('checkin_cibiru2.edit')->middleware('auth');
 Route::put('/checkin_cibiru2/{id_sewa}', [CheckInCibiru2Controller::class, 'update'])->name('checkin_cibiru2.update')->middleware('auth');
+Route::get('/checkin_cibiru2/{id_checkin}', [CheckInCibiru2Controller::class, 'show'])->name('checkin_cibiru2.show')->middleware('auth');
 Route::delete('/checkin_cibiru2/{id_sewa}', [CheckInCibiru2Controller::class, 'destroy'])->name('checkin_cibiru2.destroy')->middleware('auth');
 
 //checkin regol 1
@@ -378,6 +380,7 @@ Route::get('/checkin_regol1/create', [CheckInRegol1Controller::class, 'create'])
 Route::post('/checkin_regol1', [CheckInRegol1Controller::class, 'store'])->name('checkin_regol1.store')->middleware('auth');
 Route::get('/checkin_regol1/{id_sewa}/edit', [CheckInRegol1Controller::class, 'edit'])->name('checkin_regol1.edit')->middleware('auth');
 Route::put('/checkin_regol1/{id_sewa}', [CheckInRegol1Controller::class, 'update'])->name('checkin_regol1.update')->middleware('auth');
+Route::get('/checkin_regol1/{id_checkin}', [CheckInRegol1Controller::class, 'show'])->name('checkin_regol1.show')->middleware('auth');
 Route::delete('/checkin_regol1/{id_sewa}', [CheckInRegol1Controller::class, 'destroy'])->name('checkin_regol1.destroy')->middleware('auth');
 
 //checkin regol 1
@@ -386,6 +389,7 @@ Route::get('/checkin_regol2/create', [CheckInRegol2Controller::class, 'create'])
 Route::post('/checkin_regol2', [CheckInRegol2Controller::class, 'store'])->name('checkin_regol2.store')->middleware('auth');
 Route::get('/checkin_regol2/{id_sewa}/edit', [CheckInRegol2Controller::class, 'edit'])->name('checkin_regol2.edit')->middleware('auth');
 Route::put('/checkin_regol2/{id_sewa}', [CheckInRegol2Controller::class, 'update'])->name('checkin_regol2.update')->middleware('auth');
+Route::get('/checkin_regol2/{id_checkin}', [CheckInRegol2Controller::class, 'show'])->name('checkin_regol2.show')->middleware('auth');
 Route::delete('/checkin_regol2/{id_sewa}', [CheckInRegol2Controller::class, 'destroy'])->name('checkin_regol2.destroy')->middleware('auth');
 
 //checkout cibiru 1

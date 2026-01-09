@@ -118,7 +118,11 @@ table {
                                          <i class="bi bi-pencil-square"></i>
                                         </a>
                                          &nbsp;&nbsp;
-
+                                         <a href="{{ route('checkin_cibiru1.show', $item->id_checkin) }}" 
+                                         class="btn btn-outline-primary btn-sm">
+                                         <i class="bi bi-printer"></i>
+                                        </a>
+                                         &nbsp;&nbsp;
                                      <!-- Tombol Delete -->
                                         <form action="{{ url('checkin_cibiru1/' . $item->id_checkin) }}" method="POST" 
                                             onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">

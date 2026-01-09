@@ -110,7 +110,7 @@ table {
                                  <td>{{ $item->no_kamar }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>
-                                <td style="text-align: center; vertical-align: middle;">
+                                 <td style="text-align: center; vertical-align: middle;">
                                     <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">
                                     <!-- Tombol Edit -->
                                         <a href="{{ url('checkin_cibiru2/' . $item->id_checkin . '/edit') }}" 
@@ -118,7 +118,11 @@ table {
                                          <i class="bi bi-pencil-square"></i>
                                         </a>
                                          &nbsp;&nbsp;
-
+                                         <a href="{{ route('checkin_cibiru2.show', $item->id_checkin) }}" 
+                                         class="btn btn-outline-primary btn-sm">
+                                         <i class="bi bi-printer"></i>
+                                        </a>
+                                         &nbsp;&nbsp;
                                      <!-- Tombol Delete -->
                                         <form action="{{ url('checkin_cibiru2/' . $item->id_checkin) }}" method="POST" 
                                             onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">
