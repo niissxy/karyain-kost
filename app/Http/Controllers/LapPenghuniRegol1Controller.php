@@ -28,19 +28,19 @@ class LapPenghuniRegol1Controller extends Controller
     $lappenghuni_regol1 = LapPenghuniRegol1::all();
 
     // Total penghuni aktif
-   $totalPenghuniAktif = DB::table('penghuni_kost_regol1')
+   $totalPenghuniAktif = DB::table('lap_penghuni_regol1')
     ->whereNull('tgl_keluar')
     ->count();
 
 
     // Penghuni baru (masuk bulan ini)
-    $penghuniBaru = DB::table('penghuni_kost_regol1')
+    $penghuniBaru = DB::table('lap_penghuni_regol1')
         ->whereMonth('tgl_masuk', $bulanIni)
         ->whereYear('tgl_masuk', $tahunIni)
         ->count();
 
     // Penghuni keluar
-   $penghuniKeluar = DB::table('penghuni_kost_regol1')
+   $penghuniKeluar = DB::table('lap_penghuni_regol1')
     ->whereNotNull('tgl_keluar')
     ->count();
 
