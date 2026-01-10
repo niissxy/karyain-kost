@@ -95,6 +95,7 @@ table {
                                 <th>Tanggal Check In</th>
                                 <th>Nama Penghuni</th>
                                 <th>No Kamar</th>
+                                <th>Nominal</th>
                                 <th>Status</th>
                                 <th>User</th>
                                 <th class="text-center">Fungsi</th>
@@ -108,6 +109,7 @@ table {
                                 <td>{{ $item->tgl_checkin }}</td>
                                 <td>{{ $item->nama_penghuni }}</td>
                                 <td>{{ $item->no_kamar }}</td>
+                                <td>{{ $item->nominal }}</td>
                                 <td>{{ $item->status }}</td>
                                  <td>{{ $item->user->name ?? '-' }}</td>
                                 <td style="text-align: center; vertical-align: middle;">

@@ -18,6 +18,7 @@ class CheckInRegol1 extends Model
         'nama_penghuni',
         'tgl_checkin',
         'no_kamar',
+        'nominal',
         'status',
         'user_id',
         'created_at',

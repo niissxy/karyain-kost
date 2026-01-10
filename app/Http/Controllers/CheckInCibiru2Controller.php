@@ -51,6 +51,7 @@ class CheckInCibiru2Controller extends Controller
         'tgl_checkin'    => 'required|date',
         'nama_penghuni'  => 'required',
         'no_kamar'       => 'required',
+        'nominal'        =>'required',
         'status'         => 'required', // 'aktif' atau 'booked'
     ]);
 
@@ -95,7 +96,8 @@ class CheckInCibiru2Controller extends Controller
             'id_transaksi'  => $newTransaksiId,
             'nama_penyewa'  => $data['nama_penghuni'],
             'no_kamar'      => $data['no_kamar'],
-            'user_id'          => Auth::id(),
+            'nominal'       => $data['nominal'],
+            'user_id'       => Auth::id(),
         ]);
 
     return redirect()->route('checkin_cibiru2.index')
@@ -141,6 +143,7 @@ class CheckInCibiru2Controller extends Controller
             'tgl_checkin'   => $request->tgl_checkin,
             'nama_penghuni' => $request->nama_penghuni,
             'no_kamar'      => $request->no_kamar,
+            'nominal'       =>$request->nominal,
             'status'        => $request->status,
         ];
 

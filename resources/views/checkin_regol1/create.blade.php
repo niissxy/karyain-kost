@@ -69,7 +69,14 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">No Kamar</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="no_kamar" name="no_kamar" required value="{{ old('no_kamar') }}">
+                                    <input class="form-control" type="text" name="no_kamar" required value="{{ old('no_kamar') }}">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Nominal</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="number" name="nominal" required value="{{ old('nominal') }}">
                                 </div>
                             </div>
 

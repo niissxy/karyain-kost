@@ -17,6 +17,7 @@ class CheckInCibiru1 extends Model
         'tgl_checkin',
         'nama_penghuni',
         'no_kamar',
+        'nominal',
         'status',
         'user_id',
         'created_at',

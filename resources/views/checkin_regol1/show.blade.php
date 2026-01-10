@@ -158,9 +158,14 @@
             </div>
             <div class="row">
                 <div class="col-sm-6">
+                    <strong>Nominal :</strong>
+                    <p>{{ $checkin_regol1->nominal }}</p>                    
+                </div>
+                <div class="col-sm-6">
                     <strong>Status :</strong>
                     <p>{{ $checkin_regol1->status }}</p>                    
                 </div>
+            </div>
       
         <div class="text-center mt-4">     
         <button class="btn btn-primary mt-3" onclick="window.print()">Print</button>

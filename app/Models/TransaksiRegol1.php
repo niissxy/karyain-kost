@@ -16,7 +16,6 @@ class TransaksiRegol1 extends Model
         'id_transaksi',
         'nama_penyewa',
         'total_penyewa',
-        'durasi_sewa',
         'no_kamar',
         'nominal',
         'tgl_pembayaran',
