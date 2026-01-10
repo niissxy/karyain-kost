@@ -110,7 +110,7 @@ table {
                                 <td>{{ $item->nama_penyewa }}</td>
                                 <td>{{ $item->total_penyewa }}</td>
                                 <td>{{ $item->no_kamar }}</td>
-                                <td>{{ $item->nominal }}</td>
+                                <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
                                 <td>{{ $item->tgl_pembayaran }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>
@@ -121,14 +121,12 @@ table {
                                          class="btn btn-outline-success btn-sm">
                                          <i class="bi bi-pencil-square"></i>
                                         </a>
-                                      &nbsp;&nbsp;
-                                       <a href="{{ route('transaksi_regol2.exportPdf', $item->id_transaksi) }}"
-                                            class="btn btn-danger btn-sm"
-                                            target="_blank">
-                                            Invoice
+                                      &nbsp;
+                                     <a href="{{ route('transaksi_regol2.exportPdf', $item->id_transaksi) }}" 
+                                         class="btn btn-outline-primary btn-sm">
+                                         <i class="bi bi-file-earmark-pdf-fill"></i>
                                         </a>
-
-                                         &nbsp;&nbsp;
+                                         &nbsp;
                                         <form action="{{ url('transaksi_regol2/' . $item->id_transaksi) }}" method="POST" 
                                             onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">
                                             @csrf

@@ -27,18 +27,21 @@
     width: 100%;
     max-width: 1250px;
     margin-right: 27px;
+    overflow-x: hidden;
 }
 
 /* TABLE CENTER */
 .table-responsive {
     display: flex;
     justify-content: center;
+    overflow-x: hidden;
 }
 
 table {
     width: 100%;
     max-width: 5000px;
     table-layout: fixed;
+     overflow-x: hidden;
 }
 
 .pagetitle-wrapper {
@@ -109,7 +112,7 @@ table {
                                 <td>{{ $item->tgl_checkin }}</td>
                                 <td>{{ $item->nama_penghuni }}</td>
                                 <td>{{ $item->no_kamar }}</td>
-                                <td>{{ $item->nominal }}</td>
+                                <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>
                                 <td style="text-align: center; vertical-align: middle;">
@@ -119,12 +122,12 @@ table {
                                          class="btn btn-outline-success btn-sm">
                                          <i class="bi bi-pencil-square"></i>
                                         </a>
-                                         &nbsp;&nbsp;
+                                         &nbsp;
                                          <a href="{{ route('checkin_cibiru1.show', $item->id_checkin) }}" 
                                          class="btn btn-outline-primary btn-sm">
                                          <i class="bi bi-printer"></i>
                                         </a>
-                                         &nbsp;&nbsp;
+                                         &nbsp;
                                      <!-- Tombol Delete -->
                                         <form action="{{ url('checkin_cibiru1/' . $item->id_checkin) }}" method="POST" 
                                             onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">

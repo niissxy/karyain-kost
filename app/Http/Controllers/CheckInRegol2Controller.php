@@ -130,50 +130,42 @@ class CheckInRegol2Controller extends Controller
     /**
      * Update the specified resource in storage.
      */
-   public function update(Request $request, string $id_checkin)
+  public function update(Request $request, string $id_checkin)
     {
     DB::transaction(function () use ($request, $id_checkin) {
 
-        // Ambil data checkin lama
         $checkin = CheckInRegol2::where('id_checkin', $id_checkin)->firstOrFail();
 
-        // =========================
-        // UPDATE CHECKIN
-        // =========================
-        $data = [
+        $checkin->update([
             'tgl_checkin'   => $request->tgl_checkin,
             'nama_penghuni' => $request->nama_penghuni,
             'no_kamar'      => $request->no_kamar,
-            'nominal'       => $request->nominal,
+            'nominal'       => str_replace('.', '', $request->nominal),
             'status'        => $request->status,
-        ];
+        ]);
 
-        $checkin->update($data);
-
-        // =========================
-        // UPDATE STATUS KAMAR
-        // =========================
+        // ================= STATUS KAMAR =================
         $status_kamar = $request->status === 'Aktif' ? 'Terisi' : 'Booked';
 
-        DB::table('kamar_cibiru1')
+        DB::table('kamar_regol2')
             ->where('no_kamar', $request->no_kamar)
             ->update(['status_kamar' => $status_kamar]);
 
-        // =========================
-        // UPDATE PENGHUNI
-        // =========================
+        DB::table('lap_kamar_regol2')
+            ->where('no_kamar', $request->no_kamar)
+            ->update(['status_kamar' => $status_kamar]);
+
+        // ================= PENGHUNI =================
         $penghuni = PenghuniRegol2::where('nama_penghuni', $checkin->nama_penghuni)
             ->where('penempatan_kamar', $checkin->no_kamar)
             ->where('status', 'Masih di kost')
             ->first();
 
         if ($penghuni) {
-            // update tgl_masuk di penghuni
             $penghuni->update([
                 'tgl_masuk' => $request->tgl_checkin
             ]);
 
-            // update tgl_masuk di laporan penghuni
             DB::table('lap_penghuni_regol2')
                 ->where('id_penghuni', $penghuni->id_penghuni)
                 ->update([
@@ -181,10 +173,27 @@ class CheckInRegol2Controller extends Controller
                 ]);
         }
 
+        // ================= TRANSAKSI =================
+        $transaksi = TransaksiRegol2::where('no_kamar', $checkin->no_kamar)
+            ->where('nama_penyewa', $checkin->nama_penghuni)
+            ->latest()
+            ->first();
+
+        if ($transaksi) {
+            $transaksi->update([
+                'nominal' => str_replace('.', '', $request->nominal)
+            ]);
+
+            DB::table('lap_transaksi_regol2')
+                ->where('id_transaksi', $transaksi->id_transaksi)
+                ->update([
+                    'nominal' => str_replace('.', '', $request->nominal)
+                ]);
+        }
     });
 
     return redirect()->route('checkin_regol2.index')
-        ->with('success', 'Data berhasil diperbarui dan status kamar diperbarui');
+        ->with('success', 'Data berhasil diperbarui');
     }
 
     /**

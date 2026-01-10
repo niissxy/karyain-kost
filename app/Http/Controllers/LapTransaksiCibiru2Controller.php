@@ -17,7 +17,7 @@ class LapTransaksiCibiru2Controller extends Controller
    
     public function index()
     {
-    $laptransaksi_cibir21 = LapTransaksiCibiru2::with('user')->get();
+    $laptransaksi_cibiru2 = LapTransaksiCibiru2::with('user')->get();
         // DATA TABEL
     $laptransaksi_cibiru2 = LapTransaksiCibiru2::all();
 
@@ -74,6 +74,7 @@ class LapTransaksiCibiru2Controller extends Controller
     {
         $request->validate([
             'id_laptransaksi' => 'required',
+            'id_transaksi' => 'required',
             'nama_penghuni' => 'required',
             'no_kamar' => 'required',
             'nominal' => 'required',
@@ -82,11 +83,11 @@ class LapTransaksiCibiru2Controller extends Controller
         ]);
 
         DB::table('lap_transaksi_cibiru2')->insert([
-        'id_laptransaksi' => $request->id_lappenghuni,
+        'id_laptransaksi' => $request->id_laptransaksi,
         'id_transaksi'       => $request->id_transaksi,
         'nama_penghuni'      => $request->nama_penghuni,
         'no_kamar'           => $request->no_kamar,
-        'nominal'            => $request->nominal,
+        'nominal'            => str_replace('.', '', $request->nominal),
         'tgl_pembayaran' => $request->tgl_pembayaran,
         'status_pembayaran'  => $request->status_pembayaran,
         'created_at'         => now(),

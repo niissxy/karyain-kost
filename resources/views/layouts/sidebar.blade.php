@@ -26,6 +26,12 @@
 
         <ul class="nav flex-column gap-1">
 
+         <li class="nav-item">
+                <a href="/dashboard" class="nav-link text-white">
+                    <i class="bi bi-speedometer2 me-2"></i> Dashboard
+                </a>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link text-white d-flex justify-content-between align-items-center"
                    data-bs-toggle="collapse" href="#submenu-kamar">

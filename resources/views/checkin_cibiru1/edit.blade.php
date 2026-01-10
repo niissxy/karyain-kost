@@ -77,7 +77,7 @@
                              <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nominal</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" value="{{ old('nominal',$checkin_cibiru1->nominal) }}"  name="no_kamar"  required autofocus>
+                                    <input type="number" step="0.01" class="form-control" value="{{ old('nominal', number_format($checkin_cibiru1->nominal ?? 0, 0, ',', '.')) }}"  name="nominal"  required autofocus>
                                 </div>
                             </div>
 

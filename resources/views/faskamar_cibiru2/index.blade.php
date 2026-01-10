@@ -115,7 +115,7 @@ table {
                                          class="btn btn-outline-success btn-sm">
                                          <i class="bi bi-pencil-square"></i>
                                         </a>
-                                         &nbsp;&nbsp;
+                                         &nbsp;
                                      <!-- Tombol Delete -->
                                         <form action="{{ url('faskamar_cibiru2/' . $item->id_fask) }}" method="POST" 
                                             onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">

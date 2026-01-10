@@ -62,7 +62,8 @@
                                             value="{{ $t->id_transaksi }}"
                                             data-nama="{{ $t->nama_penyewa }}"
                                             data-kamar="{{ $t->no_kamar }}"
-                                            data-nominal="{{ $t->total_harga }}"
+                                            data-nominal="{{ $t->nominal }}"
+                                            data-tglbayar="{{ $t->tgl_pembayaran }}"
                                             data-status="{{ $t->status }}"
                                         >
                                             {{ $t->id_transaksi }} - {{ $t->nama_penyewa }}
@@ -90,6 +91,13 @@
                                 <label class="col-sm-3 col-form-label">Nominal</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" id="nominal" name="nominal" readonly type="text" required>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Tanggal Pembayaran</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="tgl_pembayaran" name="tgl_pembayaran" readonly type="date" required>
                                 </div>
                             </div>
 
@@ -126,6 +134,9 @@ document.getElementById('id_transaksi').addEventListener('change', function () {
 
     document.getElementById('nominal').value =
         selected.getAttribute('data-nominal') || '';
+
+    document.getElementById('tgl_pembayaran').value =
+        selected.getAttribute('data-tglbayar') || '';
 
     document.getElementById('status_pembayaran').value =
         selected.getAttribute('data-status') || '';

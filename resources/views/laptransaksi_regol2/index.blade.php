@@ -177,7 +177,7 @@ body {
                                     <td>{{ $item->id_transaksi }}</td>
                                     <td>{{ $item->nama_penghuni }}</td>
                                     <td>{{ $item->no_kamar }}</td>
-                                    <td>{{ number_format($item->nominal,0,',','.') }}</td>
+                                     <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
                                     <td>{{ $item->status_pembayaran }}</td>
                                      <td>{{ $item->user->name ?? '-' }}</td>
                                     <td class="d-flex gap-1">

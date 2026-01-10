@@ -119,12 +119,12 @@ table {
                                          class="btn btn-outline-success btn-sm">
                                          <i class="bi bi-pencil-square"></i>
                                         </a>
-                                         &nbsp;&nbsp;
+                                         &nbsp;
                                          <a href="{{ route('checkout_regol1.show', $item->id_checkout) }}" 
                                          class="btn btn-outline-primary btn-sm">
                                          <i class="bi bi-printer"></i>
                                         </a>
-                                         &nbsp;&nbsp;
+                                         &nbsp;
                                      <!-- Tombol Delete -->
                                         <form action="{{ url('checkout_regol1/' . $item->id_checkout) }}" method="POST" 
                                             onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">
