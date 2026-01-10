@@ -7,6 +7,7 @@ use App\Models\TransaksiCibiru2;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class TransaksiCibiru2Controller extends Controller
 {
@@ -52,7 +53,6 @@ class TransaksiCibiru2Controller extends Controller
         'id_transaksi'          => 'required',
         'nama_penyewa'        => 'required',
         'total_penyewa'     => 'required|numeric',
-        'durasi_sewa'               => 'required',
         'no_kamar'           => 'required',
         'nominal'               => 'required|numeric',
         'tgl_pembayaran' => 'required|date',
@@ -98,7 +98,6 @@ class TransaksiCibiru2Controller extends Controller
             'id_transaksi' => $request->id_transaksi,
             'nama_penyewa' => $request->nama_penyewa,
             'total_penyewa' => $request->total_penyewa,
-            'durasi_sewa' => $request->durasi_sewa,
             'no_kamar' => $request->no_kamar,
             'nominal' => $request->nominal,
             'tgl_pembayaran' => $request->tgl_pembayaran,
@@ -127,4 +126,18 @@ class TransaksiCibiru2Controller extends Controller
             return redirect('transaksi_cibiru2')->with('error', 'Data Transaksi Kost Cibiru 2 gagal dihapus.');
         }
     }
+
+    public function exportPdf($id_transaksi)
+{
+    $transaksi = TransaksiCibiru2::where('id_transaksi', $id_transaksi)
+        ->firstOrFail();
+
+    $pdf = Pdf::loadView(
+        'transaksi_cibiru2.transaksi_pdf',
+        compact('transaksi')
+    )->setPaper('A4', 'portrait');
+
+    return $pdf->stream('invoice-cibiru2.pdf');
+}
+
 }

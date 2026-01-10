@@ -298,6 +298,7 @@ Route::get('/transaksi_cibiru1/create', [TransaksiCibiru1Controller::class, 'cre
 Route::post('/transaksi_cibiru1', [TransaksiCibiru1Controller::class, 'store'])->name('transaksi_cibiru1.store')->middleware('auth');
 Route::get('/transaksi_cibiru1/{id_transaksi}/edit', [TransaksiCibiru1Controller::class, 'edit'])->name('transaksi_cibiru1.edit')->middleware('auth');
 Route::put('/transaksi_cibiru1/{id_transaksi}', [TransaksiCibiru1Controller::class, 'update'])->name('transaksi_cibiru1.update')->middleware('auth');
+Route::get('/transaksi_cibiru1/{id_transaksi}/invoice',[TransaksiCibiru1Controller::class, 'exportPdf'])->name('transaksi.exportPdf');
 Route::delete('/transaksi_cibiru1/{id_transaksi}', [TransaksiCibiru1Controller::class, 'destroy'])->name('transaksi_cibiru1.destroy')->middleware('auth');
 
 //transaksi cibiru 2
@@ -306,6 +307,7 @@ Route::get('/transaksi_cibiru2/create', [TransaksiCibiru2Controller::class, 'cre
 Route::post('/transaksi_cibiru2', [TransaksiCibiru2Controller::class, 'store'])->name('transaksi_cibiru2.store')->middleware('auth');
 Route::get('/transaksi_cibiru2/{id_transaksi}/edit', [TransaksiCibiru2Controller::class, 'edit'])->name('transaksi_cibiru2.edit')->middleware('auth');
 Route::put('/transaksi_cibiru2/{id_transaksi}', [TransaksiCibiru2Controller::class, 'update'])->name('transaksi_cibiru2.update')->middleware('auth');
+Route::get('transaksi_cibiru2/{id_transaksi}/invoice',[TransaksiCibiru2Controller::class, 'exportPdf'])->name('transaksi_cibiru2.exportPdf');
 Route::delete('/transaksi_cibiru2/{id_transaksi}', [TransaksiCibiru2Controller::class, 'destroy'])->name('transaksi_cibiru2.destroy')->middleware('auth');
 
 //transaksi regol 1
@@ -314,6 +316,7 @@ Route::get('/transaksi_regol1/create', [TransaksiRegol1Controller::class, 'creat
 Route::post('/transaksi_regol1', [TransaksiRegol1Controller::class, 'store'])->name('transaksi_regol1.store')->middleware('auth');
 Route::get('/transaksi_regol1/{id_transaksi}/edit', [TransaksiRegol1Controller::class, 'edit'])->name('transaksi_regol1.edit')->middleware('auth');
 Route::put('/transaksi_regol1/{id_transaksi}', [TransaksiRegol1Controller::class, 'update'])->name('transaksi_regol1.update')->middleware('auth');
+Route::get('transaksi_regol1/{id_transaksi}/invoice',[TransaksiRegol1Controller::class, 'exportPdf'])->name('transaksi_regol1.exportPdf');
 Route::delete('/transaksi_regol1/{id_transaksi}', [TransaksiRegol1Controller::class, 'destroy'])->name('transaksi_regol1.destroy')->middleware('auth');
 
 //transaksi regol 2
@@ -322,6 +325,7 @@ Route::get('/transaksi_regol2/create', [TransaksiRegol2Controller::class, 'creat
 Route::post('/transaksi_regol2', [TransaksiRegol2Controller::class, 'store'])->name('transaksi_regol2.store')->middleware('auth');
 Route::get('/transaksi_regol2/{id_transaksi}/edit', [TransaksiRegol2Controller::class, 'edit'])->name('transaksi_regol2.edit')->middleware('auth');
 Route::put('/transaksi_regol2/{id_transaksi}', [TransaksiRegol2Controller::class, 'update'])->name('transaksi_regol2.update')->middleware('auth');
+Route::get('transaksi_regol2/{id_transaksi}/invoice',[TransaksiRegol2Controller::class, 'exportPdf'])->name('transaksi_regol2.exportPdf');
 Route::delete('/transaksi_regol2/{id_transaksi}', [TransaksiRegol2Controller::class, 'destroy'])->name('transaksi_regol2.destroy')->middleware('auth');
 
 //sewa cibiru 1

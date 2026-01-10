@@ -122,6 +122,12 @@ table {
                                          <i class="bi bi-pencil-square"></i>
                                         </a>
                                          &nbsp;&nbsp;
+                                        <a href="{{ route('transaksi.exportPdf', $item->id_transaksi) }}"
+                                        class="btn btn-danger btn-sm"
+                                        target="_blank">
+                                        Invoice
+                                        </a>
+                                         &nbsp;&nbsp;
                                      <!-- Tombol Delete -->
                                         <form action="{{ url('transaksi_cibiru1/' . $item->id_transaksi) }}" method="POST" 
                                             onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">

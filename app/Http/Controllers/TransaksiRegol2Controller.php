@@ -7,6 +7,7 @@ use App\Models\TransaksiRegol2;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class TransaksiRegol2Controller extends Controller
 {
@@ -52,7 +53,6 @@ class TransaksiRegol2Controller extends Controller
         'id_transaksi'          => 'required',
         'nama_penyewa'        => 'required',
         'total_penyewa'     => 'required|numeric',
-        'durasi_sewa'               => 'required',
         'no_kamar'           => 'required',
         'nominal'               => 'required|numeric',
         'tgl_pembayaran' => 'required|date',
@@ -98,7 +98,6 @@ class TransaksiRegol2Controller extends Controller
             'id_transaksi' => $request->id_transaksi,
             'nama_penyewa' => $request->nama_penyewa,
             'total_penyewa' => $request->total_penyewa,
-            'durasi_sewa' => $request->durasi_sewa,
             'no_kamar' => $request->no_kamar,
             'nominal' => $request->nominal,
             'tgl_pembayaran' => $request->tgl_pembayaran,
@@ -127,4 +126,17 @@ class TransaksiRegol2Controller extends Controller
             return redirect('transaksi_regol2')->with('error', 'Data Transaksi Kost Regol 2 gagal dihapus.');
         }
     }
+
+    public function exportPdf($id_transaksi)
+{
+    $transaksi = TransaksiRegol2::where('id_transaksi', $id_transaksi)
+        ->firstOrFail();
+
+    $pdf = Pdf::loadView(
+        'transaksi_regol2.transaksi_pdf',
+        compact('transaksi')
+    )->setPaper('A4', 'portrait');
+
+    return $pdf->stream('invoice-regol2.pdf');
+}
 }

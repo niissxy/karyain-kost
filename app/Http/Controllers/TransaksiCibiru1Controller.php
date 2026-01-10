@@ -7,6 +7,7 @@ use App\Models\TransaksiCibiru1;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class TransaksiCibiru1Controller extends Controller
 {
@@ -123,4 +124,15 @@ class TransaksiCibiru1Controller extends Controller
             return redirect('transaksi_cibiru1')->with('error', 'Data Transaksi Kost Cibiru 1 gagal dihapus.');
         }
     }
+
+   public function exportPdf($id_transaksi)
+{
+    $transaksi = TransaksiCibiru1::where('id_transaksi', $id_transaksi)->firstOrFail();
+
+    $pdf = Pdf::loadView('transaksi_cibiru1.transaksi_pdf', compact('transaksi'))
+        ->setPaper('A4', 'portrait');
+
+    return $pdf->stream('invoice-cibiru1.pdf');
+}
+
 }

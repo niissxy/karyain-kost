@@ -183,7 +183,7 @@ class CheckInCibiru1Controller extends Controller
                 ->where('id_penghuni', $penghuni->id_penghuni)
                 ->update([
                     'tgl_masuk' => $request->tgl_checkin
-                ]);
+            ]);
         }
 
     });

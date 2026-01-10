@@ -94,10 +94,8 @@ table {
                                 <th>ID Transaksi</th>
                                 <th>Nama Penyewa</th>
                                 <th>Total Penyewa</th>
-                                <th>Durasi Sewa</th>
                                 <th>No Kamar</th>
-                                <th>Total Harga</th>
-                                <th>Total Bayar</th>
+                                <th>Nominal</th>
                                 <th>Tanggal Pembayaran</th>
                                 <th>Status</th>
                                 <th>User</th>
@@ -111,10 +109,8 @@ table {
                                 <td>{{ $item->id_transaksi }}</td>
                                 <td>{{ $item->nama_penyewa }}</td>
                                 <td>{{ $item->total_penyewa }}</td>
-                                <td>{{ $item->durasi_sewa }}</td>
                                 <td>{{ $item->no_kamar }}</td>
-                                <td>{{ $item->total_harga }}</td>
-                                <td>{{ $item->total_bayar }}</td>
+                                <td>{{ $item->nominal }}</td>
                                 <td>{{ $item->tgl_pembayaran }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>
@@ -125,8 +121,14 @@ table {
                                          class="btn btn-outline-success btn-sm">
                                          <i class="bi bi-pencil-square"></i>
                                         </a>
+                                      &nbsp;&nbsp;
+                                       <a href="{{ route('transaksi_regol2.exportPdf', $item->id_transaksi) }}"
+                                            class="btn btn-danger btn-sm"
+                                            target="_blank">
+                                            Invoice
+                                        </a>
+
                                          &nbsp;&nbsp;
-                                     <!-- Tombol Delete -->
                                         <form action="{{ url('transaksi_regol2/' . $item->id_transaksi) }}" method="POST" 
                                             onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">
                                             @csrf

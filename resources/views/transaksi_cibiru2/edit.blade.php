@@ -68,14 +68,6 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Durasi Penyewa</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{ old('durasi_sewa',$transaksi_cibiru2->durasi_sewa) }}"  name="durasi_sewa"  required autofocus>
-                                </div>
-                            </div>
-
-
-                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">No Kamar</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" value="{{ old('no_kamar',$transaksi_cibiru2->no_kamar) }}"  name="no_kamar"  required autofocus>
@@ -83,16 +75,9 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Total Harga</label>
+                                <label class="col-sm-3 col-form-label">Nominal</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" value="{{ old('total_harga',$transaksi_cibiru2->total_harga) }}"  name="total_harga"  required autofocus>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Total Bayar</label>
-                                <div class="col-sm-9">
-                                    <input type="number" class="form-control" value="{{ old('total_bayar',$transaksi_cibiru2->total_bayar) }}"  name="total_bayar"  required autofocus>
+                                    <input type="number" class="form-control" value="{{ old('nominal',$transaksi_cibiru2->nominal) }}"  name="nominal"  required autofocus>
                                 </div>
                             </div>
 
