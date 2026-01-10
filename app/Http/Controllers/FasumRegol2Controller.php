@@ -100,6 +100,13 @@ class FasumRegol2Controller extends Controller
             'kondisi' => $request->kondisi,
         ];
 
+        DB::table('aset_kost_regol2')
+        ->where('kategori', 'Fasilitas umum')
+        ->where('nama_aset', $request->nama_fasilitas)
+        ->update([
+            'kondisi' => $request->kondisi
+        ]);
+
         FasumRegol2::where('id_fasum', $id_fasum)->update($data);
 
         if ($data) {

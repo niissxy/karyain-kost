@@ -81,16 +81,9 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Total Harga</label>
+                                <label class="col-sm-3 col-form-label">Nominal</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="total_harga" type="number" required>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Total Bayar</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" name="total_bayar" type="text" required>
+                                    <input class="form-control" name="nominal" type="number" required>
                                 </div>
                             </div>
 

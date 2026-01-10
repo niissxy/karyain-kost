@@ -106,6 +106,13 @@ class FasKamarRegol1Controller extends Controller
             'kondisi' => $request->kondisi,
         ];
 
+        DB::table('aset_kost_regol1')
+        ->where('kategori', 'Fasilitas kamar')
+        ->where('nama_aset', $request->nama_fasilitas)
+        ->update([
+            'kondisi' => $request->kondisi
+        ]);
+
         FasKamarRegol1::where('id_fask', $id_fask)->update($data);
 
         if ($data) {

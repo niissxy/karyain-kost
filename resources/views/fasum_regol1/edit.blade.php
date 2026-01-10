@@ -34,7 +34,7 @@
 
                 <div class="card card-warning card-outline">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">Edit Data Fasilitas Umum Kost Cibiru 1</h5>
+                        <h5 class="card-title mb-0">Edit Data Fasilitas Umum Kost Regol 1</h5>
                         <a class="btn btn-warning btn-sm" href="{{ url('./fasum_regol1') }}">
                             <i class="bi bi-arrow-left-circle-fill"></i> Back
                         </a>

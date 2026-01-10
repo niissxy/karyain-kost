@@ -159,7 +159,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <strong>Nominal :</strong>
-                    <p>{{ $checkin_regol2->nominal }}</p>                    
+                    <p>Rp {{ number_format($checkin_regol2->nominal, 0, ',', '.') }}</p>                    
                 </div>
                 <div class="col-sm-6">
                     <strong>Status :</strong>

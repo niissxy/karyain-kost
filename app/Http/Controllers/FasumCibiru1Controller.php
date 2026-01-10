@@ -100,6 +100,13 @@ class FasumCibiru1Controller extends Controller
             'kondisi' => $request->kondisi,
         ];
 
+        DB::table('aset_kost_cibiru1')
+        ->where('kategori', 'Fasilitas umum')
+        ->where('nama_aset', $request->nama_fasilitas)
+        ->update([
+            'kondisi' => $request->kondisi
+        ]);
+
         FasumCibiru1::where('id_fasum', $id_fasum)->update($data);
 
         if ($data) {

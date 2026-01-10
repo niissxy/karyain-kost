@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\FasumRegol1;
 use Illuminate\Support\Facades\Auth;
 
+use function Laravel\Prompts\table;
+
 class FasumRegol1Controller extends Controller
 {
     public function __construct()
@@ -99,6 +101,13 @@ class FasumRegol1Controller extends Controller
             'nama_fasilitas' => $request->nama_fasilitas,
             'kondisi' => $request->kondisi,
         ];
+
+        DB::table('aset_kost_regol1')
+        ->where('kategori', 'Fasilitas umum')
+        ->where('nama_aset', $request->nama_fasilitas)
+        ->update([
+            'kondisi' => $request->kondisi
+        ]);
 
         FasumRegol1::where('id_fasum', $id_fasum)->update($data);
 
