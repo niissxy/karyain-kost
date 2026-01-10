@@ -38,7 +38,7 @@ class TransaksiCibiru1Controller extends Controller
         }
 
         $newKode = 'TR-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
-        return view('transaksi_cibiru1.create', compact('user'));
+        return view('transaksi_cibiru1.create', compact('user', 'newKode'));
     }
 
     /**
@@ -51,8 +51,7 @@ class TransaksiCibiru1Controller extends Controller
         'nama_penyewa'        => 'required',
         'total_penyewa'     => 'required|numeric',
         'no_kamar'           => 'required',
-        'total_harga'               => 'required|numeric',
-        'total_bayar'               => 'required|numeric',
+        'nominal'               => 'required|numeric',
         'tgl_pembayaran' => 'required|date',
         'status' => 'required'
         ]);
@@ -97,8 +96,7 @@ class TransaksiCibiru1Controller extends Controller
             'nama_penyewa' => $request->nama_penyewa,
             'total_penyewa' => $request->total_penyewa,
             'no_kamar' => $request->no_kamar,
-            'total_harga' => $request->total_harga,
-            'total_bayar' => $request->total_bayar,
+            'nominal' => $request->nominal,
             'tgl_pembayaran' => $request->tgl_pembayaran,
             'status' => $request->status,
             'updated_at' => now(), // Waktu diperbarui saat ini/ Nama pembuat

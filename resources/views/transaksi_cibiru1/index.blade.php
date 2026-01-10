@@ -95,8 +95,7 @@ table {
                                 <th>Nama Penyewa</th>
                                 <th>Total Penyewa</th>
                                 <th>No Kamar</th>
-                                <th>Total Harga</th>
-                                <th>Total Bayar</th>
+                                <th>Nominal</th>
                                 <th>Tanggal Pembayaran</th>
                                 <th>Status</th>
                                 <th>User</th>
@@ -111,8 +110,7 @@ table {
                                 <td>{{ $item->nama_penyewa }}</td>
                                 <td>{{ $item->total_penyewa }}</td>
                                 <td>{{ $item->no_kamar }}</td>
-                                <td>{{ $item->total_harga }}</td>
-                                <td>{{ $item->total_bayar }}</td>
+                                <td>{{ $item->nominal }}</td>
                                 <td>{{ $item->tgl_pembayaran }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>

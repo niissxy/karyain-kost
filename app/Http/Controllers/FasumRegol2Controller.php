@@ -43,6 +43,7 @@ class FasumRegol2Controller extends Controller
         // Ambil aset yang kategorinya fasilitas umum saja
         $asetFasilitasUmum = DB::table('aset_kost_regol2')
         ->where('kategori', 'fasilitas umum')
+        ->whereIn('kondisi', ['Baik', 'Perbaikan', 'Rusak'])
         ->get();
 
      return view('fasum_regol2.create', compact('asetFasilitasUmum', 'newKode'));

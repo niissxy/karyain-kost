@@ -12,6 +12,7 @@ class LapTransaksiCibiru2 extends Model
         'nama_penghuni', 
         'no_kamar', 
         'nominal', 
+        'tgl_pembayaran',
         'status_pembayaran',
         'user_id',
         'created_at',

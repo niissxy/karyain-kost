@@ -54,8 +54,7 @@ class TransaksiRegol2Controller extends Controller
         'total_penyewa'     => 'required|numeric',
         'durasi_sewa'               => 'required',
         'no_kamar'           => 'required',
-        'total_harga'               => 'required|numeric',
-        'total_bayar'               => 'required|numeric',
+        'nominal'               => 'required|numeric',
         'tgl_pembayaran' => 'required|date',
         'status' => 'required'
         ]);
@@ -101,8 +100,7 @@ class TransaksiRegol2Controller extends Controller
             'total_penyewa' => $request->total_penyewa,
             'durasi_sewa' => $request->durasi_sewa,
             'no_kamar' => $request->no_kamar,
-            'total_harga' => $request->total_harga,
-            'total_bayar' => $request->total_bayar,
+            'nominal' => $request->nominal,
             'tgl_pembayaran' => $request->tgl_pembayaran,
             'status' => $request->status,
             'updated_at' => now(), // Waktu diperbarui saat ini/ Nama pembuat

@@ -8,10 +8,12 @@ class LapTransaksiCibiru1 extends Model
 {
     protected $table = 'lap_transaksi_cibiru1';
     protected $fillable = [
+        'id_laptransaksi',
         'id_transaksi',
         'nama_penghuni', 
         'no_kamar', 
         'nominal', 
+        'tgl_pembayaran',
         'status_pembayaran',
         'user_id',
         'created_at',

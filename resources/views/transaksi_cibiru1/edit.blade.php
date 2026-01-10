@@ -75,16 +75,9 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Total Harga</label>
+                                <label class="col-sm-3 col-form-label">Nominal</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" value="{{ old('total_harga',$transaksi_cibiru1->total_harga) }}"  name="total_harga"  required autofocus>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Total Bayar</label>
-                                <div class="col-sm-9">
-                                    <input type="number" class="form-control" value="{{ old('total_bayar',$transaksi_cibiru1->total_bayar) }}"  name="total_bayar"  required autofocus>
+                                    <input type="number" class="form-control" value="{{ old('nominal',$transaksi_cibiru1->nominal) }}"  name="nominal"  required autofocus>
                                 </div>
                             </div>
 

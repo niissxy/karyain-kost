@@ -56,7 +56,8 @@ class LapTransaksiRegol2Controller extends Controller
             't.id_transaksi',
             't.nama_penyewa',
             't.no_kamar',
-            't.total_harga',
+            't.nominal',
+            't.tgl_pembayaran',
             't.status'
         )
         ->get();
@@ -77,6 +78,7 @@ class LapTransaksiRegol2Controller extends Controller
             'nama_penghuni' => 'required',
             'no_kamar' => 'required',
             'nominal' => 'required',
+            'tgl_pembayaran' => 'required',
             'status_pembayaran' => 'required', 
         ]);
 
@@ -86,6 +88,7 @@ class LapTransaksiRegol2Controller extends Controller
         'nama_penghuni'      => $request->nama_penghuni,
         'no_kamar'           => $request->no_kamar,
         'nominal'            => $request->nominal,
+        'tgl_pembayaran' => $request->tgl_pembayaran,
         'status_pembayaran'  => $request->status_pembayaran,
         'created_at'         => now(),
         'user_id'       => Auth::id(),

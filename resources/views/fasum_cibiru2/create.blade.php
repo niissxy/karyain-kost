@@ -55,10 +55,11 @@
                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nama Fasilitas</label>
                            <div class="col-sm-9">
-                                <select name="nama_fasilitas" class="form-select" required>
+                                <select name="nama_fasilitas" id="nama_fasilitas" class="form-select" required>
                                     <option value="">-- Pilih Fasilitas Umum --</option>
                                     @foreach ($asetFasilitasUmum as $aset)
-                                    <option value="{{ $aset->nama_aset }}">
+                                    <option value="{{ $aset->nama_aset }}"
+                                    data-kondisi="{{ $aset->kondisi }}">
                                         {{ $aset->nama_aset }}
                                     </option>
                                     @endforeach
@@ -69,12 +70,13 @@
                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Kondisi</label>
                                 <div class="col-sm-9">
-                                    <select class="form-select" name="kondisi">
+                                    <input class="form-control" name="kondisi" id="kondisi" required>
+                                    <!-- <select class="form-select" name="kondisi">
                                         <option value="">-- Pilih Kondisi --</option>
                                         <option value="Baik">Baik</option>
                                         <option value="Perbaikan">Perbaikan</option>
                                         <option value="Rusak">Rusak</option>
-                                    </select>
+                                    </select> -->
                                 </div>
                             </div>
 
@@ -93,6 +95,13 @@
         </div>
     </div>
 </section>
+<script>
+    document.getElementById('nama_fasilitas').addEventListener('change', function() {
+        const selected = this.options[this.selectedIndex]
 
+        document.getElementById('kondisi').value=
+        selected.getAttribute('data-kondisi') || '';
+    })
+</script>
 </main> 
 @endsection

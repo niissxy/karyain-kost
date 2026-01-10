@@ -128,6 +128,11 @@ DB::table('kamar_cibiru1')
     ->where('no_kamar', $checkin->no_kamar)
     ->update(['status_kamar' => 'Kosong']);
 
+    //update laporan kamar
+DB::table('lap_kamar_cibiru1')
+            ->where('no_kamar', $request->no_kamar)
+            ->update(['status_kamar' => 'Kosong']);
+
 // update status penghuni (TIDAK DIUBAH)
 PenghuniCibiru1::where('nama_penghuni', $checkin->nama_penghuni)
     ->where('penempatan_kamar', $checkin->no_kamar)

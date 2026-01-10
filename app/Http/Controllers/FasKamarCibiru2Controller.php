@@ -45,6 +45,7 @@ class FasKamarCibiru2Controller extends Controller
         // Ambil aset yang kategorinya fasilitas kamar saja
         $asetFasilitasKamar = DB::table('aset_kost_cibiru2')
         ->where('kategori', 'fasilitas kamar')
+        ->whereIn('kondisi', ['Baik', 'Perbaikan', 'Rusak'])
         ->get();
 
      return view('faskamar_cibiru2.create', compact('asetFasilitasKamar', 'newKode'));

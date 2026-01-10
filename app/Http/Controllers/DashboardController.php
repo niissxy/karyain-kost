@@ -28,7 +28,7 @@ class DashboardController extends Controller
         // Query berdasarkan kost
         $kamarKosong = DB::table("kamar_{$kostName}")->where('status_kamar', 'kosong')->count();
         $kamarTerisi = DB::table("kamar_{$kostName}")->where('status_kamar', 'terisi')->count();
-        $pemasukan = DB::table("transaksi_{$kostName}")->sum('total_bayar'); // Sum total_bayar sebagai pemasukan
+        $pemasukan = DB::table("transaksi_{$kostName}")->sum('nominal'); // Sum total_bayar sebagai pemasukan
 
         return view('dashboard', compact('kosts', 'kostId', 'kostName', 'kamarKosong', 'kamarTerisi', 'pemasukan'));
     }

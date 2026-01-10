@@ -57,7 +57,8 @@ class LapTransaksiCibiru1Controller extends Controller
             't.id_transaksi',
             't.nama_penyewa',
             't.no_kamar',
-            't.total_harga',
+            't.nominal',
+            't.tgl_pembayaran',
             't.status'
         )
         ->get();
@@ -73,20 +74,22 @@ class LapTransaksiCibiru1Controller extends Controller
     public function store(Request $request)
     {
         $request->validate([
-           'id_lappenghuni' => 'required',
+           'id_laptransaksi' => 'required',
            'id_transaksi' => 'required',
            'nama_penghuni' => 'required',
            'no_kamar' => 'required',
            'nominal' => 'required',
+           'tgl_pembayaran' => 'required',
            'status_pembayaran' => 'required',
         ]);
         
         DB::table('lap_transaksi_cibiru1')->insert([
-        'id_lappenghuni' => $request->id_lappenghuni,
+        'id_laptransaksi' => $request->id_laptransaksi,
         'id_transaksi'       => $request->id_transaksi,
         'nama_penghuni'      => $request->nama_penghuni,
         'no_kamar'           => $request->no_kamar,
         'nominal'            => $request->nominal,
+        'tgl_pembayaran' => $request->tgl_pembayaran,
         'status_pembayaran'  => $request->status_pembayaran,
         'created_at'         => now(),
         'user_id'       => Auth::id(),

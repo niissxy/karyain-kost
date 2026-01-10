@@ -157,6 +157,10 @@ class CheckInCibiru1Controller extends Controller
             ->where('no_kamar', $request->no_kamar)
             ->update(['status_kamar' => $status_kamar]);
 
+        DB::table('lap_kamar_cibiru1')
+            ->where('no_kamar', $request->no_kamar)
+            ->update(['status_kamar' => $status_kamar]);
+
         // =========================
         // UPDATE PENGHUNI
         // =========================
