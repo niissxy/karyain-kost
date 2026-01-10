@@ -159,6 +159,7 @@ body {
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>ID Laporan</th>
                                     <th>ID Transaksi</th>
                                     <th>Nama Penghuni</th>
                                     <th>No Kamar</th>
@@ -172,6 +173,7 @@ body {
                                 @foreach ($laptransaksi_cibiru1 as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->id_laptransaksi }}</td>
                                     <td>{{ $item->id_transaksi }}</td>
                                     <td>{{ $item->nama_penghuni }}</td>
                                     <td>{{ $item->no_kamar }}</td>

@@ -9,6 +9,7 @@ class LapPenghuniRegol1 extends Model
 {
     protected $table = 'lap_penghuni_regol1';
     protected $fillable = [
+        'id_lappenghuni',
         'id_penghuni',
         'nama_penghuni', 
         'tgl_masuk', 

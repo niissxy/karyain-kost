@@ -176,6 +176,7 @@ body {
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>ID Laporan</th>
                                     <th>ID Penghuni</th>
                                     <th>Nama Penghuni</th>
                                     <th>Tanggal Masuk</th>
@@ -190,6 +191,7 @@ body {
                                 @foreach ($lappenghuni_regol1 as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->id_lappenghuni }}</td>
                                     <td>{{ $item->id_penghuni }}</td>
                                     <td>{{ $item->nama_penghuni }}</td>
                                     <td>{{ $item->tgl_masuk }}</td>

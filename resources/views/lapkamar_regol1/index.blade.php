@@ -176,6 +176,7 @@ body {
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>ID Laporan</th>
                                     <th>ID Kamar</th>
                                     <th>No Kamar</th>
                                     <th>Tipe Kamar</th>
@@ -189,6 +190,7 @@ body {
                                 @foreach ($lapkamar_regol1 as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->id_lapkamar }}</td>
                                     <td>{{ $item->id_kamar }}</td>
                                     <td>{{ $item->no_kamar }}</td>
                                     <td>{{ $item->tipe_kamar }}</td>

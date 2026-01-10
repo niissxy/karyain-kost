@@ -8,6 +8,7 @@ class LapKamarRegol1 extends Model
 {
      protected $table = 'lap_kamar_regol1';
     protected $fillable = [
+        'id_lapkamar',
         'id_kamar',
         'no_kamar', 
         'tipe_kamar', 

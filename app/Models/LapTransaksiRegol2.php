@@ -8,6 +8,7 @@ class LapTransaksiRegol2 extends Model
 {
     protected $table = 'lap_transaksi_regol2';
     protected $fillable = [
+        'id_laptransaksi',
         'id_transaksi',
         'nama_penghuni', 
         'no_kamar', 
