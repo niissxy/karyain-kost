@@ -20,7 +20,6 @@ class FasumRegol1Controller extends Controller
     public function index()
     {
         $fasum_regol1 = FasumRegol1::with('user')->get();
-        $fasum_regol1 = FasumRegol1::all();
         return view('fasum_regol1.index', compact('fasum_regol1'));
     }
 

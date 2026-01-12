@@ -20,8 +20,6 @@ class LapKamarCibiru1Controller extends Controller
 {
     $lapkamar_cibiru1 = LapKamarCibiru1::with('user')->get();
     // Ambil semua kamar
-    $lapkamar_cibiru1 = DB::table('lap_kamar_cibiru1')->get();
-
     // Hitung berdasarkan status
     $jumlahKamarTerisi = DB::table('lap_kamar_cibiru1')
         ->where('status_kamar', 'terisi')
@@ -67,32 +65,33 @@ public function create()
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'id_lapkamar' => 'required',
-            'id_kamar' => 'required',
-            'no_kamar'     => 'required',
-            'tipe_kamar'   => 'required',
-            'status_kamar' => 'required',
-            'harga'        => 'required|numeric',
-            
-        ]);
+   public function store(Request $request)
+{
+    $request->validate([
+        'id_lapkamar'  => 'required',
+        'id_kamar'     => 'required',
+        'no_kamar'     => 'required',
+        'tipe_kamar'   => 'required',
+        'status_kamar' => 'required',
+        'harga'        => 'required'
+    ]);
 
-        DB::table('lap_kamar_cibiru1')->insert([
-            'id_lapkamar' => $request->id_lapkamar,
-            'id_kamar'     => $request->id_kamar,
-            'no_kamar'     => $request->no_kamar,
-            'tipe_kamar'   => $request->tipe_kamar,
-            'status_kamar' => $request->status_kamar,
-            'harga'        => $request->harga,
-            'created_at'   => now(),
-            'user_id'       => Auth::id(),
-        ]);
+    DB::table('lap_kamar_cibiru1')->insert([
+        'id_lapkamar'  => $request->id_lapkamar,
+        'id_kamar'     => $request->id_kamar,
+        'no_kamar'     => $request->no_kamar,
+        'tipe_kamar'   => $request->tipe_kamar,
+        'status_kamar' => $request->status_kamar,
+        'harga'        => str_replace('.', '', $request->harga),
+        'user_id'       => Auth::id(),
+        'created_at'   => now(),
+    ]);
 
-        return redirect()->route('lapkamar_cibiru1.index')
-                         ->with('success', 'Data kamar berhasil ditambahkan');
-    }
+    return redirect()
+        ->route('lapkamar_cibiru1.index')
+        ->with('success', 'Data kamar berhasil ditambahkan');
+}
+
 
     /**
      * Display the specified resource.

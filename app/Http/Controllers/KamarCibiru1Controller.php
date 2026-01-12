@@ -8,6 +8,7 @@ use App\Models\KamarCibiru1;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+use function Laravel\Prompts\table;
 use function Symfony\Component\Clock\now;
 
 class KamarCibiru1Controller extends Controller
@@ -103,6 +104,12 @@ class KamarCibiru1Controller extends Controller
             'harga' => $request->harga,
             'updated_at' => now(), // Waktu diperbarui saat ini/ Nama pembuat
         ];
+
+        DB::table('lap_kamar_cibiru1')
+        ->where('id_kamar', $id_kamar)
+        ->update([
+            'harga' => $request->harga
+        ]);
 
         KamarCibiru1::where('id_kamar', $id_kamar)->update($data);
 

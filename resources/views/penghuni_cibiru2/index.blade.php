@@ -79,9 +79,9 @@ table {
             <!-- Card Header -->
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="card-title">Data Penghuni Kost Cibiru 2</h5>
-                <a href="{{ url('penghuni_cibiru2/create') }}" class="btn btn-success btn-sm">
+                <!-- <a href="{{ url('penghuni_cibiru2/create') }}" class="btn btn-success btn-sm">
                     <i class="bi bi-plus-circle"></i> New
-                </a>
+                </a> -->
             </div>
 
             <!-- Card Body -->

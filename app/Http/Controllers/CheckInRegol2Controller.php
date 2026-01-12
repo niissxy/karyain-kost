@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CheckInRegol2;
 use App\Models\PenghuniRegol2;
+use App\Models\KamarRegol2;
 use App\Models\TransaksiRegol2;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -37,8 +38,12 @@ class CheckInRegol2Controller extends Controller
             $newNumber = 1;
         }
 
+        $kamarKosong = KamarRegol2::where('status_kamar', 'Kosong')
+                    ->orderBy('no_kamar', 'asc')
+                    ->get();
+
         $newKode = 'CI-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
-        return view('checkin_regol2.create', compact('user', 'newKode'));
+        return view('checkin_regol2.create', compact('user', 'newKode', 'kamarKosong'));
     }
 
     /**

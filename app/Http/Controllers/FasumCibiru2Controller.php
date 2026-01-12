@@ -18,7 +18,6 @@ class FasumCibiru2Controller extends Controller
     public function index()
     {
         $fasum_cibiru2 = FasumCibiru2::with('user')->get();
-        $fasum_cibiru2 = FasumCibiru2::all();
         return view('fasum_cibiru2.index', compact('fasum_cibiru2'));
     }
 

@@ -166,7 +166,6 @@ body {
                                     <th>Nominal</th>
                                     <th>Status</th>
                                     <th>User</th>
-                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

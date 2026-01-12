@@ -69,14 +69,22 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">No Kamar</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" name="no_kamar" required value="{{ old('no_kamar') }}">
+                                     <select class="form-select" name="no_kamar" required>
+                                        <option value="">-- Pilih Kamar Kosong --</option>
+                                        @foreach ($kamarKosong as $kamar)
+                                        <option value="{{ $kamar->no_kamar }}"
+                                        {{ old('no_kamar') == $kamar->no_kamar ? 'selected' : '' }}>
+                                        Kamar {{ $kamar->no_kamar }}
+                                        </option>
+                                         @endforeach
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nominal</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="number" name="nominal" required value="{{ old('nominal.0,' '') }}">
+                                    <input class="form-control" type="number" name="nominal" required value="{{ old('nominal.0,' '')">
                                 </div>
                             </div>
 

@@ -18,7 +18,6 @@ class FasumRegol2Controller extends Controller
     public function index()
     {
         $fasum_regol2 = FasumRegol2::with('user')->get();
-        $fasum_regol2 = FasumRegol2::all();
         return view('fasum_regol2.index', compact('fasum_regol2'));
     }
 

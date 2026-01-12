@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\KamarCibiru2;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\Console\Helper\TableCell;
 
 class KamarCibiru2Controller extends Controller
 {
@@ -98,6 +99,12 @@ class KamarCibiru2Controller extends Controller
             'harga' => $request->harga,
             'updated_at' => now(), // Waktu diperbarui saat ini/ Nama pembuat
         ];
+
+        DB::table('lap_kamar_cibiru2')
+        ->where('id_kamar', $id_kamar)
+        ->update([
+            'harga' => $request->harga
+        ]);
 
         KamarCibiru2::where('id_kamar', $id_kamar)->update($data);
 

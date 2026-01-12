@@ -20,8 +20,6 @@ class LapKamarRegol1Controller extends Controller
 {
     $lapkamar_regol1 = LapKamarRegol1::with('user')->get();
     // Ambil semua kamar
-    $lapkamar_regol1 = DB::table('lap_kamar_regol1')->get();
-
     // Hitung berdasarkan status
     $jumlahKamarTerisi = DB::table('lap_kamar_regol1')
         ->where('status_kamar', 'terisi')

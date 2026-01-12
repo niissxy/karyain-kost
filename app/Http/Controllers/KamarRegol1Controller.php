@@ -100,6 +100,12 @@ class KamarRegol1Controller extends Controller
             'updated_at' => now(), // Waktu diperbarui saat ini/ Nama pembuat
         ];
 
+        DB::table('lap_kamar_regol1')
+        ->where('id_kamar', $id_kamar)
+        ->update([
+            'harga' => $request->harga
+        ]);
+
         KamarRegol1::where('id_kamar', $id_kamar)->update($data);
 
         if ($data) {

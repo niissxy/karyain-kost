@@ -107,7 +107,7 @@ table {
                                 <td>{{ $item->tipe_kamar }}</td>
                                 <td>{{ $item->no_kamar }}</td>
                                 <td>{{ $item->status_kamar }}</td>
-                                <td>{{ $item->harga }}</td>
+                                <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>
                                 <td style="text-align: center; vertical-align: middle;">
                                     <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">

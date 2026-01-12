@@ -183,7 +183,6 @@ body {
                                     <th>Harga</th>
                                     <th>Status Kamar</th>
                                     <th>User</th>
-                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -194,9 +193,9 @@ body {
                                     <td>{{ $item->id_kamar }}</td>
                                     <td>{{ $item->no_kamar }}</td>
                                     <td>{{ $item->tipe_kamar }}</td>
-                                    <td>{{ $item->harga }}</td>
+                                    <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                     <td>{{ $item->status_kamar }}</td>
-                                     <td>{{ $item->user->name ?? '-' }}</td>
+                                    <td>{{ $item->user?->name ?? '-' }}</td>
                                     <td class="d-flex gap-1">
                                     </td>
                                 </tr>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CheckInCibiru2;
+use App\Models\KamarCibiru2;
 use App\Models\PenghuniCibiru2;
 use App\Models\TransaksiCibiru2;
 use Illuminate\Http\Request;
@@ -37,8 +38,12 @@ class CheckInCibiru2Controller extends Controller
             $newNumber = 1;
         }
 
+        $kamarKosong = KamarCibiru2::where('status_kamar', 'Kosong')
+                    ->orderBy('no_kamar', 'asc')
+                    ->get();
+
         $newKode = 'CI-' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
-        return view('checkin_cibiru2.create', compact('user', 'newKode'));
+        return view('checkin_cibiru2.create', compact('user', 'newKode', 'kamarKosong'));
     }
 
     /**
