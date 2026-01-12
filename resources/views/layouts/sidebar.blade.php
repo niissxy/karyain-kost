@@ -361,13 +361,6 @@
     </form>
 </li>
 
-
-
-
-
-
-
-
             <!-- <li class="nav-item">
                 <a href="#" class="nav-link text-white">
                     <i class="bi bi-box-arrow-right me-2"></i> Check Out
