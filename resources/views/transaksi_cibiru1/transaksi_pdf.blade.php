@@ -150,7 +150,7 @@
                 </div>
                 <div class="col-sm-6">
                     <strong>Nominal</strong> <strong style="margin-left: 98px;"> : </strong>
-                    <span>{{ $transaksi->nominal }}</span>                    
+                    <span>Rp {{ number_format($transaksi->nominal, 0, ',', '.') }}</span>                    
                 </div>
             </div>
             <div class="row">

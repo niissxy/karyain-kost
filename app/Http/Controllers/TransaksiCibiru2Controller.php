@@ -94,24 +94,32 @@ class TransaksiCibiru2Controller extends Controller
     public function update(Request $request, string $id_transaksi)
     {
         // $user = auth()->user();
-        $data = [
-            'id_transaksi' => $request->id_transaksi,
-            'nama_penyewa' => $request->nama_penyewa,
-            'total_penyewa' => $request->total_penyewa,
-            'no_kamar' => $request->no_kamar,
-            'nominal' => $request->nominal,
-            'tgl_pembayaran' => $request->tgl_pembayaran,
-            'status' => $request->status,
-            'updated_at' => now(), // Waktu diperbarui saat ini/ Nama pembuat
-        ];
+        DB::transaction(function () use ($request, $id_transaksi) {
 
-        TransaksiCibiru2::where('id_transaksi', $id_transaksi)->update($data);
+        // Update tabel transaksi
+        TransaksiCibiru2::where('id_transaksi', $id_transaksi)
+            ->update([
+                'nama_penyewa'   => $request->nama_penyewa,
+                'total_penyewa'  => $request->total_penyewa,
+                'no_kamar'       => $request->no_kamar,
+                'nominal'        => $request->nominal,
+                'tgl_pembayaran' => $request->tgl_pembayaran,
+                'status'         => $request->status,
+                'updated_at'     => now(),
+            ]);
 
-        if ($data) {
-            return redirect()->route('transaksi_cibiru2.index')->with('success', 'Data berhasil diperbarui');
-        } else {
-            return redirect()->route('transaksi_cibiru2.index')->with('error', 'Data gagal diperbarui');
-        }
+        // Update tabel laporan transaksi
+        DB::table('lap_transaksi_cibiru2')
+            ->where('id_transaksi', $id_transaksi)
+            ->update([
+                'status_pembayaran' => $request->status,
+                'updated_at'        => now(),
+            ]);
+    });
+
+    return redirect()
+        ->route('transaksi_cibiru1.index')
+        ->with('success', 'Data transaksi & laporan berhasil diperbarui');
     }
 
     /**

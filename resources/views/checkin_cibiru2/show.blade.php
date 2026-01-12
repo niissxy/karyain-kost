@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cetak Invoice Check In</title>
+    <title>Invoice Check In</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -38,17 +38,21 @@
         }
 
         .invoice-title {
-            font-size: 28px;
-            font-weight: 600;
+            font-size: 15px;
+            /* font-weight: 600; */
             color: #2e3a59;
             letter-spacing: 1px;
-            text-align: right;
+            text-align: left;
             text-transform: uppercase;
         }
 
         .invoice-info p {
             font-size: 14px;
             margin-bottom: 5px;
+        }
+
+        .col-sm-6 {
+            margin-bottom: 20px;
         }
 
         /* .table {
@@ -82,22 +86,6 @@
             font-weight: bold;
         }
 
-        .btn {
-            border-radius: 6px;
-            transition: 0.2s;
-            font-weight: 500;
-        }
-
-        .btn-primary {
-            background-color: #2e3a59;
-            border-color: #2e3a59;
-        }
-
-        .btn-secondary {
-            background-color: #6c757d;
-            border-color: #6c757d;
-        }
-
         /* Print Styles */
         @media print {
             .btn, .mt-3 {
@@ -109,11 +97,11 @@
                 box-shadow: none;
             }
             .invoice-title {
-                font-size: 20px;
+                font-size: 10px;
                 font-weight: 600;
                 color: #2e3a59;
                 letter-spacing: 1px;
-                text-align: right;
+                text-align: left;
                 text-transform: uppercase;
             }
         }
@@ -124,9 +112,8 @@
         
         <!-- Header -->
         <div class="header-section">
-            <div class="d-flex align-items-center">
-                <!-- <img alt="AdminLTE Logo" class="brand-image" src="{{ asset('lte/src/assets/img/AdminLTELogo.png') }}"> -->
-                <div style="font-weight: 600; margin-left: 15px; font-size: 16px;">
+            <div class="header-section d-flex justify-content-end align-items-center">
+                <div style="font-weight: 600; font-size: 16px; text-align: right;">
                     <strong>Karyain Kost</strong><br>
                 </div>
             </div>
@@ -138,39 +125,35 @@
         <div class="invoice-info">
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Tanggal Check In :</strong>   
-                    <p>{{ date('d-m-Y', strtotime($checkin_cibiru2->tgl_checkin)) }}</p>
+                    <strong>Tanggal Check In</strong> <strong> : </strong>  
+                    <span>{{ date('d-m-Y', strtotime($checkin_cibiru2->tgl_checkin)) }}</span>
                 </div>
                 <div class="col-sm-6">
-                    <strong>Kode Check In :</strong>
-                    <p>{{ $checkin_cibiru2->id_checkin }}</p>
+                    <strong>ID Check In</strong> <strong style="margin-left: 66px;"> : </strong>
+                    <span>{{ $checkin_cibiru2->id_checkin }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nama Penghuni :</strong>
-                    <p>{{ $checkin_cibiru2->nama_penghuni }}</p>                   
+                    <strong>Nama Penghuni</strong> <strong style="margin-left: 9px;"> : </strong>
+                    <span>{{ $checkin_cibiru2->nama_penghuni }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>No Kamar :</strong>
-                    <p>{{ $checkin_cibiru2->no_kamar }}</p>
+                    <strong>No Kamar</strong> <strong style="margin-left: 78px;"> : </strong>
+                    <span>{{ $checkin_cibiru2->no_kamar }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nominal :</strong>
-                    <p>Rp {{ number_format($checkin_cibiru2->nominal, 0, ',', '.') }}</p>                    
+                    <strong>Nominal</strong> <strong style="margin-left: 66px;"> : </strong>
+                    <span>Rp {{ number_format($checkin_cibiru2->nominal, 0, ',', '.') }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>Status :</strong>
-                    <p>{{ $checkin_cibiru2->status }}</p>                    
+                    <strong>Status</strong> <strong style="margin-left: 105px;"> : </strong>
+                    <span>{{ $checkin_cibiru2->status }}</span>                    
                 </div>
             </div>
-      
-        <div class="text-center mt-4">     
-        <button class="btn btn-primary mt-3" onclick="window.print()">Print</button>
-        <a href="{{ route('checkin_cibiru2.index') }}" class="btn btn-secondary mt-3">Back</a>
-        </div>
+
     </div>
 </body>
 </html>
