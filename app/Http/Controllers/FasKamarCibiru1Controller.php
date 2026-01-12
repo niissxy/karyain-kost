@@ -20,7 +20,6 @@ class FasKamarCibiru1Controller extends Controller
     public function index()
     {
         $faskamar_cibiru1 = FasKamarCibiru1::with('user')->get();
-        $faskamar_cibiru1 = FasKamarCibiru1::all();
         return view('faskamar_cibiru1.index', compact('faskamar_cibiru1'));
     }
 

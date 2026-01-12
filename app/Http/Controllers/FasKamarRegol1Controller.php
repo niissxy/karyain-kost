@@ -20,7 +20,6 @@ class FasKamarRegol1Controller extends Controller
     public function index()
     {
         $faskamar_regol1 = FasKamarRegol1::with('user')->get();
-        $faskamar_regol1 = FasKamarRegol1::all();
         return view('faskamar_regol1.index', compact('faskamar_regol1'));
     }
 
