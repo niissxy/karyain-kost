@@ -110,7 +110,7 @@ body {
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                     <div class="card text-white bg-success h-100">
                         <div class="card-header">
-                            <i class="bi bi-person-check-fill"></i> Jumlah Kamar Terisi
+                            <i class="bi bi-house-check"></i> Jumlah Kamar Terisi
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">{{ $jumlahKamarTerisi ?? '-' }}</h5>
@@ -125,7 +125,7 @@ body {
                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                     <div class="card text-white bg-primary h-100">
                         <div class="card-header">
-                            <i class="bi bi-person-plus-fill"></i> Jumlah Kamar Kosong
+                            <i class="bi bi-house-door"></i> Jumlah Kamar Kosong
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">{{ $jumlahKamarKosong ?? '-' }}</h5>
@@ -140,7 +140,7 @@ body {
                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                     <div class="card text-white bg-danger h-100">
                         <div class="card-header">
-                            <i class="bi bi-person-dash-fill"></i> Jumlah Kamar Dibooking
+                            <i class="bi bi-calendar-check"></i> Jumlah Kamar Dibooking
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">{{ $jumlahKamarDibooking ?? '-' }}</h5>

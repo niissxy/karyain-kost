@@ -106,7 +106,7 @@ body {
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                     <div class="card text-white bg-success h-100">
                         <div class="card-header">
-                            <i class="bi bi-house-door"></i> Total Transaksi
+                            <i class="bi bi-receipt"></i> Total Transaksi
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">{{ $totalTransaksi ?? '-' }}</h5>
