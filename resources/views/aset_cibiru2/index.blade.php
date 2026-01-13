@@ -80,7 +80,7 @@ table {
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="card-title">Data Aset Kost Cibiru 2</h5>
                 <a href="{{ url('aset_cibiru2/create') }}" class="btn btn-warning btn-sm">
-                    <i class="bi bi-plus-circle"></i> New
+                    <i class="bi bi-plus-circle"></i> New Data
                 </a>
             </div>
 

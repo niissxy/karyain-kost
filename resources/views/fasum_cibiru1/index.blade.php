@@ -80,7 +80,7 @@ table {
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="card-title">Data Fasilitas Umum Kost Cibiru 1</h5>
                 <a href="{{ url('fasum_cibiru1/create') }}" class="btn btn-warning btn-sm">
-                    <i class="bi bi-plus-circle"></i> New
+                    <i class="bi bi-plus-circle"></i> New Data
                 </a>
             </div>
 

@@ -46,7 +46,7 @@
         <div class="col-md-3 col-sm-6 mb-3">
             <div class="card text-white bg-success">
                 <div class="card-header">
-                    <i class="bi bi-house-door"></i> Kamar Kosong
+                    <i class="bi bi-house-door mr-10"></i> Kamar Kosong
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">{{ $kamarKosong }}</h5>

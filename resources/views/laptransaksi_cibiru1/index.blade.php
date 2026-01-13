@@ -148,7 +148,7 @@ body {
                     <h5 class="mb-0">Laporan Transaksi Kost Cibiru 1</h5>
                     <a href="{{ url('laptransaksi_cibiru1/create') }}"
                        class="btn btn-warning btn-sm">
-                        <i class="bi bi-plus-circle"></i> New
+                        <i class="bi bi-plus-circle"></i> New Data
                     </a>
                 </div>
 

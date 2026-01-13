@@ -328,38 +328,6 @@ Route::put('/transaksi_regol2/{id_transaksi}', [TransaksiRegol2Controller::class
 Route::get('transaksi_regol2/{id_transaksi}/invoice',[TransaksiRegol2Controller::class, 'exportPdf'])->name('transaksi_regol2.exportPdf');
 Route::delete('/transaksi_regol2/{id_transaksi}', [TransaksiRegol2Controller::class, 'destroy'])->name('transaksi_regol2.destroy')->middleware('auth');
 
-//sewa cibiru 1
-Route::get('/sewa_cibiru1', [SewaCibiru1Controller::class, 'index'])->name('sewa_cibiru1.index')->middleware('auth');
-Route::get('/sewa_cibiru1/create', [SewaCibiru1Controller::class, 'create'])->name('sewa_cibiru1.create')->middleware('auth');
-Route::post('/sewa_cibiru1', [SewaCibiru1Controller::class, 'store'])->name('sewa_cibiru1.store')->middleware('auth');
-Route::get('/sewa_cibiru1/{id_sewa}/edit', [SewaCibiru1Controller::class, 'edit'])->name('sewa_cibiru1.edit')->middleware('auth');
-Route::put('/sewa_cibiru1/{id_sewa}', [SewaCibiru1Controller::class, 'update'])->name('sewa_cibiru1.update')->middleware('auth');
-Route::delete('/sewa_cibiru1/{id_sewa}', [SewaCibiru1Controller::class, 'destroy'])->name('sewa_cibiru1.destroy')->middleware('auth');
-
-//sewa cibiru 2
-Route::get('/sewa_cibiru2', [SewaCibiru2Controller::class, 'index'])->name('sewa_cibiru2.index')->middleware('auth');
-Route::get('/sewa_cibiru2/create', [SewaCibiru2Controller::class, 'create'])->name('sewa_cibiru2.create')->middleware('auth');
-Route::post('/sewa_cibiru2', [SewaCibiru2Controller::class, 'store'])->name('sewa_cibiru2.store')->middleware('auth');
-Route::get('/sewa_cibiru2/{id_sewa}/edit', [SewaCibiru2Controller::class, 'edit'])->name('sewa_cibiru2.edit')->middleware('auth');
-Route::put('/sewa_cibiru2/{id_sewa}', [SewaCibiru2Controller::class, 'update'])->name('sewa_cibiru2.update')->middleware('auth');
-Route::delete('/sewa_cibiru2/{id_sewa}', [SewaCibiru2Controller::class, 'destroy'])->name('sewa_cibiru2.destroy')->middleware('auth');
-
-//sewa regol 1
-Route::get('/sewa_regol1', [SewaRegol1Controller::class, 'index'])->name('sewa_regol1.index')->middleware('auth');
-Route::get('/sewa_regol1/create', [SewaRegol1Controller::class, 'create'])->name('sewa_regol1.create')->middleware('auth');
-Route::post('/sewa_regol1', [SewaRegol1Controller::class, 'store'])->name('sewa_regol1.store')->middleware('auth');
-Route::get('/sewa_regol1/{id_sewa}/edit', [SewaRegol1Controller::class, 'edit'])->name('sewa_regol1.edit')->middleware('auth');
-Route::put('/sewa_regol1/{id_sewa}', [SewaRegol1Controller::class, 'update'])->name('sewa_regol1.update')->middleware('auth');
-Route::delete('/sewa_regol1/{id_sewa}', [SewaRegol1Controller::class, 'destroy'])->name('sewa_regol1.destroy')->middleware('auth');
-
-//sewa regol 2
-Route::get('/sewa_regol2', [SewaRegol2Controller::class, 'index'])->name('sewa_regol2.index')->middleware('auth');
-Route::get('/sewa_regol2/create', [SewaRegol2Controller::class, 'create'])->name('sewa_regol2.create')->middleware('auth');
-Route::post('/sewa_regol2', [SewaRegol2Controller::class, 'store'])->name('sewa_regol2.store')->middleware('auth');
-Route::get('/sewa_regol2/{id_sewa}/edit', [SewaRegol2Controller::class, 'edit'])->name('sewa_regol2.edit')->middleware('auth');
-Route::put('/sewa_regol2/{id_sewa}', [SewaRegol2Controller::class, 'update'])->name('sewa_regol2.update')->middleware('auth');
-Route::delete('/sewa_regol2/{id_sewa}', [SewaRegol2Controller::class, 'destroy'])->name('sewa_regol2.destroy')->middleware('auth');
-
 //checkin cibiru 1
 Route::get('/checkin_cibiru1', [CheckInCibiru1Controller::class, 'index'])->name('checkin_cibiru1.index')->middleware('auth');
 Route::get('/checkin_cibiru1/create', [CheckInCibiru1Controller::class, 'create'])->name('checkin_cibiru1.create')->middleware('auth');

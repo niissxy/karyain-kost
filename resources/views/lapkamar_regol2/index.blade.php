@@ -165,7 +165,7 @@ body {
                     <h5 class="mb-0">Laporan Kamar Kost Regol 2</h5>
                     <a href="{{ url('lapkamar_regol2/create') }}"
                        class="btn btn-warning btn-sm">
-                        <i class="bi bi-plus-circle"></i> New
+                        <i class="bi bi-plus-circle"></i> New Data
                     </a>
                 </div>
 
