@@ -30,11 +30,12 @@
                 <label for="kost_id" class="form-label">Pilih Kost:</label>
                 <select name="kost_id" id="kost_id" class="form-select" onchange="this.form.submit()">
                     @foreach($kosts as $id => $name)
-                        <option value="{{ $id }}" {{ $kostId == $id ? 'selected' : '' }}>
-                            {{ $kostDisplayName ?? ucfirst($name) }}
-                        </option>
+                    <option value="{{ $id }}" {{ $kostId == $id ? 'selected' : '' }}>
+                        {{ $kostDisplayNames[$id] ?? ucfirst($name) }}
+                    </option>
                     @endforeach
                 </select>
+
             </div>
         </div>
     </form>
