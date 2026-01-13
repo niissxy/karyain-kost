@@ -14,7 +14,7 @@ class DashboardController extends Controller
 
     public function index(Request $request)
 {
-    // Opsi kost (nama tabel)
+    // Nama tabel untuk query
     $kosts = [
         1 => 'cibiru1',
         2 => 'cibiru2',
@@ -22,7 +22,7 @@ class DashboardController extends Controller
         4 => 'regol2'
     ];
 
-    // Nama tampil (untuk UI)
+    // Nama tampilan di UI
     $kostDisplayNames = [
         1 => 'Kost Cibiru 1',
         2 => 'Kost Cibiru 2',
@@ -30,12 +30,10 @@ class DashboardController extends Controller
         4 => 'Kost Regol 2'
     ];
 
-    // Default kost_id
-    $kostId = $request->get('kost_id', 1);
-    $kostName = $kosts[$kostId] ?? 'cibiru1';
-    $kostDisplayName = $kostDisplayNames[$kostId] ?? 'Kost Cibiru 1';
+    $kostId = $request->get('kost_id', 1); // default kost 1
+    $kostName = $kosts[$kostId] ?? 'cibiru1'; // untuk query tabel
+    $kostDisplayName = $kostDisplayNames[$kostId] ?? 'Kost Cibiru 1'; // untuk tampilan UI
 
-    // Query berdasarkan kost
     $kamarKosong = DB::table("kamar_{$kostName}")->where('status_kamar', 'kosong')->count();
     $kamarTerisi = DB::table("kamar_{$kostName}")->where('status_kamar', 'terisi')->count();
     $pemasukan = DB::table("transaksi_{$kostName}")->sum('nominal');
@@ -44,11 +42,13 @@ class DashboardController extends Controller
         'kosts', 
         'kostId', 
         'kostName', 
-        'kostDisplayName', // tambahkan ini untuk tampilan
+        'kostDisplayName', 
+        'kostDisplayNames', 
         'kamarKosong', 
         'kamarTerisi', 
         'pemasukan'
     ));
 }
+
 
 }

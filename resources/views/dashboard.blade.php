@@ -28,14 +28,13 @@
         <div class="row">
             <div class="col-md-4 col-sm-12">
                 <label for="kost_id" class="form-label">Pilih Kost:</label>
-               <select name="kost_id" id="kost_id" class="form-select" onchange="this.form.submit()">
-                    @foreach($kosts as $id => $name)
+              <select name="kost_id" id="kost_id" class="form-select" onchange="this.form.submit()">
+                @foreach($kosts as $id => $name)
                     <option value="{{ $id }}" {{ $kostId == $id ? 'selected' : '' }}>
-                         {{ $kostDisplayNames[$id] ?? ucfirst($name) }}
+                        {{ $kostDisplayNames[$id] ?? ucfirst($name) }} <!-- Menampilkan "Kost Cibiru 1", dst -->
                     </option>
-                    @endforeach
-                </select>
-
+                @endforeach
+              </select>
 
             </div>
         </div>
