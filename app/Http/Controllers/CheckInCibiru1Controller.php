@@ -136,12 +136,13 @@ class CheckInCibiru1Controller extends Controller
     /**
      * Update the specified resource in storage.
      */
-   public function update(Request $request, string $id_checkin)
-    {
+  public function update(Request $request, string $id_checkin)
+{
     DB::transaction(function () use ($request, $id_checkin) {
 
         $checkin = CheckInCibiru1::where('id_checkin', $id_checkin)->firstOrFail();
 
+        // Update check-in
         $checkin->update([
             'tgl_checkin'   => $request->tgl_checkin,
             'nama_penghuni' => $request->nama_penghuni,
@@ -152,7 +153,6 @@ class CheckInCibiru1Controller extends Controller
 
         // ================= STATUS KAMAR =================
         $status_kamar = $request->status === 'Aktif' ? 'Terisi' : 'Booked';
-
         DB::table('kamar_cibiru1')
             ->where('no_kamar', $request->no_kamar)
             ->update(['status_kamar' => $status_kamar]);
@@ -167,6 +167,7 @@ class CheckInCibiru1Controller extends Controller
             ->where('status', 'Masih di kost')
             ->first();
 
+        // Jika ada, update tanggal masuk
         if ($penghuni) {
             $penghuni->update([
                 'tgl_masuk' => $request->tgl_checkin
@@ -177,6 +178,27 @@ class CheckInCibiru1Controller extends Controller
                 ->update([
                     'tgl_masuk' => $request->tgl_checkin
                 ]);
+        }
+        // Jika belum ada penghuni dan status sekarang Aktif → buat data penghuni baru
+        elseif ($request->status === 'Aktif') {
+            $userId = Auth::id() ?? 1; // default user_id jika null
+
+            // Buat id_penghuni baru
+            $lastPenghuni = PenghuniCibiru1::latest('id_penghuni')->first();
+            $lastNumber = $lastPenghuni ? (int) substr($lastPenghuni->id_penghuni, 3) : 0;
+            $newId = 'P-' . str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
+
+            PenghuniCibiru1::create([
+                'id_penghuni'      => $newId,
+                'nama_penghuni'    => $request->nama_penghuni,
+                'penempatan_kamar' => $request->no_kamar,
+                'tgl_masuk'        => $request->tgl_checkin,
+                'status'           => 'Masih di kost',
+                'user_id'          => $userId,
+                'alamat'           => null,
+                'kontak'           => null,
+                'tgl_keluar'       => null,
+            ]);
         }
 
         // ================= TRANSAKSI =================
@@ -200,7 +222,7 @@ class CheckInCibiru1Controller extends Controller
 
     return redirect()->route('checkin_cibiru1.index')
         ->with('success', 'Data berhasil diperbarui');
-    }
+}
 
 
     /**
