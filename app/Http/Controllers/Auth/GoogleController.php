@@ -17,13 +17,13 @@ class GoogleController extends Controller
         ])
         ->redirect();
 
-        return Socialite::driver('google')->redirect();
+       return Socialite::driver('google')->stateless()->redirect();
     }
 
     public function callback()
     {
         // Ambil user dari Google
-        $googleUser = Socialite::driver('google')->user();
+        $googleUser = Socialite::driver('google')->stateless()->user();
 
         // Update atau buat user baru
         $user = User::updateOrCreate(
