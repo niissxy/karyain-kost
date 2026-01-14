@@ -5,7 +5,7 @@
 <style>
 body {
     overflow-x: hidden;
-    background: linear-gradient(135deg, #ff5757, #deb1b1);
+    background: linear-gradient(135deg, #ff5757, #c59999);
 }
 html, body {
     max-width: 100vw;
