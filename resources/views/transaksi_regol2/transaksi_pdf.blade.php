@@ -158,7 +158,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Status</strong> <strong style="margin-left: 112px;"> : </strong>
+                    <strong>Status</strong> <strong style="margin-left: 113px;"> : </strong>
                     <span>{{ $transaksi->status }}</span>                    
                 </div>
             </div>
