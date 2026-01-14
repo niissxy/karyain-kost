@@ -5,17 +5,14 @@
 <style>
 body {
     overflow-x: hidden;
+    background: linear-gradient(135deg, #ff5757, #deb1b1);
 }
 html, body {
     max-width: 100vw;
 }
-
-.auth-bg{
-    background: linear-gradient(135deg, #ff5757, #deb1b1);
-}
 </style>
 
-<div class="container min-vh-100 d-flex align-items-center justify-content-center auth-bg">
+<div class="container min-vh-100 d-flex align-items-center justify-content-center">
     <div class="row w-100 justify-content-center">
         <div class="col-12 col-sm-10 col-md-6 col-lg-4">
 
