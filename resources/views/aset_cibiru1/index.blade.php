@@ -91,7 +91,7 @@ table {
                 <div class="table-responsive">
                     <table class="table table-borderless">
                         <thead>
-                            <tr>
+                            <tr class="bg-secondary">
                                 <th>No</th>
                                 <th>ID Aset</th>
                                 <th>Nama Aset</th>
