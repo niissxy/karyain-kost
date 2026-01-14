@@ -82,7 +82,7 @@ body {
 
         <!-- KAMAR KOSONG -->
         <div class="col-xl-3 col-md-4 col-sm-6">
-            <div class="card text-white bg-success.bg-gradient dashboard-card shadow-sm border-0">
+            <div class="card text-white bg-success bg-gradient dashboard-card shadow-sm border-0">
                 <div class="card-header">
                     <i class="bi bi-house-door"></i>
                     Kamar Kosong
