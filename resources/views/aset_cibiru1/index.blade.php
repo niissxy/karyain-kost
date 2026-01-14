@@ -92,7 +92,7 @@ table {
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th class="bg-secondary">No</th>
+                                <th class="bg-light-subtle">No</th>
                                 <th>ID Aset</th>
                                 <th>Nama Aset</th>
                                 <th>Kategori</th>
