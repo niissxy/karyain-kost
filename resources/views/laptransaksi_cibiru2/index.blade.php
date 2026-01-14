@@ -41,6 +41,7 @@ body {
 .summary-card .card-header {
     padding: 8px 12px;
     font-size: 14px;
+    border-bottom: 0;
 }
 
 .summary-card .card-body {
@@ -104,7 +105,7 @@ body {
 
                 <!-- Kamar Kosong -->
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card text-white bg-success h-100">
+                    <div class="card text-white bg-success bg-gradient h-100 shadow">
                         <div class="card-header">
                             <i class="bi bi-receipt"></i> Total Transaksi
                         </div>
@@ -119,7 +120,7 @@ body {
                 
                 <!-- Pemasukan -->
                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card text-white bg-info h-100">
+                    <div class="card text-white bg-info bg-gradient h-100 shadow">
                         <div class="card-header">
                             <i class="bi bi-cash-stack"></i> Pemasukan
                         </div>
