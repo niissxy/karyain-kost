@@ -122,7 +122,7 @@ body {
                         Rp {{ number_format($pemasukan, 0, ',', '.') }}
                     </div>
                     <div class="card-text">
-                        Total transaksi {{ $kostDisplayName }}
+                        Total Pemasukan {{ $kostDisplayName }}
                     </div>
                 </div>
             </div>
