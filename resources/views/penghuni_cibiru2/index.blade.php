@@ -90,17 +90,17 @@ table {
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>ID Penghuni</th>
-                                <th>Nama Penghuni</th>
-                                <th>Penempatan Kamar</th>
-                                <th>Alamat</th>
-                                <th>Kontak</th>
-                                <th>Tanggal Masuk</th>
-                                <th>Tanggal Keluar</th>
-                                <th>Status</th>
-                                <th>User</th>
-                               <th class="text-center">Action</th>
+                                <th class="bg-body-secondary">No</th>
+                                <th class="bg-body-secondary">ID Penghuni</th>
+                                <th class="bg-body-secondary">Nama Penghuni</th>
+                                <th class="bg-body-secondary">Penempatan Kamar</th>
+                                <th class="bg-body-secondary">Alamat</th>
+                                <th class="bg-body-secondary">Kontak</th>
+                                <th class="bg-body-secondary">Tanggal Masuk</th>
+                                <th class="bg-body-secondary">Tanggal Keluar</th>
+                                <th class="bg-body-secondary">Status</th>
+                                <th class="bg-body-secondary">User</th>
+                               <th class="text-center bg-body-secondary">Action</th>
                             </tr>
                         </thead>
                         <tbody>

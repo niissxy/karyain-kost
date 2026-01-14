@@ -175,15 +175,15 @@ body {
                         <table class="table table-borderless align-middle">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>ID Kamar</th>
-                                    <th>ID Laporan</th>
-                                    <th>No Kamar</th>
-                                    <th>Tipe Kamar</th>
-                                    <th>Harga</th>
-                                    <th>Status Kamar</th>
-                                    <th>User</th>
-                                    <th class="text-center">Action</th>
+                                    <th class="bg-body-secondary">No</th>
+                                    <th class="bg-body-secondary">ID Kamar</th>
+                                    <th class="bg-body-secondary">ID Laporan</th>
+                                    <th class="bg-body-secondary">No Kamar</th>
+                                    <th class="bg-body-secondary">Tipe Kamar</th>
+                                    <th class="bg-body-secondary">Harga</th>
+                                    <th class="bg-body-secondary">Status Kamar</th>
+                                    <th class="bg-body-secondary">User</th>
+                                    <th class="text-center bg-body-secondary">Action</th>
                                 </tr>
                             </thead>
                             <tbody>

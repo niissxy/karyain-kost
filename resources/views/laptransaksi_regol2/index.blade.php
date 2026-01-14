@@ -158,16 +158,16 @@ body {
                         <table class="table table-borderless align-middle">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>ID Laporan</th>
-                                    <th>ID Transaksi</th>
-                                    <th>Nama Penghuni</th>
-                                    <th>No Kamar</th>
-                                    <th>Nominal</th>
-                                    <th>Tanggal Pembayaran</th>
-                                    <th>Status</th>
-                                    <th>User</th>
-                                    <th class="text-center">Action</th>
+                                    <th class="bg-body-secondary">No</th>
+                                    <th class="bg-body-secondary">ID Laporan</th>
+                                    <th class="bg-body-secondary">ID Transaksi</th>
+                                    <th class="bg-body-secondary">Nama Penghuni</th>
+                                    <th class="bg-body-secondary">No Kamar</th>
+                                    <th class="bg-body-secondary">Nominal</th>
+                                    <th class="bg-body-secondary">Tanggal Pembayaran</th>
+                                    <th class="bg-body-secondary">Status</th>
+                                    <th class="bg-body-secondary">User</th>
+                                    <th class="text-center bg-body-secondary">Action</th>
                                 </tr>
                             </thead>
                             <tbody>

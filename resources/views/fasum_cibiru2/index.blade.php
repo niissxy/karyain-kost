@@ -90,12 +90,12 @@ table {
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>ID Fasilitas Umum</th>
-                                <th>Nama Fasilitas</th>
-                                <th>Kondisi</th>
-                                <th>User</th>
-                                <th class="text-center">Action</th>
+                                <th class="bg-body-secondary">No</th>
+                                <th class="bg-body-secondary">ID Fasilitas Umum</th>
+                                <th class="bg-body-secondary">Nama Fasilitas</th>
+                                <th class="bg-body-secondary">Kondisi</th>
+                                <th class="bg-body-secondary">User</th>
+                                <th class="text-center bg-body-secondary">Action</th>
                             </tr>
                         </thead>
                         <tbody>

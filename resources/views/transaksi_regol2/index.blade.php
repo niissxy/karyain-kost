@@ -90,16 +90,16 @@ table {
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>ID Transaksi</th>
-                                <th>Nama Penyewa</th>
-                                <th>Total Penyewa</th>
-                                <th>No Kamar</th>
-                                <th>Nominal</th>
-                                <th>Tanggal Pembayaran</th>
-                                <th>Status</th>
-                                <th>User</th>
-                               <th class="text-center">Action</th>
+                                <th class="bg-body-secondary">No</th>
+                                <th class="bg-body-secondary">ID Transaksi</th>
+                                <th class="bg-body-secondary">Nama Penyewa</th>
+                                <th class="bg-body-secondary">Total Penyewa</th>
+                                <th class="bg-body-secondary">No Kamar</th>
+                                <th class="bg-body-secondary">Nominal</th>
+                                <th class="bg-body-secondary">Tanggal Pembayaran</th>
+                                <th class="bg-body-secondary">Status</th>
+                                <th class="bg-body-secondary">User</th>
+                               <th class="text-center bg-body-secondary">Action</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -93,15 +93,15 @@ table {
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>ID Check In</th>
-                                <th>Tanggal Check In</th>
-                                <th>Nama Penghuni</th>
-                                <th>No Kamar</th>
-                                <th>Nominal</th>
-                                <th>Status</th>
-                                <th>User</th>
-                                <th class="text-center">Action</th>
+                                <th class="bg-body-secondary">No</th>
+                                <th class="bg-body-secondary">ID Check In</th>
+                                <th class="bg-body-secondary">Tanggal Check In</th>
+                                <th class="bg-body-secondary">Nama Penghuni</th>
+                                <th class="bg-body-secondary">No Kamar</th>
+                                <th class="bg-body-secondary">Nominal</th>
+                                <th class="bg-body-secondary">Status</th>
+                                <th class="bg-body-secondary">User</th>
+                                <th class="text-center bg-body-secondary">Action</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -90,14 +90,14 @@ table {
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>ID Aset</th>
-                                <th>Nama Aset</th>
-                                <th>Kategori</th>
-                                <th>Jumlah</th>
-                                <th>Kondisi</th>
-                                <th>User</th>
-                                <th class="text-center">Action</th>
+                                <th class="bg-body-secondary-">No</th>
+                                <th class="bg-body-secondary">ID Aset</th>
+                                <th class="bg-body-secondary">Nama Aset</th>
+                                <th class="bg-body-secondary">Kategori</th>
+                                <th class="bg-body-secondary">Jumlah</th>
+                                <th class="bg-body-secondary">Kondisi</th>
+                                <th class="bg-body-secondary">User</th>
+                                <th class="text-center bg-body-secondary">Action</th>
                             </tr>
                         </thead>
                         <tbody>
