@@ -35,7 +35,7 @@ body {
 }
 
 .dashboard-card .card-title {
-    font-size: 2rem;
+    font-size: 20px;
     font-weight: 700;
     margin-bottom: 4px;
 }
