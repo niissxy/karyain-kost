@@ -238,7 +238,7 @@ class CheckInCibiru2Controller extends Controller
 
      public function exportPdf($id_checkin)
 {
-    $checkin = CheckinCibiru2::where('id_checkin', $id_checkin)
+    $checkin_cibiru2 = CheckinCibiru2::where('id_checkin', $id_checkin)
         ->firstOrFail();
 
     $pdf = Pdf::loadView(

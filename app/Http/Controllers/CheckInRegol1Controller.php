@@ -238,7 +238,7 @@ class CheckInRegol1Controller extends Controller
 
      public function exportPdf($id_checkin)
 {
-    $checkin = CheckinRegol1::where('id_checkin', $id_checkin)
+    $checkin_regol1 = CheckinRegol1::where('id_checkin', $id_checkin)
         ->firstOrFail();
 
     $pdf = Pdf::loadView(
