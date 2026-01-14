@@ -111,14 +111,17 @@
 <div class="invoice-container">
         
         <!-- Header -->
-        <div class="header-section">
+       <div class="header-section">
             <div class="header-section d-flex justify-content-end align-items-center">
-                <div style="font-weight: 600; font-size: 16px; text-align: right;">
-                    <strong>Karyain Kost</strong><br>
+                 <div class="invoice-title">
+                    INVOICE Transaksi
                 </div>
-            </div>
-            <div class="invoice-title">
-                INVOICE Transaksi
+                <div style="font-weight: 600; font-size: 16px; text-align: right;">
+                    <strong>Karyain Kost Regol 1</strong><br>
+                </div>
+                <div style="font-weight: 50; font-size: 12px; text-align: right; margin-top: 20px;">
+                    <strong>Jl. Babakan Priangan 2 Gg. IV No. 12, Regol - Ciseureuh</strong>   
+                </div>
             </div>
         </div>
 

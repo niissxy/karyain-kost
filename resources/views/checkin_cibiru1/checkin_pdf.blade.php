@@ -113,13 +113,15 @@
         <!-- Header -->
         <div class="header-section">
             <div class="header-section d-flex justify-content-end align-items-center">
-                <div style="font-weight: 600; font-size: 16px; text-align: right;">
-                    <strong>Karyain Kost Cibiru</strong><br>
-                    <p>Jalan Sukasari No.30, RT 02/RW 10, Pasir Biru, Kec. Cibiru, Kota Bandung, Jawa Barat 40615</p>
+                 <div class="invoice-title">
+                    INVOICE Check In
                 </div>
-            </div>
-            <div class="invoice-title">
-                INVOICE Check In
+                <div style="font-weight: 600; font-size: 16px; text-align: right;">
+                    <strong>Karyain Kost Cibiru 1</strong><br>
+                </div>
+                <div style="font-weight: 50; font-size: 12px; text-align: right; margin-top: 20px;">
+                    <strong>Jalan Sukasari No.30, RT 02/RW 10, Pasir Biru, Kec. Cibiru, Kota Bandung, Jawa Barat 40615</strong>   
+                </div>
             </div>
         </div>
 
