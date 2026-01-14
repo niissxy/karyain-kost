@@ -26,6 +26,8 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
+
+    border-bottom: 0;
 }
 
 .dashboard-card .card-body {
