@@ -13,7 +13,7 @@ html, body {
 
 </style>
 
-<div class="container py-5">
+<div class="container min-vh-100 d-flex align-items-center justify-content-center">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-md-6 col-lg-4">
             <div class="card shadow-sm border-0 rounded-4">
