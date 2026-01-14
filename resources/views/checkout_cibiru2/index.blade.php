@@ -98,7 +98,7 @@ table {
                                 <th>No Kamar</th>
                                 <th>Status</th>
                                 <th>User</th>
-                                <th class="text-center">Fungsi</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>

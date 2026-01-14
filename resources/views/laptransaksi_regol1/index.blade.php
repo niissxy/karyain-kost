@@ -167,7 +167,7 @@ body {
                                     <th>Tanggal Pembayaran</th>
                                     <th>Status</th>
                                     <th>User</th>
-                                    <th>Fungsi</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>

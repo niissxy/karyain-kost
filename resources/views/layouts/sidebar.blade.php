@@ -242,62 +242,6 @@
                 </div>
             </li>
 
-
-            <!-- <li class="nav-item">
-                <a class="nav-link text-white d-flex justify-content-between align-items-center"
-                   data-bs-toggle="collapse" href="#submenu-fasilitas">
-                    <span><i class="bi bi-tools me-2"></i> Fasilitas & Aset</span>
-                    <i class="bi bi-chevron-down"></i>
-                </a>
-
-                <div class="collapse ps-3" id="submenu-fasilitas">
-                    <a href="#" class="nav-link text-white small">
-                        <i class="bi bi-box me-2"></i> Aset
-                    </a>
-                    <a href="#" class="nav-link text-white small">
-                        <i class="bi bi-bed me-2"></i> Fasilitas Kamar
-                    </a>
-                    <a href="#" class="nav-link text-white small">
-                        <i class="bi bi-bell me-2"></i> Fasilitas Umum
-                    </a>
-                </div>
-            </li> -->
-
-            <!-- <li class="nav-item">
-                <a href="#" class="nav-link text-white">
-                    <i class="bi bi-handshake me-2"></i> Sewa
-                </a>
-            </li> -->
-
-            <!-- <li class="nav-item">
-                <a class="nav-link text-white d-flex justify-content-between align-items-center"
-                   data-bs-toggle="collapse" href="#submenu-sewa">
-                    <span><i class="bi bi-credit-card me-2"></i> Sewa </span>
-                    <i class="bi bi-chevron-down"></i>
-                </a>
-
-                <div class="collapse ps-3" id="submenu-sewa">
-                    <a href="/sewa_cibiru1" class="nav-link text-white small">
-                        <i class="bi bi-credit-card me-2"></i> Sewa Kost Cibiru 1
-                    </a>
-                   <a href="/sewa_cibiru2" class="nav-link text-white small">
-                        <i class="bi bi-credit-card me-2"></i> Sewa Kost Cibiru 2
-                    </a>
-                   <a href="/sewa_regol1" class="nav-link text-white small">
-                        <i class="bi bi-credit-card me-2"></i> Sewa Kost Regol 1
-                    </a>
-                    <a href="/sewa_regol2" class="nav-link text-white small">
-                        <i class="bi bi-credit-card me-2"></i> Sewa Kost Regol 2
-                    </a>
-                </div>
-            </li> -->
-
-            <!-- <li class="nav-item">
-                <a href="#" class="nav-link text-white">
-                    <i class="bi bi-box-arrow-in-right me-2"></i> Check In
-                </a>
-            </li> -->
-
             <li class="nav-item">
                 <a class="nav-link text-white d-flex justify-content-between align-items-center"
                    data-bs-toggle="collapse" href="#submenu-checkin">

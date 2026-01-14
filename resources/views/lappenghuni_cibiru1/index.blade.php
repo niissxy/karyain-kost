@@ -184,7 +184,7 @@ body {
                                     <th>Durasi Sewa</th>
                                     <th>Status</th>
                                     <th>User</th>
-                                    <th>Fungsi</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>

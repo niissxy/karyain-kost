@@ -183,7 +183,7 @@ body {
                                     <th>Harga</th>
                                     <th>Status Kamar</th>
                                     <th>User</th>
-                                    <th>Fungsi</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
