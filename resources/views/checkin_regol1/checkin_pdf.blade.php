@@ -39,7 +39,7 @@
 
         .invoice-title {
             font-size: 15px;
-            /* font-weight: 600; */
+            font-weight: 300;
             color: #2e3a59;
             letter-spacing: 1px;
             text-align: left;
@@ -117,8 +117,10 @@
                     INVOICE Check In
                 </div>
                 <div style="font-weight: 600; font-size: 16px; text-align: right;">
-                    <strong>Karyain Kost Cibiru 1</strong><br>
-                    <strong>Jalan Sukasari No.30, RT 02/RW 10, Pasir Biru, Kec. Cibiru, Kota Bandung, Jawa Barat 40615</strong>   
+                    <strong>Karyain Kost Regol 1</strong><br>
+                </div>
+                <div style="font-weight: 300; font-size: 12px; text-align: right;">
+                    <strong>Jl. Babakan Priangan 2 Gg. IV No. 12, Regol - Ciseureuh</strong>   
                 </div>
             </div>
         </div>
