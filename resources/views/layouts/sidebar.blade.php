@@ -353,7 +353,7 @@
          <li class="nav-item">
     <a href="#" class="nav-link text-danger"
        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-        <i class="bi bi-box-arrow-right me-2 bg-danger"></i> Logout
+        <i class="bi bi-box-arrow-right me-2"></i> Logout
     </a>
 
     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
