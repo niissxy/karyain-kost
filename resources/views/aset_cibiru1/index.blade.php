@@ -90,9 +90,9 @@ table {
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-borderless">
-                        <thead class="bg-secondary">
+                        <thead>
                             <tr>
-                                <th>No</th>
+                                <th class="bg-secondary">No</th>
                                 <th>ID Aset</th>
                                 <th>Nama Aset</th>
                                 <th>Kategori</th>
