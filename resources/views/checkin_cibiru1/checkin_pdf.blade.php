@@ -129,7 +129,7 @@
                     <span>{{ date('d-m-Y', strtotime($checkin->tgl_checkin)) }}</span>
                 </div>
                 <div class="col-sm-6">
-                    <strong>ID Check In</strong> <strong style="margin-left: 42px;"> : </strong>
+                    <strong>ID Check In</strong> <strong style="margin-left: 45px;"> : </strong>
                     <span>{{ $checkin->id_checkin }}</span>
                 </div>
             </div>
@@ -139,17 +139,17 @@
                     <span>{{ $checkin->nama_penghuni }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>No Kamar</strong> <strong style="margin-left: 52px;"> : </strong>
+                    <strong>No Kamar</strong> <strong style="margin-left: 55px;"> : </strong>
                     <span>{{ $checkin->no_kamar }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nominal</strong> <strong style="margin-left: 66px;"> : </strong>
+                    <strong>Nominal</strong> <strong style="margin-left: 62px;"> : </strong>
                     <span>Rp {{ number_format($checkin->nominal, 0, ',', '.') }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>Status</strong> <strong style="margin-left: 85px;"> : </strong>
+                    <strong>Status</strong> <strong style="margin-left: 75px;"> : </strong>
                     <span>{{ $checkin->status }}</span>                    
                 </div>
             </div>
