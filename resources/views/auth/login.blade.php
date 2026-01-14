@@ -7,6 +7,11 @@
     overflow-x: hidden;
     background: linear-gradient(135deg, #ff5757, #c59999);
 }
+
+.auth-logo {
+    width: 70px;
+    height: auto;
+}
 </style>
 
 <div class="container min-vh-100 d-flex align-items-center justify-content-center">
@@ -16,9 +21,19 @@
             <div class="card shadow-sm border-0 rounded-4">
 
                 <!-- Header -->
-                <div class="card-header text-center fs-4 fw-bold rounded-top-4">
+                <!-- Header -->
+                <div class="card-header text-center rounded-top-4">
+
+                <!-- Logo -->
+                    <img src="{{ asset('assets/img/logo-kost.png') }}"
+                    alt="Logo"
+                    class="mb-2 auth-logo">
+
+                <!-- Title -->
+                <div class="fs-4 fw-bold">
                     {{ __('Login') }}
                 </div>
+            </div>
 
                 <div class="card-body p-4">
 
