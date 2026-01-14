@@ -243,7 +243,7 @@ class CheckInRegol1Controller extends Controller
 
     $pdf = Pdf::loadView(
         'checkin_regol1.checkin_pdf',
-        compact('checkin')
+        compact('checkin_regol1')
     )->setPaper('A4', 'portrait');
 
     return $pdf->stream('checkin-regol1.pdf');

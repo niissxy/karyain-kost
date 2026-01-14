@@ -243,7 +243,7 @@ class CheckInCibiru2Controller extends Controller
 
     $pdf = Pdf::loadView(
         'checkin_cibiru2.checkin_pdf',
-        compact('checkin')
+        compact('checkin_cibiru2')
     )->setPaper('A4', 'portrait');
 
     return $pdf->stream('checkin-cibiru2.pdf');
