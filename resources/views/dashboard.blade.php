@@ -98,7 +98,7 @@ body {
 
         <!-- KAMAR TERISI -->
         <div class="col-xl-3 col-md-4 col-sm-6">
-            <div class="card text-white bg-warning dashboard-card shadow-sm boder-0">
+            <div class="card text-white bg-warning bg-gradient dashboard-card shadow mb-5 boder-0">
                 <div class="card-header">
                     <i class="bi bi-house-check"></i>
                     Kamar Terisi
@@ -114,7 +114,7 @@ body {
 
         <!-- PEMASUKAN -->
         <div class="col-xl-3 col-md-4 col-sm-6">
-            <div class="card text-white bg-info dashboard-card shadow-sm border-0">
+            <div class="card text-white bg-info bg-gradient dashboard-card shadow mb-5 border-0">
                 <div class="card-header">
                     <i class="bi bi-cash-stack"></i>
                     Pemasukan
