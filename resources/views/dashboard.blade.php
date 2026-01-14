@@ -34,7 +34,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;  
+    text-align: center;  
 }
+
 
 .dashboard-card .card-title {
     font-size: 20px;
