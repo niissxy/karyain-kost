@@ -160,8 +160,8 @@ if ($penghuni) {
      */
     public function show(string $id_checkout)
     {
-        $checkout_cibiru2 = CheckOutCibiru2::where('id_checkout', $id_checkout)->firstOrFail();
-        return view('checkout_cibiru2.show',compact('checkout_cibiru2'));
+        // $checkout_cibiru2 = CheckOutCibiru2::where('id_checkout', $id_checkout)->firstOrFail();
+        // return view('checkout_cibiru2.show',compact('checkout_cibiru2'));
     }
 
     /**

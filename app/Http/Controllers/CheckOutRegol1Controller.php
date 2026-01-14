@@ -162,8 +162,8 @@ if ($penghuni) {
      */
     public function show(string $id_checkout)
     {
-        $checkout_regol1 = CheckOutRegol1::where('id_checkout', $id_checkout)->firstOrFail();
-        return view('checkout_regol1.show', compact('checkout_regol1'));
+        // $checkout_regol1 = CheckOutRegol1::where('id_checkout', $id_checkout)->firstOrFail();
+        // return view('checkout_regol1.show', compact('checkout_regol1'));
     }
 
     /**
