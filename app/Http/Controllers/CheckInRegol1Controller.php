@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CheckInRegol1Controller extends Controller
 {
@@ -114,8 +115,8 @@ class CheckInRegol1Controller extends Controller
      */
     public function show(string $id_checkin)
     {
-        $checkin_regol1 = CheckInRegol1::where('id_checkin', $id_checkin)->firstOrFail();
-       return view('checkin_regol1.show', compact('checkin_regol1'));
+    //     $checkin_regol1 = CheckInRegol1::where('id_checkin', $id_checkin)->firstOrFail();
+    //    return view('checkin_regol1.show', compact('checkin_regol1'));
     }
 
     /**
@@ -234,4 +235,17 @@ class CheckInRegol1Controller extends Controller
             return redirect('checkin_regol1')->with('error', 'Data Check In Kost Regol 1 gagal dihapus.');
         }
     }
+
+     public function exportPdf($id_checkin)
+{
+    $checkin = CheckinRegol1::where('id_checkin', $id_checkin)
+        ->firstOrFail();
+
+    $pdf = Pdf::loadView(
+        'checkin_regol1.checkin_pdf',
+        compact('checkin')
+    )->setPaper('A4', 'portrait');
+
+    return $pdf->stream('checkin-regol1.pdf');
+}
 }

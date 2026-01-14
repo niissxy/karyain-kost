@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CheckInRegol2Controller extends Controller
 {
@@ -236,4 +237,17 @@ class CheckInRegol2Controller extends Controller
             return redirect('checkin_regol2')->with('error', 'Data Check In Kost Regol 2 gagal dihapus.');
         }
     }
+
+     public function exportPdf($id_checkin)
+{
+    $checkin = CheckinRegol2::where('id_checkin', $id_checkin)
+        ->firstOrFail();
+
+    $pdf = Pdf::loadView(
+        'checkin_regol2.checkin_pdf',
+        compact('checkin')
+    )->setPaper('A4', 'portrait');
+
+    return $pdf->stream('checkin-regol2.pdf');
+}
 }

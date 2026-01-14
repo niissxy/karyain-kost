@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Psy\ManualUpdater\Checker;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CheckInCibiru1Controller extends Controller
 {
@@ -116,8 +117,8 @@ class CheckInCibiru1Controller extends Controller
      */
     public function show(string $id_checkin)
     {
-       $checkin_cibiru1 = CheckInCibiru1::where('id_checkin', $id_checkin)->firstOrFail();
-       return view('checkin_cibiru1.show', compact('checkin_cibiru1'));
+    //    $checkin_cibiru1 = CheckInCibiru1::where('id_checkin', $id_checkin)->firstOrFail();
+    //    return view('checkin_cibiru1.show', compact('checkin_cibiru1'));
     }
 
     /**
@@ -237,4 +238,14 @@ class CheckInCibiru1Controller extends Controller
             return redirect('checkin_cibiru1')->with('error', 'Data Check In Kost Cibiru 1 gagal dihapus.');
         }
     }
+
+    public function exportPdf($id_checkin)
+{
+    $checkin = CheckinCibiru1::where('id_checkin', $id_checkin)->firstOrFail();
+
+    $pdf = Pdf::loadView('checkin_cibiru1.checkin_pdf', compact('checkin'))
+        ->setPaper('A4', 'portrait');
+
+    return $pdf->stream('checkin-cibiru1.pdf');
+}
 }

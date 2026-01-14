@@ -120,9 +120,9 @@ table {
                                          <i class="bi bi-pencil-square"></i>
                                         </a>
                                          &nbsp;
-                                         <a href="{{ route('checkin_regol1.show', $item->id_checkin) }}" 
+                                         <a href="{{ route('checkin_regol1.exportPdf', $item->id_checkin) }}" 
                                          class="btn btn-outline-primary btn-sm">
-                                         <i class="bi bi-printer"></i>
+                                         <i class="bi bi-file-earmark-pdf-fill"></i>
                                         </a>
                                          &nbsp;
                                      <!-- Tombol Delete -->
