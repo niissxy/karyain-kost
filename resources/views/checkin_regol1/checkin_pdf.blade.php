@@ -114,8 +114,10 @@
         <div class="header-section">
             <div class="header-section d-flex justify-content-end align-items-center">
                 <div style="font-weight: 600; font-size: 16px; text-align: right;">
-                    <strong>Karyain Kost</strong>
-                    <p>Jl. Babakan Priangan 2 Gg. IV No. 12, Regol - Ciseureuh</p>
+                    <strong>Karyain Kost</strong><br>
+                </div>
+                <div style="font-weight: 600; font-size: 16px; text-align: right;">
+                    <p>Jalan Sukasari No.30, RT 02/RW 10, Pasir Biru, Kec. Cibiru, Kota Bandung, Jawa Barat 40615</p><br>
                 </div>
             </div>
             <div class="invoice-title">
