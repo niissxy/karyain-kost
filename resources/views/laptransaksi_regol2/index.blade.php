@@ -164,6 +164,7 @@ body {
                                     <th>Nama Penghuni</th>
                                     <th>No Kamar</th>
                                     <th>Nominal</th>
+                                    <th>Tanggal Pembayaran</th>
                                     <th>Status</th>
                                     <th>User</th>
                                 </tr>
@@ -177,6 +178,7 @@ body {
                                     <td>{{ $item->nama_penghuni }}</td>
                                     <td>{{ $item->no_kamar }}</td>
                                      <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
+                                     <td>{{ $item->tgl_pembayaran }}</td>
                                     <td>{{ $item->status_pembayaran }}</td>
                                      <td>{{ $item->user->name ?? '-' }}</td>
                                     <td class="d-flex gap-1">
