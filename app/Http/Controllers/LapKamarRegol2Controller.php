@@ -118,8 +118,13 @@ public function create()
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id_lapkamar)
     {
-        //
+        $lapkamar_regol2 = DB::table('lap_kamar_regol2')->where('id_lapkamar', $id_lapkamar)->delete();
+        if ($lapkamar_regol2) {
+            return redirect('lapkamar_regol2')->withSuccess('Data Laporan Kamar Kost Regol 2 berhasil dihapus.');
+        } else {
+            return redirect('lapkamar_regol2')->with('error', 'Data Laporan Kamar Kost Regol 2 gagal dihapus.');
+        }
     }
 }

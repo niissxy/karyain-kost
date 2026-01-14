@@ -139,62 +139,73 @@ Route::delete('/penghuni_regol2/{id_penghuni}', [PenghuniRegol2Controller::class
 Route::get('/laptransaksi_cibiru1', [LapTransaksiCibiru1Controller::class, 'index'])->name('laptransaksi_cibiru1.index')->middleware('auth');
 Route::get('/laptransaksi_cibiru1/create', [LapTransaksiCibiru1Controller::class, 'create'])->name('laptransaksi_cibiru1.create')->middleware('auth');
 Route::post('/laptransaksi_cibiru1', [LapTransaksiCibiru1Controller::class, 'store'])->name('laptransaksi_cibiru1.store')->middleware('auth');
+Route::delete('/laptransaksi_cibiru1/{id_laptransaksi}', [LapTransaksiCibiru1Controller::class, 'destroy'])->name('laptransaksi_cibiru1.destroy')->middleware('auth');
 
 //laporan transaksi cibiru 2
 Route::get('/laptransaksi_cibiru2', [LapTransaksiCibiru2Controller::class, 'index'])->name('laptransaksi_cibiru2.index')->middleware('auth');
 Route::get('/laptransaksi_cibiru2/create', [LapTransaksiCibiru2Controller::class, 'create'])->name('laptransaksi_cibiru2.create')->middleware('auth');
 Route::post('/laptransaksi_cibiru2', [LapTransaksiCibiru2Controller::class, 'store'])->name('laptransaksi_cibiru2.store')->middleware('auth');
+Route::delete('/laptransaksi_cibiru2/{id_laptransaksi}', [LapTransaksiCibiru2Controller::class, 'destroy'])->name('laptransaksi_cibiru2.destroy')->middleware('auth');
 
 //laporan transaksi regol 1
 Route::get('/laptransaksi_regol1', [LapTransaksiRegol1Controller::class, 'index'])->name('laptransaksi_regol1.index')->middleware('auth');
 Route::get('/laptransaksi_regol1/create', [LapTransaksiRegol1Controller::class, 'create'])->name('laptransaksi_regol1.create')->middleware('auth');
 Route::post('/laptransaksi_regol1', [LapTransaksiRegol1Controller::class, 'store'])->name('laptransaksi_regol1.store')->middleware('auth');
+Route::delete('/laptransaksi_regol1/{id_laptransaksi}', [LapTransaksiRegol1Controller::class, 'destroy'])->name('laptransaksi_regol1.destroy')->middleware('auth');
 
-//laporan transaksi regol 1
+//laporan transaksi regol 2
 Route::get('/laptransaksi_regol2', [LapTransaksiRegol2Controller::class, 'index'])->name('laptransaksi_regol2.index')->middleware('auth');
 Route::get('/laptransaksi_regol2/create', [LapTransaksiRegol2Controller::class, 'create'])->name('laptransaksi_regol2.create')->middleware('auth');
 Route::post('/laptransaksi_regol2', [LapTransaksiRegol2Controller::class, 'store'])->name('laptransaksi_regol2.store')->middleware('auth');
+Route::delete('/laptransaksi_regol2/{id_laptransaksi}', [LapTransaksiRegol2Controller::class, 'destroy'])->name('laptransaksi_regol2.destroy')->middleware('auth');
 
 //laporan penghuni cibiru 1
 Route::get('/lappenghuni_cibiru1', [LapPenghuniCibiru1Controller::class, 'index'])->name('lappenghuni_cibiru1.index')->middleware('auth');
 Route::get('/lappenghuni_cibiru1/create', [LapPenghuniCibiru1Controller::class, 'create'])->name('lappenghuni_cibiru1.create')->middleware('auth');
 Route::post('/lappenghuni_cibiru1',[LapPenghuniCibiru1Controller::class, 'store'])->name('lappenghuni_cibiru1.store')->middleware('auth');
+Route::delete('/lappenghuni_cibiru1/{id_lappenghuni}', [LapPenghuniCibiru1Controller::class, 'destroy'])->name('lappenghuni_cibiru1.destroy')->middleware('auth');
 
 //laporan penghuni cibiru 2
 Route::get('/lappenghuni_cibiru2', [LapPenghuniCibiru2Controller::class, 'index'])->name('lappenghuni_cibiru2.index')->middleware('auth');
 Route::get('/lappenghuni_cibiru2/create', [LapPenghuniCibiru2Controller::class, 'create'])->name('lappenghuni_cibiru2.create')->middleware('auth');
 Route::post('/lappenghuni_cibiru2',[LapPenghuniCibiru2Controller::class, 'store'])->name('lappenghuni_cibiru2.store')->middleware('auth');
+Route::delete('/lappenghuni_cibiru2/{id_lappenghuni}', [LapPenghuniCibiru2Controller::class, 'destroy'])->name('lappenghuni_cibiru2.destroy')->middleware('auth');
 
 //laporan penghuni regol 1
 Route::get('/lappenghuni_regol1', [LapPenghuniRegol1Controller::class, 'index'])->name('lappenghuni_regol1.index')->middleware('auth');
 Route::get('/lappenghuni_regol1/create', [LapPenghuniRegol1Controller::class, 'create'])->name('lappenghuni_regol1.create')->middleware('auth');
 Route::post('/lappenghuni_regol1',[LapPenghuniRegol1Controller::class, 'store'])->name('lappenghuni_regol1.store')->middleware('auth');
+Route::delete('/lappenghuni_regol1/{id_lappenghuni}', [LapPenghuniRegol1Controller::class, 'destroy'])->name('lappenghuni_regol1.destroy')->middleware('auth');
 
 //laporan penghuni regol 1
 Route::get('/lappenghuni_regol2', [LapPenghuniRegol2Controller::class, 'index'])->name('lappenghuni_regol2.index')->middleware('auth');
 Route::get('/lappenghuni_regol2/create', [LapPenghuniRegol2Controller::class, 'create'])->name('lappenghuni_regol2.create')->middleware('auth');
 Route::post('/lappenghuni_regol2',[LapPenghuniRegol2Controller::class, 'store'])->name('lappenghuni_regol2.store')->middleware('auth');
-
+Route::delete('/lappenghuni_regol2/{id_lappenghuni}', [LapPenghuniRegol2Controller::class, 'destroy'])->name('lappenghuni_regol2.destroy')->middleware('auth');
 
 //laporan kamar cibiru 1
 Route::get('/lapkamar_cibiru1', [LapKamarCibiru1Controller::class, 'index'])->name('lapkamar_cibiru1.index')->middleware('auth');
 Route::get('/lapkamar_cibiru1/create', [LapKamarCibiru1Controller::class, 'create'])->name('lapkamar_cibiru1.create')->middleware('auth');
 Route::post('/lapkamar_cibiru1',[LapKamarCibiru1Controller::class, 'store'])->name('lapkamar_cibiru1.store')->middleware('auth');
+Route::delete('/lapkamar_cibiru1/{id_lapkamar}', [LapKamarCibiru1Controller::class, 'destroy'])->name('lapkamar_cibiru1.destroy')->middleware('auth');
 
 //laporan kamar cibiru 2
 Route::get('/lapkamar_cibiru2', [LapKamarCibiru2Controller::class, 'index'])->name('lapkamar_cibiru2.index')->middleware('auth');
 Route::get('/lapkamar_cibiru2/create', [LapKamarCibiru2Controller::class, 'create'])->name('lapkamar_cibiru2.create')->middleware('auth');
 Route::post('/lapkamar_cibiru2',[LapKamarCibiru2Controller::class, 'store'])->name('lapkamar_cibiru2.store')->middleware('auth');
+Route::delete('/lapkamar_cibiru2/{id_lapkamar}', [LapKamarCibiru2Controller::class, 'destroy'])->name('lapkamar_cibiru2.destroy')->middleware('auth');
 
 //laporan kamar regol 1
 Route::get('/lapkamar_regol1', [LapKamarRegol1Controller::class, 'index'])->name('lapkamar_regol1.index')->middleware('auth');
 Route::get('/lapkamar_regol1/create', [LapKamarRegol1Controller::class, 'create'])->name('lapkamar_regol1.create')->middleware('auth');
 Route::post('/lapkamar_regol1',[LapKamarRegol1Controller::class, 'store'])->name('lapkamar_regol1.store')->middleware('auth');
+Route::delete('/lapkamar_regol1/{id_lapkamar}', [LapKamarRegol1Controller::class, 'destroy'])->name('lapkamar_regol1.destroy')->middleware('auth');
 
 //laporan kamar regol 2
 Route::get('/lapkamar_regol2', [LapKamarRegol2Controller::class, 'index'])->name('lapkamar_regol2.index')->middleware('auth');
 Route::get('/lapkamar_regol2/create', [LapKamarRegol2Controller::class, 'create'])->name('lapkamar_regol2.create')->middleware('auth');
 Route::post('/lapkamar_regol2',[LapKamarRegol2Controller::class, 'store'])->name('lapkamar_regol2.store')->middleware('auth');
+Route::delete('/lapkamar_regol2/{id_lapkamar}', [LapKamarRegol2Controller::class, 'destroy'])->name('lapkamar_regol2.destroy')->middleware('auth');
 
 //aset cibiru 1
 Route::get('/aset_cibiru1', [AsetCibiru1Controller::class, 'index'])->name('aset_cibiru1.index')->middleware('auth');

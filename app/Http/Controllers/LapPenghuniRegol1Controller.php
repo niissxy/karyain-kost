@@ -164,8 +164,13 @@ class LapPenghuniRegol1Controller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id_lappenghuni)
     {
-        //
+        $lappenghuni_regol1 = DB::table('lap_penghuni_regol1')->where('id_lappenghuni', $id_lappenghuni)->delete();
+        if ($lappenghuni_regol1) {
+            return redirect('lappenghuni_regol1')->withSuccess('Data Laporan Penghuni Kost Regol 1 berhasil dihapus.');
+        } else {
+            return redirect('lappenghuni_regol1')->with('error', 'Data Laporan Penghuni Kost Regol 1 gagal dihapus.');
+        }
     }
 }

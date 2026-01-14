@@ -183,6 +183,7 @@ body {
                                     <th>Harga</th>
                                     <th>Status Kamar</th>
                                     <th>User</th>
+                                    <th>Fungsi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -196,8 +197,21 @@ body {
                                    <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                     <td>{{ $item->status_kamar }}</td>
                                      <td>{{ $item->user->name ?? '-' }}</td>
-                                    <td class="d-flex gap-1">
-                                    </td>
+                                     <td style="text-align: center; vertical-align: middle;">
+                                    <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">
+                                     <!-- Tombol Delete -->
+                                        <form action="{{ url('lapkamar_regol2/' . $item->id_lapkamar) }}" method="POST" 
+                                            onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                            <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                                    <!-- <td class="d-flex gap-1">
+                                    </td> -->
                                 </tr>
                                 @endforeach
                             </tbody>

@@ -125,8 +125,13 @@ class LapTransaksiRegol1Controller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id_laptransaksi)
     {
-        //
+        $laptransaksi_regol1 = DB::table('lap_transaksi_regol1')->where('id_laptransaksi', $id_laptransaksi)->delete();
+        if ($laptransaksi_regol1) {
+            return redirect('laptransaksi_regol1')->withSuccess('Data Laporan Transaksi Kost Regol 1 berhasil dihapus.');
+        } else {
+            return redirect('laptransaksi_regol1')->with('error', 'Data Laporan Transaksi Kost Regol 1 gagal dihapus.');
+        }
     }
 }

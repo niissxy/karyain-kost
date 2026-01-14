@@ -125,8 +125,13 @@ class LapTransaksiCibiru2Controller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id_laptransaksi)
     {
-        //
+        $laptransaki_cibiru2 = DB::table('lap_transaksi_cibiru1')->where('id_laptransaksi', $id_laptransaksi)->delete();
+        if ($laptransaki_cibiru2) {
+            return redirect('laptransaksi_cibiru2')->withSuccess('Data Laporan Transaksi Kost Cibiru 2 berhasil dihapus.');
+        } else {
+            return redirect('laptransaki_cibiru2')->with('error', 'Data Laporan Transaksi Kost Cibiru 2 gagal dihapus.');
+        }
     }
 }

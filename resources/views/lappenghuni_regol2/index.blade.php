@@ -184,6 +184,7 @@ body {
                                     <th>Durasi Sewa</th>
                                     <th>Status</th>
                                     <th>User</th>
+                                    <th>Fungsi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -198,22 +199,21 @@ body {
                                     <td>{{ $item->durasi_sewa }}</td>
                                     <td>{{ $item->status_penghuni }}</td>
                                     <td>{{ $item->user->name ?? '-' }}</td>
-                                    <td class="d-flex gap-1">
-                                        <!-- <a href="{{ url('laptransaksi_cibiru1/'.$item->id_transaksi.'/edit') }}"
-                                           class="btn btn-success btn-sm">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </a>
-
-                                        <form action="{{ url('laptransaksi_cibiru1/'.$item->id_transaksi) }}"
-                                              method="POST"
-                                              onsubmit="return confirm('Yakin hapus data?')">
+                                    <td style="text-align: center; vertical-align: middle;">
+                                    <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">
+                                     <!-- Tombol Delete -->
+                                        <form action="{{ url('lappenghuni_regol2/' . $item->id_lappenghuni) }}" method="POST" 
+                                            onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-success btn-sm">
-                                                <i class="bi bi-trash"></i>
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                            <i class="bi bi-trash"></i>
                                             </button>
-                                        </form> -->
-                                    </td>
+                                        </form>
+                                    </div>
+                                </td>
+                                    <!-- <td class="d-flex gap-1">
+                                    </td> -->
                                 </tr>
                                 @endforeach
                             </tbody>
