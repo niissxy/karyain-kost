@@ -139,17 +139,17 @@
                     <span>{{ $checkin->nama_penghuni }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>No Kamar</strong> <strong style="margin-left: 54px;"> : </strong>
+                    <strong>No Kamar</strong> <strong style="margin-left: 56px;"> : </strong>
                     <span>{{ $checkin->no_kamar }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nominal</strong> <strong style="margin-left: 64px;"> : </strong>
+                    <strong>Nominal</strong> <strong style="margin-left: 67px;"> : </strong>
                     <span>Rp {{ number_format($checkin->nominal, 0, ',', '.') }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>Status</strong> <strong style="margin-left: 75px;"> : </strong>
+                    <strong>Status</strong> <strong style="margin-left: 80px;"> : </strong>
                     <span>{{ $checkin->status }}</span>                    
                 </div>
             </div>
