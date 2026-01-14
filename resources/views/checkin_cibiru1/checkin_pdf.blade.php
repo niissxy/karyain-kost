@@ -135,17 +135,17 @@
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nama Penghuni</strong> <strong style="margin-left: 9px;"> : </strong>
+                    <strong>Nama Penghuni</strong> <strong style="margin-left: 10px;"> : </strong>
                     <span>{{ $checkin->nama_penghuni }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>No Kamar</strong> <strong style="margin-left: 55px;"> : </strong>
+                    <strong>No Kamar</strong> <strong style="margin-left: 54px;"> : </strong>
                     <span>{{ $checkin->no_kamar }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nominal</strong> <strong style="margin-left: 62px;"> : </strong>
+                    <strong>Nominal</strong> <strong style="margin-left: 64px;"> : </strong>
                     <span>Rp {{ number_format($checkin->nominal, 0, ',', '.') }}</span>                   
                 </div>
                 <div class="col-sm-6">
