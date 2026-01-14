@@ -48,7 +48,7 @@
     <div class="row mb-3">
             <label class="col-sm-3 col-form-label">ID Laporan </label>
             <div class="col-sm-9">
-                <input class="form-control" id="id_lapkamar" name="id_lapkamar" readonly value="{{ $newKode }}">
+                <input class="form-control" id="id_lapkamar" name="id_lapkamar" readonly value="{{ $newKode }}" readonly>
             </div>
     </div>
 

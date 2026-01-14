@@ -56,7 +56,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nama Penghuni</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{ old('nama_penghuni',$penghuni_regol1->nama_penghuni) }}"  name="nama_penghuni"  required autofocus>
+                                    <input type="text" class="form-control" readonly value="{{ old('nama_penghuni',$penghuni_regol1->nama_penghuni) }}"  name="nama_penghuni"  required autofocus>
                                 </div>
                             </div>
 

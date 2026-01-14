@@ -88,7 +88,8 @@
                 <input type="text" id="lama_tinggal" class="form-control"
                     name="lama_tinggal"
                     value="{{ old('lama_tinggal', $checkout_cibiru1->lama_tinggal) }}"
-                    required>
+                    required
+                    readonly>
             </div>
         </div>
 

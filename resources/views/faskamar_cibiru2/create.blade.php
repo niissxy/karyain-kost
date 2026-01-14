@@ -48,7 +48,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">ID Fasilitas Kamar</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="id_fask" required value="{{ $newKode }}">
+                                    <input class="form-control" name="id_fask" required value="{{ $newKode }}" readonly>
                                 </div>
                             </div>
 
@@ -79,7 +79,7 @@
                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Kondisi</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="kondisi" id="kondisi" type="text" required>
+                                    <input class="form-control" name="kondisi" id="kondisi" type="text" required readonly>
                                     <!-- <select class="form-select" name="kondisi">
                                         <option value="">-- Pilih Kondisi --</option>
                                         <option value="Baik">Baik</option>

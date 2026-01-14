@@ -48,7 +48,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">ID Check Out</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" id="id_checkout" name="id_checkout" value="{{ $newKode }}">
+                                    <input class="form-control" id="id_checkout" name="id_checkout" value="{{ $newKode }}" readonly>
                                 </div>
                             </div>
 
@@ -83,28 +83,28 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nama Penghuni</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" id="nama_penghuni" name="nama_penghuni" value="{{ old('nama_penghuni') }}">
+                                    <input class="form-control" type="text" id="nama_penghuni" name="nama_penghuni" value="{{ old('nama_penghuni') }}" readonly>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Lama Tinggal</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" id="lama_tinggal" name="lama_tinggal" value="{{ old('lama_tinggal') }}">
+                                    <input class="form-control" type="text" id="lama_tinggal" name="lama_tinggal" value="{{ old('lama_tinggal') }}" readonly>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">No Kamar</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" id="no_kamar" name="no_kamar" value="{{ old('no_kamar') }}">
+                                    <input class="form-control" type="text" id="no_kamar" name="no_kamar" value="{{ old('no_kamar') }}" readonly>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Status</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="text" id="status" name="status" value="{{ old('status') }}">
+                                    <input class="form-control" type="text" id="status" name="status" value="{{ old('status') }}" readonly>
                                 </div>
                             </div>
 

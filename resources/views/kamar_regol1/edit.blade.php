@@ -66,7 +66,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">No Kamar</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{ old('no_kamar',$kamar_regol1->no_kamar) }}"  name="no_kamar"  required autofocus>
+                                    <input type="text" class="form-control" readonly value="{{ old('no_kamar',$kamar_regol1->no_kamar) }}"  name="no_kamar"  required autofocus>
                                 </div>
                             </div>
 

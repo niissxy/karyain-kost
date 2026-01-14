@@ -56,7 +56,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nama Aset</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{ old('nama_aset',$aset_regol2->nama_aset) }}"  name="nama_aset"  required autofocus>
+                                    <input type="text" class="form-control" readonly value="{{ old('nama_aset',$aset_regol2->nama_aset) }}"  name="nama_aset"  required autofocus>
                                 </div>
                             </div>
 

@@ -48,7 +48,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">ID Kamar</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="id_kamar" required value="{{ $newKode }}">
+                                    <input class="form-control" name="id_kamar" required value="{{ $newKode }}" readonly>
                                 </div>
                             </div>
 

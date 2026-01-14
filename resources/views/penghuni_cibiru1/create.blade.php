@@ -48,42 +48,42 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">ID Penghuni</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="id_penghuni" required value="{{ $newKode }}">
+                                    <input class="form-control" name="id_penghuni" required value="{{ $newKode }}" readonly>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nama Penghuni</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="nama_penghuni" required value="{{ old('nama_penghuni') }}">
+                                    <input class="form-control" name="nama_penghuni" required value="{{ old('nama_penghuni') }}" readonly>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Penempatan Kamar</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="penempatan_kamar" type="text" required>
+                                    <input class="form-control" name="penempatan_kamar" type="text" required readonly>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Alamat</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="alamat" type="text" required>
+                                    <input class="form-control" name="alamat" type="text" required readonly>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Kontak</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="kontak" type="text" required>
+                                    <input class="form-control" name="kontak" type="text" required readonly>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Tanggal Masuk</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="tgl_masuk" type="date" required>
+                                    <input class="form-control" name="tgl_masuk" type="date" required readonly>
                                 </div>
                             </div>
 

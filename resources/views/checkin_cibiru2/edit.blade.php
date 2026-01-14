@@ -63,7 +63,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nama Penghuni</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{ old('nama_penghuni',$checkin_cibiru2->nama_penghuni) }}"  name="nama_penghuni"  required autofocus>
+                                    <input type="text" class="form-control" readonly value="{{ old('nama_penghuni',$checkin_cibiru2->nama_penghuni) }}"  name="nama_penghuni"  required autofocus>
                                 </div>
                             </div>
 
@@ -87,7 +87,7 @@
                                     <select class="form-control" id="status" name="status">
                                         <option value='Aktif' {{ old('status', $checkin_cibiru2->status) == 'Aktif' ? 'selected' : '' }}>Aktif</option>
                                         <option value='Booked' {{ old('status', $checkin_cibiru2->status) == 'Booked' ? 'selected' : '' }}>Booked</option>
-                                        <option value='Check out' {{ old('status', $checkin_cibiru2->status) == 'Check out' ? 'selected' : '' }}>Check Out</option>       
+                                        <!-- <option value='Check out' {{ old('status', $checkin_cibiru2->status) == 'Check out' ? 'selected' : '' }}>Check Out</option>        -->
                                     </select>  
                                 </div>
                             </div>
