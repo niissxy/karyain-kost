@@ -145,11 +145,11 @@
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nominal</strong> <strong style="margin-left: 68px;"> : </strong>
+                    <strong>Nominal</strong> <strong style="margin-left: 67px;"> : </strong>
                     <span>Rp {{ number_format($checkin->nominal, 0, ',', '.') }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>Status</strong> <strong style="margin-left: 82px;"> : </strong>
+                    <strong>Status</strong> <strong style="margin-left: 81px;"> : </strong>
                     <span>{{ $checkin->status }}</span>                    
                 </div>
             </div>
