@@ -90,7 +90,7 @@ table {
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th class="bg-body-secondary text-middle">No</th>
+                                <th class="bg-body-secondary">No</th>
                                 <th class="bg-body-secondary">ID Penghuni</th>
                                 <th class="bg-body-secondary">Nama Penghuni</th>
                                 <th class="bg-body-secondary">Penempatan Kamar</th>
