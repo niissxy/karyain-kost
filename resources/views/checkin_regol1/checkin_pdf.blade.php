@@ -39,7 +39,7 @@
 
         .invoice-title {
             font-size: 15px;
-            font-weight: 300;
+            /* font-weight: 300; */
             color: #2e3a59;
             letter-spacing: 1px;
             text-align: left;
@@ -119,7 +119,7 @@
                 <div style="font-weight: 600; font-size: 16px; text-align: right;">
                     <strong>Karyain Kost Regol 1</strong><br>
                 </div>
-                <div style="font-weight: 300; font-size: 12px; text-align: right;">
+                <div style="font-weight: 300; font-size: 12px; text-align: right; margin-top: 10px;">
                     <strong>Jl. Babakan Priangan 2 Gg. IV No. 12, Regol - Ciseureuh</strong>   
                 </div>
             </div>
