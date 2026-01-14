@@ -10,6 +10,12 @@ body {
 html, body {
     max-width: 100vw;
 }
+
+.auth-logo {
+    width: 70px;
+    height: auto;
+}
+
 </style>
 
 <div class="container min-vh-100 d-flex align-items-center justify-content-center">
@@ -19,9 +25,19 @@ html, body {
             <div class="card shadow-sm border-0 rounded-4">
 
                 <!-- Header -->
-                <div class="card-header text-center fs-4 fw-bold rounded-top-4">
+                <div class="card-header text-center rounded-top-4">
+
+                <!-- Logo -->
+                    <img src="{{ asset('assets/img/logo-kost.png') }}"
+                    alt="Logo"
+                    class="mb-2 auth-logo">
+
+                <!-- Title -->
+                <div class="fs-4 fw-bold">
                     {{ __('Register') }}
                 </div>
+            </div>
+
 
                 <div class="card-body p-4">
 
