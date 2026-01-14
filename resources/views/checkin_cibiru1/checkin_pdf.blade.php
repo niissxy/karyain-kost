@@ -126,31 +126,31 @@
             <div class="row">
                 <div class="col-sm-6">
                     <strong>Tanggal Check In</strong> <strong> : </strong>  
-                    <span>{{ date('d-m-Y', strtotime($checkin_cibiru1->tgl_checkin)) }}</span>
+                    <span>{{ date('d-m-Y', strtotime($checkin->tgl_checkin)) }}</span>
                 </div>
                 <div class="col-sm-6">
                     <strong>ID Check In</strong> <strong style="margin-left: 66px;"> : </strong>
-                    <span>{{ $checkin_cibiru1->id_checkin }}</span>
+                    <span>{{ $checkin->id_checkin }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
                     <strong>Nama Penghuni</strong> <strong style="margin-left: 9px;"> : </strong>
-                    <span>{{ $checkin_cibiru1->nama_penghuni }}</span>                   
+                    <span>{{ $checkin->nama_penghuni }}</span>                   
                 </div>
                 <div class="col-sm-6">
                     <strong>No Kamar</strong> <strong style="margin-left: 78px;"> : </strong>
-                    <span>{{ $checkin_cibiru1->no_kamar }}</span>
+                    <span>{{ $checkin->no_kamar }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
                     <strong>Nominal</strong> <strong style="margin-left: 66px;"> : </strong>
-                    <span>Rp {{ number_format($checkin_cibiru1->nominal, 0, ',', '.') }}</span>                   
+                    <span>Rp {{ number_format($checkin->nominal, 0, ',', '.') }}</span>                   
                 </div>
                 <div class="col-sm-6">
                     <strong>Status</strong> <strong style="margin-left: 105px;"> : </strong>
-                    <span>{{ $checkin_cibiru1->status }}</span>                    
+                    <span>{{ $checkin->status }}</span>                    
                 </div>
             </div>
 
