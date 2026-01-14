@@ -1,6 +1,14 @@
 @extends('layouts.auth')
 
 @section('content')
+
+<style>
+    body {
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #ff5757, #c59999);
+}
+</style>
+
 <div class="container min-vh-100 d-flex align-items-center justify-content-center">
     <div class="row w-100 justify-content-center">
         <div class="col-12 col-sm-10 col-md-6 col-lg-4">
