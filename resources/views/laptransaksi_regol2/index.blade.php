@@ -41,6 +41,7 @@ body {
 .summary-card .card-header {
     padding: 8px 12px;
     font-size: 14px;
+    border-bottom: 0;
 }
 
 .summary-card .card-body {
