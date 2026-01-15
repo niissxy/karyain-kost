@@ -63,6 +63,7 @@
                                             data-nama="{{ $t->nama_penyewa }}"
                                             data-kamar="{{ $t->no_kamar }}"
                                             data-nominal="{{ $t->nominal }}"
+                                            data-metode-bayar = "{{ $t->metode_pembayaran }}"
                                             data-tglbayar = "{{ $t->tgl_pembayaran }}"
                                             data-status="{{ $t->status }}"
                                         >
@@ -93,6 +94,13 @@
                                 <label class="col-sm-3 col-form-label">Nominal</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" id="nominal" name="nominal" readonly type="number" required>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Metode Pembayaran</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" id="metode_pembayaran" name="metode_pembayaran" readonly type="text" required>
                                 </div>
                             </div>
 
@@ -136,6 +144,9 @@ document.getElementById('id_transaksi').addEventListener('change', function () {
 
     document.getElementById('nominal').value =
         selected.getAttribute('data-nominal') || '';
+
+     document.getElementById('metode_pembayaran').value =
+        selected.getAttribute('data-metode-bayar') || '';
 
     document.getElementById('tgl_pembayaran').value =
         selected.getAttribute('data-tglbayar') || '';
