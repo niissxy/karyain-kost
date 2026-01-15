@@ -60,6 +60,16 @@
                                 </div>
                             </div>
 
+                             <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Status Penghuni</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="status_penghuni" name="status_penghuni">
+                                        <option value='Mahasiswa' {{ old('status_penghuni', $penghuni_regol1->status_penghuni) == 'Mahasiswa' ? 'selected' : '' }}>Mahasiswa</option>
+                                        <option value='Non mahasiswa' {{ old('status_penghuni', $penghuni_regol1->status_penghuni) == 'Non mahasiswa' ? 'selected' : '' }}>Non mahasiswa</option>       
+                                    </select>  
+                                </div>
+                            </div>
+
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Penempatan Kamar</label>
                                 <div class="col-sm-9">

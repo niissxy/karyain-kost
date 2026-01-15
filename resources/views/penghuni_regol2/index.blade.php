@@ -93,6 +93,7 @@ table {
                                 <th class="bg-body-secondary">No</th>
                                 <th class="bg-body-secondary">ID Penghuni</th>
                                 <th class="bg-body-secondary">Nama Penghuni</th>
+                                <th class="bg-body-secondary">Status Penghuni</th>
                                 <th class="bg-body-secondary">Penempatan Kamar</th>
                                 <th class="bg-body-secondary">Alamat</th>
                                 <th class="bg-body-secondary">Kontak</th>
@@ -109,6 +110,7 @@ table {
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->id_penghuni }}</td>
                                 <td>{{ $item->nama_penghuni }}</td>
+                                <td>{{ $item->status_penghuni }}</td>
                                 <td>{{ $item->penempatan_kamar }}</td>
                                 <td>{{ $item->alamat }}</td>
                                 <td>{{ $item->kontak }}</td>

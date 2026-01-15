@@ -60,6 +60,17 @@
                             </div>
 
                             <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Status Penghuni</label>
+                                <div class="col-sm-9">
+                                    <select class="form-select" name="status_penghuni">
+                                        <option value="">-- Pilih Status Penghuni--</option>
+                                        <option value="Mahasiswa">Mahasiswa</option>
+                                        <option value="Non mahasiswa">Non mahasiswa</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Penempatan Kamar</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" name="penempatan_kamar" type="text" required readonly>
