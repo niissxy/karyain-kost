@@ -61,10 +61,11 @@
                     <option 
                         value="{{ $p->id_penghuni }}"
                         data-nama="{{ $p->nama_penghuni }}"
+                        data-status-penghuni="{{ $p->status_penghuni }}"
                         data-tglmasuk="{{ $p->tgl_masuk }}"
                         data-tglkeluar="{{ $p->tgl_keluar }}"
                         data-durasi="{{ $p->durasi_sewa }}"
-                        data-status="{{ $p->status_penghuni }}">
+                        data-status="{{ $p->status }}">
                         {{ $p->id_penghuni }} - {{ $p->nama_penghuni }}
                     </option>
                         @endforeach
@@ -76,6 +77,13 @@
             <label class="col-sm-3 col-form-label">Nama Penghuni</label>
             <div class="col-sm-9">
                 <input class="form-control" id="nama_penghuni" name="nama_penghuni" readonly value="{{ old('nama_penghuni') }}">
+            </div>
+        </div>
+
+         <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Status Penghuni</label>
+            <div class="col-sm-9">
+                <input class="form-control" id="status_penghuni" name="status_penghuni" readonly type="text">
             </div>
         </div>
 
@@ -103,7 +111,7 @@
         <div class="row mb-3">
             <label class="col-sm-3 col-form-label">Status</label>
             <div class="col-sm-9">
-                <input class="form-control" id="status_penghuni" name="status_penghuni" readonly type="text">
+                <input class="form-control" id="status" name="status" readonly type="text">
             </div>
         </div>
 
@@ -131,6 +139,9 @@ document.getElementById('id_penghuni').addEventListener('change', function () {
     document.getElementById('nama_penghuni').value =
         selected.getAttribute('data-nama') || '';
 
+     document.getElementById('status_penghuni').value =
+        selected.getAttribute('data-status-penghuni') || '';
+
     document.getElementById('tgl_masuk').value =
         selected.getAttribute('data-tglmasuk') || '';
 
@@ -140,7 +151,7 @@ document.getElementById('id_penghuni').addEventListener('change', function () {
     document.getElementById('durasi_sewa').value =
         selected.getAttribute('data-durasi') || '';
 
-    document.getElementById('status_penghuni').value =
+    document.getElementById('status').value =
         selected.getAttribute('data-status') || '';
 
 });

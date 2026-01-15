@@ -180,6 +180,7 @@ body {
                                     <th class="bg-body-secondary">ID Laporan</th>
                                     <th class="bg-body-secondary">ID Penghuni</th>
                                     <th class="bg-body-secondary">Nama Penghuni</th>
+                                    <th class="bg-body-secondary">Status Penghuni</th>
                                     <th class="bg-body-secondary">Tanggal Masuk</th>
                                     <th class="bg-body-secondary">Tanggal Keluar</th>
                                     <th class="bg-body-secondary">Durasi Sewa</th>
@@ -195,10 +196,11 @@ body {
                                     <td>{{ $item->id_lappenghuni }}</td>
                                     <td>{{ $item->id_penghuni }}</td>
                                     <td>{{ $item->nama_penghuni }}</td>
+                                    <td>{{ $item->status_penghuni }}</td>
                                     <td>{{ $item->tgl_masuk }}</td>
                                     <td>{{ $item->tgl_keluar }}</td>
                                     <td>{{ $item->durasi_sewa }}</td>
-                                    <td>{{ $item->status_penghuni }}</td>
+                                    <td>{{ $item->status }}</td>
                                      <td>{{ $item->user->name ?? '-' }}</td>
                                      <td style="text-align: center; vertical-align: middle;">
                                     <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">
