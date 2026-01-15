@@ -161,6 +161,10 @@
                     <strong>Status</strong> <strong style="margin-left: 113px;"> : </strong>
                     <span>{{ $transaksi->status }}</span>                    
                 </div>
+                 <div class="col-sm-6">
+                    <strong>Metode Pembayaran</strong> <strong style="margin-left: 113px;"> : </strong>
+                    <span>{{ $transaksi->metode_pembayaran }}</span>                    
+                </div>
             </div>
 
     </div>

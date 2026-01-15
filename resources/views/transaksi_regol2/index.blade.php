@@ -96,6 +96,7 @@ table {
                                 <th class="bg-body-secondary">Total Penyewa</th>
                                 <th class="bg-body-secondary">No Kamar</th>
                                 <th class="bg-body-secondary">Nominal</th>
+                                <th class="bg-body-secondary">Metode Pembayaran</th>
                                 <th class="bg-body-secondary">Tanggal Pembayaran</th>
                                 <th class="bg-body-secondary">Status</th>
                                 <th class="bg-body-secondary">User</th>
@@ -111,6 +112,7 @@ table {
                                 <td>{{ $item->total_penyewa }}</td>
                                 <td>{{ $item->no_kamar }}</td>
                                 <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
+                                <td>{{ $item->metode_pembayaran }}</td>
                                 <td>{{ $item->tgl_pembayaran }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>
