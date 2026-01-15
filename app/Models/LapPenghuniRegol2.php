@@ -11,11 +11,12 @@ class LapPenghuniRegol2 extends Model
     protected $fillable = [
         'id_lappenghuni',
         'id_penghuni',
-        'nama_penghuni', 
+        'nama_penghuni',
+        'status_penghuni', 
         'tgl_masuk', 
         'tgl_keluar', 
         'durasi_sewa',
-        'status_penghuni',
+        'status',
         'user_id',
         'created_at',
         'updated_at'

@@ -18,6 +18,7 @@ class CheckInCibiru1 extends Model
         'nama_penghuni',
         'no_kamar',
         'nominal',
+        'metode_pembayaran',
         'status',
         'user_id',
         'created_at',

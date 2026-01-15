@@ -75,9 +75,9 @@ class LapPenghuniRegol2Controller extends Controller
         ->select(
             'p.id_penghuni',
             'p.nama_penghuni',
+            'p.status_penghuni',
             'p.tgl_masuk',
             'p.tgl_keluar',
-            'p.status as status_penghuni', // alias disesuaikan
         DB::raw("
         CONCAT(
         TIMESTAMPDIFF(
@@ -99,7 +99,9 @@ class LapPenghuniRegol2Controller extends Controller
         ),
         ' Hari'
     ) as durasi_sewa
-    ")
+    "),
+
+    'p.status'
         )
     ->get();
     return view('lappenghuni_regol2.create', compact('penghuni_regol2', 'newKode'));

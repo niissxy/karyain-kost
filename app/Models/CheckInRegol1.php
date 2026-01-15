@@ -15,10 +15,11 @@ class CheckInRegol1 extends Model
 
     protected $fillable = [
         'id_checkin',
-        'nama_penghuni',
         'tgl_checkin',
+        'nama_penghuni',
         'no_kamar',
         'nominal',
+        'metode_pembayaran',
         'status',
         'user_id',
         'created_at',

@@ -13,6 +13,7 @@ class LapTransaksiRegol1 extends Model
         'nama_penghuni', 
         'no_kamar', 
         'nominal', 
+        'metode_pembayaran',
         'tgl_pembayaran',
         'status_pembayaran',
         'user_id',

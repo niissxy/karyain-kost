@@ -53,7 +53,8 @@ class KamarRegol2Controller extends Controller
         'tipe_kamar'   => 'required',
         'no_kamar'     => 'required',
         'status_kamar' => 'required',
-        'harga'        => 'required',
+        'harga_harian'        => 'required|numeric',
+        'harga_bulanan' => 'required|numeric',
         'created_at'        => now(),
         ]);
 

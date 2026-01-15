@@ -73,7 +73,8 @@ public function create()
         'no_kamar'     => 'required',
         'tipe_kamar'   => 'required',
         'status_kamar' => 'required',
-        'harga'        => 'required'
+        'harga_harian'        => 'required|numeric',
+        'harga_bulanan' => 'required|numeric',
     ]);
 
     DB::table('lap_kamar_cibiru1')->insert([
@@ -82,7 +83,8 @@ public function create()
         'no_kamar'     => $request->no_kamar,
         'tipe_kamar'   => $request->tipe_kamar,
         'status_kamar' => $request->status_kamar,
-        'harga'        => str_replace('.', '', $request->harga),
+        'harga_harian'        => str_replace('.', '', $request->harga_harian),
+        'harga_bulanan'        => str_replace('.', '', $request->harga_bulanan),
         'user_id'       => Auth::id(),
         'created_at'   => now(),
     ]);

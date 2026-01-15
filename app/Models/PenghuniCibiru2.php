@@ -20,6 +20,7 @@ class PenghuniCibiru2 extends Model
     protected $fillable = [
         'id_penghuni',
         'nama_penghuni', 
+        'status_penghuni',
         'penempatan_kamar', 
         'alamat', 
         'kontak',

@@ -51,6 +51,7 @@ class PenghuniCibiru2Controller extends Controller
          $data = $request->validate([
         'id_penghuni'          => 'required',
         'nama_penghuni'        => 'required',
+        'status_penghuni'      => 'required',
         'penempatan_kamar'     => 'required',
         'alamat'               => 'required',
         'kontak'               => 'required',
@@ -97,13 +98,14 @@ class PenghuniCibiru2Controller extends Controller
         $data = [
             'id_penghuni' => $request->id_penghuni,
             'nama_penghuni' => $request->nama_penghuni,
+            'status_penghuni' => $request->status_penghuni,
             'penempatan_kamar' => $request->penempatan_kamar,
             'alamat' => $request->alamat,
             'kontak' => $request->kontak,
             'tgl_masuk' => $request->tgl_masuk,
             'tgl_keluar' => $request->tgl_keluar,
             'status' => $request->status,
-            'updated_at' => now(), // Waktu diperbarui saat ini/ Nama pembuat
+            'updated_at' => now(),
         ];
 
         PenghuniCibiru2::where('id_penghuni', $id_penghuni)->update($data);

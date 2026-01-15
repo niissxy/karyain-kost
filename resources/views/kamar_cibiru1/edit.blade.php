@@ -82,9 +82,16 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Harga</label>
+                                <label class="col-sm-3 col-form-label">Harga Harian</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" value="{{ old('harga',$kamar_cibiru1->harga) }}"  name="harga"  required autofocus>
+                                    <input type="number" class="form-control" value="{{ old('harga_harian',$kamar_cibiru1->harga_harian) }}"  name="harga_harian"  required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Harga Bulanan</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" value="{{ old('harga_bulanan',$kamar_cibiru1->harga_bulanan) }}"  name="harga_bulanan"  required autofocus>
                                 </div>
                             </div>
 

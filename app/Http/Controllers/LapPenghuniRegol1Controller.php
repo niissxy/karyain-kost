@@ -75,9 +75,9 @@ class LapPenghuniRegol1Controller extends Controller
         ->select(
             'p.id_penghuni',
             'p.nama_penghuni',
+            'p.status_penghuni',
             'p.tgl_masuk',
             'p.tgl_keluar',
-            'p.status as status_penghuni',
         DB::raw("
         CONCAT(
         TIMESTAMPDIFF(
@@ -99,7 +99,9 @@ class LapPenghuniRegol1Controller extends Controller
         ),
         ' Hari'
     ) as durasi_sewa
-    ")
+    "),
+
+    'p.status'
         )
     ->get();
     return view('lappenghuni_regol1.create', compact('penghuni_regol1', 'newKode'));
@@ -116,18 +118,20 @@ class LapPenghuniRegol1Controller extends Controller
         'id_lappenghuni' => 'required',
         'id_penghuni'        => 'required',
         'nama_penghuni'      => 'required',
+        'status_penghuni' => 'required',
         'tgl_masuk'          => 'required|date',
         'tgl_keluar'          => 'nullable',
-        'status_penghuni'             => 'required',
+        'status'             => 'required',
     ]);
 
     DB::table('lap_penghuni_regol1')->insert([
         'id_lappenghuni' => $request->id_lappenghuni,
         'id_penghuni'        => $request->id_penghuni,
         'nama_penghuni'      => $request->nama_penghuni,
+        'status_penghuni' => $request->status_penghuni,
         'tgl_masuk'          => $request->tgl_masuk,
         'tgl_keluar'         => $request->tgl_keluar,
-        'status_penghuni'             => $request->status_penghuni,
+        'status'             => $request->status,
         'created_at'         => now(),
         'user_id'       => Auth::id(),
     ]);

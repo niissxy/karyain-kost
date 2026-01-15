@@ -55,6 +55,7 @@ class TransaksiCibiru2Controller extends Controller
         'total_penyewa'     => 'required|numeric',
         'no_kamar'           => 'required',
         'nominal'               => 'required|numeric',
+        'metode_pembayaran' => 'required',
         'tgl_pembayaran' => 'required|date',
         'status' => 'required'
         ]);

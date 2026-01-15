@@ -18,6 +18,7 @@ class TransaksiRegol1 extends Model
         'total_penyewa',
         'no_kamar',
         'nominal',
+        'metode_pembayaran',
         'tgl_pembayaran',
         'status',
         'user_id',

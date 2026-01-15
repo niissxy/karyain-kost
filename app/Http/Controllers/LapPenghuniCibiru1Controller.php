@@ -75,9 +75,9 @@ class LapPenghuniCibiru1Controller extends Controller
         ->select(
             'p.id_penghuni',
             'p.nama_penghuni',
+            'p.status_penghuni',
             'p.tgl_masuk',
             'p.tgl_keluar',
-            'p.status as status_penghuni', // alias disesuaikan
         DB::raw("
         CONCAT(
         TIMESTAMPDIFF(
@@ -99,7 +99,9 @@ class LapPenghuniCibiru1Controller extends Controller
         ),
         ' Hari'
     ) as durasi_sewa
-    ")
+    "),
+
+    'p.status'
         )
     ->get();
 
@@ -117,20 +119,22 @@ class LapPenghuniCibiru1Controller extends Controller
         'id_lappenghuni' => 'required',
         'id_penghuni'         => 'required',
         'nama_penghuni'       => 'required',
+        'status_penghuni' => 'required',
         'tgl_masuk'           => 'required|date',
         'tgl_keluar'          => 'nullable',
         'durasi_sewa'          => 'required',
-        'status_penghuni'     => 'required',
+        'status'     => 'required',
     ]);
 
     DB::table('lap_penghuni_cibiru1')->insert([
         'id_lappenghuni' => $request->id_lappenghuni,
         'id_penghuni'        => $request->id_penghuni,
         'nama_penghuni'      => $request->nama_penghuni,
+        'status_penghuni' => $request->status_penghuni,
         'tgl_masuk'          => $request->tgl_masuk,
         'tgl_keluar'         => $request->tgl_keluar,
         'durasi_sewa'         => $request->durasi_sewa,
-        'status_penghuni'             => $request->status_penghuni,
+        'status'             => $request->status,
         'created_at'         => now(),
         'user_id'       => Auth::id(),
     ]);

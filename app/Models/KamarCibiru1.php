@@ -13,7 +13,8 @@ class KamarCibiru1 extends Model
         'tipe_kamar', 
         'no_kamar', 
         'status_kamar', 
-        'harga',
+        'harga_harian',
+        'harga_bulanan',
         'user_id',
         'created_at',
         'updated_at'

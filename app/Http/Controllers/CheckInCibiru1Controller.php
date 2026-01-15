@@ -61,6 +61,7 @@ class CheckInCibiru1Controller extends Controller
         'nama_penghuni'  => 'required',
         'no_kamar'       => 'required',
         'nominal' => 'required',
+        'metode_pembayaran' => 'required',
         'status'         => 'required', // 'Aktif' atau 'Booked'
     ]);
 
@@ -104,6 +105,7 @@ class CheckInCibiru1Controller extends Controller
             'nama_penyewa'  => $data['nama_penghuni'],
             'no_kamar'      => $data['no_kamar'],
             'nominal'       => $data['nominal'],
+            'metode_pembayaran' => $data['metode_pembayaran'],
             'user_id'       => Auth::id(),
         ]);
 
@@ -149,6 +151,7 @@ class CheckInCibiru1Controller extends Controller
             'nama_penghuni' => $request->nama_penghuni,
             'no_kamar'      => $request->no_kamar,
             'nominal'       => str_replace('.', '', $request->nominal),
+            'metode_pembayaran' => $request->metode_pembayaran,
             'status'        => $request->status,
         ]);
 

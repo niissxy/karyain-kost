@@ -53,6 +53,7 @@ class TransaksiCibiru1Controller extends Controller
         'total_penyewa'     => 'required|numeric',
         'no_kamar'           => 'required',
         'nominal'               => 'required|numeric',
+        'metode_pembayaran' => 'required|numeric',
         'tgl_pembayaran' => 'required|date',
         'status' => 'required'
         ]);
@@ -101,6 +102,7 @@ class TransaksiCibiru1Controller extends Controller
                 'total_penyewa'  => $request->total_penyewa,
                 'no_kamar'       => $request->no_kamar,
                 'nominal'        => $request->nominal,
+                'metode_pembayaran' => $request->metode_pembayaran,
                 'tgl_pembayaran' => $request->tgl_pembayaran,
                 'status'         => $request->status,
                 'updated_at'     => now(),

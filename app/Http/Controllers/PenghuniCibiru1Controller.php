@@ -50,6 +50,7 @@ class PenghuniCibiru1Controller extends Controller
          $data = $request->validate([
         'id_penghuni'          => 'required',
         'nama_penghuni'        => 'required',
+        'status_penghuni'      => 'required',
         'penempatan_kamar'     => 'required',
         'alamat'               => 'required',
         'kontak'               => 'required',
@@ -95,6 +96,7 @@ class PenghuniCibiru1Controller extends Controller
         $data = [
             'id_penghuni' => $request->id_penghuni,
             'nama_penghuni' => $request->nama_penghuni,
+            'status_penghuni' => $request->status_penghuni,
             'penempatan_kamar' => $request->penempatan_kamar,
             'alamat' => $request->alamat,
             'kontak' => $request->kontak,

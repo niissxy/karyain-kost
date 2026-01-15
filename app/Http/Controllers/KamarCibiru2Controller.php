@@ -54,7 +54,8 @@ class KamarCibiru2Controller extends Controller
         'tipe_kamar'   => 'required',
         'no_kamar'     => 'required',
         'status_kamar' => 'required',
-        'harga'        => 'required',
+        'harga_harian' => 'required|numeric',
+        'harga_bulanan' => 'required|numeric',
         ]);
 
          $data['user_id'] = Auth::id();
@@ -96,14 +97,16 @@ class KamarCibiru2Controller extends Controller
             'tipe_kamar' => $request->tipe_kamar,
             'no_kamar' => $request->no_kamar,
             'status_kamar' => $request->status_kamar,
-            'harga' => $request->harga,
+            'harga_harian' => $request->harga_harian,
+            'harga_bulanan' => $request->harga_bulanan,
             'updated_at' => now(), // Waktu diperbarui saat ini/ Nama pembuat
         ];
 
         DB::table('lap_kamar_cibiru2')
         ->where('id_kamar', $id_kamar)
         ->update([
-            'harga' => $request->harga
+            'harga_harian' => $request->harga_harian,
+            'harga_bulanan' => $request->harga_bulanan,
         ]);
 
         KamarCibiru2::where('id_kamar', $id_kamar)->update($data);
