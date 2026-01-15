@@ -99,6 +99,7 @@ table {
                                 <th class="bg-body-secondary">Nama Penghuni</th>
                                 <th class="bg-body-secondary">No Kamar</th>
                                 <th class="bg-body-secondary">Nominal</th>
+                                <th class="bg-body-secondary">Metode Pembayaran</th>
                                 <th class="bg-body-secondary">Status</th>
                                 <th class="bg-body-secondary">User</th>
                                 <th class="text-center bg-body-secondary">Action</th>
@@ -113,6 +114,7 @@ table {
                                 <td>{{ $item->nama_penghuni }}</td>
                                 <td>{{ $item->no_kamar }}</td>
                                 <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
+                                 <td>{{ $item->metode_pembayaran }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>
                                 <td style="text-align: center; vertical-align: middle;">

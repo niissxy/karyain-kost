@@ -88,6 +88,28 @@
                                 </div>
                             </div>
 
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Metode Pembayaran</label>
+                                <div class="col-sm-9">
+                                    <select class="form-select" name="metode_pembayaran">
+                                        <option value="">-- Pilih Metode Pembayaran --</option>
+                                        <option value="BCA">BCA</option>
+                                        <option value="BRI">BRI</option>
+                                        <option value="BNI">BNI</option>
+                                        <option value="Mandiri">Mandiri</option>
+                                        <option value="BTPN/JENIUS">BTPN/JENIUS</option>
+                                        <option value="BSI">BSI</option>
+                                        <option value="Bank Jago">Bank Jago</option>
+                                        <option value="SeaBank">SeaBank</option>
+                                        <option value="DANA">DANA</option>
+                                        <option value="OVO">OVO</option>
+                                        <option value="LinkAja">LinkAja</option>
+                                        <option value="SHOPEE PAY">SHOPEE PAY</option>
+                                        <option value="GoPay">GoPay</option>
+                                    </select>
+                                </div>
+                            </div>
+
                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Status</label>
                                 <div class="col-sm-9">

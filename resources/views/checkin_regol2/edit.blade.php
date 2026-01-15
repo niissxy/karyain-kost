@@ -81,6 +81,27 @@
                                 </div>
                             </div>
 
+                             <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Metode Pembayaran</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="metode_pembayaran" name="metode_pembayaran">
+                                        <option value='BCA' {{ old('metode_pembayaran', $checkin_regol2->metode_pembayaran) == 'BCA' ? 'selected' : '' }}>BCA</option>
+                                        <option value='BRI' {{ old('metode_pembayaran', $checkin_regol2->metode_pembayaran) == 'BRI' ? 'selected' : '' }}>BRI</option>
+                                        <option value='BNI' {{ old('metode_pembayaran', $checkin_regol2->metode_pembayaran) == 'BNI' ? 'selected' : '' }}>BNI</option>
+                                        <option value='Mandiri' {{ old('metode_pembayaran', $checkin_regol2->metode_pembayaran) == 'Mandiri' ? 'selected' : '' }}>Mandiri</option>
+                                        <option value='BTPN/JENIUS' {{ old('metode_pembayaran', $checkin_regol2->metode_pembayaran) == 'BTPN/JENIUS' ? 'selected' : '' }}>BTPN/JENIUS</option>
+                                        <option value='BSI' {{ old('metode_pembayaran', $checkin_regol2->metode_pembayaran) == 'BSI' ? 'selected' : '' }}>BSI</option>
+                                        <option value='Bank Jago' {{ old('metode_pembayaran', $checkin_regol2->metode_pembayaran) == 'Bank Jago' ? 'selected' : '' }}>Bank Jago</option>
+                                        <option value='SeaBank' {{ old('metode_pembayaran', $checkin_regol2->metode_pembayaran) == 'SeaBank' ? 'selected' : '' }}>SeaBank</option>
+                                        <option value='DANA' {{ old('metode_pembayaran', $checkin_regol2->metode_pembayaran) == 'DANA' ? 'selected' : '' }}>DANA</option>
+                                        <option value='OVO' {{ old('metode_pembayaran', $checkin_regol2->metode_pembayaran) == 'OVO' ? 'selected' : '' }}>OVO</option>
+                                        <option value='LinkAja' {{ old('metode_pembayaran', $checkin_regol2->metode_pembayaran) == 'LinkAja' ? 'selected' : '' }}>LinkAja<</option>
+                                        <option value='SHOPEE PAY' {{ old('metode_pembayaran', $checkin_regol2->metode_pembayaran) == 'SHOPEE PAY' ? 'selected' : '' }}>SHOPEE PAY</option>
+                                        <option value='GoPay' {{ old('metode_pembayaran', $checkin_regol2->metode_pembayaran) == 'GoPay' ? 'selected' : '' }}>GoPay</option>
+                                    </select>  
+                                </div>
+                            </div>
+
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Status</label>
                                 <div class="col-sm-9">
