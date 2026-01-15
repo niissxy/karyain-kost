@@ -12,24 +12,26 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request)
-    { 
-        $name      = $request->input('name');
-        $password   = $request->input('password');
+   public function login(Request $request)
+{
+    $request->validate([
+        'email'    => 'required|email',
+        'password' => 'required'
+    ]);
 
-        if(Auth::guard('web')->attempt(['name' => $name, 'password' => $password])) {
-            return response()->json([
-                'success' => true
-            ], 200);
-        } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'Login Gagal!'
-            ], 401);
-        }
+    $credentials = $request->only('email', 'password');
 
-        //return redirect('login')->with('error', 'Login failed');
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
+
+        return redirect()->intended('/dashboard');
     }
+
+    return back()->withErrors([
+        'email' => 'Email atau password salah',
+    ])->withInput();
+}
+
 
     public function logout()
     {
