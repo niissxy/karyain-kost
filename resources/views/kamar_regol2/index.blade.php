@@ -94,7 +94,8 @@ table {
                                 <th class="bg-body-secondary">Tipe Kamar</th>
                                 <th class="bg-body-secondary">No Kamar</th>
                                 <th class="bg-body-secondary">Status</th>
-                                <th class="bg-body-secondary">Harga</th>
+                                <th class="bg-body-secondary">Harga Harian</th>
+                                <th class="bg-body-secondary">Harga Bulanan</th>
                                 <th class="bg-body-secondary">User</th>
                                 <th class="text-center bg-body-secondary">Action</th>
                             </tr>
@@ -107,7 +108,8 @@ table {
                                 <td>{{ $item->tipe_kamar }}</td>
                                 <td>{{ $item->no_kamar }}</td>
                                 <td>{{ $item->status_kamar }}</td>
-                                <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                                <td>Rp {{ number_format($item->harga_harian, 0, ',', '.') }}</td>
+                                <td>Rp {{ number_format($item->harga_bulanan, 0, ',', '.') }}</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>
                                 <td style="text-align: center; vertical-align: middle;">
                                     <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">

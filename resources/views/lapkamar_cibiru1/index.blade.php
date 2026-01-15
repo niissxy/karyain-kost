@@ -181,7 +181,8 @@ body {
                                     <th class="bg-body-secondary">ID Laporan</th>
                                     <th class="bg-body-secondary">No Kamar</th>
                                     <th class="bg-body-secondary">Tipe Kamar</th>
-                                    <th class="bg-body-secondary">Harga</th>
+                                    <th class="bg-body-secondary">Harga Harian</th>
+                                    <th class="bg-body-secondary">Harga Bulanan</th>
                                     <th class="bg-body-secondary">Status Kamar</th>
                                     <th class="bg-body-secondary">User</th>
                                     <th class="text-center bg-body-secondary">Action</th>
@@ -195,7 +196,8 @@ body {
                                     <td>{{ $item->id_kamar }}</td>
                                     <td>{{ $item->no_kamar }}</td>
                                     <td>{{ $item->tipe_kamar }}</td>
-                                    <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                                    <td>Rp {{ number_format($item->harga_harian, 0, ',', '.') }}</td>
+                                    <td>Rp {{ number_format($item->harga_bulanan, 0, ',', '.') }}</td>
                                     <td>{{ $item->status_kamar }}</td>
                                     <td>{{ $item->user?->name ?? '-' }}</td>
                                     <td style="text-align: center; vertical-align: middle;">

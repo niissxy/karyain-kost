@@ -63,7 +63,8 @@
                                     data-nokamar="{{ $k->no_kamar }}"
                                     data-tipe="{{ $k->tipe_kamar }}"
                                     data-status="{{ $k->status_kamar }}"
-                                    data-harga="{{ $k->harga }}"
+                                    data-harga-harian="{{ $k->harga_harian }}"
+                                    data-harga-bulanan="{{ $k->harga_bulanan }}"
                                 >
                                     {{ $k->id_kamar }} - {{ $k->no_kamar }}
                                 </option>
@@ -87,9 +88,16 @@
         </div>
 
         <div class="row mb-3">
-            <label class="col-sm-3 col-form-label">Harga</label>
+            <label class="col-sm-3 col-form-label">Harga Harian</label>
             <div class="col-sm-9">
-                <input class="form-control" id="harga" name="harga" readonly type="number">
+                <input class="form-control" id="harga_harian" name="harga_harian" readonly type="number">
+            </div>
+        </div>
+
+         <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Harga Bulanan</label>
+            <div class="col-sm-9">
+                <input class="form-control" id="harga_bulanan" name="harga_bulanan" readonly type="number">
             </div>
         </div>
 

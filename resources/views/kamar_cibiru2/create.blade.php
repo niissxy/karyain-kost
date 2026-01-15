@@ -83,9 +83,16 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Harga</label>
+                                <label class="col-sm-3 col-form-label">Harga Harian</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" name="harga" type="number" required>
+                                    <input class="form-control" name="harga_harian" type="number" required>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Harga Bulanan</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" name="harga_bulanan" type="number" required>
                                 </div>
                             </div>
 
