@@ -152,7 +152,7 @@
                     <span>Rp {{ number_format($checkin->nominal, 0, ',', '.') }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>Status</strong> <strong style="margin-left: 125px;"> : </strong>
+                    <strong>Status</strong> <strong style="margin-left: 123px;"> : </strong>
                     <span>{{ $checkin->status }}</span>                    
                 </div>
             </div>
