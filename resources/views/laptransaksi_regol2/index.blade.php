@@ -188,7 +188,7 @@ body {
                                      <td style="text-align: center; vertical-align: middle;">
                                     <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">
                                      <!-- Tombol Delete -->
-                                          @csrf
+                                        @csrf
                                         @method('DELETE')
                                         <button class="btn btn-outline-danger bi bi-trash"
                                         onclick="confirmDelete('{{ $item->id_laptransaksi }}')"></button>

@@ -127,14 +127,10 @@ table {
                                         </a>
                                          &nbsp;
                                      <!-- Tombol Delete -->
-                                        <form action="{{ url('penghuni_cibiru2/' . $item->id_penghuni) }}" method="POST" 
-                                            onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-outline-danger btn-sm">
-                                            <i class="bi bi-trash"></i>
-                                            </button>
-                                        </form>
+                                         @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-outline-danger bi bi-trash"
+                                        onclick="confirmDelete('{{ $item->id_penghuni }}')"></button>
                                     </div>
                                 </td>
                             </tr>
@@ -147,5 +143,58 @@ table {
         </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+                        @if (session('success'))
+                        <script>
+                            Swal.fire({
+                                title: 'Success!',
+                                text: "{{ session('success') }}",
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            });
+                        </script>
+                         @elseif (session('error'))
+                         <script>
+                            Swal.fire({
+                                title: 'Error',
+                                text: "{{ session('error') }}",
+                                icon: 'error',
+                                confirmButtonText:'OK'
+                            });
+                         </script>
+                        @endif
+                        <script>
+            function confirmDelete(id_penghuni) {
+                Swal.fire({
+                    title: 'Yakin Hapus Data?',
+                    text: "Data yang dihapus tidak dapat dikembalikan!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, Hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        var form = document.createElement('form');
+                        form.action = "{{ route('penghuni_cibiru2.destroy', ':id_penghuni') }}".replace(':id_penghuni', id_penghuni);
+                        form.method = 'POST';
+                        form.innerHTML = `
+                            @csrf
+                            @method('DELETE')
+                            `;
+                        document.body.appendChild(form);
+                        form.submit();
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data berhasil dihapus',
+                            icon: 'success',
+                        })
+                    }
+                })
+            }
+        </script>
 </main>
 @endsection
