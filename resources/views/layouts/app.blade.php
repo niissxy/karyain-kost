@@ -53,7 +53,12 @@
     background: #212529;
     transition: transform 0.3s ease;
     z-index: 1000;
+
+    /* === INI KUNCI SCROLL === */
+    overflow-y: auto;
+    overflow-x: hidden;
 }
+
 
 /* sidebar hidden (desktop) */
 body.sidebar-collapsed #sidebar {

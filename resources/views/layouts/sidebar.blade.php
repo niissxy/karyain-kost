@@ -2,14 +2,19 @@
 /* ===== SIDEBAR ===== */
 #sidebar {
     width: 260px;
-    height: 100vh; /* PENTING */
+    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     background: #212529;
     transition: transform 0.3s ease;
     z-index: 1000;
+
+    /* === INI KUNCI SCROLL === */
+    overflow-y: auto;
+    overflow-x: hidden;
 }
+
 
 /* HILANG KE KIRI (PALING AMAN) */
 #sidebar.collapsed {
