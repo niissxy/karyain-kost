@@ -128,7 +128,7 @@
         <div class="invoice-info">
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Tanggal Check In</strong> <strong style="margin-left: 70;"> : </strong>  
+                    <strong>Tanggal Check In</strong> <strong style="margin-left: 40px;"> : </strong>  
                     <span>{{ date('d-m-Y', strtotime($checkin->tgl_checkin)) }}</span>
                 </div>
                 <div class="col-sm-6">
