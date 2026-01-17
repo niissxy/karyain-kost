@@ -142,7 +142,7 @@
                     <span>{{ $checkin->nama_penghuni }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>No Kamar</strong> <strong style="margin-left: 60px;"> : </strong>
+                    <strong>No Kamar</strong> <strong style="margin-left: 160px;"> : </strong>
                     <span>{{ $checkin->no_kamar }}</span>
                 </div>
             </div>
