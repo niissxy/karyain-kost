@@ -4,7 +4,7 @@
     font-size: 13px;
     width: 260px;
     transition: width 0.3s ease;
-    overflow-x: hidden;
+    overflow-x: visible;
 }
 
 #sidebar.collapsed {
@@ -58,12 +58,12 @@
 <nav id="sidebar" class="bg-dark text-white vh-100 position-fixed"
      style="width: 260px; left: 0; top: 0; z-index: 1000;">
 
-    <div class="p-3">
-        <h5 class="text-center mb-4">Karyain Kost</h5>
-
-         <div class="sidebar-toggle" onclick="toggleSidebar()">
+       <div class="sidebar-toggle" onclick="toggleSidebar()">
             <i class="bi bi-list"></i>
         </div>
+
+    <div class="p-3">
+        <h5 class="text-center mb-4">Karyain Kost</h5>
 
         <ul class="nav flex-column gap-1">
 
