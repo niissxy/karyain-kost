@@ -148,7 +148,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nominal</strong> <strong style="margin-left: 160px;"> : </strong>
+                    <strong>Nominal</strong> <strong style="margin-left: 125px;"> : </strong>
                     <span>Rp {{ number_format($checkin->nominal, 0, ',', '.') }}</span>                   
                 </div>
                 <div class="col-sm-6">
