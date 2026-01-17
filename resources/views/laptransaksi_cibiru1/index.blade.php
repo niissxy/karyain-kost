@@ -106,7 +106,7 @@ body {
                 <!-- Kamar Kosong -->
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                     <div class="card text-white bg-success bg-gradient h-100 shadow">
-                        <div class="card-header">
+                        <div class="card-header bg-success bg-gradient">
                             <i class="bi bi-receipt"></i> Total Transaksi
                         </div>
                         <div class="card-body">
