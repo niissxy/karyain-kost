@@ -72,6 +72,7 @@ body.sidebar-collapsed #sidebar {
 /* ===== MAIN CONTENT ===== */
 #main-content {
     margin-left: 150px;
+    margin-top: 10px;
     padding: 20px;
     transition: margin-left 0.3s ease;
 }
