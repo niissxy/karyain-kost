@@ -150,6 +150,58 @@ table {
 
         </div>
     </section>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+                        @if (session('success'))
+                        <script>
+                            Swal.fire({
+                                title: 'Success!',
+                                text: "{{ session('success') }}",
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            });
+                        </script>
+                         @elseif (session('error'))
+                         <script>
+                            Swal.fire({
+                                title: 'Error',
+                                text: "{{ session('error') }}",
+                                icon: 'error',
+                                confirmButtonText:'OK'
+                            });
+                         </script>
+                        @endif
+                        <script>
+            function confirmDelete(kode_checkin) {
+                Swal.fire({
+                    title: 'Yakin Hapus Data?',
+                    text: "Data yang dihapus tidak dapat dikembalikan!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, Hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        var form = document.createElement('form');
+                        form.action = "{{ route('checkin_cibiru1.destroy', ':id_checkin') }}".replace(':id_checkin', id_checkin);
+                        form.method = 'POST';
+                        form.innerHTML = `
+                            @csrf
+                            @method('DELETE')
+                            `;
+                        document.body.appendChild(form);
+                        form.submit();
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data berhasil dihapus',
+                            icon: 'success',
+                        })
+                    }
+                })
+            }
+        </script>
 </main>
 @endsection
