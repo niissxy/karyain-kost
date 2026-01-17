@@ -21,9 +21,31 @@
     transform: translateX(-100%);
 }
 
+/* ===== FONT SIDEBAR ===== */
+
+/* Menu utama */
 #sidebar .nav-link {
-    font-size: 14px; /* default 16px → diperkecil */
+    font-size: 13px;
+    padding: 8px 14px;
 }
+
+/* Submenu */
+#sidebar .collapse .nav-link {
+    font-size: 12px;
+    padding: 6px 14px;
+}
+
+/* Icon sidebar */
+#sidebar .nav-link i {
+    font-size: 14px;
+}
+
+/* Judul sidebar */
+#sidebar h5 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
 
 /* ===== TOGGLE ===== */
 .sidebar-toggle {
