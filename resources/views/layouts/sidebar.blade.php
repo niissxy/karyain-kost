@@ -1,31 +1,8 @@
 <style>
-/* ===== SIDEBAR BASE ===== */
-#sidebar {
+    #sidebar {
     font-size: 13px;
-    width: 260px;
-    transition: width 0.3s ease;
-    overflow-x: visible;
 }
 
-#sidebar.collapsed {
-    width: 70px;
-}
-
-/* hide text when collapsed */
-#sidebar.collapsed .nav-link span,
-#sidebar.collapsed h5 {
-    display: none;
-}
-
-#sidebar.collapsed .nav-link {
-    justify-content: center;
-}
-
-#sidebar.collapsed .bi-chevron-down {
-    display: none;
-}
-
-/* submenu spacing */
 #sidebar .collapse {
     margin-top: 4px;
 }
@@ -35,33 +12,15 @@
     opacity: 0.9;
 }
 
-/* hover */
 #sidebar .nav-link:hover {
     background-color: rgba(255,255,255,0.08);
 }
 
-/* toggle button */
-.sidebar-toggle {
-    position: absolute;
-    top: 12px;
-    right: -40px;
-    background: #212529;
-    color: #fff;
-    border-radius: 4px;
-    padding: 6px 10px;
-    cursor: pointer;
-}
 </style>
-
 
 <!-- Sidebar -->
 <nav id="sidebar" class="bg-dark text-white vh-100 position-fixed"
      style="width: 260px; left: 0; top: 0; z-index: 1000;">
-
-       <div class="sidebar-toggle" onclick="toggleSidebar()">
-            <i class="bi bi-list"></i>
-        </div>
-
     <div class="p-3">
         <h5 class="text-center mb-4">Karyain Kost</h5>
 
@@ -355,9 +314,3 @@
         </ul>
     </div>
 </nav>
-
-<script>
-function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('collapsed');
-}
-</script>
