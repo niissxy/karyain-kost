@@ -9,7 +9,7 @@
     <style>
         /* General Styles */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: #f4f4f9;
             color: #333;
             padding: 40px;
