@@ -58,12 +58,12 @@
 <nav id="sidebar" class="bg-dark text-white vh-100 position-fixed"
      style="width: 260px; left: 0; top: 0; z-index: 1000;">
 
-     <div class="sidebar-toggle" onclick="toggleSidebar()">
-        <i class="bi bi-list"></i>
-    </div>
-
     <div class="p-3">
         <h5 class="text-center mb-4">Karyain Kost</h5>
+
+         <div class="sidebar-toggle" onclick="toggleSidebar()">
+            <i class="bi bi-list"></i>
+        </div>
 
         <ul class="nav flex-column gap-1">
 
