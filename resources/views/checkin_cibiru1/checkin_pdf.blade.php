@@ -152,13 +152,13 @@
                     <span>Rp {{ number_format($checkin->nominal, 0, ',', '.') }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>Status</strong> <strong style="margin-left: 100px;"> : </strong>
+                    <strong>Status</strong> <strong style="margin-left: 115px;"> : </strong>
                     <span>{{ $checkin->status }}</span>                    
                 </div>
             </div>
              <div class="row">
                 <div class="col-sm-6">
-                    <strong>Metode Pembayaran</strong> <strong style="margin-left: 20px;"> : </strong>
+                    <strong>Metode Pembayaran</strong> <strong style="margin-left: 15px;"> : </strong>
                     <span>{{ $checkin->metode_pembayaran }}</span>                   
                 </div>
             </div>
