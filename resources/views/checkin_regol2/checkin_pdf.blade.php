@@ -156,6 +156,12 @@
                     <span>{{ $checkin_regol2->status }}</span>                    
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <strong>Metode Pembayaran</strong> <strong style="margin-left: 67px;"> : </strong>
+                    <span>{{ checkin_regol2->metode_pembayaran }}</span>                   
+                </div>
+            </div>
 
     </div>
 </body>
