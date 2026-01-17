@@ -131,14 +131,10 @@ table {
                                         </a>
                                          &nbsp;
                                      <!-- Tombol Delete -->
-                                        <form action="{{ url('checkin_cibiru1/' . $item->id_checkin) }}" method="POST" 
-                                            onsubmit="return confirm('Yakin hapus data?')" style="margin:0;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-outline-danger btn-sm">
-                                            <i class="bi bi-trash"></i>
-                                            </button>
-                                        </form>
+                                        @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-outline-danger bi bi-trash"
+                                    onclick="confirmDelete('{{ $item->id_checkin }}')"></button>
                                     </div>
                                 </td>
                             </tr>
@@ -150,7 +146,7 @@ table {
 
         </div>
     </section>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
