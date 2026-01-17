@@ -9,24 +9,6 @@
 
     <style>
 
-     @font-face {
-        font-family: 'Montserrat';
-        src: url("{{ public_path('fonts/Montserrat/Montserrat-Regular.ttf') }}") format('truetype');
-        font-weight: 400;
-    }
-
-    @font-face {
-        font-family: 'Montserrat';
-        src: url("{{ public_path('fonts/Montserrat/Montserrat-SemiBold.ttf') }}") format('truetype');
-        font-weight: 600;
-    }
-
-    @font-face {
-        font-family: 'Montserrat';
-        src: url("{{ public_path('fonts/Montserrat/Montserrat-Bold.ttf') }}") format('truetype');
-        font-weight: 700;
-    }
-
         /* General Styles */
         body {
             font-family: 'Montserrat', sans-serif;
