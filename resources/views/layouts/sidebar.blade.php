@@ -2,35 +2,35 @@
 /* ===== SIDEBAR ===== */
 #sidebar {
     width: 260px;
-    height: 100vh;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
     background: #212529;
-    transition: transform 0.3s ease;
+    transition: left 0.3s ease;
     z-index: 1000;
 }
 
-/* BENAR-BENAR KELUAR */
+/* BENAR-BENAR HILANG */
 #sidebar.collapsed {
-    transform: translateX(-260px);
+    left: -260px;
 }
 
-/* ===== TOGGLE BUTTON ===== */
+/* ===== TOGGLE ===== */
 .sidebar-toggle {
     position: fixed;
     top: 15px;
     left: 270px;
     z-index: 1100;
     background: #212529;
-    color: white;
+    color: #fff;
     padding: 6px 10px;
     border-radius: 6px;
     cursor: pointer;
     transition: left 0.3s ease;
 }
 
-/* tombol ikut pindah */
+/* toggle ikut geser */
 .sidebar-collapsed .sidebar-toggle {
     left: 15px;
 }
@@ -53,7 +53,7 @@
         <i class="bi bi-list"></i>
 </div>
 
-<nav id="sidebar" class="bg-dark text-white vh-100 position-fixed"
+<nav id="sidebar" class="bg-dark text-white"
      style="width: 260px; left: 0; top: 0; z-index: 1000;">
 
     <div class="sidebar-content p-3">
