@@ -211,13 +211,15 @@ class CheckInRegol2Controller extends Controller
 
         if ($transaksi) {
             $transaksi->update([
-                'nominal' => str_replace('.', '', $request->nominal)
+                'nominal' => str_replace('.', '', $request->nominal),
+                'metode_pembayaran' => $request->metode_pembayaran
             ]);
 
             DB::table('lap_transaksi_regol2')
                 ->where('id_transaksi', $transaksi->id_transaksi)
                 ->update([
-                    'nominal' => str_replace('.', '', $request->nominal)
+                    'nominal' => str_replace('.', '', $request->nominal),
+                    'metode_pembayaran' => $request->metode_pembayaran
                 ]);
         }
     });
