@@ -1,27 +1,93 @@
 <style>
-    #sidebar {
+/* ===== SIDEBAR BASE ===== */
+#sidebar {
     font-size: 13px;
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease, width 0.3s ease;
+    overflow: hidden; /* penting */
 }
 
+/* ===== ISI SIDEBAR SCROLL ===== */
+#sidebar .sidebar-content {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 6px;
+}
+
+/* scrollbar halus */
+#sidebar .sidebar-content::-webkit-scrollbar {
+    width: 6px;
+}
+#sidebar .sidebar-content::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+}
+
+/* ===== COLLAPSE (SEMBUNYI) ===== */
+#sidebar.collapsed {
+    transform: translateX(-100%);
+}
+
+/* ===== HOVER MENU ===== */
+#sidebar .nav-link:hover {
+    background-color: rgba(255,255,255,0.08);
+}
+
+/* ===== SUBMENU ===== */
 #sidebar .collapse {
     margin-top: 4px;
 }
-
 #sidebar .collapse .nav-link {
     font-size: 13px;
     opacity: 0.9;
 }
 
-#sidebar .nav-link:hover {
-    background-color: rgba(255,255,255,0.08);
+/* ===== TOGGLE BUTTON ===== */
+.sidebar-toggle {
+    position: fixed;
+    top: 15px;
+    left: 270px;
+    z-index: 1100;
+    background: #212529;
+    color: #fff;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: left 0.3s ease;
 }
 
+#sidebar.collapsed + .sidebar-toggle {
+    left: 15px;
+}
+
+/* ===== CONTENT SHIFT ===== */
+.main-content {
+    margin-left: 260px;
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.expanded {
+    margin-left: 0;
+}
 </style>
+
 
 <!-- Sidebar -->
 <nav id="sidebar" class="bg-dark text-white vh-100 position-fixed"
      style="width: 260px; left: 0; top: 0; z-index: 1000;">
-    <div class="p-3">
+
+     <div class="sidebar-toggle" onclick="toggleSidebar()">
+    <i class="bi bi-list"></i>
+</div>
+
+    <div class="sidebar-content p-3">
+
         <h5 class="text-center mb-4">Karyain Kost</h5>
 
         <ul class="nav flex-column gap-1">
@@ -314,3 +380,10 @@
         </ul>
     </div>
 </nav>
+
+<script>
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('collapsed');
+    document.querySelector('.main-content')?.classList.toggle('expanded');
+}
+</script>
