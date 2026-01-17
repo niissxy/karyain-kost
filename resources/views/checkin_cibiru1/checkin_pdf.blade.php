@@ -132,33 +132,33 @@
                     <span>{{ date('d-m-Y', strtotime($checkin->tgl_checkin)) }}</span>
                 </div>
                 <div class="col-sm-6">
-                    <strong>ID Check In</strong> <strong style="margin-left: 45px;"> : </strong>
+                    <strong>ID Check In</strong> <strong style="margin-left: 50px;"> : </strong>
                     <span>{{ $checkin->id_checkin }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nama Penghuni</strong> <strong style="margin-left: 10px;"> : </strong>
+                    <strong>Nama Penghuni</strong> <strong style="margin-left: 30px;"> : </strong>
                     <span>{{ $checkin->nama_penghuni }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>No Kamar</strong> <strong style="margin-left: 55px;"> : </strong>
+                    <strong>No Kamar</strong> <strong style="margin-left: 60px;"> : </strong>
                     <span>{{ $checkin->no_kamar }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nominal</strong> <strong style="margin-left: 67px;"> : </strong>
+                    <strong>Nominal</strong> <strong style="margin-left: 60px;"> : </strong>
                     <span>Rp {{ number_format($checkin->nominal, 0, ',', '.') }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>Status</strong> <strong style="margin-left: 81px;"> : </strong>
+                    <strong>Status</strong> <strong style="margin-left: 100px;"> : </strong>
                     <span>{{ $checkin->status }}</span>                    
                 </div>
             </div>
              <div class="row">
                 <div class="col-sm-6">
-                    <strong>Metode Pembayaran</strong> <strong style="margin-left: 67px;"> : </strong>
+                    <strong>Metode Pembayaran</strong> <strong style="margin-left: 60px;"> : </strong>
                     <span>{{ $checkin->metode_pembayaran }}</span>                   
                 </div>
             </div>
