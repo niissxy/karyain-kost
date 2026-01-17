@@ -21,6 +21,10 @@
     transform: translateX(-100%);
 }
 
+#sidebar .nav-link {
+    font-size: 14px; /* default 16px → diperkecil */
+}
+
 /* ===== TOGGLE ===== */
 .sidebar-toggle {
     position: fixed;

@@ -59,6 +59,10 @@
     overflow-x: hidden;
 }
 
+#sidebar .nav-link {
+    font-size: 14px; /* default 16px → diperkecil */
+}
+
 
 /* sidebar hidden (desktop) */
 body.sidebar-collapsed #sidebar {
@@ -67,7 +71,7 @@ body.sidebar-collapsed #sidebar {
 
 /* ===== MAIN CONTENT ===== */
 #main-content {
-    margin-left: 200px;
+    margin-left: 150px;
     padding: 20px;
     transition: margin-left 0.3s ease;
 }
