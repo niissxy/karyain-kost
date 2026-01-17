@@ -138,7 +138,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nama Penghuni</strong> <strong style="margin-left: 30px;"> : </strong>
+                    <strong>Nama Penghuni</strong> <strong style="margin-left: 110px;"> : </strong>
                     <span>{{ $checkin->nama_penghuni }}</span>                   
                 </div>
                 <div class="col-sm-6">
