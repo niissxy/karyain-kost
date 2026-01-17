@@ -34,7 +34,7 @@
 .table-responsive {
     display: flex;
     justify-content: center;
-    overflow-x: hidden;
+    overflow-x: visible;
 }
 
 table {
