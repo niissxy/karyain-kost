@@ -54,7 +54,7 @@ body {
 }
 </style>
 
-<div class="container mt-4" style="margin-left: 100px;">
+<div class="container mt-4" style="margin-left: 50px;">
 
     <h3 class="mb-4">Dashboard {{ $kostDisplayName }}</h3>
 
