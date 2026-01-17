@@ -53,8 +53,7 @@
         <i class="bi bi-list"></i>
 </div>
 
-<nav id="sidebar" class="bg-dark text-white"
-     style="width: 260px; left: 0; top: 0; z-index: 1000;">
+<nav id="sidebar" class="bg-dark text-white">
 
     <div class="sidebar-content p-3">
 
