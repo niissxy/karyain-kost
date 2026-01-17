@@ -119,46 +119,46 @@
                 <div style="font-weight: 600; font-size: 16px; text-align: right;">
                     <strong>Karyain Kost Cibiru 2</strong><br>
                 </div>
-                <!-- <div style="font-weight: 50; font-size: 12px; text-align: right; margin-top: 20px;">
-                    <strong>Jalan Sukasari No.30, RT 02/RW 10, Pasir Biru, Kec. Cibiru, Kota Bandung, Jawa Barat 40615</strong>   
-                </div> -->
+                <div style="font-weight: 50; font-size: 12px; text-align: right; margin-top: 20px;">
+                    <!-- <strong>Jalan Sukasari No.30, RT 02/RW 10, Pasir Biru, Kec. Cibiru, Kota Bandung, Jawa Barat 40615</strong>    -->
+                </div>
             </div>
         </div>
 
         <div class="invoice-info">
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Tanggal Check In</strong> <strong> : </strong>  
+                    <strong>Tanggal Check In</strong> <strong style="margin-left: 40px;"> : </strong>  
                     <span>{{ date('d-m-Y', strtotime($checkin_cibiru2->tgl_checkin)) }}</span>
                 </div>
                 <div class="col-sm-6">
-                    <strong>ID Check In</strong> <strong style="margin-left: 45px;"> : </strong>
+                    <strong>ID Check In</strong> <strong style="margin-left: 86px;"> : </strong>
                     <span>{{ $checkin_cibiru2->id_checkin }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nama Penghuni</strong> <strong style="margin-left: 10px;"> : </strong>
+                    <strong>Nama Penghuni</strong> <strong style="margin-left: 52px;"> : </strong>
                     <span>{{ $checkin_cibiru2->nama_penghuni }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>No Kamar</strong> <strong style="margin-left: 55px;"> : </strong>
+                    <strong>No Kamar</strong> <strong style="margin-left: 97px;"> : </strong>
                     <span>{{ $checkin_cibiru2->no_kamar }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nominal</strong> <strong style="margin-left: 67px;"> : </strong>
+                    <strong>Nominal</strong> <strong style="margin-left: 109px;"> : </strong>
                     <span>Rp {{ number_format($checkin_cibiru2->nominal, 0, ',', '.') }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>Status</strong> <strong style="margin-left: 81px;"> : </strong>
+                    <strong>Status</strong> <strong style="margin-left: 122px;"> : </strong>
                     <span>{{ $checkin_cibiru2->status }}</span>                    
                 </div>
             </div>
-            <div class="row">
+             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Metode Pembayaran</strong> <strong style="margin-left: 67px;"> : </strong>
+                    <strong>Metode Pembayaran</strong> <strong style="margin-left: 15px;"> : </strong>
                     <span>{{ $checkin_cibiru2->metode_pembayaran }}</span>                   
                 </div>
             </div>

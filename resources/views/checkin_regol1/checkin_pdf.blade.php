@@ -39,7 +39,7 @@
 
         .invoice-title {
             font-size: 15px;
-            /* font-weight: 300; */
+            /* font-weight: 600; */
             color: #2e3a59;
             letter-spacing: 1px;
             text-align: left;
@@ -128,37 +128,37 @@
         <div class="invoice-info">
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Tanggal Check In</strong> <strong> : </strong>  
-                    <span>{{ date('d-m-Y', strtotime($checkin_regol1->tgl_checkin)) }}</span>
+                    <strong>Tanggal Check In</strong> <strong style="margin-left: 40px;"> : </strong>  
+                    <span>{{ date('d-m-Y', strtotime($checkin-regol1->tgl_checkin)) }}</span>
                 </div>
                 <div class="col-sm-6">
-                    <strong>ID Check In</strong> <strong style="margin-left: 45px;"> : </strong>
+                    <strong>ID Check In</strong> <strong style="margin-left: 86px;"> : </strong>
                     <span>{{ $checkin_regol1->id_checkin }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nama Penghuni</strong> <strong style="margin-left: 10px;"> : </strong>
+                    <strong>Nama Penghuni</strong> <strong style="margin-left: 52px;"> : </strong>
                     <span>{{ $checkin_regol1->nama_penghuni }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>No Kamar</strong> <strong style="margin-left: 55px;"> : </strong>
+                    <strong>No Kamar</strong> <strong style="margin-left: 97px;"> : </strong>
                     <span>{{ $checkin_regol1->no_kamar }}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Nominal</strong> <strong style="margin-left: 67px;"> : </strong>
+                    <strong>Nominal</strong> <strong style="margin-left: 109px;"> : </strong>
                     <span>Rp {{ number_format($checkin_regol1->nominal, 0, ',', '.') }}</span>                   
                 </div>
                 <div class="col-sm-6">
-                    <strong>Status</strong> <strong style="margin-left: 81px;"> : </strong>
+                    <strong>Status</strong> <strong style="margin-left: 122px;"> : </strong>
                     <span>{{ $checkin_regol1->status }}</span>                    
                 </div>
             </div>
-            <div class="row">
+             <div class="row">
                 <div class="col-sm-6">
-                    <strong>Metode Pembayaran</strong> <strong style="margin-left: 67px;"> : </strong>
+                    <strong>Metode Pembayaran</strong> <strong style="margin-left: 15px;"> : </strong>
                     <span>{{ $checkin_regol1->metode_pembayaran }}</span>                   
                 </div>
             </div>
