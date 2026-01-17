@@ -129,7 +129,7 @@ table {
                                      <!-- Tombol Delete -->
                                          @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-outline-danger bi bi-trash"
+                                        <button class="btn btn-outline-danger btn-sm bi bi-trash"
                                         onclick="confirmDelete('{{ $item->id_penghuni }}')"></button>
                                     </div>
                                 </td>

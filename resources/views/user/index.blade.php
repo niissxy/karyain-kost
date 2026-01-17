@@ -112,7 +112,7 @@ table {
                                     <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">
                                           @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-outline-danger bi bi-trash"
+                                        <button class="btn btn-outline-danger btn-sm bi bi-trash"
                                         onclick="confirmDelete('{{ $item->id }}')"></button>
                                     </div>
                                 </td>
