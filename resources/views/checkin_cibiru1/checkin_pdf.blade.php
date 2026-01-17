@@ -132,7 +132,7 @@
                     <span>{{ date('d-m-Y', strtotime($checkin->tgl_checkin)) }}</span>
                 </div>
                 <div class="col-sm-6">
-                    <strong>ID Check In</strong> <strong style="margin-left: 50px;"> : </strong>
+                    <strong>ID Check In</strong> <strong style="margin-left: 150px;"> : </strong>
                     <span>{{ $checkin->id_checkin }}</span>
                 </div>
             </div>
