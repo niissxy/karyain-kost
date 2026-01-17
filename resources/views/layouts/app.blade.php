@@ -42,6 +42,50 @@
                 transform: translateX(0);
             }
         }
+
+        /* ===== SIDEBAR ===== */
+#sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #212529;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+/* sidebar hidden (desktop) */
+body.sidebar-collapsed #sidebar {
+    transform: translateX(-100%);
+}
+
+/* ===== MAIN CONTENT ===== */
+#main-content {
+    margin-left: 260px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+body.sidebar-collapsed #main-content {
+    margin-left: 0;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 991.98px) {
+    #main-content {
+        margin-left: 0;
+    }
+
+    #sidebar {
+        transform: translateX(-100%);
+    }
+
+    body.sidebar-open #sidebar {
+        transform: translateX(0);
+    }
+}
+
     </style>
 </head>
 

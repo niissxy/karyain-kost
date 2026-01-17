@@ -2,18 +2,18 @@
 /* ===== SIDEBAR ===== */
 #sidebar {
     width: 260px;
-    height: 100%;
+    height: 100vh; /* PENTING */
     position: fixed;
     top: 0;
     left: 0;
     background: #212529;
-    transition: left 0.3s ease;
+    transition: transform 0.3s ease;
     z-index: 1000;
 }
 
-/* BENAR-BENAR HILANG */
+/* HILANG KE KIRI (PALING AMAN) */
 #sidebar.collapsed {
-    left: -260px;
+    transform: translateX(-100%);
 }
 
 /* ===== TOGGLE ===== */
@@ -30,7 +30,6 @@
     transition: left 0.3s ease;
 }
 
-/* toggle ikut geser */
 .sidebar-collapsed .sidebar-toggle {
     left: 15px;
 }
