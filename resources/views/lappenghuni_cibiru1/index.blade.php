@@ -209,6 +209,7 @@ body {
                                         @method('DELETE')
                                         <button class="btn btn-outline-danger btn-sm bi bi-trash"
                                         onclick="confirmDelete('{{ $item->id_lappenghuni }}')"></button>
+                                        &nbsp;
                                     </div>
                                 </td>
                                     <!-- <td class="d-flex gap-1">
