@@ -174,7 +174,7 @@ table {
                          </script>
                         @endif
                         <script>
-            function confirmDelete(kode_checkin) {
+            function confirmDelete(id_checkin) {
                 Swal.fire({
                     title: 'Yakin Hapus Data?',
                     text: "Data yang dihapus tidak dapat dikembalikan!",
