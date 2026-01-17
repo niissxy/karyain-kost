@@ -64,7 +64,7 @@
                                             data-kamar="{{ $t->no_kamar }}"
                                             data-nominal="{{ $t->nominal }}"
                                             data-tglbayar = "{{ $t->tgl_pembayaran }}"
-                                            data-metode-bayar = "{{ $t->metode-pembayaran }}"
+                                            data-metode-bayar = "{{ $t->metode_pembayaran }}"
                                             data-status="{{ $t->status }}"
                                         >
                                             {{ $t->id_transaksi }} - {{ $t->nama_penyewa }}
