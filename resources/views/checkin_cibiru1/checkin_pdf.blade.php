@@ -158,7 +158,7 @@
             </div>
              <div class="row">
                 <div class="col-sm-6">
-                    <strong>Metode Pembayaran</strong> <strong style="margin-left: 60px;"> : </strong>
+                    <strong>Metode Pembayaran</strong> <strong style="margin-left: 20px;"> : </strong>
                     <span>{{ $checkin->metode_pembayaran }}</span>                   
                 </div>
             </div>
