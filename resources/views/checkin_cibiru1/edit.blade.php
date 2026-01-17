@@ -95,7 +95,7 @@
                                         <option value='SeaBank' {{ old('metode_pembayaran', $checkin_cibiru1->metode_pembayaran) == 'SeaBank' ? 'selected' : '' }}>SeaBank</option>
                                         <option value='DANA' {{ old('metode_pembayaran', $checkin_cibiru1->metode_pembayaran) == 'DANA' ? 'selected' : '' }}>DANA</option>
                                         <option value='OVO' {{ old('metode_pembayaran', $checkin_cibiru1->metode_pembayaran) == 'OVO' ? 'selected' : '' }}>OVO</option>
-                                        <option value='LinkAja' {{ old('metode_pembayaran', $checkin_cibiru1->metode_pembayaran) == 'LinkAja' ? 'selected' : '' }}>LinkAja<</option>
+                                        <option value='LinkAja' {{ old('metode_pembayaran', $checkin_cibiru1->metode_pembayaran) == 'LinkAja' ? 'selected' : '' }}>LinkAja</option>
                                         <option value='SHOPEE PAY' {{ old('metode_pembayaran', $checkin_cibiru1->metode_pembayaran) == 'SHOPEE PAY' ? 'selected' : '' }}>SHOPEE PAY</option>
                                         <option value='GoPay' {{ old('metode_pembayaran', $checkin_cibiru1->metode_pembayaran) == 'GoPay' ? 'selected' : '' }}>GoPay</option>
                                     </select>  
