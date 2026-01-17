@@ -56,7 +56,7 @@ body {
 
 <div class="container mt-4">
 
-    <h1 class="mb-4">Dashboard {{ $kostDisplayName }}</h1>
+    <h3 class="mb-4">Dashboard {{ $kostDisplayName }}</h3>
 
     <!-- ================= PILIH KOST ================= -->
     <form method="GET" action="{{ route('dashboard.index') }}" class="mb-4">

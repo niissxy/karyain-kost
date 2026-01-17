@@ -18,7 +18,7 @@
 
         /* ===== MAIN CONTENT ===== */
         #main-content {
-            margin-left: 150px;
+            margin-left: 190px;
             padding: 20px;
             transition: margin-left 0.3s ease;
         }
