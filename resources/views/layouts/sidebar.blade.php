@@ -1,176 +1,316 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karyain Kost</title>
+<style>
+    #sidebar {
+    font-size: 13px;
+}
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+#sidebar .collapse {
+    margin-top: 4px;
+}
 
-    <style>
-        body {
-            overflow-x: hidden;
-        }
+#sidebar .collapse .nav-link {
+    font-size: 13px;
+    opacity: 0.9;
+}
 
-        /* SIDEBAR */
-        #sidebar {
-            width: 260px;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            font-size: 13px;
-        }
+#sidebar .nav-link:hover {
+    background-color: rgba(255,255,255,0.08);
+}
 
-        #sidebar .nav-link:hover {
-            background-color: rgba(255,255,255,0.08);
-        }
+</style>
 
-        /* COLLAPSE DESKTOP */
-        #sidebar.collapsed {
-            width: 80px;
-        }
-
-        #sidebar.collapsed h5,
-        #sidebar.collapsed span,
-        #sidebar.collapsed .bi-chevron-down {
-            display: none;
-        }
-
-        #sidebar.collapsed .nav-link {
-            text-align: center;
-        }
-
-        /* CONTENT */
-        #content {
-            margin-left: 260px;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-
-        #content.expanded {
-            margin-left: 80px;
-        }
-
-        /* MOBILE */
-        @media (max-width: 768px) {
-            #sidebar {
-                left: -260px;
-            }
-
-            #sidebar.show {
-                left: 0;
-            }
-
-            #content {
-                margin-left: 0;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<!-- SIDEBAR -->
-<nav id="sidebar" class="bg-dark text-white">
+<!-- Sidebar -->
+<nav id="sidebar" class="bg-dark text-white vh-100 position-fixed"
+     style="width: 260px; left: 0; top: 0; z-index: 1000;">
     <div class="p-3">
-
         <h5 class="text-center mb-4">Karyain Kost</h5>
 
         <ul class="nav flex-column gap-1">
 
-            <li class="nav-item">
+         <li class="nav-item">
                 <a href="/dashboard" class="nav-link text-white">
-                    <i class="bi bi-speedometer2"></i>
-                    <span class="ms-2">Dashboard</span>
+                    <i class="bi bi-speedometer2 me-2"></i> Dashboard
                 </a>
             </li>
 
-            <!-- MANAGEMENT KAMAR -->
             <li class="nav-item">
                 <a class="nav-link text-white d-flex justify-content-between align-items-center"
                    data-bs-toggle="collapse" href="#submenu-kamar">
-                    <span>
-                        <i class="bi bi-house"></i>
-                        <span class="ms-2">Management Kamar</span>
-                    </span>
+                    <span><i class="bi bi-house me-2"></i> Management Kamar </span>
                     <i class="bi bi-chevron-down"></i>
                 </a>
 
-                <div class="collapse ps-4" id="submenu-kamar">
-                    <a href="/kamar_cibiru1" class="nav-link text-white">Kamar Cibiru 1</a>
-                    <a href="/kamar_cibiru2" class="nav-link text-white">Kamar Cibiru 2</a>
-                    <a href="/kamar_regol1" class="nav-link text-white">Kamar Regol 1</a>
-                    <a href="/kamar_regol2" class="nav-link text-white">Kamar Regol 2</a>
+                <div class="collapse ps-3" id="submenu-kamar">
+                    <a href="/kamar_cibiru1" class="nav-link text-white small">
+                        <i class="bi bi-house me-2"></i> Kamar Kost Cibiru 1
+                    </a>
+                   <a href="/kamar_cibiru2" class="nav-link text-white small">
+                        <i class="bi bi-house me-2"></i> Kamar Kost Cibiru 2
+                    </a>
+                   <a href="/kamar_regol1" class="nav-link text-white small">
+                        <i class="bi bi-house me-2"></i> Kamar Kost Regol 1
+                    </a>
+                    <a href="/kamar_regol2" class="nav-link text-white small">
+                        <i class="bi bi-house me-2"></i> Kamar Kost Regol 2
+                    </a>
                 </div>
             </li>
+            
 
-            <!-- MANAGEMENT PENGHUNI -->
-            <li class="nav-item">
+           <li class="nav-item">
                 <a class="nav-link text-white d-flex justify-content-between align-items-center"
                    data-bs-toggle="collapse" href="#submenu-penghuni">
-                    <span>
-                        <i class="bi bi-people"></i>
-                        <span class="ms-2">Management Penghuni</span>
-                    </span>
+                    <span><i class="bi bi-people me-2"></i> Management Penghuni </span>
                     <i class="bi bi-chevron-down"></i>
                 </a>
 
-                <div class="collapse ps-4" id="submenu-penghuni">
-                    <a href="/penghuni_cibiru1" class="nav-link text-white">Penghuni Cibiru 1</a>
-                    <a href="/penghuni_cibiru2" class="nav-link text-white">Penghuni Cibiru 2</a>
-                    <a href="/penghuni_regol1" class="nav-link text-white">Penghuni Regol 1</a>
-                    <a href="/penghuni_regol2" class="nav-link text-white">Penghuni Regol 2</a>
+                <div class="collapse ps-3" id="submenu-penghuni">
+                    <a href="/penghuni_cibiru1" class="nav-link text-white small">
+                        <i class="bi bi-people me-2"></i> Penghuni Kost Cibiru 1
+                    </a>
+                   <a href="/penghuni_cibiru2" class="nav-link text-white small">
+                        <i class="bi bi-people me-2"></i> Penghuni Kost Cibiru 2
+                    </a>
+                   <a href="/penghuni_regol1" class="nav-link text-white small">
+                        <i class="bi bi-people me-2"></i> Penghuni Kost Regol 1
+                    </a>
+                    <a href="/penghuni_regol2" class="nav-link text-white small">
+                        <i class="bi bi-people me-2"></i> Penghuni Kost Regol 2
+                    </a>
                 </div>
             </li>
 
-            <li class="nav-item mt-3">
-                <a href="#" class="nav-link text-danger"
-                   onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                    <i class="bi bi-box-arrow-right"></i>
-                    <span class="ms-2">Logout</span>
+            <li class="nav-item">
+                <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                   data-bs-toggle="collapse" href="#submenu-transaksi">
+                    <span><i class="bi bi-cash-stack me-2"></i> Transaksi </span>
+                    <i class="bi bi-chevron-down"></i>
                 </a>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
+                <div class="collapse ps-3" id="submenu-transaksi">
+                    <a href="/transaksi_cibiru1" class="nav-link text-white small">
+                        <i class="bi bi-cash-stack me-2"></i> Transaksi Kost Cibiru 1
+                    </a>
+                   <a href="/transaksi_cibiru2" class="nav-link text-white small">
+                        <i class="bi bi-cash-stack me-2"></i> Transaksi Kost Cibiru 2
+                    </a>
+                   <a href="/transaksi_regol1" class="nav-link text-white small">
+                        <i class="bi bi-cash-stack me-2"></i> Transaksi Kost Regol 1
+                    </a>
+                    <a href="/transaksi_regol2" class="nav-link text-white small">
+                        <i class="bi bi-cash-stack me-2"></i> Transaksi Kost Regol 2
+                    </a>
+                </div>
             </li>
+
+            <!-- Laporan -->
+            <li class="nav-item">
+                <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                   data-bs-toggle="collapse" href="#submenu-laptransaksi">
+                    <span><i class="bi bi-receipt me-2"></i> Laporan Transaksi </span>
+                    <i class="bi bi-chevron-down"></i>
+                </a>
+
+                <div class="collapse ps-3" id="submenu-laptransaksi">
+                    <a href="/laptransaksi_cibiru1" class="nav-link text-white small">
+                        <i class="bi bi-receipt me-2"></i> Laporan Transaksi Cibiru 1
+                    </a>
+                   <a href="/laptransaksi_cibiru2" class="nav-link text-white small">
+                        <i class="bi bi-receipt me-2"></i> Laporan Transaksi Cibiru 2
+                    </a>
+                   <a href="/laptransaksi_regol1" class="nav-link text-white small">
+                        <i class="bi bi-receipt me-2"></i> Laporan Transaksi Regol 1
+                    </a>
+                    <a href="/laptransaksi_regol2" class="nav-link text-white small">
+                        <i class="bi bi-receipt me-2"></i> Laporan Transaksi Regol 2
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                   data-bs-toggle="collapse" href="#submenu-lapkamar">
+                    <span><i class="bi bi-house-door me-2"></i> Laporan Kamar </span>
+                    <i class="bi bi-chevron-down"></i>
+                </a>
+
+                <div class="collapse ps-3" id="submenu-lapkamar">
+                    <a href="/lapkamar_cibiru1" class="nav-link text-white small">
+                        <i class="bi bi-house-door me-2"></i> Laporan Kamar Cibiru 1
+                    </a>
+                   <a href="/lapkamar_cibiru2" class="nav-link text-white small">
+                        <i class="bi bi-house-door me-2"></i> Laporan Kamar Cibiru 2
+                    </a>
+                   <a href="/lapkamar_regol1" class="nav-link text-white small">
+                        <i class="bi bi-house-door me-2"></i> Laporan Kamar Regol 1
+                    </a>
+                    <a href="/lapkamar_regol2" class="nav-link text-white small">
+                        <i class="bi bi-house-door me-2"></i> Laporan Kamar Regol 2
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                   data-bs-toggle="collapse" href="#submenu-lappenghuni">
+                    <span><i class="bi bi-people-fill me-2"></i> Laporan Penghuni </span>
+                    <i class="bi bi-chevron-down"></i>
+                </a>
+
+                <div class="collapse ps-3" id="submenu-lappenghuni">
+                    <a href="/lappenghuni_cibiru1" class="nav-link text-white small">
+                        <i class="bi bi-people-fill me-2"></i> Laporan Penghuni Cibiru 1
+                    </a>
+                   <a href="/lappenghuni_cibiru2" class="nav-link text-white small">
+                        <i class="bi bi-people-fill me-2"></i> Laporan Penghuni Cibiru 2
+                    </a>
+                   <a href="/lappenghuni_regol1" class="nav-link text-white small">
+                        <i class="bi bi-people-fill me-2"></i> Laporan Penghuni Regol 1
+                    </a>
+                    <a href="/lappenghuni_regol2" class="nav-link text-white small">
+                        <i class="bi bi-people-fill me-2"></i> Laporan Penghuni Regol 2
+                    </a>
+                </div>
+            </li>
+
+            <!-- Fasilitas & Aset -->
+              <li class="nav-item">
+                <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                   data-bs-toggle="collapse" href="#submenu-aset">
+                    <span><i class="bi bi-box me-2"></i> Aset </span>
+                    <i class="bi bi-chevron-down"></i>
+                </a>
+
+                <div class="collapse ps-3" id="submenu-aset">
+                    <a href="/aset_cibiru1" class="nav-link text-white small">
+                        <i class="bi bi-box me-2"></i> Aset Kost Cibiru 1
+                    </a>
+                   <a href="/aset_cibiru2" class="nav-link text-white small">
+                        <i class="bi bi-box me-2"></i> Aset Kost Cibiru 2
+                    </a>
+                   <a href="/aset_regol1" class="nav-link text-white small">
+                        <i class="bi bi-box me-2"></i> Aset Kost Regol 1
+                    </a>
+                    <a href="/aset_regol2" class="nav-link text-white small">
+                        <i class="bi bi-box me-2"></i> Aset Kost Regol 2
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                   data-bs-toggle="collapse" href="#submenu-faskamar">
+                    <span><i class="bi bi-door-open me-2"></i> Fasilitas Kamar </span>
+                    <i class="bi bi-chevron-down"></i>
+                </a>
+
+                <div class="collapse ps-3" id="submenu-faskamar">
+                    <a href="/faskamar_cibiru1" class="nav-link text-white small">
+                        <i class="bi bi-door-open me-2"></i> Fasilitas Kamar Kost Cibiru 1
+                    </a>
+                   <a href="/faskamar_cibiru2" class="nav-link text-white small">
+                        <i class="bi bi-door-open me-2"></i> Fasilitas Kamar Kost Cibiru 2
+                    </a>
+                   <a href="/faskamar_regol1" class="nav-link text-white small">
+                        <i class="bi bi-door-open me-2"></i> Fasilitas Kamar Kost Regol 1
+                    </a>
+                    <a href="/faskamar_regol2" class="nav-link text-white small">
+                        <i class="bi bi-door-open me-2"></i> Fasilitas Kamar Kost Regol 2
+                    </a>
+                </div>
+            </li>
+
+             <li class="nav-item">
+                <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                   data-bs-toggle="collapse" href="#submenu-fasum">
+                    <span><i class="bi bi-houses me-2"></i> Fasilitas Umum </span>
+                    <i class="bi bi-chevron-down"></i>
+                </a>
+
+                <div class="collapse ps-3" id="submenu-fasum">
+                    <a href="/fasum_cibiru1" class="nav-link text-white small">
+                        <i class="bi bi-houses me-2"></i> Fasilitas Umum Kost Cibiru 1
+                    </a>
+                   <a href="/fasum_cibiru2" class="nav-link text-white small">
+                        <i class="bi bi-houses me-2"></i> Fasilitas Umum Kost Cibiru 2
+                    </a>
+                   <a href="/fasum_regol1" class="nav-link text-white small">
+                        <i class="bi bi-houses me-2"></i> Fasilitas Umum Kost Regol 1
+                    </a>
+                    <a href="/fasum_regol2" class="nav-link text-white small">
+                        <i class="bi bi-houses me-2"></i> Fasilitas Umum Kost Regol 2
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                   data-bs-toggle="collapse" href="#submenu-checkin">
+                    <span><i class="bi bi-box-arrow-in-right me-2"></i> Check In </span>
+                    <i class="bi bi-chevron-down"></i>
+                </a>
+
+                <div class="collapse ps-3" id="submenu-checkin">
+                    <a href="/checkin_cibiru1" class="nav-link text-white small">
+                        <i class="bi bi-box-arrow-in-right me-2"></i> Check In Kost Cibiru 1
+                    </a>
+                   <a href="/checkin_cibiru2" class="nav-link text-white small">
+                        <i class="bi bi-box-arrow-in-right me-2"></i> Check In Kost Cibiru 2
+                    </a>
+                   <a href="/checkin_regol1" class="nav-link text-white small">
+                        <i class="bi bi-box-arrow-in-right me-2"></i> Check In Kost Regol 1
+                    </a>
+                    <a href="/checkin_regol2" class="nav-link text-white small">
+                        <i class="bi bi-box-arrow-in-right me-2"></i> Check In Kost Regol 2
+                    </a>
+                </div>
+            </li>
+
+             <li class="nav-item">
+                <a class="nav-link text-white d-flex justify-content-between align-items-center"
+                   data-bs-toggle="collapse" href="#submenu-checkout">
+                    <span><i class="bi bi-box-arrow-right me-2"></i> Check Out </span>
+                    <i class="bi bi-chevron-down"></i>
+                </a>
+
+                <div class="collapse ps-3" id="submenu-checkout">
+                    <a href="/checkout_cibiru1" class="nav-link text-white small">
+                        <i class="bi bi-box-arrow-right me-2"></i> Check Out Kost Cibiru 1
+                    </a>
+                   <a href="/checkout_cibiru2" class="nav-link text-white small">
+                        <i class="bi bi-box-arrow-right me-2"></i> Check Out Kost Cibiru 2
+                    </a>
+                   <a href="/checkout_regol1" class="nav-link text-white small">
+                        <i class="bi bi-box-arrow-right me-2"></i> Check Out Kost Regol 1
+                    </a>
+                    <a href="/checkout_regol2" class="nav-link text-white small">
+                        <i class="bi bi-box-arrow-right me-2"></i> Check Out Kost Regol 2
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="/user" class="nav-link text-white">
+                    <i class="bi bi-person-gear me-2"></i> Management User
+                </a>
+            </li>
+
+         <li class="nav-item">
+    <a href="#" class="nav-link text-danger"
+       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        <i class="bi bi-box-arrow-right me-2"></i> Logout
+    </a>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+</li>
+
+            <!-- <li class="nav-item">
+                <a href="#" class="nav-link text-white">
+                    <i class="bi bi-box-arrow-right me-2"></i> Check Out
+                </a>
+            </li> -->
 
         </ul>
     </div>
 </nav>
-
-<!-- CONTENT -->
-<div id="content">
-
-    <!-- TOGGLE BUTTON -->
-    <button class="btn btn-dark mb-3" id="toggleSidebar">
-        <i class="bi bi-list"></i>
-    </button>
-
-    @yield('content')
-
-</div>
-
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-document.getElementById('toggleSidebar').addEventListener('click', function () {
-    const sidebar = document.getElementById('sidebar');
-    const content = document.getElementById('content');
-
-    if (window.innerWidth <= 768) {
-        sidebar.classList.toggle('show'); // MOBILE
-    } else {
-        sidebar.classList.toggle('collapsed'); // DESKTOP
-        content.classList.toggle('expanded');
-    }
-});
-</script>
-
-</body>
-</html>
