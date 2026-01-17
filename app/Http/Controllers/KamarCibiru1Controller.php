@@ -110,7 +110,7 @@ class KamarCibiru1Controller extends Controller
         DB::table('lap_kamar_cibiru1')
         ->where('id_kamar', $id_kamar)
         ->update([
-            'harga' => $request->harga
+            'harga_harian' => $request->harga_harian
         ]);
 
         KamarCibiru1::where('id_kamar', $id_kamar)->update($data);
