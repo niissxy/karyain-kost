@@ -75,12 +75,12 @@
                             <label class="form-check-label" for="remember">Remember Me</label>
                         </div>
 
-                        <button type="submit" id="btn-login" class="btn btn-primary w-100 py-2 fw-semibold">
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold btn-login">
                             Login
                         </button>
 
                         <div class="text-center mt-3">
-                            <a href="{{ route('register') }}" id="btn-register" class="fw-semibold">Register</a><br>
+                            <a href="{{ route('register') }}" class="fw-semibold btn-register">Register</a><br>
                             <a href="{{ route('password.request') }}" class="text-muted small">
                                 Lupa Password?
                             </a>
@@ -95,91 +95,67 @@
 </div>
 @endsection
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
     crossorigin="anonymous"></script>
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        $(".btn-login").click(function() {
+    $(".btn-login").click(function(e) {
+        e.preventDefault();
 
-            var name = $("#name").val();
-            var password = $("#password").val();
-            var token = $("meta[name='csrf-token']").attr("content");
+        let email = $("#email").val();
+        let password = $("#password").val();
+        let token = $("meta[name='csrf-token']").attr("content");
 
-            if (name.length == "") {
+        if (email === "") {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Email wajib diisi!'
+            });
+            return;
+        }
 
+        if (password === "") {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Password wajib diisi!'
+            });
+            return;
+        }
+
+        $.ajax({
+            url: "{{ route('login') }}",
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                email: email,
+                password: password,
+                _token: token
+            },
+            success: function(response) {
                 Swal.fire({
-                    type: 'warning',
-                    title: 'Oops...',
-                    text: 'Name Wajib Diisi!'
+                    icon: 'success',
+                    title: 'Login Berhasil!',
+                    text: 'Anda akan diarahkan...',
+                    timer: 2000,
+                    showConfirmButton: false
+                }).then(() => {
+                    window.location.href = "{{ route('dashboard') }}";
                 });
-
-            } else if (password.length == "") {
-
+            },
+            error: function(xhr) {
                 Swal.fire({
-                    type: 'warning',
-                    title: 'Oops...',
-                    text: 'Password Wajib Diisi!'
+                    icon: 'error',
+                    title: 'Login Gagal',
+                    text: 'Email atau password salah'
                 });
-
-            } else {
-
-                $.ajax({
-
-                    url: "{{ url('login') }}",
-                    type: "POST",
-                    dataType: "JSON",
-                    cache: false,
-                    data: {
-                        "name": name,
-                        "password": password,
-                        "_token": token
-                    },
-
-                    success: function(response) {
-
-                        if (response.success) {
-
-                            Swal.fire({
-                                    type: 'success',
-                                    title: 'Login Berhasil!',
-                                    text: 'Anda akan diarahkan dalam 3 Detik',
-                                    icon: 'success',
-                                    timer: 3000,
-                                    showCancelButton: false,
-                                    showConfirmButton: false
-                                })
-                                .then(function() {
-                                    window.location.href =
-                                        "{{ route('dashboard') }}";
-                                });
-
-                        }
-                    },
-
-                    error: function(response) {
-
-                        Swal.fire({
-                                type: 'error',
-                                title: 'Login Gagal!',
-                                text: 'Username / Password Salah'
-                            });
-
-                        console.log(response);
-
-                    }
-
-                });
-
-            }
-
-        });
-
-        $(document).on("keypress", function(e) {
-            if (e.which == 13) {
-                $("#btn-login").click();
             }
         });
 
     });
+
+});
 </script>
