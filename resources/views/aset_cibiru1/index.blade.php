@@ -41,6 +41,7 @@ table {
     width: 100%;
     max-width: 5000px;
     table-layout: auto;
+    font-size: 14px;
 }
 
 .pagetitle-wrapper {

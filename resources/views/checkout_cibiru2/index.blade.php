@@ -39,6 +39,7 @@ table {
     width: 100%;
     max-width: 5000px;
     table-layout: fixed;
+    font-size: 14px;
 }
 
 .pagetitle-wrapper {

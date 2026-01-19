@@ -68,6 +68,7 @@ body {
 .table {
     width: 100%;
     margin: 0 auto;
+    font-size: 14px;
 }
 
 .table th,

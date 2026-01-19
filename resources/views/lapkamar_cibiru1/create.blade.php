@@ -6,6 +6,8 @@
     html, body {
     max-width: 100%;
     overflow-x: hidden;
+    font-size: 14px;
+    
 }
 
 </style>
