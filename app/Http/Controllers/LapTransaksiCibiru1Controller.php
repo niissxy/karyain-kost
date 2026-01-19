@@ -80,7 +80,7 @@ class LapTransaksiCibiru1Controller extends Controller
            'nama_penghuni' => 'required',
            'no_kamar' => 'required',
            'nominal' => 'required',
-           'metode-pembayaran' => 'required',
+           'metode_pembayaran' => 'required',
            'tgl_pembayaran' => 'required',
            'status_pembayaran' => 'required',
         ]);
@@ -91,7 +91,7 @@ class LapTransaksiCibiru1Controller extends Controller
         'nama_penghuni'      => $request->nama_penghuni,
         'no_kamar'           => $request->no_kamar,
         'nominal'            => $request->nominal,
-        'metode-pembayaran' => $request->metode_pembayaran,
+        'metode_pembayaran' => $request->metode_pembayaran,
         'tgl_pembayaran' => $request->tgl_pembayaran,
         'status_pembayaran'  => $request->status_pembayaran,
         'created_at'         => now(),
