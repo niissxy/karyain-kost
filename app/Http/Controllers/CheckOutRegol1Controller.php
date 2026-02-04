@@ -21,7 +21,7 @@ class CheckOutRegol1Controller extends Controller
     public function index()
     {
         // $checkout_regol1 = CheckOutRegol1::with('user')->get();
-        $checkout_cibiru1 = CheckOutRegol1::all();
+        $checkout_regol1 = CheckOutRegol1::all();
         return view('checkout_regol1.index', compact('checkout_regol1'));
     }
 
