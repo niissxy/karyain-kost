@@ -124,7 +124,7 @@ table {
                                 <td>{{ $item->metode_pembayaran }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>
-                                <td style="text-align: center; vertical-align: middle;">
+                                <td style="text-align: center; vertical-align: center;">
                                     <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">
                                     <!-- Tombol Edit -->
                                         <a href="{{ url('checkin_cibiru1/' . $item->id_checkin . '/edit') }}" 
