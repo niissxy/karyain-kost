@@ -191,7 +191,6 @@ class CheckInCibiru1Controller extends Controller
                     'id_checkin'    => $checkin->id_checkin,
                     'nama_penghuni' => $checkin->nama_penghuni,
                     'no_kamar'      => $checkin->no_kamar,
-                    'tgl_checkin'   => $checkin->tgl_checkin,
                     'tgl_checkout'  => $tglCheckout,
                     'lama_tinggal'  => $lamaTinggal,
                     'user_id'       => Auth::id(),
