@@ -131,7 +131,6 @@ table {
                                          class="btn btn-outline-success btn-sm">
                                          <i class="bi bi-pencil-square"></i>
                                         </a>
-                                         &nbsp;
                                          <a href="{{ route('checkin.exportPdf', $item->id_checkin) }}" 
                                          class="btn btn-outline-primary btn-sm">
                                          <i class="bi bi-file-earmark-pdf-fill"></i>
