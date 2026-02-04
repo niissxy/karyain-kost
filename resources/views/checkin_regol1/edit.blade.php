@@ -130,7 +130,7 @@
                                     <select class="form-control" id="status" name="status">
                                         <option value='Aktif' {{ old('status', $checkin_regol1->status) == 'Aktif' ? 'selected' : '' }}>Aktif</option>
                                         <option value='Booked' {{ old('status', $checkin_regol1->status) == 'Booked' ? 'selected' : '' }}>Booked</option>
-                                        <!-- <option value='Check out' {{ old('status', $checkin_regol1->status) == 'Check out' ? 'selected' : '' }}>Check Out</option>        -->
+                                        <option value='Check out' {{ old('status', $checkin_regol1->status) == 'Check out' ? 'selected' : '' }}>Check Out</option>       
                                     </select>  
                                 </div>
                             </div>
