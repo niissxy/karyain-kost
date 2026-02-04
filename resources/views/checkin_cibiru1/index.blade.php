@@ -7,7 +7,7 @@
     /* ===== GLOBAL ===== */
     body {
         background-color: #f5f6f8;
-        overflow-x: visible;
+        overflow-x: hidden;
     }
 
     /* ===== MAIN CONTENT (GESER DARI SIDEBAR) ===== */
@@ -25,23 +25,20 @@
 /* CARD CENTER */
 .section.dashboard .card {
     width: 100%;
-    max-width: 1560px;
-    margin-right: 15px;
-    overflow-x: visible;
+    max-width: 1250px;
+    margin-right: 27px;
 }
 
 /* TABLE CENTER */
 .table-responsive {
     display: flex;
     justify-content: center;
-    overflow-x: visible;
 }
 
 table {
     width: 100%;
     max-width: 5000px;
     table-layout: fixed;
-    overflow-x: visible;
     font-size: 14px;
 }
 
@@ -124,7 +121,7 @@ table {
                                 <td>{{ $item->metode_pembayaran }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>
-                                <td style="text-align: center; vertical-align: center;">
+                                 <td style="text-align: center; vertical-align: middle;">
                                     <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">
                                     <!-- Tombol Edit -->
                                         <a href="{{ url('checkin_cibiru1/' . $item->id_checkin . '/edit') }}" 
@@ -132,16 +129,17 @@ table {
                                          <i class="bi bi-pencil-square"></i>
                                         </a>
                                          &nbsp;
-                                         <a href="{{ route('checkin.exportPdf', $item->id_checkin) }}" 
+                                         <a href="{{ route('checkin_cibiru1.exportPdf', $item->id_checkin) }}" 
                                          class="btn btn-outline-primary btn-sm">
                                          <i class="bi bi-file-earmark-pdf-fill"></i>
                                         </a>
                                          &nbsp;
                                      <!-- Tombol Delete -->
-                                        @csrf
+                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-outline-danger btn-sm bi bi-trash"
                                         onclick="confirmDelete('{{ $item->id_checkin }}')"></button>
+                                        &nbsp;
                                     </div>
                                 </td>
                             </tr>
@@ -153,6 +151,7 @@ table {
 
         </div>
     </section>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
