@@ -25,7 +25,7 @@
 /* CARD CENTER */
 .section.dashboard .card {
     width: 100%;
-    max-width: 1250px;
+    max-width: 1350px;
     margin-right: 27px;
     overflow-x: visible;
 }
