@@ -56,7 +56,7 @@ class CheckInRegol1Controller extends Controller
         $data = $request->validate([
         'id_checkin'     => 'required',
         'tgl_checkin'    => 'required|date',
-        'tgl_checkout' => 'required|date',
+        'tgl_checkout' => 'nullable|date',
         'jam_checkin' => 'required',
         'jam_checkout' => 'nullable',
         'nama_penghuni'  => 'required',
