@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 class CheckInRegol1Controller extends Controller
 {
@@ -55,6 +56,9 @@ class CheckInRegol1Controller extends Controller
         $data = $request->validate([
         'id_checkin'     => 'required',
         'tgl_checkin'    => 'required|date',
+        'tgl_checkout' => 'required|date',
+        'jam_checkin' => 'required',
+        'jam_checkout' => 'nullable',
         'nama_penghuni'  => 'required',
         'nominal'        =>'required',
         'metode_pembayaran' => 'required',
@@ -137,15 +141,24 @@ class CheckInRegol1Controller extends Controller
     /**
      * Update the specified resource in storage.
      */
-     public function update(Request $request, string $id_checkin)
-{
-    DB::transaction(function () use ($request, $id_checkin) {
+     public function update(Request $request, string $id_checkin) {
+
+     $request->validate([
+        'tgl_checkout' => 'nullable|date',
+        'jam_checkout' => 'nullable',
+        'status' => 'required',
+     ]);
+     
+     DB::transaction(function () use ($request, $id_checkin) {
 
         $checkin = CheckInRegol1::where('id_checkin', $id_checkin)->firstOrFail();
 
         // Update check-in
         $checkin->update([
             'tgl_checkin'   => $request->tgl_checkin,
+            'tgl_checkout' => $request->tgl_checkout,
+            'jam_checkin' => $request->jam_checkin,
+            'jam_checkout' => $request->jam_checkout,
             'nama_penghuni' => $request->nama_penghuni,
             'no_kamar'      => $request->no_kamar,
             'nominal'       => str_replace('.', '', $request->nominal),
@@ -222,6 +235,55 @@ class CheckInRegol1Controller extends Controller
                     'metode_pembayaran' => $request->metode_pembayaran
                 ]);
         }
+
+         // ================= CHECKOUT =================
+    if ($request->status === 'Checkout') {
+
+    // set tanggal checkout hari ini jika kosong
+    $tglCheckout = $request->tgl_checkout ?? Carbon::now()->toDateString();
+
+    // hitung lama tinggal
+    $tglCheckin = Carbon::parse($checkin->tgl_checkin);
+    $tglCheckoutCarbon = Carbon::parse($tglCheckout);
+    $lamaTinggal = $tglCheckin->diffInDays($tglCheckoutCarbon);
+
+    // buat id_checkout
+    $lastCheckout = DB::table('checkout_regol1')->latest('id_checkout')->first();
+    $lastNumber = $lastCheckout ? (int) substr($lastCheckout->id_checkout, 3) : 0;
+    $newCheckoutId = 'CO-' . str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
+
+    // insert ke tabel checkout
+    DB::table('checkout_regol1')->insert([
+        'id_checkout'   => $newCheckoutId,
+        'id_checkin'    => $checkin->id_checkin,
+        'nama_penghuni' => $checkin->nama_penghuni,
+        'no_kamar'      => $checkin->no_kamar,
+        'tgl_checkout'  => $tglCheckout,
+        'jam_checkout' => $checkin->jam_checkout,
+        'lama_tinggal'  => $lamaTinggal,
+        'user_id'       => Auth::id(),
+        'created_at'    => now(),
+        'updated_at'    => now(),
+    ]);
+
+    // update status kamar jadi Kosong
+    DB::table('kamar_regol1')
+        ->where('no_kamar', $checkin->no_kamar)
+        ->update(['status_kamar' => 'Kosong']);
+
+    DB::table('lap_kamar_regol1')
+        ->where('no_kamar', $checkin->no_kamar)
+        ->update(['status_kamar' => 'Kosong']);
+
+    // update penghuni jadi keluar
+    PenghuniRegol1::where('nama_penghuni', $checkin->nama_penghuni)
+        ->where('penempatan_kamar', $checkin->no_kamar)
+        ->where('status', 'Masih di kost')
+        ->update([
+            'status' => 'Keluar kost',
+            'tgl_keluar' => $tglCheckout
+        ]);
+}
     });
 
     return redirect()->route('checkin_regol1.index')

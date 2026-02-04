@@ -16,6 +16,7 @@ class CheckOutRegol2 extends Model
         'id_checkout',
         'id_checkin',
         'tgl_checkout',
+        'jam_checkout',
         'nama_penghuni',
         'lama_tinggal',
         'no_kamar',

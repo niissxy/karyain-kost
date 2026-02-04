@@ -19,7 +19,7 @@ class CheckOutRegol2Controller extends Controller
     }
     public function index()
     {
-        $checkout_regol2 = CheckOutRegol2::with('user')->get();
+        // $checkout_regol2 = CheckOutRegol2::with('user')->get();
         $checkout_regol2 = CheckOutRegol2::all();
         return view('checkout_regol2.index', compact('checkout_regol2'));
     }
@@ -62,6 +62,7 @@ class CheckOutRegol2Controller extends Controller
         'id_checkout' => 'required|string',
         'id_checkin'  => 'required|string|exists:checkin_regol2,id_checkin',
         'tgl_checkout'=> 'required|date',
+        'jam_checkout' => 'required',
         'nama_penghuni'=> 'required|string',
         'no_kamar'     => 'required|string',
         'status'       => 'required|string',
@@ -109,6 +110,7 @@ class CheckOutRegol2Controller extends Controller
         'id_checkout'   => $request->id_checkout,
         'id_checkin'    => $checkin->id_checkin,
         'tgl_checkout'  => $request->tgl_checkout,
+        'jam_checkout' => $request->jam_checkout,
         'nama_penghuni' => $checkin->nama_penghuni,
         'lama_tinggal'  => $lamaTinggal,
         'no_kamar'      => $checkin->no_kamar,

@@ -62,6 +62,27 @@
                             </div>
 
                             <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Tanggal Check Out</label>
+                                <div class="col-sm-9">
+                                    <input type="date" class="form-control" value="{{ old('tgl_checkout',$checkin_regol1->tgl_checkout) }}"  name="tgl_checkout"  required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Jam Check In</label>
+                                <div class="col-sm-9">
+                                    <input type="time" class="form-control" value="{{ old('jam_checkin',$checkin_regol1->jam_checkin) }}"  name="jam_checkin"  required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Jam Check Out</label>
+                                <div class="col-sm-9">
+                                    <input type="time" class="form-control" value="{{ old('jam_checkout',$checkin_regol1->tgl_checkout) }}"  name="tgl_checkout"  required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nama Penghuni</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" readonly value="{{ old('nama_penghuni',$checkin_regol1->nama_penghuni) }}"  name="nama_penghuni"  required autofocus>

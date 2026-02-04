@@ -94,6 +94,9 @@ table {
                                 <th class="bg-body-secondary">No</th>
                                 <th class="bg-body-secondary">ID Check In</th>
                                 <th class="bg-body-secondary">Tanggal Check In</th>
+                                <th class="bg-body-secondary">Tanggal Check Out</th>
+                                <th class="bg-body-secondary">Jam Check In</th>
+                                <th class="bg-body-secondary">Jam Check Out</th>
                                 <th class="bg-body-secondary">Nama Penghuni</th>
                                 <th class="bg-body-secondary">No Kamar</th>
                                 <th class="bg-body-secondary">Nominal</th>
@@ -109,6 +112,9 @@ table {
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->id_checkin }}</td>
                                 <td>{{ $item->tgl_checkin }}</td>
+                                <td>{{ $item->tgl_checkout }}</td>
+                                <td>{{ $item->jam_checkin }}</td>
+                                <td>{{ $item->jam_checkout }}</td>
                                 <td>{{ $item->nama_penghuni }}</td>
                                 <td>{{ $item->no_kamar }}</td>
                                 <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>

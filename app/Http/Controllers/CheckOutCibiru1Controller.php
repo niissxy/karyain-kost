@@ -20,7 +20,7 @@ class CheckOutCibiru1Controller extends Controller
     
     public function index()
     {
-        $checkout_cibiru1 = CheckOutCibiru1::with('user')->get();
+        // $checkout_cibiru1 = CheckOutCibiru1::with('user')->get();
         $checkout_cibiru1 = CheckOutCibiru1::all();
         return view('checkout_cibiru1.index', compact('checkout_cibiru1'));
     }
@@ -64,6 +64,7 @@ class CheckOutCibiru1Controller extends Controller
         'id_checkout' => 'required|string',
         'id_checkin'  => 'required|string|exists:checkin_cibiru1,id_checkin',
         'tgl_checkout'=> 'required|date',
+        'jam_checkout' => 'required',
         'nama_penghuni'=> 'required|string',
         'no_kamar'     => 'required|string',
         'status'       => 'required|string',
@@ -111,6 +112,7 @@ class CheckOutCibiru1Controller extends Controller
         'id_checkout'   => $request->id_checkout,
         'id_checkin'    => $checkin->id_checkin,
         'tgl_checkout'  => $request->tgl_checkout,
+        'jam_checkout' => $request->jam_checkout,
         'nama_penghuni' => $checkin->nama_penghuni,
         'lama_tinggal'  => $lamaTinggal,
         'no_kamar'      => $checkin->no_kamar,

@@ -75,6 +75,15 @@
         </div>
 
         <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Jam Checkout</label>
+            <div class="col-sm-9">
+                <input type="time" class="form-control"
+                    value="{{ $checkout_cibiru2->jam_checkout }}"
+                    readonly>
+            </div>
+        </div>
+
+        <div class="row mb-3">
             <label class="col-sm-3 col-form-label">Nama Penghuni</label>
             <div class="col-sm-9">
                 <input type="text" class="form-control"

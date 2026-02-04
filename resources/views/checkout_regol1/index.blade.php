@@ -94,6 +94,7 @@ table {
                                 <th class="bg-body-secondary">No</th>
                                 <th class="bg-body-secondary">ID Check Out</th>
                                 <th class="bg-body-secondary">Tanggal Check Out</th>
+                                <th class="bg-body-secondary">Jam Check Out</th>
                                 <th class="bg-body-secondary">Nama Penghuni</th>
                                 <th class="bg-body-secondary">Lama Tinggal</th>
                                 <th class="bg-body-secondary">No Kamar</th>
@@ -108,11 +109,12 @@ table {
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->id_checkout }}</td>
                                 <td>{{ $item->tgl_checkout }}</td>
+                                <td>{{ $item->jam_checkout }}</td>
                                 <td>{{ $item->nama_penghuni }}</td>
                                 <td>{{ $item->lama_tinggal }}</td>
                                 <td>{{ $item->no_kamar }}</td>
-                                 <td>{{ $item->status }}</td>
-                                 <td>{{ $item->user->name ?? '-' }}</td>
+                                <td>{{ $item->status }}</td>
+                                <td>{{ $item->user->name ?? '-' }}</td>
                                 <td style="text-align: center; vertical-align: middle;">
                                     <div style="display: inline-flex; justify-content: center; align-items: center; gap: 4px;">
                                     <!-- Tombol Edit -->

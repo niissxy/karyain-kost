@@ -15,6 +15,9 @@ class CheckInCibiru1 extends Model
     protected $fillable = [
         'id_checkin',
         'tgl_checkin',
+        'tgl_checkout',
+        'jam_checkin',
+        'jam_checkout',
         'nama_penghuni',
         'no_kamar',
         'nominal',
