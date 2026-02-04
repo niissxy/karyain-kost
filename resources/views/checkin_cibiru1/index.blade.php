@@ -142,7 +142,6 @@ table {
                                         @method('DELETE')
                                         <button class="btn btn-outline-danger btn-sm bi bi-trash"
                                         onclick="confirmDelete('{{ $item->id_checkin }}')"></button>
-                                        &nbsp;
                                     </div>
                                 </td>
                             </tr>
