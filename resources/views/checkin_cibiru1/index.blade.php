@@ -39,7 +39,7 @@
 
 table {
     width: 100%;
-    max-width: 5000px;
+    max-width: 4800px;
     table-layout: fixed;
     overflow-x: hidden;
     font-size: 14px;
