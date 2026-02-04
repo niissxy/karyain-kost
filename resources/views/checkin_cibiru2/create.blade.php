@@ -82,20 +82,6 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Jam Check In</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="time" name="jam_checkin" required value="{{ old('jam_checkin') }}">
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Jam Check Out</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="time" name="jam_checkout" required value="{{ old('tgl_checkout') }}">
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nama Penghuni</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="text" name="nama_penghuni" required value="{{ old('nama_penghuni') }}">
