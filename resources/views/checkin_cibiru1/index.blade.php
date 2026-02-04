@@ -26,7 +26,7 @@
 .section.dashboard .card {
     width: 100%;
     max-width: 1560px;
-    margin-right: 15px;
+    margin-right: 10px;
     overflow-x: visible;
 }
 
