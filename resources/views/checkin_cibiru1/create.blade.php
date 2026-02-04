@@ -70,7 +70,7 @@
                              <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Jam Check In</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="time" name="jam_checkin" required value="{{ old('jam_checkin') }}">
+                                    <input class="form-control" type="time" name="jam_checkin" value="{{ old('jam_checkin') }}">
                                 </div>
                             </div>
 
