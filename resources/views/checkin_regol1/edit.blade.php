@@ -78,7 +78,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Jam Check Out</label>
                                 <div class="col-sm-9">
-                                    <input type="time" class="form-control" value="{{ old('jam_checkout',$checkin_regol1->tgl_checkout) }}"  name="tgl_checkout"  required autofocus>
+                                    <input type="time" class="form-control" value="{{ old('jam_checkout',$checkin_regol1->jam_checkout) }}"  name="jam_checkout"  required autofocus>
                                 </div>
                             </div>
 
@@ -99,7 +99,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nominal</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{ old('nominal', number_format($checkin_regol1->nominal ?? 0, 0, ',', '.')) }}"  name="nominal"  required autofocus>
+                                    <input type="number" class="form-control" value="{{ old('nominal',$checkin_regol1->nominal) }}" name="nominal" required>
                                 </div>
                             </div>
 
@@ -117,7 +117,7 @@
                                         <option value='SeaBank' {{ old('metode_pembayaran', $checkin_regol1->metode_pembayaran) == 'SeaBank' ? 'selected' : '' }}>SeaBank</option>
                                         <option value='DANA' {{ old('metode_pembayaran', $checkin_regol1->metode_pembayaran) == 'DANA' ? 'selected' : '' }}>DANA</option>
                                         <option value='OVO' {{ old('metode_pembayaran', $checkin_regol1->metode_pembayaran) == 'OVO' ? 'selected' : '' }}>OVO</option>
-                                        <option value='LinkAja' {{ old('metode_pembayaran', $checkin_regol1->metode_pembayaran) == 'LinkAja' ? 'selected' : '' }}>LinkAja<</option>
+                                        <option value='LinkAja' {{ old('metode_pembayaran', $checkin_regol1->metode_pembayaran) == 'LinkAja' ? 'selected' : '' }}>LinkAja</option>
                                         <option value='SHOPEE PAY' {{ old('metode_pembayaran', $checkin_regol1->metode_pembayaran) == 'SHOPEE PAY' ? 'selected' : '' }}>SHOPEE PAY</option>
                                         <option value='GoPay' {{ old('metode_pembayaran', $checkin_regol1->metode_pembayaran) == 'GoPay' ? 'selected' : '' }}>GoPay</option>
                                     </select>  

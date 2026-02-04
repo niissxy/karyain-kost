@@ -202,7 +202,7 @@ class CheckInRegol1Controller extends Controller
                 ->where('no_kamar', $checkin->no_kamar)
                 ->update(['status_kamar' => 'Kosong']);
 
-            DB::table('lap_kamar_regol11')
+            DB::table('lap_kamar_regol1')
                 ->where('no_kamar', $checkin->no_kamar)
                 ->update(['status_kamar' => 'Kosong']);
 
