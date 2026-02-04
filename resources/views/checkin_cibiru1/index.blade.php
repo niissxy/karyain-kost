@@ -90,7 +90,7 @@ table {
                 <div class="table-responsive">
                     <table class="table table-borderless">
                         <thead>
-                            <tr>
+                            <tr class="bg-body-secondary">
                                 <th class="bg-body-secondary">No</th>
                                 <th class="bg-body-secondary">ID Check In</th>
                                 <th class="bg-body-secondary">Tanggal Check In</th>
