@@ -26,7 +26,7 @@
 .section.dashboard .card {
     width: 100%;
     max-width: 1560px;
-    margin-right: 10px;
+    margin-right: 15px;
     overflow-x: visible;
 }
 
@@ -136,7 +136,6 @@ table {
                                          class="btn btn-outline-primary btn-sm">
                                          <i class="bi bi-file-earmark-pdf-fill"></i>
                                         </a>
-                                         &nbsp;
                                      <!-- Tombol Delete -->
                                         @csrf
                                         @method('DELETE')
