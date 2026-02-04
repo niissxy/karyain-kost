@@ -131,14 +131,16 @@ table {
                                          class="btn btn-outline-success btn-sm">
                                          <i class="bi bi-pencil-square"></i>
                                         </a>
+                                         &nbsp;
                                          <a href="{{ route('checkin.exportPdf', $item->id_checkin) }}" 
                                          class="btn btn-outline-primary btn-sm">
                                          <i class="bi bi-file-earmark-pdf-fill"></i>
                                         </a>
+                                         &nbsp;
                                      <!-- Tombol Delete -->
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-outline-danger btn-sm bi bi-trash"
+                                        <button class="btn btn-outline-danger btn-xs bi bi-trash"
                                         onclick="confirmDelete('{{ $item->id_checkin }}')"></button>
                                     </div>
                                 </td>
