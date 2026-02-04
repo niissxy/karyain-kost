@@ -7,7 +7,7 @@
     /* ===== GLOBAL ===== */
     body {
         background-color: #f5f6f8;
-        overflow-x: hidden;
+        overflow-x: visible;
     }
 
     /* ===== MAIN CONTENT (GESER DARI SIDEBAR) ===== */
@@ -27,7 +27,7 @@
     width: 100%;
     max-width: 1250px;
     margin-right: 27px;
-    overflow-x: hidden;
+    overflow-x: visible;
 }
 
 /* TABLE CENTER */
