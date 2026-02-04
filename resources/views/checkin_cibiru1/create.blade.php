@@ -5,7 +5,7 @@
 <style>
     html, body {
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: visible;
     font-size: 14px;
 }
 
