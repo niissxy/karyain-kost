@@ -26,7 +26,7 @@
 .section.dashboard .card {
     width: 100%;
     max-width: 1560px;
-    margin-right: 20px;
+    margin-right: 15px;
     overflow-x: visible;
 }
 
@@ -39,9 +39,9 @@
 
 table {
     width: 100%;
-    max-width: 4800px;
+    max-width: 5000px;
     table-layout: fixed;
-    overflow-x: hidden;
+    overflow-x: visible;
     font-size: 14px;
 }
 
