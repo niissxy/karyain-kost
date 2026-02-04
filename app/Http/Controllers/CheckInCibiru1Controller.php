@@ -168,7 +168,7 @@ class CheckInCibiru1Controller extends Controller
         ]);
 
         // ================= JIKA CHECKOUT =================
-        if ($request->status === 'Checkout') {
+        if ($request->status === 'Check out') {
 
             $tglCheckout = $request->tgl_checkout ?? Carbon::now()->toDateString();
 
