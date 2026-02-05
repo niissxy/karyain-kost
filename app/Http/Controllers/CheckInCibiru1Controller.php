@@ -181,13 +181,12 @@ class CheckInCibiru1Controller extends Controller
             $hari  = $diff->d;
 
         if ($bulan > 0 && $hari > 0) {
-            $lamaTinggal = $bulan . ' bulan ' . $hari . ' hari';
+            $lamaTinggal = $bulan . ' Bulan ' . $hari . ' Hari';
         } elseif ($bulan > 0) {
-            $lamaTinggal = $bulan . ' bulan';
+            $lamaTinggal = $bulan . ' Bulan';
         } else {
-            $lamaTinggal = $hari . ' hari';
+            $lamaTinggal = $hari . ' Hari';
         }
-
 
             // buat id checkout
             $lastCheckout = DB::table('checkout_cibiru1')->latest('id_checkout')->first();
