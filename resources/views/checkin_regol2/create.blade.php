@@ -63,7 +63,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Tanggal Check Out</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="date" name="tgl_checkout" required value="{{ old('tgl_checkout') }}">
+                                    <input class="form-control" type="date" name="tgl_checkout" value="{{ old('tgl_checkout') }}">
                                 </div>
                             </div>
 

@@ -78,7 +78,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Tanggal Check Out</label>
                                 <div class="col-sm-9">
-                                    <input type="time" class="form-control" value="{{ old('jam_checkout',$checkin_regol2->jam_checkout) }}"  name="tgl_checkin"  required autofocus>
+                                    <input type="time" class="form-control" value="{{ old('jam_checkout',$checkin_regol2->jam_checkout) }}"  name="tgl_checkout"  required autofocus>
                                 </div>
                             </div>
 

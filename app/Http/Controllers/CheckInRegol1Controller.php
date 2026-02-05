@@ -141,8 +141,7 @@ class CheckInRegol1Controller extends Controller
     /**
      * Update the specified resource in storage.
      */
-     public function update(Request $request, string $id_checkin)
-{
+     public function update(Request $request, string $id_checkin) {
     $request->validate([
         'status' => 'required',
         'tgl_checkout' => 'nullable|date'
@@ -190,6 +189,7 @@ class CheckInRegol1Controller extends Controller
                     'nama_penghuni' => $checkin->nama_penghuni,
                     'no_kamar'      => $checkin->no_kamar,
                     'tgl_checkout'  => $tglCheckout,
+                    'jam_checkout'  => $checkin->jam_checkout,
                     'lama_tinggal'  => $lamaTinggal,
                     'user_id'       => Auth::id(),
                     'created_at'    => now(),
