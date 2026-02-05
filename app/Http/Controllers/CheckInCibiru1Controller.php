@@ -172,8 +172,22 @@ class CheckInCibiru1Controller extends Controller
 
             $tglCheckout = $request->tgl_checkout ?? Carbon::now()->toDateString();
 
-            $lamaTinggal = Carbon::parse($checkin->tgl_checkin)
-                ->diffInDays(Carbon::parse($tglCheckout));
+            $start = Carbon::parse($checkin->tgl_checkin);
+            $end   = Carbon::parse($tglCheckout);
+
+            $diff = $start->diff($end);
+
+            $bulan = $diff->m;
+            $hari  = $diff->d;
+
+        if ($bulan > 0 && $hari > 0) {
+            $lamaTinggal = $bulan . ' bulan ' . $hari . ' hari';
+        } elseif ($bulan > 0) {
+            $lamaTinggal = $bulan . ' bulan';
+        } else {
+            $lamaTinggal = $hari . ' hari';
+        }
+
 
             // buat id checkout
             $lastCheckout = DB::table('checkout_cibiru1')->latest('id_checkout')->first();
