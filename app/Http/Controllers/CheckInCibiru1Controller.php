@@ -147,7 +147,8 @@ class CheckInCibiru1Controller extends Controller
 {
     $request->validate([
         'status' => 'required',
-        'tgl_checkout' => 'nullable|date'
+        'tgl_checkout' => 'nullable|date',
+        'jam_checkout' => 'nullable'
     ]);
 
     DB::transaction(function () use ($request, $id_checkin) {
@@ -171,6 +172,7 @@ class CheckInCibiru1Controller extends Controller
         if ($request->status === 'Check out') {
 
             $tglCheckout = $request->tgl_checkout ?? Carbon::now()->toDateString();
+            $jamCheckout = $request->jam_checkout;
 
             $start = Carbon::parse($checkin->tgl_checkin);
             $end   = Carbon::parse($tglCheckout);
@@ -193,7 +195,7 @@ class CheckInCibiru1Controller extends Controller
             $lastNumber = $lastCheckout ? (int) substr($lastCheckout->id_checkout, 3) : 0;
             $newCheckoutId = 'CO-' . str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
 
-            // insert checkout (hindari dobel)
+            // insert checkout
             $cekCheckout = DB::table('checkout_cibiru1')
                 ->where('id_checkin', $checkin->id_checkin)
                 ->first();
@@ -202,10 +204,12 @@ class CheckInCibiru1Controller extends Controller
                 DB::table('checkout_cibiru1')->insert([
                     'id_checkout'   => $newCheckoutId,
                     'id_checkin'    => $checkin->id_checkin,
-                    'nama_penghuni' => $checkin->nama_penghuni,
-                    'no_kamar'      => $checkin->no_kamar,
                     'tgl_checkout'  => $tglCheckout,
+                    'jam_checkout'  => $jamCheckout,
+                    'nama_penghuni' => $checkin->nama_penghuni,
                     'lama_tinggal'  => $lamaTinggal,
+                    'no_kamar'      => $checkin->no_kamar,
+                    'status'        => 'Check out',
                     'user_id'       => Auth::id(),
                     'created_at'    => now(),
                     'updated_at'    => now(),

@@ -144,7 +144,8 @@ class CheckInRegol1Controller extends Controller
      public function update(Request $request, string $id_checkin) {
     $request->validate([
         'status' => 'required',
-        'tgl_checkout' => 'nullable|date'
+        'tgl_checkout' => 'nullable|date',
+        'jam_checkout' => 'nullable'
     ]);
 
     DB::transaction(function () use ($request, $id_checkin) {
@@ -168,6 +169,7 @@ class CheckInRegol1Controller extends Controller
         if ($request->status === 'Check out') {
 
             $tglCheckout = $request->tgl_checkout ?? Carbon::now()->toDateString();
+            $jamCheckout = $request->jam_checkout;
 
             $start = Carbon::parse($checkin->tgl_checkin);
             $end   = Carbon::parse($tglCheckout);
@@ -199,11 +201,12 @@ class CheckInRegol1Controller extends Controller
                 DB::table('checkout_regol1')->insert([
                     'id_checkout'   => $newCheckoutId,
                     'id_checkin'    => $checkin->id_checkin,
-                    'nama_penghuni' => $checkin->nama_penghuni,
-                    'no_kamar'      => $checkin->no_kamar,
                     'tgl_checkout'  => $tglCheckout,
-                    'jam_checkout'  => $checkin->jam_checkout,
+                    'jam_checkout'  => $jamCheckout,
+                    'nama_penghuni' => $checkin->nama_penghuni,
                     'lama_tinggal'  => $lamaTinggal,
+                    'no_kamar'      => $checkin->no_kamar,
+                    'status'        => 'Check out',
                     'user_id'       => Auth::id(),
                     'created_at'    => now(),
                     'updated_at'    => now(),
