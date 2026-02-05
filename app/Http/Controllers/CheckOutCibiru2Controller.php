@@ -20,7 +20,7 @@ class CheckOutCibiru2Controller extends Controller
     public function index()
     {
         // $checkout_cibiru2 = CheckOutCibiru2::with('user')->get();
-        $checkout_cibiru1 = CheckOutCibiru2::all();
+        $checkout_cibiru2 = CheckOutCibiru2::all();
         return view('checkout_cibiru2.index', compact('checkout_cibiru2'));
     }
 
