@@ -145,17 +145,24 @@ class CheckInRegol1Controller extends Controller
     $request->validate([
         'status' => 'required',
         'tgl_checkout' => 'nullable|date',
-        'jam_checkout' => 'nullable'
+        'jam_checkout' => 'nullable',
+        'nama_penghuni' => 'required',
+        'no_kamar' => 'required',
+        'tgl_checkin' => 'required|date',
+        'jam_checkin' => 'required',
+        'nominal' => 'required',
+        'metode_pembayaran' => 'required',
     ]);
 
     DB::transaction(function () use ($request, $id_checkin) {
 
+        // ambil data lama
         $checkin = CheckInRegol1::where('id_checkin', $id_checkin)->firstOrFail();
 
         $namaLama = $checkin->nama_penghuni;
-        $noKamarLama =$checkin->no_kamar;
+        $noKamarLama = $checkin->no_kamar;
 
-        // update data checkin dulu
+        // ================= UPDATE CHECKIN =================
         $checkin->update([
             'tgl_checkin'   => $request->tgl_checkin,
             'tgl_checkout'  => $request->tgl_checkout,
@@ -168,7 +175,16 @@ class CheckInRegol1Controller extends Controller
             'status'        => $request->status,
         ]);
 
-        // ================= JIKA CHECKOUT =================
+        // ================= UPDATE PENGHUNI (JIKA MASIH AKTIF) =================
+        PenghuniRegol1::where('nama_penghuni', $namaLama)
+            ->where('penempatan_kamar', $noKamarLama)
+            ->where('status', 'Masih di kost')
+            ->update([
+                'nama_penghuni' => $request->nama_penghuni,
+                'penempatan_kamar' => $request->no_kamar,
+            ]);
+
+        // ================= JIKA CHECK OUT =================
         if ($request->status === 'Check out') {
 
             $tglCheckout = $request->tgl_checkout ?? Carbon::now()->toDateString();
@@ -182,20 +198,20 @@ class CheckInRegol1Controller extends Controller
             $bulan = $diff->m;
             $hari  = $diff->d;
 
-        if ($bulan > 0 && $hari > 0) {
-            $lamaTinggal = $bulan . ' Bulan ' . $hari . ' Hari';
-        } elseif ($bulan > 0) {
-            $lamaTinggal = $bulan . ' Bulan';
-        } else {
-            $lamaTinggal = $hari . ' Hari';
-        }
+            if ($bulan > 0 && $hari > 0) {
+                $lamaTinggal = $bulan . ' Bulan ' . $hari . ' Hari';
+            } elseif ($bulan > 0) {
+                $lamaTinggal = $bulan . ' Bulan';
+            } else {
+                $lamaTinggal = $hari . ' Hari';
+            }
 
             // buat id checkout
             $lastCheckout = DB::table('checkout_regol1')->latest('id_checkout')->first();
             $lastNumber = $lastCheckout ? (int) substr($lastCheckout->id_checkout, 3) : 0;
             $newCheckoutId = 'CO-' . str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
 
-            // insert checkout (hindari dobel)
+            // cek sudah checkout atau belum
             $cekCheckout = DB::table('checkout_regol1')
                 ->where('id_checkin', $checkin->id_checkin)
                 ->first();
@@ -206,9 +222,9 @@ class CheckInRegol1Controller extends Controller
                     'id_checkin'    => $checkin->id_checkin,
                     'tgl_checkout'  => $tglCheckout,
                     'jam_checkout'  => $jamCheckout,
-                    'nama_penghuni' => $checkin->nama_penghuni,
+                    'nama_penghuni' => $request->nama_penghuni,
                     'lama_tinggal'  => $lamaTinggal,
-                    'no_kamar'      => $checkin->no_kamar,
+                    'no_kamar'      => $request->no_kamar,
                     'status'        => 'Check out',
                     'user_id'       => Auth::id(),
                     'created_at'    => now(),
@@ -218,25 +234,24 @@ class CheckInRegol1Controller extends Controller
 
             // update kamar jadi Kosong
             DB::table('kamar_regol1')
-                ->where('no_kamar', $checkin->no_kamar)
+                ->where('no_kamar', $noKamarLama)
                 ->update(['status_kamar' => 'Kosong']);
 
             DB::table('lap_kamar_regol1')
-                ->where('no_kamar', $checkin->no_kamar)
+                ->where('no_kamar', $noKamarLama)
                 ->update(['status_kamar' => 'Kosong']);
 
             // update penghuni jadi Keluar kost
-            PenghuniRegol1::where('nama_penghuni', $namaLama)
-                ->where('penempatan_kamar', $noKamarLama)
+            PenghuniRegol1::where('nama_penghuni', $request->nama_penghuni)
+                ->where('penempatan_kamar', $request->no_kamar)
                 ->where('status', 'Masih di kost')
                 ->update([
-                    'nama_penghuni' => $request->nama_penghuni,
                     'status' => 'Keluar kost',
                     'tgl_keluar' => $tglCheckout
                 ]);
-
         }
-        // ================= JIKA BUKAN CHECKOUT =================
+
+        // ================= JIKA BUKAN CHECK OUT =================
         else {
 
             $status_kamar = $request->status === 'Aktif' ? 'Terisi' : 'Booked';
@@ -249,11 +264,10 @@ class CheckInRegol1Controller extends Controller
                 ->where('no_kamar', $request->no_kamar)
                 ->update(['status_kamar' => $status_kamar]);
         }
-
     });
 
     return redirect()->route('checkin_regol1.index')
-        ->with('success', 'Data berhasil diperbarui');
+        ->with('success', 'Data checkin berhasil diperbarui');
 }
 
     /**

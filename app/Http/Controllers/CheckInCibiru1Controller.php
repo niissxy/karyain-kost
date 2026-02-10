@@ -143,8 +143,7 @@ class CheckInCibiru1Controller extends Controller
     /**
      * Update the specified resource in storage.
      */
-  public function update(Request $request, string $id_checkin)
-{
+  public function update(Request $request, string $id_checkin) {
     $request->validate([
         'status' => 'required',
         'tgl_checkout' => 'nullable|date',
@@ -270,7 +269,7 @@ class CheckInCibiru1Controller extends Controller
     });
 
     return redirect()->route('checkin_cibiru1.index')
-        ->with('success', 'Data berhasil diperbarui & penghuni ikut terupdate');
+        ->with('success', 'Data checkin berhasil diperbarui');
 }
 
     /**
