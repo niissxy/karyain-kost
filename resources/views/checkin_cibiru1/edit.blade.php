@@ -50,35 +50,35 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">ID Check In</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control"  readonly  value="{{ old('id_checkin',$checkin_cibiru1->id_checkin) }}"  name="id_checkin"  required autofocus>
+                                    <input type="text" class="form-control" readonly value="{{ old('id_checkin',$checkin_cibiru1->id_checkin) }}" name="id_checkin" required autofocus>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Tanggal Check In</label>
                                 <div class="col-sm-9">
-                                    <input type="date" class="form-control" value="{{ old('tgl_checkin',$checkin_cibiru1->tgl_checkin) }}"  name="tgl_checkin"  required autofocus>
+                                    <input type="date" class="form-control" value="{{ old('tgl_checkin',$checkin_cibiru1->tgl_checkin) }}"  name="tgl_checkin" required autofocus>
                                 </div>
                             </div>
 
                              <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Tanggal Check Out</label>
                                 <div class="col-sm-9">
-                                    <input type="date" class="form-control" value="{{ old('tgl_checkout',$checkin_cibiru1->tgl_checkout) }}"  name="tgl_checkout"  required autofocus>
+                                    <input type="date" class="form-control" value="{{ old('tgl_checkout',$checkin_cibiru1->tgl_checkout) }}" name="tgl_checkout" autofocus>
                                 </div>
                             </div>
 
                              <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Jam Check In</label>
                                 <div class="col-sm-9">
-                                    <input type="time" class="form-control" value="{{ old('jam_checkin',$checkin_cibiru1->jam_checkin) }}"  name="jam_checkin"  required autofocus>
+                                    <input type="time" class="form-control" value="{{ old('jam_checkin',$checkin_cibiru1->jam_checkin) }}" name="jam_checkin" required autofocus>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Jam Check Out</label>
                                 <div class="col-sm-9">
-                                    <input type="time" class="form-control" value="{{ old('jam_checkout',$checkin_cibiru1->jam_checkout) }}"  name="jam_checkout"  required autofocus>
+                                    <input type="time" class="form-control" value="{{ old('jam_checkout',$checkin_cibiru1->jam_checkout) }}" name="jam_checkout" autofocus>
                                 </div>
                             </div>
 
@@ -99,7 +99,7 @@
                              <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nominal</label>
                                 <div class="col-sm-9">
-                                    <input type="number" step="0.01" class="form-control" value="{{ old('nominal', number_format($checkin_cibiru1->nominal ?? 0, 0, ',', '.')) }}"  name="nominal"  required autofocus>
+                                    <input type="number" step="0.01" class="form-control" value="{{ old('nominal', number_format($checkin_cibiru1->nominal ?? 0, 0, ',', '.')) }}"  name="nominal" required autofocus>
                                 </div>
                             </div>
 

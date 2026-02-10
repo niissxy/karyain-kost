@@ -64,7 +64,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Tanggal Check Out</label>
                                 <div class="col-sm-9">
-                                    <input type="date" class="form-control" value="{{ old('tgl_checkout',$checkin_cibiru2->tgl_checkout) }}"  name="tgl_checkout"  required autofocus>
+                                    <input type="date" class="form-control" value="{{ old('tgl_checkout',$checkin_cibiru2->tgl_checkout) }}" name="tgl_checkout" autofocus>
                                 </div>
                             </div>
 
@@ -78,21 +78,21 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Jam Check Out</label>
                                 <div class="col-sm-9">
-                                    <input type="time" class="form-control" value="{{ old('jam_checkout',$checkin_cibiru2->tgl_checkout) }}"  name="tgl_checkout"  required autofocus>
+                                    <input type="time" class="form-control" value="{{ old('jam_checkout',$checkin_cibiru2->tgl_checkout) }}" name="tgl_checkout" autofocus>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nama Penghuni</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="{{ old('nama_penghuni',$checkin_cibiru2->nama_penghuni) }}"  name="nama_penghuni"  required autofocus>
+                                    <input type="text" class="form-control" value="{{ old('nama_penghuni',$checkin_cibiru2->nama_penghuni) }}" name="nama_penghuni" required autofocus>
                                 </div>
                             </div>
 
                              <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">No Kamar</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" readonly value="{{ old('no_kamar',$checkin_cibiru2->nama_kamar) }}"  name="no_kamar"  required autofocus>
+                                    <input type="text" class="form-control" readonly value="{{ old('no_kamar',$checkin_cibiru2->nama_kamar) }}" name="no_kamar" required autofocus>
                                 </div>
                             </div>
 
