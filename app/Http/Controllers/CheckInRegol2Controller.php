@@ -153,6 +153,9 @@ class CheckInRegol2Controller extends Controller
 
         $checkin = CheckInRegol2::where('id_checkin', $id_checkin)->firstOrFail();
 
+        $namaLama = $checkin->nama_penghuni;
+        $noKamarLama = $checkin->no_kamar;
+
         // update data checkin dulu
         $checkin->update([
             'tgl_checkin'   => $request->tgl_checkin,
@@ -224,10 +227,11 @@ class CheckInRegol2Controller extends Controller
                 ->update(['status_kamar' => 'Kosong']);
 
             // update penghuni jadi Keluar kost
-            PenghuniRegol2::where('nama_penghuni', $checkin->nama_penghuni)
-                ->where('penempatan_kamar', $checkin->no_kamar)
+            PenghuniRegol2::where('nama_penghuni', $namaLama)
+                ->where('penempatan_kamar', $noKamarLama)
                 ->where('status', 'Masih di kost')
                 ->update([
+                    'nama_penghuni' => $request->nama_penghuni,
                     'status' => 'Keluar kost',
                     'tgl_keluar' => $tglCheckout
                 ]);

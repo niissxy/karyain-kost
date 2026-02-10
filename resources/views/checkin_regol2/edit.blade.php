@@ -99,7 +99,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nominal</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" value="{{ old('nominal',$checkin_regol2->nominal) }}" name="nominal" required>
+                                    <input type="number" step="0.01" class="form-control" value="{{ old('nominal',$checkin_regol2->nominal) }}" name="nominal" required>
                                 </div>
                             </div>
 

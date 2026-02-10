@@ -153,6 +153,9 @@ class CheckInCibiru2Controller extends Controller
 
         $checkin = CheckInCibiru2::where('id_checkin', $id_checkin)->firstOrFail();
 
+        $namaLama = $checkin->nama_penghuni;
+        $noKamarLama = $checkin->no_kamar; 
+
         // update data checkin dulu
         $checkin->update([
             'tgl_checkin'   => $request->tgl_checkin,
@@ -223,11 +226,12 @@ class CheckInCibiru2Controller extends Controller
                 ->where('no_kamar', $checkin->no_kamar)
                 ->update(['status_kamar' => 'Kosong']);
 
-            // update penghuni jadi Keluar kost
-            PenghuniCibiru2::where('nama_penghuni', $checkin->nama_penghuni)
-                ->where('penempatan_kamar', $checkin->no_kamar)
+            // update penghuni
+            PenghuniCibiru2::where('nama_penghuni', $namaLama)
+                ->where('penempatan_kamar', $noKamarLama)
                 ->where('status', 'Masih di kost')
                 ->update([
+                    'nama_penghuni' => $request->$namaLama,
                     'status' => 'Keluar kost',
                     'tgl_keluar' => $tglCheckout
                 ]);
