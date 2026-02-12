@@ -78,7 +78,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Jam Check Out</label>
                                 <div class="col-sm-9">
-                                    <input type="time" class="form-control" value="{{ old('jam_checkout',$checkin_cibiru2->tgl_checkout) }}" name="tgl_checkout" autofocus>
+                                    <input type="time" class="form-control" value="{{ old('jam_checkout',$checkin_cibiru2->jam_checkout) }}" name="jam_checkout" autofocus>
                                 </div>
                             </div>
 
@@ -92,7 +92,14 @@
                              <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">No Kamar</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" readonly value="{{ old('no_kamar',$checkin_cibiru2->nama_kamar) }}" name="no_kamar" required autofocus>
+                                    <input type="text" class="form-control" readonly value="{{ old('no_kamar',$checkin_cibiru2->no_kamar) }}" name="no_kamar" required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Total Penyewa</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" readonly value="{{ old('total_penyewa',$checkin_cibiru2->total_penyewa) }}" name="total_penyewa" required autofocus>
                                 </div>
                             </div>
 
@@ -117,7 +124,7 @@
                                         <option value='SeaBank' {{ old('metode_pembayaran', $checkin_cibiru2->metode_pembayaran) == 'SeaBank' ? 'selected' : '' }}>SeaBank</option>
                                         <option value='DANA' {{ old('metode_pembayaran', $checkin_cibiru2->metode_pembayaran) == 'DANA' ? 'selected' : '' }}>DANA</option>
                                         <option value='OVO' {{ old('metode_pembayaran', $checkin_cibiru2->metode_pembayaran) == 'OVO' ? 'selected' : '' }}>OVO</option>
-                                        <option value='LinkAja' {{ old('metode_pembayaran', $checkin_cibiru2->metode_pembayaran) == 'LinkAja' ? 'selected' : '' }}>LinkAja<</option>
+                                        <option value='LinkAja' {{ old('metode_pembayaran', $checkin_cibiru2->metode_pembayaran) == 'LinkAja' ? 'selected' : '' }}>LinkAja</option>
                                         <option value='SHOPEE PAY' {{ old('metode_pembayaran', $checkin_cibiru2->metode_pembayaran) == 'SHOPEE PAY' ? 'selected' : '' }}>SHOPEE PAY</option>
                                         <option value='GoPay' {{ old('metode_pembayaran', $checkin_cibiru2->metode_pembayaran) == 'GoPay' ? 'selected' : '' }}>GoPay</option>
                                     </select>  

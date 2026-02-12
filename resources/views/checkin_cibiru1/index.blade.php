@@ -99,6 +99,7 @@ table {
                                 <th class="bg-body-secondary">Jam Check Out</th>
                                 <th class="bg-body-secondary">Nama Penghuni</th>
                                 <th class="bg-body-secondary">No Kamar</th>
+                                <th class="bg-body-secondary">Total Penyewa</th>
                                 <th class="bg-body-secondary">Nominal</th>
                                 <th class="bg-body-secondary">Metode Pembayaran</th>
                                 <th class="bg-body-secondary">Status</th>
@@ -117,6 +118,7 @@ table {
                                 <td>{{ $item->jam_checkout }}</td>
                                 <td>{{ $item->nama_penghuni }}</td>
                                 <td>{{ $item->no_kamar }}</td>
+                                <td>{{ $item->total_penyewa }}</td>
                                 <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
                                 <td>{{ $item->metode_pembayaran }}</td>
                                 <td>{{ $item->status }}</td>
@@ -196,11 +198,6 @@ table {
                             `;
                         document.body.appendChild(form);
                         form.submit();
-                        Swal.fire({
-                            title: 'Berhasil!',
-                            text: 'Data berhasil dihapus',
-                            icon: 'success',
-                        })
                     }
                 })
             }

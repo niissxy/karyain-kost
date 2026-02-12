@@ -158,6 +158,11 @@
             </div>
              <div class="row">
                 <div class="col-sm-6">
+                    <strong>Total Penyewa</strong> <strong style="margin-left: 15px;"> : </strong>
+                    <span>{{ $checkin_regol1->total_penyewa }}</span>                   
+                </div>
+
+                <div class="col-sm-6">
                     <strong>Metode Pembayaran</strong> <strong style="margin-left: 15px;"> : </strong>
                     <span>{{ $checkin_regol1->metode_pembayaran }}</span>                   
                 </div>

@@ -104,6 +104,13 @@
                             </div>
 
                             <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Total Penyewa</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="number" name="total_penyewa" required value="{{ old('total_penyewa') }}">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Nominal</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="number" name="nominal" required value="{{ old('nominal.0,' '')">

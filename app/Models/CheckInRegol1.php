@@ -21,6 +21,7 @@ class CheckInRegol1 extends Model
         'jam_checkout',
         'nama_penghuni',
         'no_kamar',
+        'total_penyewa',
         'nominal',
         'metode_pembayaran',
         'status',

@@ -60,9 +60,10 @@ class CheckInCibiru2Controller extends Controller
         'jam_checkin' => 'required',
         'jam_checkout' => 'nullable',
         'nama_penghuni'  => 'required',
+        'no_kamar'       => 'required',
+        'total_penyewa' => 'required',
         'nominal'        =>'required',
         'metode_pembayaran' => 'required',
-        'no_kamar'       => 'required',
         'status'         => 'required', // 'aktif' atau 'booked'
     ]);
 
@@ -106,6 +107,7 @@ class CheckInCibiru2Controller extends Controller
         TransaksiCibiru2::create([
             'id_transaksi'  => $newTransaksiId,
             'nama_penyewa'  => $data['nama_penghuni'],
+            'total_penyewa' => $data['total_penyewa'],
             'no_kamar'      => $data['no_kamar'],
             'nominal'       => $data['nominal'],
             'metode_pembayaran' => $data['metode_pembayaran'],
@@ -113,7 +115,7 @@ class CheckInCibiru2Controller extends Controller
         ]);
 
     return redirect()->route('checkin_cibiru2.index')
-        ->with('success', 'Data berhasil ditambahkan dan status kamar diperbarui');
+        ->with('success', 'Data check-in berhasil ditambahkan');
     }
 
     /**
@@ -143,15 +145,16 @@ class CheckInCibiru2Controller extends Controller
      */
      public function update(Request $request, string $id_checkin) {
     $request->validate([
-        'status' => 'required',
+        'tgl_checkin' => 'required|date',
+        'jam_checkin' => 'required',
         'tgl_checkout' => 'nullable|date',
         'jam_checkout' => 'nullable',
         'nama_penghuni' => 'required',
         'no_kamar' => 'required',
-        'tgl_checkin' => 'required|date',
-        'jam_checkin' => 'required',
+        'total_penyewa' => 'required',
         'nominal' => 'required',
         'metode_pembayaran' => 'required',
+        'status' => 'required',
     ]);
 
     DB::transaction(function () use ($request, $id_checkin) {
@@ -170,6 +173,7 @@ class CheckInCibiru2Controller extends Controller
             'jam_checkout'  => $request->jam_checkout,
             'nama_penghuni' => $request->nama_penghuni,
             'no_kamar'      => $request->no_kamar,
+            'total_penyewa' => $request->total_penyewa,
             'nominal'       => str_replace('.', '', $request->nominal),
             'metode_pembayaran' => $request->metode_pembayaran,
             'status'        => $request->status,
@@ -267,7 +271,7 @@ class CheckInCibiru2Controller extends Controller
     });
 
     return redirect()->route('checkin_cibiru2.index')
-        ->with('success', 'Data checkin berhasil diperbarui');
+        ->with('success', 'Data check-in berhasil diperbarui');
 }
 
     /**
