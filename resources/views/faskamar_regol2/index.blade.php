@@ -179,11 +179,6 @@ table {
                             `;
                         document.body.appendChild(form);
                         form.submit();
-                        Swal.fire({
-                            title: 'Berhasil!',
-                            text: 'Data berhasil dihapus',
-                            icon: 'success',
-                        })
                     }
                 })
             }
