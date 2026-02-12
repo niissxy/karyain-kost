@@ -50,9 +50,9 @@ class AsetRegol2Controller extends Controller
      $data = $request->validate([
         'id_aset'     => 'required',
         'nama_aset'   => 'required',
-        'kategori'     => 'required',
-        'jumlah' => 'required',
-        'kondisi'        => 'required ',
+        'kategori'    => 'required',
+        'jumlah'      => 'required',
+        'kondisi'     => 'required ',
         ]);
 
         $data['user_id'] = Auth::id();
@@ -60,7 +60,7 @@ class AsetRegol2Controller extends Controller
         AsetRegol2::create($data);
 
         return redirect()->route('aset_regol2.index')
-            ->with('success', 'Data berhasil ditambahkan');
+            ->with('success', 'Data aset Kost Regol 2 berhasil ditambahkan');
     }
 
 
@@ -102,9 +102,9 @@ class AsetRegol2Controller extends Controller
         AsetRegol2::where('id_aset', $id_aset)->update($data);
 
         if ($data) {
-            return redirect()->route('aset_regol2.index')->with('success', 'Data berhasil diperbarui');
+            return redirect()->route('aset_regol2.index')->with('success', 'Data aset Kost Regol 2 berhasil diperbarui');
         } else {
-            return redirect()->route('aset_regol2.index')->with('error', 'Data gagal diperbarui');
+            return redirect()->route('aset_regol2.index')->with('error', 'Data aset Kost Regol 2 gagal diperbarui');
         }
     }
 
@@ -115,9 +115,9 @@ class AsetRegol2Controller extends Controller
     {
         $aset_regol2 = DB::table('aset_kost_regol2')->where('id_aset', $id_aset)->delete();
         if ($aset_regol2) {
-            return redirect('aset_regol2')->withSuccess('Data Aset Kost Regol 2 berhasil dihapus.');
+            return redirect('aset_regol2')->withSuccess('Data aset Kost Regol 2 berhasil dihapus.');
         } else {
-            return redirect('aset_regol2')->with('error', 'Data Aset Kost Regol 2 gagal dihapus.');
+            return redirect('aset_regol2')->with('error', 'Data aset Kost Regol 2 gagal dihapus.');
         }
     }
 }

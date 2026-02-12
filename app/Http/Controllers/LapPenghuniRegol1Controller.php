@@ -137,7 +137,7 @@ class LapPenghuniRegol1Controller extends Controller
     ]);
 
     return redirect()->route('lappenghuni_regol1.index')
-        ->with('success', 'Laporan penghuni berhasil ditambahkan');
+        ->with('success', 'Data laporan penghuni Kost Regol 1 berhasil ditambahkan');
 }
 
 
@@ -172,9 +172,9 @@ class LapPenghuniRegol1Controller extends Controller
     {
         $lappenghuni_regol1 = DB::table('lap_penghuni_regol1')->where('id_lappenghuni', $id_lappenghuni)->delete();
         if ($lappenghuni_regol1) {
-            return redirect('lappenghuni_regol1')->withSuccess('Data Laporan Penghuni Kost Regol 1 berhasil dihapus.');
+            return redirect('lappenghuni_regol1')->withSuccess('Data laporan penghuni Kost Regol 1 berhasil dihapus.');
         } else {
-            return redirect('lappenghuni_regol1')->with('error', 'Data Laporan Penghuni Kost Regol 1 gagal dihapus.');
+            return redirect('lappenghuni_regol1')->with('error', 'Data laporan penghuni Kost Regol 1 gagal dihapus.');
         }
     }
 }

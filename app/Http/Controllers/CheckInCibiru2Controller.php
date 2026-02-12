@@ -115,7 +115,7 @@ class CheckInCibiru2Controller extends Controller
         ]);
 
     return redirect()->route('checkin_cibiru2.index')
-        ->with('success', 'Data check-in berhasil ditambahkan');
+        ->with('success', 'Data check-in Kost Cibiru 2 berhasil ditambahkan');
     }
 
     /**
@@ -271,7 +271,7 @@ class CheckInCibiru2Controller extends Controller
     });
 
     return redirect()->route('checkin_cibiru2.index')
-        ->with('success', 'Data check-in berhasil diperbarui');
+        ->with('success', 'Data check-in Cibiru 2 berhasil diperbarui');
 }
 
     /**
@@ -281,9 +281,9 @@ class CheckInCibiru2Controller extends Controller
     {
         $checkin_cibiru2 = DB::table('checkin_cibiru2')->where('id_checkin', $id_checkin)->delete();
         if ($checkin_cibiru2) {
-            return redirect('checkin_cibiru2')->withSuccess('Data Check In Kost Cibiru 2 berhasil dihapus.');
+            return redirect('checkin_cibiru2')->withSuccess('Data check-in Kost Cibiru 2 berhasil dihapus.');
         } else {
-            return redirect('checkin_cibiru2')->with('error', 'Data Check In Kost Cibiru 2 gagal dihapus.');
+            return redirect('checkin_cibiru2')->with('error', 'Data check-in Kost Cibiru 2 dagal dihapus.');
         }
     }
 

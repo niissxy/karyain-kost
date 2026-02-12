@@ -75,7 +75,7 @@ class CheckOutRegol2Controller extends Controller
 
     // ❗ JIKA TIDAK DITEMUKAN
     if (!$checkin) {
-        return back()->with('error', 'Data check-in tidak valid atau sudah checkout');
+        return back()->with('error', 'Data check-in tidak valid atau sudah check-out');
     }
 
     // ===============================
@@ -85,7 +85,7 @@ class CheckOutRegol2Controller extends Controller
     $checkoutDate = \Carbon\Carbon::parse($request->tgl_checkout);
 
     if ($checkoutDate->lt($checkinDate)) {
-        return back()->with('error', 'Tanggal checkout tidak boleh lebih kecil dari checkin');
+        return back()->with('error', 'Tanggal check-out tidak boleh lebih kecil dari check-in');
     }
 
     $totalHari = $checkinDate->diffInDays($checkoutDate);
@@ -154,7 +154,7 @@ if ($penghuni) {
 });
 
     return redirect()->route('checkout_regol2.index')
-        ->with('success', 'Checkout berhasil disimpan');
+        ->with('success', 'Data check-out Kost Regol 2 berhasil disimpan');
 }
 
 
@@ -197,7 +197,7 @@ if ($penghuni) {
     $checkin = CheckInRegol2::where('id_checkin', $checkout->id_checkin)->first();
 
     if (!$checkin) {
-        return back()->with('error', 'Data check-in tidak ditemukan');
+        return back()->with('error', 'Data check-in Kost Regol 2 tidak ditemukan');
     }
 
     // ===============================
@@ -207,7 +207,7 @@ if ($penghuni) {
     $checkoutDate = \Carbon\Carbon::parse($request->tgl_checkout);
 
     if ($checkoutDate->lt($checkinDate)) {
-        return back()->with('error', 'Tanggal checkout tidak boleh lebih kecil dari checkin');
+        return back()->with('error', 'Tanggal check-out tidak boleh lebih kecil dari check-in');
     }
 
     $totalHari = $checkinDate->diffInDays($checkoutDate);
@@ -266,7 +266,7 @@ if ($penghuni) {
 
     return redirect()
         ->route('checkout_regol2.index')
-        ->with('success', 'Data checkout berhasil diperbarui');
+        ->with('success', 'Data check-out Kost Regol 2 berhasil diperbarui');
 }
 
     /**
@@ -276,9 +276,9 @@ if ($penghuni) {
     {
         $checkout_regol2 = DB::table('checkout_regol2')->where('id_checkout', $id_checkout)->delete();
         if ($checkout_regol2) {
-            return redirect('checkout_regol2')->withSuccess('Data Check Out Kost Regol 2 berhasil dihapus.');
+            return redirect('checkout_regol2')->withSuccess('Data check-out Kost Regol 2 berhasil dihapus.');
         } else {
-            return redirect('checkout_regol2')->with('error', 'Data Check Out Kost Regol 2 gagal dihapus.');
+            return redirect('checkout_regol2')->with('error', 'Data check-out Kost Regol 2 gagal dihapus.');
         }
     }
 }

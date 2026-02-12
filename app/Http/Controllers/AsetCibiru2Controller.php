@@ -51,9 +51,9 @@ class AsetCibiru2Controller extends Controller
      $data = $request->validate([
         'id_aset'     => 'required',
         'nama_aset'   => 'required',
-        'kategori'     => 'required',
-        'jumlah' => 'required',
-        'kondisi'        => 'required ',
+        'kategori'    => 'required',
+        'jumlah'      => 'required',
+        'kondisi'     => 'required ',
         ]);
 
         $data['user_id'] = Auth::id();
@@ -61,7 +61,7 @@ class AsetCibiru2Controller extends Controller
         AsetCibiru2::create($data);
 
         return redirect()->route('aset_cibiru2.index')
-            ->with('success', 'Data berhasil ditambahkan');
+            ->with('success', 'Data aset Kost Cibiru 2 berhasil ditambahkan');
     }
 
 
@@ -93,19 +93,19 @@ class AsetCibiru2Controller extends Controller
     {
 
         $data = [
-            'id_aset' => $request->id_aset,
+            'id_aset'   => $request->id_aset,
             'nama_aset' => $request->nama_aset,
-            'kategori' => $request->kategori,
-            'jumlah' => $request->jumlah,
-            'kondisi' => $request->kondisi,
+            'kategori'  => $request->kategori,
+            'jumlah'    => $request->jumlah,
+            'kondisi'   => $request->kondisi,
         ];
 
         AsetCibiru2::where('id_aset', $id_aset)->update($data);
 
         if ($data) {
-            return redirect()->route('aset_cibiru2.index')->with('success', 'Data berhasil diperbarui');
+            return redirect()->route('aset_cibiru2.index')->with('success', 'Data aset Kost Cibiru 2 berhasil diperbarui');
         } else {
-            return redirect()->route('aset_cibiru2.index')->with('error', 'Data gagal diperbarui');
+            return redirect()->route('aset_cibiru2.index')->with('error', 'Data aset Kost Cibiru 2 gagal diperbarui');
         }
     }
 
@@ -116,9 +116,9 @@ class AsetCibiru2Controller extends Controller
     {
         $aset_cibiru2 = DB::table('aset_kost_cibiru2')->where('id_aset', $id_aset)->delete();
         if ($aset_cibiru2) {
-            return redirect('aset_cibiru2')->withSuccess('Data Aset Kost Cibiru 2 berhasil dihapus.');
+            return redirect('aset_cibiru2')->withSuccess('Data aset Kost Cibiru 2 berhasil dihapus.');
         } else {
-            return redirect('aset_cibiru2')->with('error', 'Data Aset Kost Cibiru 2 gagal dihapus.');
+            return redirect('aset_cibiru2')->with('error', 'Data aset Kost Cibiru 2 gagal dihapus.');
         }
     }
 }

@@ -110,9 +110,9 @@ class PenghuniRegol1Controller extends Controller
         PenghuniRegol1::where('id_penghuni', $id_penghuni)->update($data);
 
         if ($data) {
-            return redirect()->route('penghuni_regol1.index')->with('success', 'Data berhasil diperbarui');
+            return redirect()->route('penghuni_regol1.index')->with('success', 'Data penghuni Kost Regol 1 berhasil diperbarui');
         } else {
-            return redirect()->route('penghuni_regol1.index')->with('error', 'Data gagal diperbarui');
+            return redirect()->route('penghuni_regol1.index')->with('error', 'Data penghuni Kost Regol 1 gagal diperbarui');
         }
     }
 
@@ -123,9 +123,9 @@ class PenghuniRegol1Controller extends Controller
     {
         $penghuni_regol1 = DB::table('penghuni_kost_regol1')->where('id_penghuni', $id_penghuni)->delete();
         if ($penghuni_regol1) {
-            return redirect('penghuni_regol1')->withSuccess('Data Penghuni Kost Regol 1 berhasil dihapus.');
+            return redirect('penghuni_regol1')->withSuccess('Data penghuni Kost Regol 1 berhasil dihapus.');
         } else {
-            return redirect('penghuni_regol1')->with('error', 'Data Penghuni Kost Regol 1 gagal dihapus.');
+            return redirect('penghuni_regol1')->with('error', 'Data penghuni Kost Regol 1 gagal dihapus.');
         }
     }
 }

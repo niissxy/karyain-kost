@@ -100,9 +100,9 @@ class UserController extends Controller
         $updateStatus = User::where('id', $id)->update($data);
 
         if ($updateStatus) {
-            return redirect()->route('user.index')->with('success', 'Data berhasil diubah');
+            return redirect()->route('user.index')->with('success', 'Data user berhasil diubah');
         } else {
-            return redirect()->route('user.index')->with('error', 'Data gagal diubah');
+            return redirect()->route('user.index')->with('error', 'Data user gagal diubah');
         }
     }
 

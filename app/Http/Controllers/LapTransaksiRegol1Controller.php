@@ -98,7 +98,7 @@ class LapTransaksiRegol1Controller extends Controller
     ]);
 
     return redirect()->route('laptransaksi_regol1.index')
-        ->with('success', 'Laporan transaksi berhasil ditambahkan');
+        ->with('success', 'Data laporan transaksi Kost Regol 1 berhasil ditambahkan');
     }
 
     /**
@@ -132,9 +132,9 @@ class LapTransaksiRegol1Controller extends Controller
     {
         $laptransaksi_regol1 = DB::table('lap_transaksi_regol1')->where('id_laptransaksi', $id_laptransaksi)->delete();
         if ($laptransaksi_regol1) {
-            return redirect('laptransaksi_regol1')->withSuccess('Data Laporan Transaksi Kost Regol 1 berhasil dihapus.');
+            return redirect('laptransaksi_regol1')->withSuccess('Data laporan transaksi Kost Regol 1 berhasil dihapus.');
         } else {
-            return redirect('laptransaksi_regol1')->with('error', 'Data Laporan Transaksi Kost Regol 1 gagal dihapus.');
+            return redirect('laptransaksi_regol1')->with('error', 'Data laporan transaksi Kost Regol 1 gagal dihapus.');
         }
     }
 }

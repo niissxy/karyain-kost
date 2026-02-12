@@ -52,9 +52,9 @@ class AsetRegol1Controller extends Controller
      $data = $request->validate([
         'id_aset'     => 'required',
         'nama_aset'   => 'required',
-        'kategori'     => 'required',
-        'jumlah' => 'required',
-        'kondisi'        => 'required ',
+        'kategori'    => 'required',
+        'jumlah'      => 'required',
+        'kondisi'     => 'required ',
         ]);
 
         $data['user_id'] = Auth::id();
@@ -62,7 +62,7 @@ class AsetRegol1Controller extends Controller
         AsetRegol1::create($data);
 
         return redirect()->route('aset_regol1.index')
-            ->with('success', 'Data berhasil ditambahkan');
+            ->with('success', 'Data aset Regol 1 berhasil ditambahkan');
     }
 
 
@@ -94,19 +94,19 @@ class AsetRegol1Controller extends Controller
     {
 
         $data = [
-            'id_aset' => $request->id_aset,
+            'id_aset'   => $request->id_aset,
             'nama_aset' => $request->nama_aset,
-            'kategori' => $request->kategori,
-            'jumlah' => $request->jumlah,
-            'kondisi' => $request->kondisi,
+            'kategori'  => $request->kategori,
+            'jumlah'    => $request->jumlah,
+            'kondisi'   => $request->kondisi,
         ];
 
         AsetRegol1::where('id_aset', $id_aset)->update($data);
 
         if ($data) {
-            return redirect()->route('aset_regol1.index')->with('success', 'Data berhasil diperbarui');
+            return redirect()->route('aset_regol1.index')->with('success', 'Data aset Kost Regol 1 berhasil diperbarui');
         } else {
-            return redirect()->route('aset_regol1.index')->with('error', 'Data gagal diperbarui');
+            return redirect()->route('aset_regol1.index')->with('error', 'Data aset Kost Regol 1 gagal diperbarui');
         }
     }
 
@@ -117,9 +117,9 @@ class AsetRegol1Controller extends Controller
     {
         $aset_regol1 = DB::table('aset_kost_regol1')->where('id_aset', $id_aset)->delete();
         if ($aset_regol1) {
-            return redirect('aset_regol1')->withSuccess('Data Aset Kost Regol 1 berhasil dihapus.');
+            return redirect('aset_regol1')->withSuccess('Data aset Kost Regol 1 berhasil dihapus.');
         } else {
-            return redirect('aset_regol1')->with('error', 'Data Aset Kost Regol 1 gagal dihapus.');
+            return redirect('aset_regol1')->with('error', 'Data aset Kost Regol 1 gagal dihapus.');
         }
     }
 }

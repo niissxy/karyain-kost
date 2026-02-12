@@ -65,7 +65,7 @@ class TransaksiRegol2Controller extends Controller
         TransaksiRegol2::create($data);
 
         return redirect()->route('transaksi_regol2.index')
-            ->with('success', 'Data berhasil ditambahkan');
+            ->with('success', 'Data transaksi Kost Regol 2 berhasil ditambahkan');
     }
 
     /**
@@ -120,8 +120,8 @@ class TransaksiRegol2Controller extends Controller
     });
 
     return redirect()
-        ->route('transaksi_cibiru1.index')
-        ->with('success', 'Data transaksi & laporan berhasil diperbarui');
+        ->route('transaksi_regol2.index')
+        ->with('success', 'Data transaksi Kost Regol 2 berhasil diperbarui');
     }
 
     /**

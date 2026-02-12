@@ -14,7 +14,7 @@ class FasKamarRegol2Controller extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth');  
     }
   
     public function index()
@@ -68,7 +68,7 @@ class FasKamarRegol2Controller extends Controller
         FasKamarRegol2::create($data);
 
         return redirect()->route('faskamar_regol2.index')
-            ->with('success', 'Data berhasil ditambahkan');
+            ->with('success', 'Data fasilitas kamar Kost Regol 2 berhasil ditambahkan');
     }
 
 
@@ -116,9 +116,9 @@ class FasKamarRegol2Controller extends Controller
         FasKamarRegol2::where('id_fask', $id_fask)->update($data);
 
         if ($data) {
-            return redirect()->route('faskamar_regol2.index')->with('success', 'Data berhasil diperbarui');
+            return redirect()->route('faskamar_regol2.index')->with('success', 'Data fasilitas kamar Kost Regol 2 berhasil diperbarui');
         } else {
-            return redirect()->route('faskamar_regol2.index')->with('error', 'Data gagal diperbarui');
+            return redirect()->route('faskamar_regol2.index')->with('error', 'Data fasilitas kamar Kost Regol 2 gagal diperbarui');
         }
     }
 
@@ -129,9 +129,9 @@ class FasKamarRegol2Controller extends Controller
     {
         $faskamar_regol2 = DB::table('fasilitas_kamar_regol2')->where('id_fask', $id_fask)->delete();
         if ($faskamar_regol2) {
-            return redirect('faskamar_regol2')->withSuccess('Data Fasilitas Kamar Kost Regol 2 berhasil dihapus.');
+            return redirect('faskamar_regol2')->withSuccess('Data fasilitas kamar Kost Regol 2 berhasil dihapus.');
         } else {
-            return redirect('faskamar_regol2')->with('error', 'Data Fasilitas Kamar Kost Regol 2 gagal dihapus.');
+            return redirect('faskamar_regol2')->with('error', 'Data fasilitas kamar Kost Regol 2 gagal dihapus.');
         }
     }
 }

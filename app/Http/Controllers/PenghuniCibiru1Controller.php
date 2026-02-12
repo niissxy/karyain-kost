@@ -64,7 +64,7 @@ class PenghuniCibiru1Controller extends Controller
         PenghuniCibiru1::create($data);
 
         return redirect()->route('penghuni_cibiru1.index')
-            ->with('success', 'Data berhasil ditambahkan');
+            ->with('success', 'Data penghuni Kost Cibiru 1 berhasil ditambahkan');
     }
 
     /**
@@ -108,9 +108,9 @@ class PenghuniCibiru1Controller extends Controller
         PenghuniCibiru1::where('id_penghuni', $id_penghuni)->update($data);
 
         if ($data) {
-            return redirect()->route('penghuni_cibiru1.index')->with('success', 'Data berhasil diperbarui');
+            return redirect()->route('penghuni_cibiru1.index')->with('success', 'Data penghuni Kost Cibiru 1 berhasil diperbarui');
         } else {
-            return redirect()->route('penghuni_cibiru1.index')->with('error', 'Data gagal diperbarui');
+            return redirect()->route('penghuni_cibiru1.index')->with('error', 'Data penghuni Kost Cibiru 1 gagal diperbarui');
         }
     }
 
@@ -121,9 +121,9 @@ class PenghuniCibiru1Controller extends Controller
     {
         $penghuni_cibiru1 = DB::table('penghuni_kost_cibiru1')->where('id_penghuni', $id_penghuni)->delete();
         if ($penghuni_cibiru1) {
-            return redirect('penghuni_cibiru1')->withSuccess('Data Penghuni Kost Cibiru 1 berhasil dihapus.');
+            return redirect('penghuni_cibiru1')->withSuccess('Data penghuni Kost Cibiru 1 berhasil dihapus.');
         } else {
-            return redirect('penghuni_cibiru1')->with('error', 'Data Penghuni Kost Cibiru 1 gagal dihapus.');
+            return redirect('penghuni_cibiru1')->with('error', 'Data penghuni Kost Cibiru 1 gagal dihapus.');
         }
     }
 }

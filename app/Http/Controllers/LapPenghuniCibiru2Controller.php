@@ -139,7 +139,7 @@ class LapPenghuniCibiru2Controller extends Controller
     ]);
 
     return redirect()->route('lappenghuni_cibiru2.index')
-        ->with('success', 'Laporan penghuni berhasil ditambahkan');
+        ->with('success', 'Data laporan penghuni Kost Cibiru 2 berhasil ditambahkan');
 }
 
 
@@ -174,9 +174,9 @@ class LapPenghuniCibiru2Controller extends Controller
     {
         $lappenghuni_cibiru2 = DB::table('lap_penghuni_cibiru2')->where('id_lappenghuni', $id_lappenghuni)->delete();
         if ($lappenghuni_cibiru2) {
-            return redirect('lappenghuni_cibiru2')->withSuccess('Data Laporan Penghuni Kost Cibiru 2 berhasil dihapus.');
+            return redirect('lappenghuni_cibiru2')->withSuccess('Data laporan penghuni Kost Cibiru 2 berhasil dihapus.');
         } else {
-            return redirect('lappenghuni_cibiru2')->with('error', 'Data Laporan Penghuni Kost Cibiru 2 gagal dihapus.');
+            return redirect('lappenghuni_cibiru2')->with('error', 'Data laporan penghuni Kost Cibiru 2 gagal dihapus.');
         }
     }
 }

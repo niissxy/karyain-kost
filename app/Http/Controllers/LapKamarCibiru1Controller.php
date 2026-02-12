@@ -91,7 +91,7 @@ public function create()
 
     return redirect()
         ->route('lapkamar_cibiru1.index')
-        ->with('success', 'Data kamar berhasil ditambahkan');
+        ->with('success', 'Data laporan kamar Kost Cibiru 1 berhasil ditambahkan');
 }
 
 
@@ -126,9 +126,9 @@ public function create()
     {
         $lapkamar_cibiru1 = DB::table('lap_kamar_cibiru1')->where('id_lapkamar', $id_lapkamar)->delete();
         if ($lapkamar_cibiru1) {
-            return redirect('lapkamar_cibiru1')->withSuccess('Data Laporan Kamar Kost Cibiru 1 berhasil dihapus.');
+            return redirect('lapkamar_cibiru1')->withSuccess('Data laporan kamar Kost Cibiru 1 berhasil dihapus.');
         } else {
-            return redirect('lapkamar_cibiru1')->with('error', 'Data Laporan Kamar Kost Cibiru 1 gagal dihapus.');
+            return redirect('lapkamar_cibiru1')->with('error', 'Data laporan kamar Kost Cibiru 1 gagal dihapus.');
         }
     }
 }

@@ -90,7 +90,7 @@ public function create()
         ]);
 
         return redirect()->route('lapkamar_regol1.index')
-                         ->with('success', 'Data kamar berhasil ditambahkan');
+                         ->with('success', 'Data laporan kamar Kost Regol 1 berhasil ditambahkan');
     }
 
     /**
@@ -124,9 +124,9 @@ public function create()
     {
         $lapkamar_regol1 = DB::table('lap_kamar_regol1')->where('id_lapkamar', $id_lapkamar)->delete();
         if ($lapkamar_regol1) {
-            return redirect('lapkamar_regol1')->withSuccess('Data Laporan Kamar Kost Regol 1 berhasil dihapus.');
+            return redirect('lapkamar_regol1')->withSuccess('Data laporan kamar Kost Regol 1 berhasil dihapus.');
         } else {
-            return redirect('lapkamar_regol1')->with('error', 'Data Laporan Kamar Kost Regol 1 gagal dihapus.');
+            return redirect('lapkamar_regol1')->with('error', 'Data laporan kamar Kost Regol 1 gagal dihapus.');
         }
     }
 }

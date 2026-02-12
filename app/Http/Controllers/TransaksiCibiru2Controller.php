@@ -65,7 +65,7 @@ class TransaksiCibiru2Controller extends Controller
         TransaksiCibiru2::create($data);
 
         return redirect()->route('transaksi_cibiru2.index')
-            ->with('success', 'Data berhasil ditambahkan');
+            ->with('success', 'Data transaksi Kost Cibiru 2 berhasil ditambahkan');
     }
 
     /**
@@ -120,7 +120,7 @@ class TransaksiCibiru2Controller extends Controller
 
     return redirect()
         ->route('transaksi_cibiru1.index')
-        ->with('success', 'Data transaksi & laporan berhasil diperbarui');
+        ->with('success', 'Data transaksi Kost Cibiru 2 berhasil diperbarui');
     }
 
     /**
@@ -130,9 +130,9 @@ class TransaksiCibiru2Controller extends Controller
     {
         $transaksi_cibiru2 = DB::table('transaksi_cibiru2')->where('id_transaksi', $id_transaksi)->delete();
         if ($transaksi_cibiru2) {
-            return redirect('transaksi_cibiru2')->withSuccess('Data Transaksi Kost Cibiru 2 berhasil dihapus.');
+            return redirect('transaksi_cibiru2')->withSuccess('Data transaksi Kost Cibiru 2 berhasil dihapus.');
         } else {
-            return redirect('transaksi_cibiru2')->with('error', 'Data Transaksi Kost Cibiru 2 gagal dihapus.');
+            return redirect('transaksi_cibiru2')->with('error', 'Data transaksi Kost Cibiru 2 gagal dihapus.');
         }
     }
 
