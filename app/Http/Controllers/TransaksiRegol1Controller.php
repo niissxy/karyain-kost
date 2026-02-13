@@ -65,7 +65,7 @@ class TransaksiRegol1Controller extends Controller
         TransaksiRegol1::create($data);
 
         return redirect()->route('transaksi_regol1.index')
-            ->with('success', 'Data transaksi Kost Regol 1 berhasil ditambahkan');
+            ->with('success', 'Data Transaksi Kost Regol 1 Berhasil Ditambahkan.');
     }
 
     /**
@@ -121,7 +121,7 @@ class TransaksiRegol1Controller extends Controller
 
     return redirect()
         ->route('transaksi_regol1.index')
-        ->with('success', 'Data transaksi Kost Regol 1 berhasil diperbarui');
+        ->with('success', 'Data Transaksi Kost Regol 1 Berhasil Diperbarui.');
     }
 
     /**
@@ -131,9 +131,9 @@ class TransaksiRegol1Controller extends Controller
     {
         $transaksi_regol1 = DB::table('transaksi_regol1')->where('id_transaksi', $id_transaksi)->delete();
         if ($transaksi_regol1) {
-            return redirect('transaksi_regol1')->withSuccess('Data transaksi Kost Regol 1 berhasil dihapus.');
+            return redirect('transaksi_regol1')->withSuccess('Data Transaksi Kost Regol 1 Berhasil Dihapus.');
         } else {
-            return redirect('transaksi_regol1')->with('error', 'Data transaksi Kost Regol 1 gagal dihapus.');
+            return redirect('transaksi_regol1')->with('error', 'Data Transaksi Kost Regol 1 Gagal Dihapus.');
         }
     }
 

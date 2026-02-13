@@ -77,7 +77,7 @@ class CheckOutCibiru1Controller extends Controller
 
     // ❗ JIKA TIDAK DITEMUKAN
     if (!$checkin) {
-        return back()->with('error', 'Data check-in tidak valid atau sudah check-out');
+        return back()->with('error', 'Data Check-In Tidak Valid atau Sudah Check-Out.');
     }
 
     // ===============================
@@ -87,7 +87,7 @@ class CheckOutCibiru1Controller extends Controller
     $checkoutDate = \Carbon\Carbon::parse($request->tgl_checkout);
 
     if ($checkoutDate->lt($checkinDate)) {
-        return back()->with('error', 'Tanggal check-out tidak boleh lebih kecil dari check-in');
+        return back()->with('error', 'Tanggal Check-Out Tidak Boleh Lebih Kecil dari Check-In.');
     }
 
     $totalHari = $checkinDate->diffInDays($checkoutDate);
@@ -161,7 +161,7 @@ if ($penghuni) {
 
     return redirect()
         ->route('checkout_cibiru1.index')
-        ->with('success', 'Data check-out Kost Cibiru 1 berhasil disimpan');
+        ->with('success', 'Data Check-Out Kost Cibiru 1 Berhasil Disimpan.');
    }
     /**
      * Display the specified resource.
@@ -201,7 +201,7 @@ if ($penghuni) {
     $checkin = CheckInCibiru1::where('id_checkin', $checkout->id_checkin)->first();
 
     if (!$checkin) {
-        return back()->with('error', 'Data check-in Kost Cibiru 1 tidak ditemukan');
+        return back()->with('error', 'Data Check-In Kost Cibiru 1 Tidak Ditemukan.');
     }
 
     // ===============================
@@ -211,7 +211,7 @@ if ($penghuni) {
     $checkoutDate = \Carbon\Carbon::parse($request->tgl_checkout);
 
     if ($checkoutDate->lt($checkinDate)) {
-        return back()->with('error', 'Tanggal check-out tidak boleh lebih kecil dari check-in');
+        return back()->with('error', 'Tanggal Check-Out Tidak Boleh Lebih Kecil dari Check-In.');
     }
 
     $totalHari = $checkinDate->diffInDays($checkoutDate);
@@ -271,7 +271,7 @@ if ($penghuni) {
 
     return redirect()
         ->route('checkout_cibiru1.index')
-        ->with('success', 'Data checkout Kost Cibiru 1 berhasil diperbarui');
+        ->with('success', 'Data Check-Out Kost Cibiru 1 Berhasil Diperbarui.');
 }
 
 
@@ -283,9 +283,9 @@ if ($penghuni) {
     {
         $checkout_cibiru1 = DB::table('checkout_cibiru1')->where('id_checkout', $id_checkout)->delete();
         if ($checkout_cibiru1) {
-            return redirect('checkout_cibiru1')->withSuccess('Data check-out Kost Cibiru 1 berhasil dihapus.');
+            return redirect('checkout_cibiru1')->withSuccess('Data Check-Out Kost Cibiru 1 Berhasil Dihapus.');
         } else {
-            return redirect('checkout_cibiru1')->with('error', 'Data check-out Kost Cibiru 1 gagal dihapus.');
+            return redirect('checkout_cibiru1')->with('error', 'Data Check-Out Kost Cibiru 1 Gagal Dihapus.');
         }
     }
 }

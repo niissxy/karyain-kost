@@ -63,7 +63,7 @@ class KamarCibiru2Controller extends Controller
         KamarCibiru2::create($data);
 
         return redirect()->route('kamar_cibiru2.index')
-            ->with('success', 'Data kamar Kost Cibiru 2 berhasil ditambahkan');
+            ->with('success', 'Data Kamar Kost Cibiru 2 Berhasil Ditambahkan.');
     }
 
     /**
@@ -112,9 +112,9 @@ class KamarCibiru2Controller extends Controller
         KamarCibiru2::where('id_kamar', $id_kamar)->update($data);
 
         if ($data) {
-            return redirect()->route('kamar_cibiru2.index')->with('success', 'Data kamar Kost Cibiru 2 berhasil diperbarui');
+            return redirect()->route('kamar_cibiru2.index')->with('success', 'Data Kamar Kost Cibiru 2 Berhasil Diperbarui.');
         } else {
-            return redirect()->route('kamar_cibiru2.index')->with('error', 'Data kamar Kost Cibiru 2 gagal diperbarui');
+            return redirect()->route('kamar_cibiru2.index')->with('error', 'Data Kamar Kost Cibiru 2 Gagal Diperbarui.');
         }
     }
 
@@ -125,9 +125,9 @@ class KamarCibiru2Controller extends Controller
     {
         $kamar_cibiru2 = DB::table('kamar_cibiru2')->where('id_kamar', $id_kamar)->delete();
         if ($kamar_cibiru2) {
-            return redirect('kamar_cibiru2')->withSuccess('Data kamar Kost Cibiru 2 berhasil dihapus.');
+            return redirect('kamar_cibiru2')->withSuccess('Data Kamar Kost Cibiru 2 Berhasil Dihapus.');
         } else {
-            return redirect('kamar_cibiru2')->with('error', 'Data kamar Kost Cibiru 2 gagal dihapus.');
+            return redirect('kamar_cibiru2')->with('error', 'Data Kamar Kost Cibiru 2 Gagal Dihapus.');
         }
     }
 }

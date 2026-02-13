@@ -61,7 +61,7 @@ class AsetCibiru1Controller extends Controller
         AsetCibiru1::create($data);
 
         return redirect()->route('aset_cibiru1.index')
-            ->with('success', 'Data aset Kost Cibiru 1 berhasil ditambahkan');
+            ->with('success', 'Data Aset Kost Cibiru 1 Berhasil Ditambahkan.');
     }
 
 
@@ -103,9 +103,9 @@ class AsetCibiru1Controller extends Controller
         AsetCibiru1::where('id_aset', $id_aset)->update($data);
 
         if ($data) {
-            return redirect()->route('aset_cibiru1.index')->with('success', 'Data aset Kost Cibiru 1 berhasil diperbarui');
+            return redirect()->route('aset_cibiru1.index')->with('success', 'Data Aset Kost Cibiru 1 Berhasil Diperbarui.');
         } else {
-            return redirect()->route('aset_cibiru1.index')->with('error', 'Data aset Kost Cibiru 1 gagal diperbarui');
+            return redirect()->route('aset_cibiru1.index')->with('error', 'Data Aset Kost Cibiru 1 Gagal Diperbarui.');
         }
     }
 
@@ -116,9 +116,9 @@ class AsetCibiru1Controller extends Controller
     {
         $aset_cibiru1 = DB::table('aset_kost_cibiru1')->where('id_aset', $id_aset)->delete();
         if ($aset_cibiru1) {
-            return redirect('aset_cibiru1')->withSuccess('Data aset Kost Cibiru 1 berhasil dihapus.');
+            return redirect('aset_cibiru1')->withSuccess('Data Aset Kost Cibiru 1 Berhasil Dihapus.');
         } else {
-            return redirect('aset_cibiru1')->with('error', 'Data aset Kost Cibiru 1 gagal dihapus.');
+            return redirect('aset_cibiru1')->with('error', 'Data Aset Kost Cibiru 1 Gagal Dihapus.');
         }
     }
 }

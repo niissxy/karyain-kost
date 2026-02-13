@@ -115,7 +115,7 @@ class CheckInRegol2Controller extends Controller
         ]);
 
     return redirect()->route('checkin_regol2.index')
-        ->with('success', 'Data check-in Kost Regol 2 berhasil diperbarui');
+        ->with('success', 'Data Check-In Kost Regol 2 Berhasil Diperbarui.');
     }
 
     /**
@@ -272,7 +272,7 @@ class CheckInRegol2Controller extends Controller
     });
 
     return redirect()->route('checkin_regol2.index')
-        ->with('success', 'Data check-in berhasil diperbarui');
+        ->with('success', 'Data Check-In Berhasil Diperbarui.');
 }
     /**
      * Remove the specified resource from storage.
@@ -281,9 +281,9 @@ class CheckInRegol2Controller extends Controller
     {
         $checkin_regol2 = DB::table('checkin_regol2')->where('id_checkin', $id_checkin)->delete();
         if ($checkin_regol2) {
-            return redirect('checkin_regol2')->withSuccess('Data check-in Kost Regol 2 berhasil dihapus.');
+            return redirect('checkin_regol2')->withSuccess('Data Check-In Kost Regol 2 Berhasil Dihapus.');
         } else {
-            return redirect('checkin_regol2')->with('error', 'Data check-in Kost Regol 2 gagal dihapus.');
+            return redirect('checkin_regol2')->with('error', 'Data Check-In Kost Regol 2 Gagal Dihapus.');
         }
     }
 

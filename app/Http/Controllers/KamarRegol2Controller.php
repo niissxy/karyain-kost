@@ -63,7 +63,7 @@ class KamarRegol2Controller extends Controller
         KamarRegol2::create($data);
 
         return redirect()->route('kamar_regol2.index')
-            ->with('success', 'Data kamar Kost Regol 2 berhasil ditambahkan');
+            ->with('success', 'Data Kamar Kost Regol 2 Berhasil Ditambahkan.');
     }
 
     /**
@@ -112,9 +112,9 @@ class KamarRegol2Controller extends Controller
         KamarRegol2::where('id_kamar', $id_kamar)->update($data);
 
         if ($data) {
-            return redirect()->route('kamar_regol2.index')->with('success', 'Data kamar Regol 2 berhasil diperbarui');
+            return redirect()->route('kamar_regol2.index')->with('success', 'Data Kamar Regol 2 Berhasil Diperbarui.');
         } else {
-            return redirect()->route('kamar_regol2.index')->with('error', 'Data kamar Regol 2 gagal diperbarui');
+            return redirect()->route('kamar_regol2.index')->with('error', 'Data Kamar Regol 2 Gagal Diperbarui.');
         }
     }
 
@@ -125,9 +125,9 @@ class KamarRegol2Controller extends Controller
     {
         $kamar_regol2 = DB::table('kamar_regol2')->where('id_kamar', $id_kamar)->delete();
         if ($kamar_regol2) {
-            return redirect('kamar_regol2')->withSuccess('Data kamar Kost Regol 2 berhasil dihapus.');
+            return redirect('kamar_regol2')->withSuccess('Data Kamar Kost Regol 2 Berhasil Dihapus.');
         } else {
-            return redirect('kamar_regol2')->with('error', 'Data kamar Kost Regol 2 gagal dihapus.');
+            return redirect('kamar_regol2')->with('error', 'Data Kamar Kost Regol 2 Gagal Dihapus.');
         }
     }
 }

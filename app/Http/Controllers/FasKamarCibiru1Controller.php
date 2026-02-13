@@ -68,7 +68,7 @@ class FasKamarCibiru1Controller extends Controller
         FasKamarCibiru1::create($data);
 
         return redirect()->route('faskamar_cibiru1.index')
-            ->with('success', 'Data fasilitas kamar Kost Cibiru 1 berhasil ditambahkan');
+            ->with('success', 'Data Fasilitas Kamar Kost Cibiru 1 Berhasil Ditambahkan.');
     }
 
 
@@ -116,9 +116,9 @@ class FasKamarCibiru1Controller extends Controller
         FasKamarCibiru1::where('id_fask', $id_fask)->update($data);
 
         if ($data) {
-            return redirect()->route('faskamar_cibiru1.index')->with('success', 'Data fasilitas kamar Kost Cibiru 1 berhasil diperbarui');
+            return redirect()->route('faskamar_cibiru1.index')->with('success', 'Data Fasilitas Kamar Kost Cibiru 1 Berhasil Diperbarui.');
         } else {
-            return redirect()->route('faskamar_cibiru1.index')->with('error', 'Data fasilitas kamar Kost Cibiru 1 gagal diperbarui');
+            return redirect()->route('faskamar_cibiru1.index')->with('error', 'Data Fasilitas Kamar Kost Cibiru 1 Gagal Diperbarui.');
         }
     }
 
@@ -129,9 +129,9 @@ class FasKamarCibiru1Controller extends Controller
     {
         $faskamar_cibiru1 = DB::table('fasilitas_kamar_cibiru1')->where('id_fask', $id_fask)->delete();
         if ($faskamar_cibiru1) {
-            return redirect('faskamar_cibiru1')->withSuccess('Data fasilitas kamar Kost Cibiru 1 berhasil dihapus.');
+            return redirect('faskamar_cibiru1')->withSuccess('Data Fasilitas Kamar Kost Cibiru 1 Berhasil Dihapus.');
         } else {
-            return redirect('faskamar_cibiru1')->with('error', 'Data fasilitas kamar Kost Cibiru 1 gagal dihapus.');
+            return redirect('faskamar_cibiru1')->with('error', 'Data Fasilitas Kamar Kost Cibiru 1 Gagal Dihapus.');
         }
     }
 }

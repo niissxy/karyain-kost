@@ -65,7 +65,7 @@ class PenghuniRegol2Controller extends Controller
         PenghuniRegol2::create($data);
 
         return redirect()->route('penghuni_regol2.index')
-            ->with('success', 'Data penghuni Kost Regol 2 berhasil ditambahkan');
+            ->with('success', 'Data Penghuni Kost Regol 2 Berhasil Ditambahkan.');
     }
 
     /**
@@ -111,9 +111,9 @@ class PenghuniRegol2Controller extends Controller
         PenghuniRegol2::where('id_penghuni', $id_penghuni)->update($data);
 
         if ($data) {
-            return redirect()->route('penghuni_regol2.index')->with('success', 'Data penghuni Kost Regol 2 berhasil diperbarui');
+            return redirect()->route('penghuni_regol2.index')->with('success', 'Data Penghuni Kost Regol 2 Berhasil Diperbarui.');
         } else {
-            return redirect()->route('penghuni_regol2.index')->with('error', 'Data penghuni Kost Regol 2 gagal diperbarui');
+            return redirect()->route('penghuni_regol2.index')->with('error', 'Data Penghuni Kost Regol 2 Gagal Diperbarui.');
         }
     }
 
@@ -124,9 +124,9 @@ class PenghuniRegol2Controller extends Controller
     {
         $penghuni_regol2 = DB::table('penghuni_kost_regol2')->where('id_penghuni', $id_penghuni)->delete();
         if ($penghuni_regol2) {
-            return redirect('penghuni_regol2')->withSuccess('Data penghuni Kost Regol 2 berhasil dihapus.');
+            return redirect('penghuni_regol2')->withSuccess('Data Penghuni Kost Regol 2 Berhasil Dihapus.');
         } else {
-            return redirect('penghuni_regol2')->with('error', 'Data penghuni Kost Regol 2 gagal dihapus.');
+            return redirect('penghuni_regol2')->with('error', 'Data Penghuni Kost Regol 2 Gagal Dihapus.');
         }
     }
 }
