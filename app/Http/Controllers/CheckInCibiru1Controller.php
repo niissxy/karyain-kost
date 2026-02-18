@@ -186,7 +186,7 @@ class CheckInCibiru1Controller extends Controller
         ->where('nama_penghuni', $namaLama)
         ->where('no_kamar', $noKamarLama)
         ->update([
-        'nama_penghuni'  => $request->nama_penghuni,
+        'nama_penyewa'  => $request->nama_penyewa,
         'no_kamar'       => $request->no_kamar,
         'total_penyewa'  => $request->total_penyewa,
         'nominal'        => str_replace('.', '', $request->nominal),
