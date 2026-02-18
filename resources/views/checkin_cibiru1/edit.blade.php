@@ -99,7 +99,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Total Penyewa</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" readonly value="{{ old('total-penyewa',$checkin_cibiru1->total_penyewa) }}"  name="total_penyewa"  required autofocus>
+                                    <input type="number" class="form-control" value="{{ old('total-penyewa',$checkin_cibiru1->total_penyewa) }}"  name="total_penyewa"  required autofocus>
                                 </div>
                             </div>
 
