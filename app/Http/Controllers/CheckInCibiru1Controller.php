@@ -183,10 +183,10 @@ class CheckInCibiru1Controller extends Controller
 
         // ================= UPDATE TRANSAKSI =================
         DB::table('transaksi_cibiru1')
-        ->where('nama_penghuni', $namaLama)
+        ->where('nama_penyewa', $namaLama)
         ->where('no_kamar', $noKamarLama)
         ->update([
-        'nama_penyewa'  => $request->nama_penyewa,
+        'nama_penyewa'  => $request->nama_penghuni,
         'no_kamar'       => $request->no_kamar,
         'total_penyewa'  => $request->total_penyewa,
         'nominal'        => str_replace('.', '', $request->nominal),
