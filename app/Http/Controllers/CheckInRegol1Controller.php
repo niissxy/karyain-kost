@@ -181,7 +181,7 @@ class CheckInRegol1Controller extends Controller
 
         // ================= UPDATE TRANSAKSI =================
         DB::table('transaksi_regol1')
-        ->where('nama_penghuni', $namaLama)
+        ->where('nama_penyewa', $namaLama)
         ->where('no_kamar', $noKamarLama)
         ->update([
         'nama_penyewa'  => $request->nama_penyewa,
