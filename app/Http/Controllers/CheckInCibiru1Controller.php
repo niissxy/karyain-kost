@@ -181,6 +181,19 @@ class CheckInCibiru1Controller extends Controller
             'status'        => $request->status,
         ]);
 
+        // ================= UPDATE TRANSAKSI =================
+        DB::table('transaksi_cibiru1')
+        ->where('nama_penghuni', $namaLama)
+        ->where('no_kamar', $noKamarLama)
+        ->update([
+        'nama_penghuni'  => $request->nama_penghuni,
+        'no_kamar'       => $request->no_kamar,
+        'total_penyewa'  => $request->total_penyewa,
+        'nominal'        => str_replace('.', '', $request->nominal),
+        'updated_at'     => now()
+        ]);
+
+
         // ================= UPDATE PENGHUNI (JIKA MASIH AKTIF) =================
         PenghuniCibiru1::where('nama_penghuni', $namaLama)
             ->where('penempatan_kamar', $noKamarLama)
