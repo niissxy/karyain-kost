@@ -61,8 +61,6 @@ public function create()
     return view('lapkamar_cibiru2.create', compact('lapkamar_cibiru2', 'newKode'));
 }
 
-
-
     /**
      * Store a newly created resource in storage.
      */

@@ -49,7 +49,6 @@ class FasKamarRegol1Controller extends Controller
      return view('faskamar_regol1.create', compact('asetFasilitasKamar', 'newKode'));
     }
 
-
     /**
      * Store a newly created resource in storage.
      */
@@ -69,7 +68,6 @@ class FasKamarRegol1Controller extends Controller
         return redirect()->route('faskamar_regol1.index')
             ->with('success', 'Data Fasilitas Kamar Kost Regol 1 Berhasil Ditambahkan.');
     }
-
 
     /**
      * Display the specified resource.

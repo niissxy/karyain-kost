@@ -32,7 +32,6 @@ class LapPenghuniCibiru1Controller extends Controller
     ->whereNull('tgl_keluar')
     ->count();
 
-
     // Penghuni baru (masuk bulan ini)
     $penghuniBaru = DB::table('lap_penghuni_cibiru1')
         ->whereMonth('tgl_masuk', $bulanIni)
@@ -108,8 +107,6 @@ class LapPenghuniCibiru1Controller extends Controller
     return view('lappenghuni_cibiru1.create', compact('penghuni_cibiru1', 'newKode'));
 }
 
-
-
     /**
      * Store a newly created resource in storage.
      */
@@ -142,7 +139,6 @@ class LapPenghuniCibiru1Controller extends Controller
     return redirect()->route('lappenghuni_cibiru1.index')
         ->with('success', 'Data Laporan Penghuni Kost Cibiru 1 Berhasil Ditambahkan.');
 }
-
 
     /**
      * Display the specified resource.

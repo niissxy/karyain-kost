@@ -157,8 +157,6 @@ if ($penghuni) {
         ->with('success', 'Data Check-Out Kost Regol 1 Berhasil Disimpan.');
 }
 
-
-
     /**
      * Display the specified resource.
      */
@@ -264,12 +262,10 @@ if ($penghuni) {
     }
     });
 
-
     return redirect()
         ->route('checkout_regol1.index')
         ->with('success', 'Data Check-Out Kost Regol 1 Berhasil Diperbarui.');
 }
-
 
     /**
      * Remove the specified resource from storage.

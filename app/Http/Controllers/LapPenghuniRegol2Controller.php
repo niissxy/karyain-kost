@@ -52,7 +52,6 @@ class LapPenghuniRegol2Controller extends Controller
     ));
 }
 
-
     /**
      * Show the form for creating a new resource.
      */
@@ -107,8 +106,6 @@ class LapPenghuniRegol2Controller extends Controller
     return view('lappenghuni_regol2.create', compact('penghuni_regol2', 'newKode'));
 }
 
-
-
     /**
      * Store a newly created resource in storage.
      */
@@ -137,7 +134,6 @@ class LapPenghuniRegol2Controller extends Controller
     return redirect()->route('lappenghuni_regol2.index')
         ->with('success', 'Data Laporan Penghuni Kost Regol 2 Berhasil Ditambahkan.');
 }
-
 
     /**
      * Display the specified resource.

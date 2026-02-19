@@ -65,7 +65,6 @@ class LapTransaksiCibiru2Controller extends Controller
 
     return view('laptransaksi_cibiru2.create', compact('transaksi', 'newKode'));
 
-
     }
 
     /**

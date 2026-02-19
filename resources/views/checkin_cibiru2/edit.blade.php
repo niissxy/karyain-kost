@@ -89,10 +89,17 @@
                                 </div>
                             </div>
 
-                             <div class="row mb-3">
+                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">No Kamar</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" readonly value="{{ old('no_kamar',$checkin_cibiru2->no_kamar) }}" name="no_kamar" required autofocus>
+                                    <select name="no_kamar" class="form-control" required>
+                                        @foreach($kamarKosong as $k)
+                                        <option value="{{ $k->no_kamar }}"
+                                            {{ $checkin_cibiru2->no_kamar == $k->no_kamar ? 'selected' : '' }}>
+                                            Kamar {{ $k->no_kamar }} ({{ $k->status_kamar }})
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 

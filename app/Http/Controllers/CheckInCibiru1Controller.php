@@ -134,11 +134,19 @@ class CheckInCibiru1Controller extends Controller
      */
     public function edit(string $id_checkin)
     {
+        $checkin_cibiru1 = CheckInCibiru1::where('id_checkin', $id_checkin)->firstOrFail();
+
+        $kamarKosong = KamarCibiru1::where('status_kamar', 'Kosong')
+        ->orWhere('no_kamar', $checkin_cibiru1->no_kamar)
+        ->orderBy('no_kamar', 'asc')
+        ->get();
+
         $user = User::all();
         $checkin_cibiru1 = CheckInCibiru1::where('id_checkin', $id_checkin)->first();
         return  view('checkin_cibiru1/edit', [
             'user' => $user,
-            'checkin_cibiru1' => $checkin_cibiru1
+            'checkin_cibiru1' => $checkin_cibiru1,
+            'kamarKosong' => $kamarKosong
         ]);
     }
 
@@ -180,6 +188,30 @@ class CheckInCibiru1Controller extends Controller
             'metode_pembayaran' => $request->metode_pembayaran,
             'status'        => $request->status,
         ]);
+
+        // ================= HANDLE PINDAH KAMAR =================
+        if ($noKamarLama != $request->no_kamar) {
+
+        // kamar lama jadi Kosong
+        DB::table('kamar_cibiru1')
+            ->where('no_kamar', $noKamarLama)
+            ->update(['status_kamar' => 'Kosong']);
+
+        DB::table('lap_kamar_cibiru1')
+            ->where('no_kamar', $noKamarLama)
+            ->update(['status_kamar' => 'Kosong']);
+
+        // kamar baru jadi Terisi / Booked
+        $status_kamar_baru = $request->status === 'Aktif' ? 'Terisi' : 'Booked';
+
+        DB::table('kamar_cibiru1')
+            ->where('no_kamar', $request->no_kamar)
+            ->update(['status_kamar' => $status_kamar_baru]);
+
+        DB::table('lap_kamar_cibiru1')
+            ->where('no_kamar', $request->no_kamar)
+            ->update(['status_kamar' => $status_kamar_baru]);
+        }
 
         // ================= UPDATE TRANSAKSI =================
         DB::table('transaksi_cibiru1')

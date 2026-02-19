@@ -65,7 +65,6 @@ class LapTransaksiRegol1Controller extends Controller
 
     return view('laptransaksi_regol1.create', compact('transaksi', 'newKode'));
 
-
     }
 
     /**

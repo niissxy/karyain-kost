@@ -60,8 +60,6 @@ public function create()
     return view('lapkamar_regol1.create', compact('lapkamar_regol1', 'newKode'));
 }
 
-
-
     /**
      * Store a newly created resource in storage.
      */

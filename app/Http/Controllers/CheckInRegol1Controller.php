@@ -132,11 +132,19 @@ class CheckInRegol1Controller extends Controller
      */
     public function edit(string $id_checkin)
     {
+        $checkin_regol1 = CheckInRegol1::where('id_checkin', $id_checkin)->firstOrFail();
+
+        $kamarKosong = KamarRegol1::where('status_kamar', 'Kosong')
+        ->orWhere('no_kamar', $checkin_regol1->no_kamar)
+        ->orderBy('no_kamar', 'asc')
+        ->get();
+
         $user = User::all();
         $checkin_regol1 = CheckInRegol1::where('id_checkin', $id_checkin)->first();
         return  view('checkin_regol1/edit', [
             'user' => $user,
-            'checkin_regol1' => $checkin_regol1
+            'checkin_regol1' => $checkin_regol1,
+            'kamarKosong' => $kamarKosong
         ]);
     }
 
@@ -178,6 +186,30 @@ class CheckInRegol1Controller extends Controller
             'metode_pembayaran' => $request->metode_pembayaran,
             'status'        => $request->status,
         ]);
+
+        // ================= HANDLE PINDAH KAMAR =================
+        if ($noKamarLama != $request->no_kamar) {
+
+        // kamar lama jadi Kosong
+        DB::table('kamar_regol1')
+            ->where('no_kamar', $noKamarLama)
+            ->update(['status_kamar' => 'Kosong']);
+
+        DB::table('lap_kamar_regol1')
+            ->where('no_kamar', $noKamarLama)
+            ->update(['status_kamar' => 'Kosong']);
+
+        // kamar baru jadi Terisi / Booked
+        $status_kamar_baru = $request->status === 'Aktif' ? 'Terisi' : 'Booked';
+
+        DB::table('kamar_regol1')
+            ->where('no_kamar', $request->no_kamar)
+            ->update(['status_kamar' => $status_kamar_baru]);
+
+        DB::table('lap_kamar_regol1')
+            ->where('no_kamar', $request->no_kamar)
+            ->update(['status_kamar' => $status_kamar_baru]);
+        }
 
         // ================= UPDATE TRANSAKSI =================
         DB::table('transaksi_regol1')

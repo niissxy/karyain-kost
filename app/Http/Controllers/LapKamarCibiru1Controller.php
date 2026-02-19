@@ -60,8 +60,6 @@ public function create()
     return view('lapkamar_cibiru1.create', compact('lapkamar_cibiru1', 'newKode'));
 }
 
-
-
     /**
      * Store a newly created resource in storage.
      */
@@ -93,7 +91,6 @@ public function create()
         ->route('lapkamar_cibiru1.index')
         ->with('success', 'Data Laporan Kamar Kost Cibiru 1 Berhasil Ditambahkan.');
 }
-
 
     /**
      * Display the specified resource.

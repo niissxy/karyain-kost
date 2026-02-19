@@ -156,8 +156,6 @@ if ($penghuni) {
         ->with('success', 'Data Check-Out Kost Cibiru 2 Berhasil Disimpan.');
 }
 
-
-
     /**
      * Display the specified resource.
      */
@@ -263,12 +261,10 @@ if ($penghuni) {
 }
     });
 
-
     return redirect()
         ->route('checkout_cibiru2.index')
         ->with('success', 'Data Check-Out Kost Cibiru 2 Berhasil Diperbarui');
 }
-
 
     /**
      * Remove the specified resource from storage.

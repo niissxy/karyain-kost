@@ -274,8 +274,6 @@ if ($penghuni) {
         ->with('success', 'Data Check-Out Kost Cibiru 1 Berhasil Diperbarui.');
 }
 
-
-
     /**
      * Remove the specified resource from storage.
      */

@@ -50,7 +50,6 @@ class FasKamarCibiru2Controller extends Controller
      return view('faskamar_cibiru2.create', compact('asetFasilitasKamar', 'newKode'));
     }
 
-
     /**
      * Store a newly created resource in storage.
      */
@@ -70,7 +69,6 @@ class FasKamarCibiru2Controller extends Controller
         return redirect()->route('faskamar_cibiru2.index')
             ->with('success', 'Data Fasilitas Kamar Kost Cibiru 2 Berhasil Ditambahkan.');
     }
-
 
     /**
      * Display the specified resource.

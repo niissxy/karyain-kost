@@ -46,7 +46,6 @@ class KamarCibiru1Controller extends Controller
         return view('kamar_cibiru1.create', compact('user', 'newKode'));
     }
 
-
     /**
      * Store a newly created resource in storage.
      */
@@ -68,7 +67,6 @@ class KamarCibiru1Controller extends Controller
         return redirect()->route('kamar_cibiru1.index')
             ->with('success', 'Data Kamar Kost Cibiru 1 Berhasil Ditambahkan.');
     }
-
 
     /**
      * Display the specified resource.

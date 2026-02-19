@@ -115,7 +115,7 @@ class CheckInRegol2Controller extends Controller
         ]);
 
     return redirect()->route('checkin_regol2.index')
-        ->with('success', 'Data Check-In Kost Regol 2 Berhasil Diperbarui.');
+        ->with('success', 'Data Check-In Kost Regol 2 Berhasil Ditambahkan.');
     }
 
     /**
@@ -132,11 +132,19 @@ class CheckInRegol2Controller extends Controller
      */
     public function edit(string $id_checkin)
     {
+        $checkin_regol2 = CheckInRegol2::where('id_checkin', $id_checkin)->firstOrFail();
+
+        $kamarKosong = KamarRegol2::where('status_kamar', 'Kosong')
+        ->orWhere('no_kamar', $checkin_regol2->no_kamar)
+        ->orderBy('no_kamar', 'asc')
+        ->get();
+
         $user = User::all();
         $checkin_regol2 = CheckInRegol2::where('id_checkin', $id_checkin)->first();
         return  view('checkin_regol2/edit', [
             'user' => $user,
-            'checkin_regol2' => $checkin_regol2
+            'checkin_regol2' => $checkin_regol2,
+            'kamarKosong' => $kamarKosong
         ]);
     }
 
@@ -174,11 +182,35 @@ class CheckInRegol2Controller extends Controller
             'jam_checkout'  => $request->jam_checkout,
             'nama_penghuni' => $request->nama_penghuni,
             'no_kamar'      => $request->no_kamar,
-            'total-penyewa' => $request->total_penyewa,
+            'total_penyewa' => $request->total_penyewa,
             'nominal'       => str_replace('.', '', $request->nominal),
             'metode_pembayaran' => $request->metode_pembayaran,
             'status'        => $request->status,
         ]);
+
+        // ================= HANDLE PINDAH KAMAR =================
+        if ($noKamarLama != $request->no_kamar) {
+
+        // kamar lama jadi Kosong
+        DB::table('kamar_regol2')
+            ->where('no_kamar', $noKamarLama)
+            ->update(['status_kamar' => 'Kosong']);
+
+        DB::table('lap_kamar_regol2')
+            ->where('no_kamar', $noKamarLama)
+            ->update(['status_kamar' => 'Kosong']);
+
+        // kamar baru jadi Terisi / Booked
+        $status_kamar_baru = $request->status === 'Aktif' ? 'Terisi' : 'Booked';
+
+        DB::table('kamar_regol2')
+            ->where('no_kamar', $request->no_kamar)
+            ->update(['status_kamar' => $status_kamar_baru]);
+
+        DB::table('lap_kamar_regol2')
+            ->where('no_kamar', $request->no_kamar)
+            ->update(['status_kamar' => $status_kamar_baru]);
+        }
 
         // ================= UPDATE TRANSAKSI =================
         DB::table('transaksi_regol2')
@@ -284,7 +316,7 @@ class CheckInRegol2Controller extends Controller
     });
 
     return redirect()->route('checkin_regol2.index')
-        ->with('success', 'Data Check-In Berhasil Diperbarui.');
+        ->with('success', 'Data Check-In Kost Regol 2 Berhasil Diperbarui.');
 }
     /**
      * Remove the specified resource from storage.

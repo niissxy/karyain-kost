@@ -157,8 +157,6 @@ if ($penghuni) {
         ->with('success', 'Data Check-Out Kost Regol 2 Berhasil Disimpan.');
 }
 
-
-
     /**
      * Display the specified resource.
      */

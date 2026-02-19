@@ -130,13 +130,21 @@ class CheckInCibiru2Controller extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id_checkin)
+   public function edit(string $id_checkin)
     {
+        $checkin_cibiru2 = CheckInCibiru2::where('id_checkin', $id_checkin)->firstOrFail();
+
+        $kamarKosong = KamarCibiru2::where('status_kamar', 'Kosong')
+        ->orWhere('no_kamar', $checkin_cibiru2->no_kamar)
+        ->orderBy('no_kamar', 'asc')
+        ->get();
+
         $user = User::all();
         $checkin_cibiru2 = CheckInCibiru2::where('id_checkin', $id_checkin)->first();
         return  view('checkin_cibiru2/edit', [
             'user' => $user,
-            'checkin_cibiru2' => $checkin_cibiru2
+            'checkin_cibiru2' => $checkin_cibiru2,
+            'kamarKosong' => $kamarKosong
         ]);
     }
 
@@ -178,6 +186,30 @@ class CheckInCibiru2Controller extends Controller
             'metode_pembayaran' => $request->metode_pembayaran,
             'status'        => $request->status,
         ]);
+
+        // ================= HANDLE PINDAH KAMAR =================
+        if ($noKamarLama != $request->no_kamar) {
+
+        // kamar lama jadi Kosong
+        DB::table('kamar_cibiru2')
+            ->where('no_kamar', $noKamarLama)
+            ->update(['status_kamar' => 'Kosong']);
+
+        DB::table('lap_kamar_cibiru2')
+            ->where('no_kamar', $noKamarLama)
+            ->update(['status_kamar' => 'Kosong']);
+
+        // kamar baru jadi Terisi / Booked
+        $status_kamar_baru = $request->status === 'Aktif' ? 'Terisi' : 'Booked';
+
+        DB::table('kamar_cibiru2')
+            ->where('no_kamar', $request->no_kamar)
+            ->update(['status_kamar' => $status_kamar_baru]);
+
+        DB::table('lap_kamar_cibiru2')
+            ->where('no_kamar', $request->no_kamar)
+            ->update(['status_kamar' => $status_kamar_baru]);
+        }
 
         // ================= UPDATE TRANSAKSI =================
         DB::table('transaksi_cibiru2')
