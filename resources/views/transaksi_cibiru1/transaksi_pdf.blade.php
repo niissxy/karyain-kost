@@ -5,169 +5,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice Transaksi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <style>
 
-        /* General Styles */
+    <style>
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #f4f4f9;
+            padding: 30px;
             color: #333;
-            padding: 40px;
         }
 
         .invoice-container {
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 40px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            max-width: 1000px;
+            max-width: 800px;
             margin: auto;
-            border-top: 4px solid #2e3a59;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid #2e3a59;
         }
 
-        .header-section {
+        .invoice-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .brand-image {
-            max-width: 60px;
-            height: auto;
+            align-items: flex-start;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
         }
 
         .invoice-title {
-            font-size: 15px;
-            /* font-weight: 600; */
+            font-size: 22px;
+            font-weight: 700;
             color: #2e3a59;
-            letter-spacing: 1px;
-            text-align: left;
-            text-transform: uppercase;
         }
 
-        .invoice-info p {
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-
-        .col-sm-6 {
-            margin-bottom: 20px;
-        }
-
-        /* .table {
-            max-width: 1000px;
-            margin-top: 20px;
-            border-collapse: collapse;
-            width: 50%;
-            background: #ffffff;
-            font-size: 14px;
-        }
-
-        .table th {
-            color: #000000;
-            text-align: center;
-            font-size: 14px;
-            padding: 6px;
-            text-transform: uppercase;
-        }
-
-        .table td {
-            text-align: center;
-            padding: 6px;
-            border: 1px solid #ddd;
-            font-size: 13px;
-        } */
-
-        .total-section {
+        .company-info {
             text-align: right;
-            margin-top: 25px;
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 12px;
         }
 
-        /* Print Styles */
+        .info-table td {
+            padding: 6px 0;
+            font-size: 14px;
+        }
+
+        .info-table td:first-child {
+            font-weight: 600;
+            width: 180px;
+        }
+
+        .total-box {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px dashed #ccc;
+            text-align: right;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
         @media print {
-            .btn, .mt-3 {
-                display: none;
+            body {
+                background: white;
+                padding: 0;
             }
             .invoice-container {
-                border: none;
-                padding: 10px;
                 box-shadow: none;
-            }
-            .invoice-title {
-                font-size: 10px;
-                font-weight: 600;
-                color: #2e3a59;
-                letter-spacing: 1px;
-                text-align: left;
-                text-transform: uppercase;
+                border: none;
             }
         }
     </style>
 </head>
 <body>
+
 <div class="invoice-container">
-        
-        <!-- Header -->
-        <div class="header-section">
-            <div class="header-section d-flex justify-content-end align-items-center">
-                 <div class="invoice-title">
-                    INVOICE Transaksi
-                </div>
-                <div style="font-weight: 600; font-size: 16px; text-align: right;">
-                    <strong>Karyain Kost Cibiru 1</strong><br>
-                </div>
-                <div style="font-weight: 50; font-size: 12px; text-align: right; margin-top: 20px;">
-                    <strong>Jalan Sukasari No.30, RT 02/RW 10, Pasir Biru, Kec. Cibiru, Kota Bandung, Jawa Barat 40615</strong>   
-                </div>
-            </div>
+
+    <!-- HEADER -->
+    <div class="invoice-header">
+        <div>
+            <div class="invoice-title">INVOICE TRANSAKSI</div>
+            <small>ID: {{ $transaksi->id_transaksi }}</small>
         </div>
 
-        <div class="invoice-info">
-            <div class="row">
-                <div class="col-sm-6">
-                    <strong>Tanggal Pembayaran</strong> <strong> : </strong>  
-                    <span>{{ date('d-m-Y', strtotime($transaksi->tgl_pembayaran)) }}</span>
-                </div>
-                <div class="col-sm-6">
-                    <strong>ID Transaksi</strong> <strong style="margin-left: 66px;"> : </strong>
-                    <span>{{ $transaksi->id_transaksi }}</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <strong>Nama Penyewa</strong> <strong style="margin-left: 45px;"> : </strong>
-                    <span>{{ $transaksi->nama_penyewa }}</span>                   
-                </div>
-                <div class="col-sm-6">
-                    <strong>Total Penyewa</strong> <strong style="margin-left: 50px;"> : </strong>
-                    <span>{{ $transaksi->total_penyewa }}</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <strong>No Kamar</strong> <strong style="margin-left: 85px;"> : </strong>
-                    <span>{{ $transaksi->no_kamar }}</span>                    
-                </div>
-                <div class="col-sm-6">
-                    <strong>Nominal</strong> <strong style="margin-left: 98px;"> : </strong>
-                    <span>Rp {{ number_format($transaksi->nominal, 0, ',', '.') }}</span>                    
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <strong>Status</strong> <strong style="margin-left: 113px;"> : </strong>
-                    <span>{{ $transaksi->status }}</span>                    
-                </div>
-                 <div class="col-sm-6">
-                    <strong>Metode Pembayaran</strong> <strong style="margin-left: 7px;"> : </strong>
-                    <span>{{ $transaksi->metode_pembayaran }}</span>                    
-                </div>
-            </div>
-
+        <div class="company-info">
+            <strong>Karyain Kost Cibiru 1</strong><br>
+            Jalan Sukasari No.30, RT 02/RW 10<br>
+            Pasir Biru, Kec. Cibiru, Kota Bandung<br>
+            Jawa Barat 40615
+        </div>
     </div>
+
+    <!-- INFO -->
+    <table class="table table-borderless info-table">
+        <tr>
+            <td>Tanggal Pembayaran</td>
+            <td>: {{ date('d-m-Y', strtotime($transaksi->tgl_pembayaran)) }}</td>
+        </tr>
+        <tr>
+            <td>Nama Penyewa</td>
+            <td>: {{ $transaksi->nama_penyewa }}</td>
+        </tr>
+        <tr>
+            <td>Total Penyewa</td>
+            <td>: {{ $transaksi->total_penyewa }}</td>
+        </tr>
+        <tr>
+            <td>No Kamar</td>
+            <td>: {{ $transaksi->no_kamar }}</td>
+        </tr>
+        <tr>
+            <td>Status Pembayaran</td>
+            <td>: {{ $transaksi->status }}</td>
+        </tr>
+        <tr>
+            <td>Metode Pembayaran</td>
+            <td>: {{ $transaksi->metode_pembayaran }}</td>
+        </tr>
+        <tr>
+            <td>Nominal</td>
+            <td>: <strong>Rp {{ number_format($transaksi->nominal, 0, ',', '.') }}</strong></td>
+        </tr>
+    </table>
+
+    <!-- TOTAL -->
+    <div class="total-box">
+        Total Pembayaran: Rp {{ number_format($transaksi->nominal, 0, ',', '.') }}
+    </div>
+
+</div>
+
 </body>
 </html>
