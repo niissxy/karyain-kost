@@ -91,7 +91,7 @@ table {
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th class="bg-body-secondary-">No</th>
+                                <th class="bg-body-secondary">No</th>
                                 <th class="bg-body-secondary">ID Aset</th>
                                 <th class="bg-body-secondary">Nama Aset</th>
                                 <th class="bg-body-secondary">Kategori</th>
