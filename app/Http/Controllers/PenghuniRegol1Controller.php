@@ -95,17 +95,27 @@ class PenghuniRegol1Controller extends Controller
     public function update(Request $request, string $id_penghuni)
     {
         $data = [
-            'id_penghuni' => $request->id_penghuni,
-            'nama_penghuni' => $request->nama_penghuni,
-            'status_penghuni' => $request->status_penghuni,
+            'id_penghuni'      => $request->id_penghuni,
+            'nama_penghuni'    => $request->nama_penghuni,
+            'status_penghuni'  => $request->status_penghuni,
             'penempatan_kamar' => $request->penempatan_kamar,
-            'alamat' => $request->alamat,
-            'kontak' => $request->kontak,
-            'tgl_masuk' => $request->tgl_masuk,
-            'tgl_keluar' => $request->tgl_keluar,
-            'status' => $request->status,
-            'updated_at' => now(), // Waktu diperbarui saat ini/ Nama pembuat
+            'alamat'           => $request->alamat,
+            'kontak'           => $request->kontak,
+            'tgl_masuk'        => $request->tgl_masuk,
+            'tgl_keluar'       => $request->tgl_keluar,
+            'status'           => $request->status,
+            'updated_at'       => now(), // Waktu diperbarui saat ini/ Nama pembuat
         ];
+
+        // Update tabel laporan penghuni
+        DB::table('lap_penghuni_regol1')
+            ->where('id_penghuni', $id_penghuni)
+            ->update([
+                'status_penghuni' => $request->status_penghuni,
+                'tgl_keluar'      => $request->tgl_keluar,
+                'status'          => $request->status,
+                'updated_at'      => now(),
+            ]);
 
         PenghuniRegol1::where('id_penghuni', $id_penghuni)->update($data);
 

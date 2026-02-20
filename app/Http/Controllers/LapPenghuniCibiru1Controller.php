@@ -24,25 +24,23 @@ class LapPenghuniCibiru1Controller extends Controller
     $bulanIni = Carbon::now()->month;
     $tahunIni = Carbon::now()->year;
 
-     // DATA TABEL
-    $lappenghuni_cibiru1 = LapPenghuniCibiru1::all();
-
     // Total penghuni aktif
-   $totalPenghuniAktif = DB::table('lap_penghuni_cibiru1')
-    ->whereNull('tgl_keluar')
-    ->count();
+    $totalPenghuniAktif = DB::table('lap_penghuni_cibiru1')
+        ->whereNull('tgl_keluar')
+        ->count();
 
-    // Penghuni baru (masuk bulan ini)
+    // Penghuni baru (masuk bulan ini DAN masih aktif)
     $penghuniBaru = DB::table('lap_penghuni_cibiru1')
         ->whereMonth('tgl_masuk', $bulanIni)
         ->whereYear('tgl_masuk', $tahunIni)
+        ->whereNull('tgl_keluar')
         ->count();
 
-    // Penghuni keluar
-   $penghuniKeluar = DB::table('lap_penghuni_cibiru1')
-    ->whereNotNull('tgl_keluar')
-    ->count();
-
+    // Penghuni keluar (keluar bulan ini)
+    $penghuniKeluar = DB::table('lap_penghuni_cibiru1')
+        ->whereMonth('tgl_keluar', $bulanIni)
+        ->whereYear('tgl_keluar', $tahunIni)
+        ->count();
 
     return view('lappenghuni_cibiru1.index', compact(
         'lappenghuni_cibiru1',
@@ -60,7 +58,7 @@ class LapPenghuniCibiru1Controller extends Controller
         $lastKode = LapPenghuniCibiru1::latest()->first();
 
         if ($lastKode) {
-            $lastNumber = (int) substr($lastKode->id_aset, 3);
+            $lastNumber = (int) substr($lastKode->id_lappenghuni, 3);
             $newNumber = $lastNumber + 1;
         } else {
             $newNumber = 1;
@@ -77,29 +75,31 @@ class LapPenghuniCibiru1Controller extends Controller
             'p.status_penghuni',
             'p.tgl_masuk',
             'p.tgl_keluar',
-        DB::raw("
-        CONCAT(
-        TIMESTAMPDIFF(
-            MONTH,
-            p.tgl_masuk,
-            COALESCE(p.tgl_keluar, CURDATE())
-        ),
-        ' Bulan ',
-        DATEDIFF(
-            COALESCE(p.tgl_keluar, CURDATE()),
-            DATE_ADD(
-                p.tgl_masuk,
-                INTERVAL TIMESTAMPDIFF(
-                    MONTH,
-                    p.tgl_masuk,
-                    COALESCE(p.tgl_keluar, CURDATE())
-                ) MONTH
-            )
-        ),
-        ' Hari'
-    ) as durasi_sewa
-    "),
-
+    //     DB::raw("
+    //     CASE 
+    //     WHEN p.tgl_keluar IS NULL OR p.tgl_keluar = '' THEN ''
+    //     ELSE CONCAT(
+    //     TIMESTAMPDIFF(
+    //         MONTH,
+    //         p.tgl_masuk,
+    //         p.tgl_keluar
+    //     ),
+    //     ' Bulan ',
+    //         DATEDIFF(
+    //             p.tgl_keluar,
+    //             DATE_ADD(
+    //             p.tgl_masuk,
+    //             INTERVAL TIMESTAMPDIFF(
+    //                 MONTH,
+    //                 p.tgl_masuk,
+    //                 p.tgl_keluar
+    //             ) MONTH
+    //         )
+    //     ),
+    //     ' Hari'
+    // )
+    // END as durasi_sewa
+    // "),
     'p.status'
         )
     ->get();
@@ -114,26 +114,24 @@ class LapPenghuniCibiru1Controller extends Controller
 {
     $request->validate([
         'id_lappenghuni' => 'required',
-        'id_penghuni'         => 'required',
-        'nama_penghuni'       => 'required',
-        'status_penghuni' => 'required',
-        'tgl_masuk'           => 'required|date',
-        'tgl_keluar'          => 'nullable',
-        'durasi_sewa'          => 'required',
-        'status'     => 'required',
+        'id_penghuni'    => 'required',
+        'nama_penghuni'  => 'required',
+        'status_penghuni'=> 'nullable',
+        'tgl_masuk'      => 'required|date',
+        'tgl_keluar'     => 'nullable',
+        'status'         => 'required',
     ]);
 
     DB::table('lap_penghuni_cibiru1')->insert([
-        'id_lappenghuni' => $request->id_lappenghuni,
-        'id_penghuni'        => $request->id_penghuni,
-        'nama_penghuni'      => $request->nama_penghuni,
+        'id_lappenghuni'  => $request->id_lappenghuni,
+        'id_penghuni'     => $request->id_penghuni,
+        'nama_penghuni'   => $request->nama_penghuni,
         'status_penghuni' => $request->status_penghuni,
-        'tgl_masuk'          => $request->tgl_masuk,
-        'tgl_keluar'         => $request->tgl_keluar,
-        'durasi_sewa'         => $request->durasi_sewa,
-        'status'             => $request->status,
-        'created_at'         => now(),
-        'user_id'       => Auth::id(),
+        'tgl_masuk'       => $request->tgl_masuk,
+        'tgl_keluar'      => $request->tgl_keluar ?: null,
+        'status'          => $request->status,
+        'created_at'      => now(),
+        'user_id'         => Auth::id(),
     ]);
 
     return redirect()->route('lappenghuni_cibiru1.index')

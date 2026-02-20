@@ -65,8 +65,8 @@
                         data-status-penghuni="{{ $p->status_penghuni }}"
                         data-tglmasuk="{{ $p->tgl_masuk }}"
                         data-tglkeluar="{{ $p->tgl_keluar }}"
-                        data-durasi="{{ $p->durasi_sewa }}"
-                        data-status="{{ $p->status }}">
+                        data-status="{{ $p->status }}"
+                        >
                         {{ $p->id_penghuni }} - {{ $p->nama_penghuni }}
                     </option>
                         @endforeach
@@ -102,12 +102,12 @@
             </div>
         </div>
 
-        <div class="row mb-3">
+        <!-- <div class="row mb-3">
             <label class="col-sm-3 col-form-label">Durasi Sewa</label>
             <div class="col-sm-9">
-                <input class="form-control" id="durasi_sewa" name="durasi_sewa" readonly type="text">
+                <input class="form-control" id="durasi_sewa" name="durasi_sewa" readonly type="text" value="">
             </div>
-        </div>
+        </div> -->
 
         <div class="row mb-3">
             <label class="col-sm-3 col-form-label">Status</label>
@@ -134,58 +134,95 @@
 </section>
 
 <script>
-document.getElementById('id_penghuni').addEventListener('change', function () {
-    const selected = this.options[this.selectedIndex];
-
-    document.getElementById('nama_penghuni').value =
-        selected.getAttribute('data-nama') || '';
-
-     document.getElementById('status_penghuni').value =
-        selected.getAttribute('data-status-penghuni') || '';
-
-    document.getElementById('tgl_masuk').value =
-        selected.getAttribute('data-tglmasuk') || '';
-
-    document.getElementById('tgl_keluar').value =
-        selected.getAttribute('data-tglkeluar') || '';
-
-    document.getElementById('durasi_sewa').value =
-        selected.getAttribute('data-durasi') || '';
-
-    document.getElementById('status').value =
-        selected.getAttribute('data-status') || '';
-
-});
-
 document.addEventListener('DOMContentLoaded', function () {
+    const idPenghuni = document.getElementById('id_penghuni');
+    const nama = document.getElementById('nama_penghuni');
+    const statusPenghuni = document.getElementById('status_penghuni');
     const tglMasuk = document.getElementById('tgl_masuk');
     const tglKeluar = document.getElementById('tgl_keluar');
-    const durasi = document.getElementById('durasi_sewa');
+    const status = document.getElementById('status');
 
-    function hitungDurasi() {
-        if (tglMasuk.value && tglKeluar.value) {
-            const masuk = new Date(tglMasuk.value);
-            const keluar = new Date(tglKeluar.value);
+    // function hitungDurasi() {
+    //     // jika tanggal keluar kosong → kosongkan durasi
+    //     if (!tglMasuk.value || !tglKeluar.value) {
+    //         durasi.value = '';
+    //         return;
+    //     }
 
-            let bulan =
-                (keluar.getFullYear() - masuk.getFullYear()) * 12 +
-                (keluar.getMonth() - masuk.getMonth());
+    //     const masuk = new Date(tglMasuk.value);
+    //     const keluar = new Date(tglKeluar.value);
 
-            if (keluar.getDate() < masuk.getDate()) {
-                bulan--;
-            }
+    //     let bulan =
+    //         (keluar.getFullYear() - masuk.getFullYear()) * 12 +
+    //         (keluar.getMonth() - masuk.getMonth());
 
-            durasi.value = bulan > 0 ? bulan + ' bulan' : 'Kurang dari 1 bulan';
-        } else {
-            durasi.value = '';
-        }
-    }
+    //     if (keluar.getDate() < masuk.getDate()) {
+    //         bulan--;
+    //     }
 
-    tglMasuk.addEventListener('change', hitungDurasi);
-    tglKeluar.addEventListener('change', hitungDurasi);
+    //     durasi.value = bulan > 0 ? bulan + ' bulan' : 'Kurang dari 1 bulan';
+    // }
+
+    idPenghuni.addEventListener('change', function () {
+        const selected = this.options[this.selectedIndex];
+
+        nama.value = selected.dataset.nama || '';
+        statusPenghuni.value = selected.dataset.statusPenghuni || '';
+        tglMasuk.value = selected.dataset.tglmasuk || '';
+        tglKeluar.value = selected.dataset.tglkeluar || '';
+        status.value = selected.dataset.status || '';
+
+        // durasi.value = '';
+
+        // hitungDurasi();
+    });
+
+    // tglMasuk.addEventListener('change', hitungDurasi);
+    // tglKeluar.addEventListener('change', hitungDurasi);
 });
-</script>
+// document.addEventListener('DOMContentLoaded', function () {
+//     const tglMasuk = document.getElementById('tgl_masuk');
+//     const tglKeluar = document.getElementById('tgl_keluar');
+//     const durasi = document.getElementById('durasi_sewa');
 
+//     function hitungDurasi() {
+//         if (!tglMasuk.value || !tglKeluar.value) {
+//             durasi.value = '';
+//             return;
+//         }
+
+//         const masuk = new Date(tglMasuk.value);
+//         const keluar = new Date(tglKeluar.value);
+
+//         if (keluar < masuk) {
+//             durasi.value = '';
+//             return;
+//         }
+
+//         let tahun = keluar.getFullYear() - masuk.getFullYear();
+//         let bulan = keluar.getMonth() - masuk.getMonth();
+//         let hari = keluar.getDate() - masuk.getDate();
+
+//         if (hari < 0) {
+//             bulan--;
+//             const lastMonth = new Date(keluar.getFullYear(), keluar.getMonth(), 0);
+//             hari += lastMonth.getDate();
+//         }
+
+//         if (bulan < 0) {
+//             tahun--;
+//             bulan += 12;
+//         }
+
+//         const totalBulan = tahun * 12 + bulan;
+
+//         durasi.value = totalBulan + " Bulan " + hari + " Hari";
+//     }
+
+//     tglMasuk.addEventListener('change', hitungDurasi);
+//     tglKeluar.addEventListener('change', hitungDurasi);
+// });
+</script>
 
 </main> 
 @endsection

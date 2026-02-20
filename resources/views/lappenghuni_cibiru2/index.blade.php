@@ -19,7 +19,6 @@ body {
     padding: 20px 24px;
 }
 
-/* ===== WRAPPER TENGAH (SATU-SATUNYA) ===== */
 .center-wrapper {
     max-width: 1250px;
     margin: 0 auto;
@@ -65,7 +64,7 @@ body {
 .table-card {
     width: 100%;
     max-width: 1250px;
-    margin: 0 auto; /* 🔑 KUNCI TENGAH */
+    margin: 0 auto;
 }
 
 /* ===== TABLE RESET ===== */
@@ -184,7 +183,6 @@ body {
                                     <th class="bg-body-secondary">Status Penghuni</th>
                                     <th class="bg-body-secondary">Tanggal Masuk</th>
                                     <th class="bg-body-secondary">Tanggal Keluar</th>
-                                    <th class="bg-body-secondary">Durasi Sewa</th>
                                     <th class="bg-body-secondary">Status</th>
                                     <th class="bg-body-secondary">User</th>
                                     <th class="text-center bg-body-secondary">Action</th>
@@ -200,7 +198,13 @@ body {
                                     <td>{{ $item->status_penghuni }}</td>
                                     <td>{{ $item->tgl_masuk }}</td>
                                     <td>{{ $item->tgl_keluar }}</td>
-                                    <td>{{ $item->durasi_sewa }}</td>
+                                    <!-- <td>
+                                        @if($item->tgl_keluar)
+                                            {{ $item->durasi_sewa }}
+                                        @else
+                                            -
+                                        @endif
+                                    </td> -->
                                     <td>{{ $item->status }}</td>
                                      <td>{{ $item->user->name ?? '-' }}</td>
                                      <td style="text-align: center; vertical-align: middle;">
