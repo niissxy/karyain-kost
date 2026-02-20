@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 
+use function Symfony\Component\Clock\now;
+
 class CheckInRegol2Controller extends Controller
 {
     /**
@@ -297,6 +299,15 @@ class CheckInRegol2Controller extends Controller
                 ->update([
                     'status' => 'Keluar kost',
                     'tgl_keluar' => $tglCheckout
+                ]);
+
+            DB::table('lap_penghuni_regol2')
+                ->where('nama_penghuni', $request->nama_penghuni)
+                ->where('status', 'Masih di kost')
+                ->update([
+                    'status' => 'Keluar kost',
+                    'tgl_keluar' => $tglCheckout,
+                    'updated_at' => now(),
                 ]);
         }
 

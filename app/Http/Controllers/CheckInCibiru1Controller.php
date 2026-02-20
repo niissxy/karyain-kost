@@ -300,6 +300,15 @@ class CheckInCibiru1Controller extends Controller
                     'status' => 'Keluar kost',
                     'tgl_keluar' => $tglCheckout
                 ]);
+
+            DB::table('lap_penghuni_cibiru1')
+                ->where('nama_penghuni', $request->nama_penghuni)
+                ->where('status', 'Masih di kost')
+                ->update([
+                    'status' => 'Keluar Kost',
+                    'tgl_keluar' => $tglCheckout,
+                    'updated_at' => now()
+                ]);
         }
 
         // ================= JIKA BUKAN CHECK OUT =================
