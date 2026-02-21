@@ -225,6 +225,17 @@ class CheckInRegol1Controller extends Controller
         'updated_at'     => now()
         ]);
 
+        DB::table('lap_transaksi_regol1')
+            ->where('nama_penghuni', $namaLama)
+            ->where('no_kamar', $noKamarLama)
+            ->update([
+                'nama_penghuni' => $request->nama_penghuni,
+                'no_kamar' => $request->no_kamar,
+                'nominal' => str_replace('.', '', $request->nominal),
+                'updated_at' => now(),
+            ]);
+
+
         // ================= UPDATE PENGHUNI (JIKA MASIH AKTIF) =================
         PenghuniRegol1::where('nama_penghuni', $namaLama)
             ->where('penempatan_kamar', $noKamarLama)
@@ -232,6 +243,14 @@ class CheckInRegol1Controller extends Controller
             ->update([
                 'nama_penghuni' => $request->nama_penghuni,
                 'penempatan_kamar' => $request->no_kamar,
+            ]);
+
+        DB::table('lap_penghuni_regol1')
+            ->where('nama_penghuni', $namaLama)
+            ->where('status', 'Masih di kost')
+            ->update([
+                'nama_penghuni' => $request->nama_penghuni,
+                'updated_at' => now()
             ]);
 
         // ================= JIKA CHECK OUT =================

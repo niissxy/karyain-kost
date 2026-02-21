@@ -14,6 +14,8 @@ use Psy\ManualUpdater\Checker;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 
+use function Symfony\Component\Clock\now;
+
 class CheckInCibiru1Controller extends Controller
 {
     public function __construct()
@@ -225,6 +227,15 @@ class CheckInCibiru1Controller extends Controller
         'updated_at'     => now()
         ]);
 
+        DB::table('lap_transaksi_cibiru1')
+            ->where('nama_penghuni', $namaLama)
+            ->where('no_kamar', $noKamarLama)
+            ->update([
+                'nama_penghuni' => $request->nama_penghuni,
+                'no_kamar' => $request->no_kamar,
+                'nominal' => str_replace('.', '', $request->nominal),
+                'updated_at' => now(),
+            ]);
 
         // ================= UPDATE PENGHUNI (JIKA MASIH AKTIF) =================
         PenghuniCibiru1::where('nama_penghuni', $namaLama)
@@ -233,6 +244,14 @@ class CheckInCibiru1Controller extends Controller
             ->update([
                 'nama_penghuni' => $request->nama_penghuni,
                 'penempatan_kamar' => $request->no_kamar,
+            ]);
+
+        DB::table('lap_penghuni_cibiru1')
+            ->where('nama_penghuni', $namaLama)
+            ->where('status', 'Masih di kost')
+            ->update([
+                'nama_penghuni' => $request->nama_penghuni,
+                'updated_at' => now()
             ]);
 
         // ================= JIKA CHECK OUT =================
