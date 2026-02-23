@@ -114,6 +114,7 @@ class TransaksiRegol2Controller extends Controller
         DB::table('lap_transaksi_regol2')
             ->where('id_transaksi', $id_transaksi)
             ->update([
+                'tgl_pembayaran' => $request->tgl_pembayaran,
                 'status_pembayaran' => $request->status,
                 'updated_at'        => now(),
             ]);
