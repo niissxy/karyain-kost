@@ -58,7 +58,7 @@
             <div class="col-sm-9">
                 <select name="id_penghuni" id="id_penghuni" class="form-select mb-3" required>
                     <option value="">-- Pilih Data Penghuni --</option>
-                        @foreach ($penghuni_regol1 as $p)
+                        @foreach ($penghuni_regol2 as $p)
                     <option 
                         value="{{ $p->id_penghuni }}"
                         data-nama="{{ $p->nama_penghuni }}"
