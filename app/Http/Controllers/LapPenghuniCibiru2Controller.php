@@ -58,7 +58,7 @@ class LapPenghuniCibiru2Controller extends Controller
          $lastKode = LapPenghuniCibiru2::latest()->first();
 
         if ($lastKode) {
-            $lastNumber = (int) substr($lastKode->id_aset, 3);
+            $lastNumber = (int) substr($lastKode->id_lappenghuni, 3);
             $newNumber = $lastNumber + 1;
         } else {
             $newNumber = 1;
