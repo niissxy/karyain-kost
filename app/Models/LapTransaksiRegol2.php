@@ -10,7 +10,7 @@ class LapTransaksiRegol2 extends Model
     protected $fillable = [
         'id_laptransaksi',
         'id_transaksi',
-        'nama_penghuni', 
+        'nama_penyewa', 
         'no_kamar', 
         'nominal', 
         'metode_pembayaran',

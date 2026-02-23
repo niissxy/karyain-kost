@@ -78,9 +78,9 @@
 
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Nama Penghuni</label>
+                                <label class="col-sm-3 col-form-label">Nama Penyewa</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" id="nama_penghuni" name="nama_penghuni" readonly required value="{{ old('nama_penghuni') }}">
+                                    <input class="form-control" id="nama_penyewa" name="nama_penyewa" readonly required value="{{ old('nama_penyewa') }}">
                                 </div>
                             </div>
 
@@ -108,14 +108,14 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Tanggal Pembayaran</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" id="tgl_pembayaran" name="tgl_pembayaran" readonly type="date" required>
+                                    <input class="form-control" id="tgl_pembayaran" name="tgl_pembayaran" readonly type="date">
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label">Status Pembayaran</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" id="status_pembayaran" name="status_pembayaran" readonly type="text" required>
+                                    <input class="form-control" id="status_pembayaran" name="status_pembayaran" readonly type="text">
                                 </div>
                             </div>
 
@@ -137,7 +137,7 @@
 document.getElementById('id_transaksi').addEventListener('change', function () {
     const selected = this.options[this.selectedIndex];
 
-    document.getElementById('nama_penghuni').value =
+    document.getElementById('nama_penyewa').value =
         selected.getAttribute('data-nama') || '';
 
     document.getElementById('no_kamar').value =

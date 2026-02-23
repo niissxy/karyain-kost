@@ -41,7 +41,7 @@ class LapTransaksiRegol2Controller extends Controller
         $lastKode = LapTransaksiRegol2::latest()->first();
 
         if ($lastKode) {
-            $lastNumber = (int) substr($lastKode->id_aset, 3);
+            $lastNumber = (int) substr($lastKode->id_laptransaksi, 3);
             $newNumber = $lastNumber + 1;
         } else {
             $newNumber = 1;
@@ -75,18 +75,18 @@ class LapTransaksiRegol2Controller extends Controller
         $request->validate([
             'id_laptransaksi' => 'required',
             'id_transaksi' => 'required',
-            'nama_penghuni' => 'required',
+            'nama_penyewa' => 'required',
             'no_kamar' => 'required',
             'nominal' => 'required',
             'metode_pembayaran' =>'required',
-            'tgl_pembayaran' => 'required',
-            'status_pembayaran' => 'required', 
+            'tgl_pembayaran' => 'nullable',
+            'status_pembayaran' => 'nullable', 
         ]);
 
         DB::table('lap_transaksi_regol2')->insert([
         'id_laptransaksi' => $request->id_laptransaksi,
         'id_transaksi'       => $request->id_transaksi,
-        'nama_penghuni'      => $request->nama_penghuni,
+        'nama_penyewa'      => $request->nama_penyewa,
         'no_kamar'           => $request->no_kamar,
         'nominal'            => $request->nominal,
         'metode_pembayaran' => $request->metode_pembayaran,

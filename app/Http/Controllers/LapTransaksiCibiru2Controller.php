@@ -41,7 +41,7 @@ class LapTransaksiCibiru2Controller extends Controller
         $lastKode = LapTransaksiCibiru2::latest()->first();
 
         if ($lastKode) {
-            $lastNumber = (int) substr($lastKode->id_aset, 3);
+            $lastNumber = (int) substr($lastKode->id_laptransaksi, 3);
             $newNumber = $lastNumber + 1;
         } else {
             $newNumber = 1;
@@ -75,18 +75,18 @@ class LapTransaksiCibiru2Controller extends Controller
         $request->validate([
             'id_laptransaksi' => 'required',
             'id_transaksi' => 'required',
-            'nama_penghuni' => 'required',
+            'nama_penyewa' => 'required',
             'no_kamar' => 'required',
             'nominal' => 'required',
             'metode_pembayaran' => 'required',
-            'tgl_pembayaran' => 'required',
-            'status_pembayaran' => 'required',
+            'tgl_pembayaran' => 'nullable',
+            'status_pembayaran' => 'nullable',
         ]);
 
         DB::table('lap_transaksi_cibiru2')->insert([
         'id_laptransaksi' => $request->id_laptransaksi,
         'id_transaksi'       => $request->id_transaksi,
-        'nama_penghuni'      => $request->nama_penghuni,
+        'nama_penyewa'      => $request->nama_penyewa,
         'no_kamar'           => $request->no_kamar,
         'nominal'            => str_replace('.', '', $request->nominal),
         'metode_pembayaran' => $request->metode_pembayaran,
@@ -129,11 +129,11 @@ class LapTransaksiCibiru2Controller extends Controller
      */
     public function destroy(string $id_laptransaksi)
     {
-        $laptransaki_cibiru2 = DB::table('lap_transaksi_cibiru1')->where('id_laptransaksi', $id_laptransaksi)->delete();
-        if ($laptransaki_cibiru2) {
+        $laptransaksi_cibiru2 = DB::table('lap_transaksi_cibiru2')->where('id_laptransaksi', $id_laptransaksi)->delete();
+        if ($laptransaksi_cibiru2) {
             return redirect('laptransaksi_cibiru2')->withSuccess('Data Laporan Transaksi Kost Cibiru 2 Berhasil Dihapus.');
         } else {
-            return redirect('laptransaki_cibiru2')->with('error', 'Data Laporan Transaksi Kost Cibiru 2 Gagal Dihapus.');
+            return redirect('laptransaksi_cibiru2')->with('error', 'Data Laporan Transaksi Kost Cibiru 2 Gagal Dihapus.');
         }
     }
 }

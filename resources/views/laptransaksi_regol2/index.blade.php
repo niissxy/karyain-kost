@@ -163,7 +163,7 @@ body {
                                     <th class="bg-body-secondary">No</th>
                                     <th class="bg-body-secondary">ID Laporan</th>
                                     <th class="bg-body-secondary">ID Transaksi</th>
-                                    <th class="bg-body-secondary">Nama Penghuni</th>
+                                    <th class="bg-body-secondary">Nama Penyewa</th>
                                     <th class="bg-body-secondary">No Kamar</th>
                                     <th class="bg-body-secondary">Nominal</th>
                                     <th class="bg-body-secondary">Metode Pembayaran</th>
@@ -179,7 +179,7 @@ body {
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->id_laptransaksi }}</td>
                                     <td>{{ $item->id_transaksi }}</td>
-                                    <td>{{ $item->nama_penghuni }}</td>
+                                    <td>{{ $item->nama_penyewa }}</td>
                                     <td>{{ $item->no_kamar }}</td>
                                      <td>Rp {{ number_format($item->nominal, 0, ',', '.') }}</td>
                                      <td>{{ $item->metode_pembayaran }}</td>
