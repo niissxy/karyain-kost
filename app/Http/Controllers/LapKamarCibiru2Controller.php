@@ -47,7 +47,7 @@ public function create()
      $lastKode = LapKamarCibiru2::latest()->first();
 
         if ($lastKode) {
-            $lastNumber = (int) substr($lastKode->id_aset, 3);
+            $lastNumber = (int) substr($lastKode->id_lapkamar, 3);
             $newNumber = $lastNumber + 1;
         } else {
             $newNumber = 1;
@@ -72,7 +72,7 @@ public function create()
             'no_kamar'     => 'required',
             'tipe_kamar'   => 'required',
             'status_kamar' => 'required',
-            'harga_harian'        => 'required|numeric',
+            'harga_harian'  => 'required|numeric',
             'harga_bulanan' => 'required|numeric',
         ]);
 

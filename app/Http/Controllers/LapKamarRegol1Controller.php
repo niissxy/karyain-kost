@@ -46,7 +46,7 @@ public function create()
      $lastKode = LapKamarRegol1::latest()->first();
 
         if ($lastKode) {
-            $lastNumber = (int) substr($lastKode->id_aset, 3);
+            $lastNumber = (int) substr($lastKode->id_lapkamar, 3);
             $newNumber = $lastNumber + 1;
         } else {
             $newNumber = 1;

@@ -139,8 +139,11 @@ document.getElementById('id_kamar').addEventListener('change', function () {
     document.getElementById('status_kamar').value =
         selected.getAttribute('data-status') || '';
 
-    document.getElementById('harga').value =
-        selected.getAttribute('data-harga') || '';
+    document.getElementById('harga_harian').value =
+        selected.getAttribute('data-harga-harian') || '';
+
+    document.getElementById('harga_bulanan').value =
+        selected.getAttribute('data-harga-bulanan') || '';
 
 });
 </script>
