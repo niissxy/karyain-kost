@@ -75,32 +75,32 @@ class LapPenghuniCibiru2Controller extends Controller
             'p.status_penghuni',
             'p.tgl_masuk',
             'p.tgl_keluar',
-    //     DB::raw("
-    //     CASE 
-    //     WHEN p.tgl_keluar IS NULL OR p.tgl_keluar = '' THEN ''
-    //     ELSE CONCAT(
-    //     TIMESTAMPDIFF(
-    //         MONTH,
-    //         p.tgl_masuk,
-    //         p.tgl_keluar
-    //     ),
-    //     ' Bulan ',
-    //         DATEDIFF(
-    //             p.tgl_keluar,
-    //             DATE_ADD(
-    //             p.tgl_masuk,
-    //             INTERVAL TIMESTAMPDIFF(
-    //                 MONTH,
-    //                 p.tgl_masuk,
-    //                 p.tgl_keluar
-    //             ) MONTH
-    //         )
-    //     ),
-    //     ' Hari'
-    // )
-    // END as durasi_sewa
-    // "),
-    'p.status'
+            DB::raw("
+            CASE 
+            WHEN p.tgl_keluar IS NULL OR p.tgl_keluar = '' THEN ''
+            ELSE CONCAT(
+            TIMESTAMPDIFF(
+            MONTH,
+                p.tgl_masuk,
+                p.tgl_keluar
+            ),
+            ' Bulan ',
+            DATEDIFF(
+                p.tgl_keluar,
+                DATE_ADD(
+                p.tgl_masuk,
+                INTERVAL TIMESTAMPDIFF(
+                    MONTH,
+                    p.tgl_masuk,
+                    p.tgl_keluar
+                ) MONTH
+            )
+            ),
+            ' Hari'
+        )
+            END as durasi_sewa
+        "),
+            'p.status'
         )
     ->get();
     return view('lappenghuni_cibiru2.create', compact('penghuni_cibiru2', 'newKode'));
@@ -118,6 +118,7 @@ class LapPenghuniCibiru2Controller extends Controller
         'status_penghuni' => 'nullable',
         'tgl_masuk'       => 'required|date',
         'tgl_keluar'      => 'nullable',
+        'durasi_sewa'     => 'nullable',
         'status'          => 'required',
     ]);
 
@@ -128,6 +129,7 @@ class LapPenghuniCibiru2Controller extends Controller
         'status_penghuni' => $request->status_penghuni,
         'tgl_masuk'       => $request->tgl_masuk,
         'tgl_keluar'      => $request->tgl_keluar ?: null,
+        'durasi_sewa'     => $request->tgl_keluar ? $request->durasi_sewa : null,
         'status'          => $request->status,
         'created_at'      => now(),
         'user_id'         => Auth::id(),

@@ -102,12 +102,12 @@
             </div>
         </div>
 
-        <!-- <div class="row mb-3">
+        <div class="row mb-3">
             <label class="col-sm-3 col-form-label">Durasi Sewa</label>
             <div class="col-sm-9">
                 <input class="form-control" id="durasi_sewa" name="durasi_sewa" readonly type="text" value="">
             </div>
-        </div> -->
+        </div>
 
         <div class="row mb-3">
             <label class="col-sm-3 col-form-label">Status</label>
@@ -142,26 +142,26 @@ document.addEventListener('DOMContentLoaded', function () {
     const tglKeluar = document.getElementById('tgl_keluar');
     const status = document.getElementById('status');
 
-    // function hitungDurasi() {
-    //     // jika tanggal keluar kosong → kosongkan durasi
-    //     if (!tglMasuk.value || !tglKeluar.value) {
-    //         durasi.value = '';
-    //         return;
-    //     }
+    function hitungDurasi() {
+        // jika tanggal keluar kosong → kosongkan durasi
+        if (!tglMasuk.value || !tglKeluar.value) {
+            durasi.value = '';
+            return;
+        }
 
-    //     const masuk = new Date(tglMasuk.value);
-    //     const keluar = new Date(tglKeluar.value);
+        const masuk = new Date(tglMasuk.value);
+        const keluar = new Date(tglKeluar.value);
 
-    //     let bulan =
-    //         (keluar.getFullYear() - masuk.getFullYear()) * 12 +
-    //         (keluar.getMonth() - masuk.getMonth());
+        let bulan =
+            (keluar.getFullYear() - masuk.getFullYear()) * 12 +
+            (keluar.getMonth() - masuk.getMonth());
 
-    //     if (keluar.getDate() < masuk.getDate()) {
-    //         bulan--;
-    //     }
+        if (keluar.getDate() < masuk.getDate()) {
+            bulan--;
+        }
 
-    //     durasi.value = bulan > 0 ? bulan + ' bulan' : 'Kurang dari 1 bulan';
-    // }
+        durasi.value = bulan > 0 ? bulan + ' bulan' : 'Kurang dari 1 bulan';
+    }
 
     idPenghuni.addEventListener('change', function () {
         const selected = this.options[this.selectedIndex];
@@ -172,56 +172,56 @@ document.addEventListener('DOMContentLoaded', function () {
         tglKeluar.value = selected.dataset.tglkeluar || '';
         status.value = selected.dataset.status || '';
 
-        // durasi.value = '';
+        durasi.value = '';
 
-        // hitungDurasi();
+        hitungDurasi();
     });
 
-    // tglMasuk.addEventListener('change', hitungDurasi);
-    // tglKeluar.addEventListener('change', hitungDurasi);
+    tglMasuk.addEventListener('change', hitungDurasi);
+    tglKeluar.addEventListener('change', hitungDurasi);
 });
-// document.addEventListener('DOMContentLoaded', function () {
-//     const tglMasuk = document.getElementById('tgl_masuk');
-//     const tglKeluar = document.getElementById('tgl_keluar');
-//     const durasi = document.getElementById('durasi_sewa');
+document.addEventListener('DOMContentLoaded', function () {
+    const tglMasuk = document.getElementById('tgl_masuk');
+    const tglKeluar = document.getElementById('tgl_keluar');
+    const durasi = document.getElementById('durasi_sewa');
 
-//     function hitungDurasi() {
-//         if (!tglMasuk.value || !tglKeluar.value) {
-//             durasi.value = '';
-//             return;
-//         }
+    function hitungDurasi() {
+        if (!tglMasuk.value || !tglKeluar.value) {
+            durasi.value = '';
+            return;
+        }
 
-//         const masuk = new Date(tglMasuk.value);
-//         const keluar = new Date(tglKeluar.value);
+        const masuk = new Date(tglMasuk.value);
+        const keluar = new Date(tglKeluar.value);
 
-//         if (keluar < masuk) {
-//             durasi.value = '';
-//             return;
-//         }
+        if (keluar < masuk) {
+            durasi.value = '';
+            return;
+        }
 
-//         let tahun = keluar.getFullYear() - masuk.getFullYear();
-//         let bulan = keluar.getMonth() - masuk.getMonth();
-//         let hari = keluar.getDate() - masuk.getDate();
+        let tahun = keluar.getFullYear() - masuk.getFullYear();
+        let bulan = keluar.getMonth() - masuk.getMonth();
+        let hari = keluar.getDate() - masuk.getDate();
 
-//         if (hari < 0) {
-//             bulan--;
-//             const lastMonth = new Date(keluar.getFullYear(), keluar.getMonth(), 0);
-//             hari += lastMonth.getDate();
-//         }
+        if (hari < 0) {
+            bulan--;
+            const lastMonth = new Date(keluar.getFullYear(), keluar.getMonth(), 0);
+            hari += lastMonth.getDate();
+        }
 
-//         if (bulan < 0) {
-//             tahun--;
-//             bulan += 12;
-//         }
+        if (bulan < 0) {
+            tahun--;
+            bulan += 12;
+        }
 
-//         const totalBulan = tahun * 12 + bulan;
+        const totalBulan = tahun * 12 + bulan;
 
-//         durasi.value = totalBulan + " Bulan " + hari + " Hari";
-//     }
+        durasi.value = totalBulan + " Bulan " + hari + " Hari";
+    }
 
-//     tglMasuk.addEventListener('change', hitungDurasi);
-//     tglKeluar.addEventListener('change', hitungDurasi);
-// });
+    tglMasuk.addEventListener('change', hitungDurasi);
+    tglKeluar.addEventListener('change', hitungDurasi);
+});
 </script>
 
 </main> 
